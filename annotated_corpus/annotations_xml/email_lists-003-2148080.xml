@@ -9,14 +9,18 @@
     <annotation annotator="B" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_2" begin="26" end="65">
-    <text mainVerb="received" mainReferent="docno">received="Wed May 19 04:11:33 1993 EST"</text>
+    <text>received="Wed May 19 04:11:33 1993 EST"</text>
+    <mainVerb begin="26" end="34">received</mainVerb>
+    <mainReferent begin="0" end="5">docno</mainReferent>
     <annotation annotator="gold" mainReferentGenericity="CANNOT_DECIDE" mainVerbAspectualClass="CANNOT_DECIDE"/>
     <annotation annotator="A" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
     <annotation annotator="D" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
     <annotation annotator="B" seType="EVENT" mainReferentGenericity="NON-GENERIC" habituality="EPISODIC" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_3" begin="66" end="104">
-    <text mainVerb="sent" mainReferent="EST">sent="Wed, 19 May 1993 13:07:45 +0200"</text>
+    <text>sent="Wed, 19 May 1993 13:07:45 +0200"</text>
+    <mainVerb begin="66" end="70">sent</mainVerb>
+    <mainReferent begin="61" end="64">EST</mainReferent>
     <annotation annotator="gold" mainReferentGenericity="CANNOT_DECIDE" mainVerbAspectualClass="CANNOT_DECIDE"/>
     <annotation annotator="A" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
     <annotation annotator="D" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
@@ -44,7 +48,9 @@
     <annotation annotator="B" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_7" begin="217" end="303">
-    <text mainVerb="/" mainReferent="*">id=""10241*/I=t/G=harald/S=alvestrand/OU=delab/O=sintef/PRMD=uninett/ADMD=/C=no/"@MHS"</text>
+    <text>id=""10241*/I=t/G=harald/S=alvestrand/OU=delab/O=sintef/PRMD=uninett/ADMD=/C=no/"@MHS"</text>
+    <mainVerb begin="228" end="229">/</mainVerb>
+    <mainReferent begin="227" end="228">*</mainReferent>
     <annotation annotator="gold" mainReferentGenericity="CANNOT_DECIDE" mainVerbAspectualClass="CANNOT_DECIDE"/>
     <annotation annotator="A" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
     <annotation annotator="D" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
@@ -72,105 +78,135 @@
     <annotation annotator="B" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_11" begin="476" end="552">
-    <text mainVerb="writes" mainReferent="Troth">Rick Troth writes: Plain text is defined differently from system to system.</text>
+    <text>Rick Troth writes: Plain text is defined differently from system to system.</text>
+    <mainVerb begin="487" end="493">writes</mainVerb>
+    <mainReferent begin="481" end="486">Troth</mainReferent>
     <annotation annotator="gold" seType="CANNOT_DECIDE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="A" seType="EVENT" mainReferentGenericity="NON-GENERIC" habituality="EPISODIC" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_12" begin="553" end="582">
-    <text mainVerb="ASCII" mainReferent="text">On UNIX, plain text is ASCII</text>
+    <text>On UNIX, plain text is ASCII</text>
+    <mainVerb begin="577" end="582">ASCII</mainVerb>
+    <mainReferent begin="569" end="573">text</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_13" begin="583" end="641">
-    <text mainVerb="delimited" mainReferent="lines">(now ISO-8859-1) with lines delimited by NL (actually LF).</text>
+    <text>(now ISO-8859-1) with lines delimited by NL (actually LF).</text>
+    <mainVerb begin="611" end="620">delimited</mainVerb>
+    <mainReferent begin="605" end="610">lines</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_14" begin="644" end="678">
-    <text mainVerb="is" mainReferent="text">On NT, plain text is 16 bits wide</text>
+    <text>On NT, plain text is 16 bits wide</text>
+    <mainVerb begin="663" end="665">is</mainVerb>
+    <mainReferent begin="658" end="662">text</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_15" begin="680" end="692">
-    <text mainVerb="hear" mainReferent="I">(so I hear).</text>
+    <text>(so I hear).</text>
+    <mainVerb begin="686" end="690">hear</mainVerb>
+    <mainReferent begin="684" end="685">I</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="EVENT" mainReferentGenericity="NON-GENERIC" habituality="EPISODIC" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_16" begin="693" end="710">
-    <text mainVerb="ai" mainReferent="That">That ain't ASCII,</text>
+    <text>That ain't ASCII,</text>
+    <mainVerb begin="698" end="700">ai</mainVerb>
+    <mainReferent begin="693" end="697">That</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_17" begin="712" end="811">
-    <text mainVerb="be" mainReferent="we">though we could be the high-order 8 bits for much of plain text processing, and that's fine by me.</text>
+    <text>though we could be the high-order 8 bits for much of plain text processing, and that's fine by me.</text>
+    <mainVerb begin="728" end="730">be</mainVerb>
+    <mainReferent begin="719" end="721">we</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_18" begin="814" end="864">
-    <text mainVerb="is" mainReferent="so">(memory is cheap) On VM/CMS, plain text is EBCDIC</text>
+    <text>(memory is cheap) On VM/CMS, plain text is EBCDIC</text>
+    <mainVerb begin="855" end="857">is</mainVerb>
+    <mainReferent begin="953" end="955">so</mainReferent>
     <annotation annotator="gold" seType="GENERIC_SENTENCE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_19" begin="865" end="951">
-    <text mainVerb="CodePage" mainReferent="EBCDIC">(now CodePage 1047) and records are handled by the filesystem out-of-band of the data,</text>
+    <text>(now CodePage 1047) and records are handled by the filesystem out-of-band of the data,</text>
+    <mainVerb begin="870" end="878">CodePage</mainVerb>
+    <mainReferent begin="858" end="864">EBCDIC</mainReferent>
     <annotation annotator="gold" seType="GENERIC_SENTENCE" mainReferentGenericity="GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="A" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="B" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_20" begin="953" end="1000">
-    <text mainVerb="are" mainReferent="NL">so NL (and LF and CR) aren't sacred characters.</text>
+    <text>so NL (and LF and CR) aren't sacred characters.</text>
+    <mainVerb begin="975" end="978">are</mainVerb>
+    <mainReferent begin="956" end="958">NL</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_21" begin="1003" end="1044">
-    <text mainVerb="is" mainReferent="ASCII">Now ... "mail is plain-text, not ASCII".</text>
+    <text>Now ... "mail is plain-text, not ASCII".</text>
+    <mainVerb begin="1017" end="1019">is</mainVerb>
+    <mainReferent begin="1037" end="1042">ASCII</mainReferent>
     <annotation annotator="gold" seType="GENERIC_SENTENCE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_22" begin="1047" end="1082">
-    <text mainVerb="read" mainReferent=".....">Please, gentlemen.....read the RFC.</text>
+    <text>Please, gentlemen.....read the RFC.</text>
+    <mainVerb begin="1069" end="1073">read</mainVerb>
+    <mainReferent begin="1064" end="1069">.....</mainReferent>
     <annotation annotator="gold" seType="IMPERATIVE" mainReferentGenericity="CANNOT_DECIDE" mainVerbAspectualClass="CANNOT_DECIDE"/>
     <annotation annotator="A" seType="IMPERATIVE" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
     <annotation annotator="D" seType="IMPERATIVE" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
     <annotation annotator="B" seType="IMPERATIVE" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_23" begin="1083" end="1216">
-    <text mainVerb="have" mainReferent="bits">As long as you send mail over the Internet, claiming MIME compatibility, the bits on the wire have to conform to the MIME convention,</text>
+    <text>As long as you send mail over the Internet, claiming MIME compatibility, the bits on the wire have to conform to the MIME convention,</text>
+    <mainVerb begin="1177" end="1181">have</mainVerb>
+    <mainReferent begin="1160" end="1164">bits</mainReferent>
     <annotation annotator="gold" seType="GENERIC_SENTENCE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="EVENT" mainReferentGenericity="NON-GENERIC" habituality="EPISODIC" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_24" begin="1217" end="1247">
-    <text mainVerb="*" mainReferent="NOT">*NOT* to the local convention,</text>
+    <text>*NOT* to the local convention,</text>
+    <mainVerb begin="1221" end="1222">*</mainVerb>
+    <mainReferent begin="1218" end="1221">NOT</mainReferent>
     <annotation annotator="gold" mainReferentGenericity="CANNOT_DECIDE" mainVerbAspectualClass="CANNOT_DECIDE"/>
     <annotation annotator="A" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
     <annotation annotator="B" seType="" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_25" begin="1248" end="1265">
-    <text mainVerb="is" mainReferent="that">whatever that is.</text>
+    <text>whatever that is.</text>
+    <mainVerb begin="1262" end="1264">is</mainVerb>
+    <mainReferent begin="1257" end="1261">that</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
@@ -184,91 +220,117 @@
     <annotation annotator="B" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_27" begin="1328" end="1363">
-    <text mainVerb="IS" mainReferent="omission">THAT THE CHARACTER SET IS US ASCII.</text>
+    <text>THAT THE CHARACTER SET IS US ASCII.</text>
+    <mainVerb begin="1351" end="1353">IS</mainVerb>
+    <mainReferent begin="1272" end="1280">omission</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_28" begin="1366" end="1442">
-    <text mainVerb="set" mainReferent="message">A message that contains characters with the high bit set CANNOT BE US-ASCII,</text>
+    <text>A message that contains characters with the high bit set CANNOT BE US-ASCII,</text>
+    <mainVerb begin="1419" end="1422">set</mainVerb>
+    <mainReferent begin="1368" end="1375">message</mainReferent>
     <annotation annotator="gold" seType="GENERIC_SENTENCE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_29" begin="1443" end="1553">
-    <text mainVerb="IS" mainReferent="message">and therefore, a text/plain message without a charset= label in it that has such characters IS NOT LEGAL MIME.</text>
+    <text>and therefore, a text/plain message without a charset= label in it that has such characters IS NOT LEGAL MIME.</text>
+    <mainVerb begin="1535" end="1537">IS</mainVerb>
+    <mainReferent begin="1471" end="1478">message</mainReferent>
     <annotation annotator="gold" seType="GENERIC_SENTENCE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_30" begin="1554" end="1587">
-    <text mainVerb="strips" mainReferent="SMTP">So, when SMTP strips the 8th bit,</text>
+    <text>So, when SMTP strips the 8th bit,</text>
+    <mainVerb begin="1568" end="1574">strips</mainVerb>
+    <mainReferent begin="1563" end="1567">SMTP</mainReferent>
     <annotation annotator="gold" seType="GENERALIZING_SENTENCE" mainReferentGenericity="NON-GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="A" seType="GENERALIZING_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="NON-GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="D" seType="GENERALIZING_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="NON-GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="B" seType="GENERALIZING_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="NON-GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_31" begin="1588" end="1595">
-    <text mainVerb="gets" mainReferent="it">it gets</text>
+    <text>it gets</text>
+    <mainVerb begin="1591" end="1595">gets</mainVerb>
+    <mainReferent begin="1588" end="1590">it</mainReferent>
     <annotation annotator="gold" seType="GENERALIZING_SENTENCE" mainReferentGenericity="NON-GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="A" seType="GENERALIZING_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="NON-GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="D" seType="GENERALIZING_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="NON-GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="B" seType="GENERALIZING_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="NON-GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_32" begin="1596" end="1613">
-    <text mainVerb="deserves" mainReferent="it">what it deserves.</text>
+    <text>what it deserves.</text>
+    <mainVerb begin="1604" end="1612">deserves</mainVerb>
+    <mainReferent begin="1601" end="1603">it</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="GENERIC_SENTENCE:GENERAL_STATIVE" mainReferentGenericity="GENERIC" habituality="HABITUAL" mainVerbAspectualClass="DYNAMIC"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_33" begin="1616" end="1655">
-    <text mainVerb="was" mainReferent="This">This was ******NOT******* an oversight.</text>
+    <text>This was ******NOT******* an oversight.</text>
+    <mainVerb begin="1621" end="1624">was</mainVerb>
+    <mainReferent begin="1616" end="1620">This</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_34" begin="1656" end="1683">
-    <text mainVerb="was" mainReferent="This">This was deliberate design,</text>
+    <text>This was deliberate design,</text>
+    <mainVerb begin="1661" end="1664">was</mainVerb>
+    <mainReferent begin="1656" end="1660">This</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_35" begin="1684" end="1721">
-    <text mainVerb="designed" mainReferent="design">designed to promote interoperability.</text>
+    <text>designed to promote interoperability.</text>
+    <mainVerb begin="1684" end="1692">designed</mainVerb>
+    <mainReferent begin="1676" end="1682">design</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="EVENT" mainReferentGenericity="NON-GENERIC" habituality="EPISODIC" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_36" begin="1722" end="1819">
-    <text mainVerb="*" mainReferent="proliferation">The proliferation of mail in strange character sets without labels is *exactly* one of the things</text>
+    <text>The proliferation of mail in strange character sets without labels is *exactly* one of the things</text>
+    <mainVerb begin="1792" end="1793">*</mainVerb>
+    <mainReferent begin="1726" end="1739">proliferation</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_37" begin="1820" end="1863">
-    <text mainVerb="meant" mainReferent="effort">that the MIME effort was meant to *remove*.</text>
+    <text>that the MIME effort was meant to *remove*.</text>
+    <mainVerb begin="1845" end="1850">meant</mainVerb>
+    <mainReferent begin="1834" end="1840">effort</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="DYNAMIC"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_38" begin="1866" end="1976">
-    <text mainVerb="read" mainReferent="End">End of flame..............if you want a couple of tons more, read the archives of the SMTP and RFC-822 groups.</text>
+    <text>End of flame..............if you want a couple of tons more, read the archives of the SMTP and RFC-822 groups.</text>
+    <mainVerb begin="1927" end="1931">read</mainVerb>
+    <mainReferent begin="1866" end="1869">End</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="IMPERATIVE" mainReferentGenericity="" habituality="" mainVerbAspectualClass=""/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="B" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
   </segment>
   <segment instanceid="email_lists-003-2148080.txt_39" begin="1977" end="2056">
-    <text mainVerb="hidden" mainReferent="flareup">The last flareup is hidden under "unknown-7bit" and "unknown-8bit" discussions.</text>
+    <text>The last flareup is hidden under "unknown-7bit" and "unknown-8bit" discussions.</text>
+    <mainVerb begin="1997" end="2003">hidden</mainVerb>
+    <mainReferent begin="1986" end="1993">flareup</mainReferent>
     <annotation annotator="gold" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="A" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
     <annotation annotator="D" seType="STATE" mainReferentGenericity="NON-GENERIC" habituality="STATIC" mainVerbAspectualClass="STATIVE"/>
