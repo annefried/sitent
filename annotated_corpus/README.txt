@@ -26,4 +26,5 @@ annotations_xml
     constructed via majority voting for the ACL 2016 paper and the annotations as given
     by each annotator (for computing agreement). If an annotator gave multiple values for
     SE type, lexical aspectual class, habituality or main referent genericity, the values
-    are separated by colons.
+    are separated by colons. Note that the main verb and main referent given for each segment
+    were identified automatically (this may contain some noise).

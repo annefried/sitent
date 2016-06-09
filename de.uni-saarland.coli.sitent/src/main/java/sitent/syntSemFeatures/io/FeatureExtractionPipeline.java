@@ -1,5 +1,11 @@
 package sitent.syntSemFeatures.io;
 
+/**
+ * This class contains a configuration of a UIMA pipeline that extracts the
+ * syntactic-semantic features as described in the ACL 2015 paper.
+ * Running this will take a while as parsing is included.
+ */
+
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReader;
 import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
 
@@ -36,6 +42,7 @@ public class FeatureExtractionPipeline {
 
 	private static void process(String inputDir, String xmiOutputDir, String csvOutputDir)
 			throws UIMAException, IOException {
+
 		CollectionReader reader = createReader(TextReader.class, TextReader.PARAM_SOURCE_LOCATION, inputDir,
 				TextReader.PARAM_LANGUAGE, "en", TextReader.PARAM_PATTERNS, new String[] { "[+]*.txt" });
 
@@ -105,7 +112,7 @@ public class FeatureExtractionPipeline {
 	public static void main(String[] args) {
 
 		Options options = new Options();
-		options.addOption("input", true, "Path to directories with input XMIs/texts, separated by commas (required).");
+		options.addOption("input", true, "Path to directories with input texts, separated by commas (required).");
 		options.addOption("xmiOutput", true, "Output path for XMI (optional).");
 		options.addOption("wordnet", true, "Path to WordNet database (required).");
 		options.addOption("countability", true, "Path to file with countability information (optional).");
