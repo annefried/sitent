@@ -17,6 +17,10 @@ categories.csv
     and (b) if it is a Wikipedia document, further a categorization according to several
     categories: animals, biographies, games etc.
 
+train_test_split.csv
+    This file contains the split of the documents into a development (training) set and a
+    test set, as used in the ACL 2016 paper.
+
 annotations_xml
     This folder contains the annotated corpus in XML format including the gold standard
     constructed via majority voting for the ACL 2016 paper and the annotations as given
