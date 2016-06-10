@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** Information about source document, e.g. filename.
- * Updated by JCasGen Wed Jun 08 16:31:35 CEST 2016
+ * Updated by JCasGen Fri Jun 10 18:03:49 CEST 2016
  * @generated */
 public class SourceDocumentInformation_Type extends Annotation_Type {
   /** @generated 

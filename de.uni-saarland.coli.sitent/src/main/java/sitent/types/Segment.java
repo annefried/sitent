@@ -12,7 +12,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** A segment as created automatically by SPADE + our post-processing script.
- * Updated by JCasGen Wed Jun 08 16:31:35 CEST 2016
+ * Updated by JCasGen Fri Jun 10 18:03:49 CEST 2016
  * XML source: /local/gitRepos/sitent/de.uni-saarland.coli.sitent/src/main/java/sitent/types/SitEntTypeSystem.xml
  * @generated */
 public class Segment extends ClassificationAnnotation {
@@ -207,6 +207,28 @@ public class Segment extends ClassificationAnnotation {
     if (Segment_Type.featOkTst && ((Segment_Type)jcasType).casFeat_mainReferent == null)
       jcasType.jcas.throwFeatMissing("mainReferent", "sitent.types.Segment");
     jcasType.ll_cas.ll_setRefValue(addr, ((Segment_Type)jcasType).casFeatCode_mainReferent, jcasType.ll_cas.ll_getFSRef(v));}    
+   
+    
+  //*--------------*
+  //* Feature: tokens
+
+  /** getter for tokens - gets The list of tokens for this "segment", for the situation entity segmentation method based on dependency parses.
+   * @generated
+   * @return value of the feature 
+   */
+  public FSList getTokens() {
+    if (Segment_Type.featOkTst && ((Segment_Type)jcasType).casFeat_tokens == null)
+      jcasType.jcas.throwFeatMissing("tokens", "sitent.types.Segment");
+    return (FSList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((Segment_Type)jcasType).casFeatCode_tokens)));}
+    
+  /** setter for tokens - sets The list of tokens for this "segment", for the situation entity segmentation method based on dependency parses. 
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setTokens(FSList v) {
+    if (Segment_Type.featOkTst && ((Segment_Type)jcasType).casFeat_tokens == null)
+      jcasType.jcas.throwFeatMissing("tokens", "sitent.types.Segment");
+    jcasType.ll_cas.ll_setRefValue(addr, ((Segment_Type)jcasType).casFeatCode_tokens, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     

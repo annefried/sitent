@@ -13,7 +13,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** A segment as created automatically by SPADE + our post-processing script.
- * Updated by JCasGen Wed Jun 08 16:31:35 CEST 2016
+ * Updated by JCasGen Fri Jun 10 18:03:49 CEST 2016
  * @generated */
 public class Segment_Type extends ClassificationAnnotation_Type {
   /** @generated 
@@ -188,6 +188,30 @@ public class Segment_Type extends ClassificationAnnotation_Type {
     ll_cas.ll_setRefValue(addr, casFeatCode_mainReferent, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_tokens;
+  /** @generated */
+  final int     casFeatCode_tokens;
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @return the feature value 
+   */ 
+  public int getTokens(int addr) {
+        if (featOkTst && casFeat_tokens == null)
+      jcas.throwFeatMissing("tokens", "sitent.types.Segment");
+    return ll_cas.ll_getRefValue(addr, casFeatCode_tokens);
+  }
+  /** @generated
+   * @param addr low level Feature Structure reference
+   * @param v value to set 
+   */    
+  public void setTokens(int addr, int v) {
+        if (featOkTst && casFeat_tokens == null)
+      jcas.throwFeatMissing("tokens", "sitent.types.Segment");
+    ll_cas.ll_setRefValue(addr, casFeatCode_tokens, v);}
+    
+  
 
 
 
@@ -223,6 +247,10 @@ public class Segment_Type extends ClassificationAnnotation_Type {
  
     casFeat_mainReferent = jcas.getRequiredFeatureDE(casType, "mainReferent", "uima.tcas.Annotation", featOkTst);
     casFeatCode_mainReferent  = (null == casFeat_mainReferent) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_mainReferent).getCode();
+
+ 
+    casFeat_tokens = jcas.getRequiredFeatureDE(casType, "tokens", "uima.cas.FSList", featOkTst);
+    casFeatCode_tokens  = (null == casFeat_tokens) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_tokens).getCode();
 
   }
 }

@@ -10,7 +10,7 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** passge of text, features can be extracted for it
- * Updated by JCasGen Wed Jun 08 16:31:35 CEST 2016
+ * Updated by JCasGen Fri Jun 10 18:03:49 CEST 2016
  * XML source: /local/gitRepos/sitent/de.uni-saarland.coli.sitent/src/main/java/sitent/types/SitEntTypeSystem.xml
  * @generated */
 public class Passage extends ClassificationAnnotation {

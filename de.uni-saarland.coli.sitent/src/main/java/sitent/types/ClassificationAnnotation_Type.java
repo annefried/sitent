@@ -14,7 +14,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** supertype for annotations that end up being spans to be classified for something.
- * Updated by JCasGen Wed Jun 08 16:31:35 CEST 2016
+ * Updated by JCasGen Fri Jun 10 18:03:49 CEST 2016
  * @generated */
 public class ClassificationAnnotation_Type extends Annotation_Type {
   /** @generated 
