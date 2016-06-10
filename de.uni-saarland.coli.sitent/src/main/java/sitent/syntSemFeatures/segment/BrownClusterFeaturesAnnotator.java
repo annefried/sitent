@@ -19,7 +19,6 @@ import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
@@ -133,6 +132,7 @@ public class BrownClusterFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			}
 
 			// add features for main verb / main referent
+			// (not used in final version; they did not help)
 //			Annotation mainVerb = segment.getMainVerb();
 //			if (mainVerb != null) {
 //				String mvText = mainVerb.getCoveredText();
@@ -170,25 +170,26 @@ public class BrownClusterFeaturesAnnotator extends JCasAnnotator_ImplBase {
 		}
 
 		// add features for wider context of each segment
-		for (int i = 0; i < segments.size(); i++) {
-			int sum = 0;
-			Map<String, Double> aggregatedFeatures = new HashMap<String, Double>();
-			for (int x = Math.max(0, i - WINDOW_SIZE); x < Math.min(i + WINDOW_SIZE, segments.size()); x++) {
-				// System.out.println(x + " / " + segments.size());
-				sum += numTokensPerSegment.get(x);
-				for (String key : featureMap.get(x).keySet()) {
-					for (int k = 0; k < featureMap.get(x).get(key); k++) {
-						SitEntUtils.incrementMapForKeyDouble(aggregatedFeatures, key);
-					}
-				}
-			}
-			// normalize
-			for (String key : aggregatedFeatures.keySet()) {
-				String featVal = new Double(aggregatedFeatures.get(key) / (double) sum).toString();
-				FeaturesUtil.addFeature("context_" + key, featVal, jCas, segments.get(i));
-			}
-
-		}
+		// (not used in final version; they did not help)
+//		for (int i = 0; i < segments.size(); i++) {
+//			int sum = 0;
+//			Map<String, Double> aggregatedFeatures = new HashMap<String, Double>();
+//			for (int x = Math.max(0, i - WINDOW_SIZE); x < Math.min(i + WINDOW_SIZE, segments.size()); x++) {
+//				// System.out.println(x + " / " + segments.size());
+//				sum += numTokensPerSegment.get(x);
+//				for (String key : featureMap.get(x).keySet()) {
+//					for (int k = 0; k < featureMap.get(x).get(key); k++) {
+//						SitEntUtils.incrementMapForKeyDouble(aggregatedFeatures, key);
+//					}
+//				}
+//			}
+//			// normalize
+//			for (String key : aggregatedFeatures.keySet()) {
+//				String featVal = new Double(aggregatedFeatures.get(key) / (double) sum).toString();
+//				FeaturesUtil.addFeature("context_" + key, featVal, jCas, segments.get(i));
+//			}
+//
+//		}
 
 	}
 

@@ -157,6 +157,11 @@ public class XmlAnnotationsReader extends JCasAnnotator_ImplBase {
 					}
 				}
 
+				// add the tokens of the Segment to the list of segment tokens
+				for (Token token : JCasUtil.selectCovered(Token.class, segAnnot)) {
+					segAnnot.setTokens(SitEntUimaUtils.addToFSList(segAnnot.getTokens(), token, jCas));
+				}
+
 				segAnnot.addToIndexes();
 
 			}

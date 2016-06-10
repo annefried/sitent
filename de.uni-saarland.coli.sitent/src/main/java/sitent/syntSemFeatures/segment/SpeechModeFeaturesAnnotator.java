@@ -225,32 +225,6 @@ public class SpeechModeFeaturesAnnotator extends JCasAnnotator_ImplBase {
 				FeaturesUtil.addFeature("segment_startsWithLike", "false", jCas, segment);
 			}
 			
-			// String seclass = null;
-			// try {
-			// seclass = FeaturesUtil.getFeatureValue("class_sitent_type",
-			// segment);
-			// } catch (IllegalStateException e) {
-			//
-			// }
-			//
-			// if (seclass != null && seclass.equals("ABSTRACT_ENTITY")) {
-			// System.out.println("\n" + seclass + "\t" +
-			// segment.getCoveredText());
-			//
-			// Collection<Sentence> sents =
-			// JCasUtil.selectCovering(Sentence.class, segment);
-			// for (Sentence sent : sents) {
-			// System.out.println("SENTENCE: " + sent.getCoveredText());
-			// List<Dependency> deps = JCasUtil.selectCovered(Dependency.class,
-			// sent);
-			// for (Dependency dep : deps) {
-			// System.out.println("\t" + dep.getGovernor().getCoveredText() + "
-			// --> " + dep.getDependencyType()
-			// + " --> " + dep.getDependent().getCoveredText());
-			// }
-			// }
-			// }
-
 			Token mainVerb = (Token) segment.getMainVerb();
 			if (mainVerb != null) {
 				// use head of predicate construction (if copula is used)
@@ -267,16 +241,12 @@ public class SpeechModeFeaturesAnnotator extends JCasAnnotator_ImplBase {
 				}
 				deps = JCasUtil.selectCovered(Dependency.class, mainVerb);
 				for (Dependency dep : deps) {
-//					if (copula)
-//					System.out.println(dep.getGovernor().getCoveredText() + " --> " + dep.getDependencyType() + " -->"
-//							+ dep.getDependent().getCoveredText());
 					// TODO: advcl is a parsing error: does this occur often?
 					if (dep.getDependent() == mainVerb && dep.getDependencyType().matches("ccomp|advcl")) {
 						FeaturesUtil.addFeature("main_verb_ccompEmbedded", "true", jCas, segment);
 						String embeddingVerb = dep.getGovernor().getLemma().getValue();
 						FeaturesUtil.addFeature("main_verb_ccompHeadLemma", embeddingVerb, jCas, segment);
 						if (copula)
-//						System.out.println("embeddingVerb: " + embeddingVerb);
 						// some WordNet features for this embedding verb
 						WordNetUtils.setWordNetFeatures(dep.getGovernor(), segment, jCas, "main_verb_ccompHeadWordnet_",
 								wordnet);

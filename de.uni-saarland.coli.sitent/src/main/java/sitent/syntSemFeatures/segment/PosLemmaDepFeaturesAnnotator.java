@@ -32,14 +32,15 @@ public class PosLemmaDepFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
 				String word = token.getCoveredText().replaceAll(" ", "").replaceAll("\\\\", "BACKSLASH");
 
-				FeaturesUtil.addFeature("segment_word_" + word, "1", jCas, segment);
+				// Word and lemma features proved to be impractical
+				//FeaturesUtil.addFeature("segment_word_" + word, "1", jCas, segment);
 				if (token.getPos() != null) {
 					String lemma = token.getLemma().getValue().replaceAll(" ", "").replaceAll("\\\\", "BACKSLASH");
 					String pos = token.getPos().getPosValue().replaceAll(" ", "");
 					FeaturesUtil.addFeature("segment_pos_" + pos, "1", jCas, segment);
-					FeaturesUtil.addFeature("segment_lemma_pos", lemma + "_" + pos, jCas, segment);
-					FeaturesUtil.addFeature("segment_lemma_" + lemma, "1", jCas, segment);
-					FeaturesUtil.addFeature("segment_word_pos_" + word + "_" + pos, "1", jCas, segment);
+					//FeaturesUtil.addFeature("segment_lemma_pos", lemma + "_" + pos, jCas, segment);
+					//FeaturesUtil.addFeature("segment_lemma_" + lemma, "1", jCas, segment);
+					//FeaturesUtil.addFeature("segment_word_pos_" + word + "_" + pos, "1", jCas, segment);
 				}
 
 				// TODO: count POS tags instead of binary feature?

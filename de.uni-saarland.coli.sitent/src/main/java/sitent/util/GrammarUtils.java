@@ -38,6 +38,8 @@ public class GrammarUtils {
 		HashMap<Token, Set<Dependency>> map = new HashMap<Token, Set<Dependency>>();
 		Collection<Dependency> deps = JCasUtil.select(jCas, Dependency.class);
 		for (Dependency dep : deps) {
+//			System.out.println(dep.getGovernor().getCoveredText() + " " + dep.getDependencyType() + " "
+//					+ dep.getDependent().getCoveredText());
 			if (!map.containsKey(dep.getGovernor())) {
 				map.put(dep.getGovernor(), new HashSet<Dependency>());
 			}
@@ -154,12 +156,11 @@ public class GrammarUtils {
 	 */
 	public static Token getHeadVerb(Annotation annotation, JCas jcas, boolean useCopula) {
 
-		//System.out.println("getHeadVerb " + annotation.getCoveredText());
+		// System.out.println("getHeadVerb " + annotation.getCoveredText());
 
 		// find covered tokens and dependencies
 		List<Token> tokens = new LinkedList<Token>();
 		tokens.addAll(JCasUtil.selectCovered(Token.class, annotation));
-		
 
 		// remove tokens covered by an included VP
 		if (annotation instanceof VP) {
@@ -169,7 +170,8 @@ public class GrammarUtils {
 					List<Token> includedTokens = JCasUtil.selectCovered(Token.class, vp);
 					for (Token t : includedTokens) {
 						tokens.remove(t);
-						//System.out.println("removing: " + t.getCoveredText());
+						// System.out.println("removing: " +
+						// t.getCoveredText());
 					}
 				}
 			}
@@ -248,7 +250,7 @@ public class GrammarUtils {
 			}
 		}
 
-		//System.out.println("> " + head.getCoveredText());
+		System.out.println("> " + head.getCoveredText());
 
 		// if in doubt, returns last token.
 		return head;
@@ -297,29 +299,5 @@ public class GrammarUtils {
 		}
 
 	}
-
-	/**
-	 * Returns the head of the NamedEntityMention (using the manually marked
-	 * head chunk if available).
-	 * 
-	 * @param mention
-	 * @param jCas
-	 * @return
-	 */
-	// public static Token getHead(NamedEntityMention mention, JCas jCas) {
-	// List<Token> tokens = JCasUtil.selectCovered(Token.class, mention);
-	// if (tokens.size() == 1) {
-	// // only one Token covered by the mention, can simply return that!
-	// return tokens.get(0);
-	// }
-	// if (mention.getHead() != null) {
-	// tokens = JCasUtil.selectCovered(Token.class, mention.getHead());
-	// if (!tokens.isEmpty()) {
-	// return tokens.get(0);
-	// }
-	// }
-	// // no head token found for manually annotated head chunk: rely on parse
-	// return getHead(mention, jCas);
-	// }
 
 }
