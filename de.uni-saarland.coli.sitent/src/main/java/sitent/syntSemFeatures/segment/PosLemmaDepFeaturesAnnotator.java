@@ -5,16 +5,18 @@ package sitent.syntSemFeatures.segment;
  */
 
 import java.util.Collection;
+import java.util.LinkedList;
 
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
-import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
 import sitent.types.Segment;
 import sitent.util.FeaturesUtil;
+import sitent.util.SitEntUimaUtils;
 
 public class PosLemmaDepFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
@@ -25,17 +27,21 @@ public class PosLemmaDepFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
 		for (Segment segment : segments) {
 
-			// TODO: this could be improved by using e.g. tokens of subjects in
-			// addition
-			Collection<Token> tokens = JCasUtil.selectCovered(Token.class, segment);
+			//Collection<Token> tokens = JCasUtil.selectCovered(Token.class, segment);
+			Collection<Annotation> tokenAnnots = SitEntUimaUtils.getList(segment.getTokens());
+			Collection<Token> tokens = new LinkedList<Token>();
+			for (Annotation annot : tokenAnnots) {
+				tokens.add((Token) annot);
+			}
+			
 			for (Token token : tokens) {
 
-				String word = token.getCoveredText().replaceAll(" ", "").replaceAll("\\\\", "BACKSLASH");
+				//String word = token.getCoveredText().replaceAll(" ", "").replaceAll("\\\\", "BACKSLASH");
 
 				// Word and lemma features proved to be impractical
 				//FeaturesUtil.addFeature("segment_word_" + word, "1", jCas, segment);
 				if (token.getPos() != null) {
-					String lemma = token.getLemma().getValue().replaceAll(" ", "").replaceAll("\\\\", "BACKSLASH");
+					//String lemma = token.getLemma().getValue().replaceAll(" ", "").replaceAll("\\\\", "BACKSLASH");
 					String pos = token.getPos().getPosValue().replaceAll(" ", "");
 					FeaturesUtil.addFeature("segment_pos_" + pos, "1", jCas, segment);
 					//FeaturesUtil.addFeature("segment_lemma_pos", lemma + "_" + pos, jCas, segment);
@@ -47,10 +53,10 @@ public class PosLemmaDepFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			}
 
 			// dependency relations
-			Collection<Dependency> deps = JCasUtil.selectCovered(Dependency.class, segment);
-			for (Dependency dep : deps) {
-				FeaturesUtil.addFeature("segment_depRel_" + dep.getDependencyType(), "1", jCas, segment);
-			}
+//			Collection<Dependency> deps = JCasUtil.selectCovered(Dependency.class, segment);
+//			for (Dependency dep : deps) {
+//				FeaturesUtil.addFeature("segment_depRel_" + dep.getDependencyType(), "1", jCas, segment);
+//			}
 
 		}
 

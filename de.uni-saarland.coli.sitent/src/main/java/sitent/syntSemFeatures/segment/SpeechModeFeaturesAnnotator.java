@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,6 +15,7 @@ import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 
 
@@ -27,6 +29,7 @@ import sitent.types.Segment;
 import sitent.util.FeaturesUtil;
 import sitent.util.FileReadersUtil;
 import sitent.util.GrammarUtils;
+import sitent.util.SitEntUimaUtils;
 import sitent.util.WordNetUtils;
 
 /**
@@ -96,7 +99,13 @@ public class SpeechModeFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
 			// question word contained in segment?
 			// punctuation features: ?, !
-			Collection<Token> tokens = JCasUtil.selectCovered(Token.class, segment);
+			//Collection<Token> tokens = JCasUtil.selectCovered(Token.class, segment);
+			Collection<Annotation> tokenAnnots = SitEntUimaUtils.getList(segment.getTokens());
+			Collection<Token> tokens = new LinkedList<Token>();
+			for (Annotation annot : tokenAnnots) {
+				tokens.add((Token) annot);
+			}
+			
 			for (Token token : tokens) {
 				String tokenText = token.getCoveredText();
 				if (questionWords.contains(tokenText)) {

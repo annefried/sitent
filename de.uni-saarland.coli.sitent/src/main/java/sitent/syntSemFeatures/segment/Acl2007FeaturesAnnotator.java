@@ -11,11 +11,13 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import sitent.types.Segment;
 import sitent.util.FeaturesUtil;
+import sitent.util.SitEntUimaUtils;
 
 public class Acl2007FeaturesAnnotator extends JCasAnnotator_ImplBase {
 
@@ -39,7 +41,7 @@ public class Acl2007FeaturesAnnotator extends JCasAnnotator_ImplBase {
 	// Alexis' adverb lists.
 	String[] volitional_adverbs = { "deliberately" };
 	String[] frequency_adverbs = { "always", "usually", "daily", "monthly", "weekly", "never", "annually" };
-	String[] modal_adverbs = {"probably", "likely", "truly", "possibly"};
+	String[] modal_adverbs = { "probably", "likely", "truly", "possibly" };
 
 	Set<String> volitional_adverbs_set = new HashSet<String>();
 	Set<String> frequency_adverbs_set = new HashSet<String>();
@@ -98,7 +100,13 @@ public class Acl2007FeaturesAnnotator extends JCasAnnotator_ImplBase {
 			FeaturesUtil.addFeature("segment_acl2007_L_propPred", prop_pred.toString(), jCas, segment);
 			FeaturesUtil.addFeature("segment_acl2007_L_genPred", gen_pred.toString(), jCas, segment);
 
-			Collection<Token> tokens = JCasUtil.selectCovered(Token.class, segment);
+			// Collection<Token> tokens = JCasUtil.selectCovered(Token.class,
+			// segment);
+			Collection<Annotation> tokenAnnots = SitEntUimaUtils.getList(segment.getTokens());
+			Collection<Token> tokens = new LinkedList<Token>();
+			for (Annotation annot : tokenAnnots) {
+				tokens.add((Token) annot);
+			}
 
 			Boolean hasFiniteVerb = false;
 			Boolean hasModal = false;
@@ -175,7 +183,14 @@ public class Acl2007FeaturesAnnotator extends JCasAnnotator_ImplBase {
 	 * @return
 	 */
 	private boolean containsPred(Segment segment, Set<String> preds) {
-		Collection<Token> tokens = JCasUtil.selectCovered(Token.class, segment);
+		// Collection<Token> tokens = JCasUtil.selectCovered(Token.class,
+		// segment);
+		Collection<Annotation> tokenAnnots = SitEntUimaUtils.getList(segment.getTokens());
+		Collection<Token> tokens = new LinkedList<Token>();
+		for (Annotation annot : tokenAnnots) {
+			tokens.add((Token) annot);
+		}
+
 		for (Token token : tokens) {
 			String lemma = token.getLemma().getValue();
 			if (preds.contains(lemma)) {

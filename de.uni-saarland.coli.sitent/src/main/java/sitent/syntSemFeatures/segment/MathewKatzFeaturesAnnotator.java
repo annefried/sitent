@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -38,7 +39,6 @@ import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.NP;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.TMOD;
 import sitent.syntSemFeatures.nounPhrase.NounPhraseFeatures;
-import sitent.types.SEFeature;
 import sitent.types.Segment;
 import sitent.util.FeaturesUtil;
 import sitent.util.SitEntUimaUtils;
@@ -52,14 +52,12 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 	private Set<String> habitualAdverbs;
 
 	@Override
-	public void initialize(UimaContext context)
-			throws ResourceInitializationException {
+	public void initialize(UimaContext context) throws ResourceInitializationException {
 		super.initialize(context);
 
 		habitualAdverbs = new HashSet<String>();
 		try {
-			BufferedReader r = new BufferedReader(new FileReader(
-					habitualAdvPath));
+			BufferedReader r = new BufferedReader(new FileReader(habitualAdvPath));
 			String line = r.readLine();
 			for (String adv : line.split(",")) {
 				habitualAdverbs.add(adv.trim());
@@ -76,51 +74,56 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 	public void process(JCas jCas) throws AnalysisEngineProcessException {
 
 		// create child node map for efficient access of child nodes
-		HashMap<Token, Set<Dependency>> childNodeMap = NounPhraseFeatures
-				.getChildNodesMap(jCas);
+		HashMap<Token, Set<Dependency>> childNodeMap = NounPhraseFeatures.getChildNodesMap(jCas);
 
 		// iterate over segments
 		// iterate over all the situations and compare the annotations.
 		Iterator<Segment> segIt = JCasUtil.iterator(jCas, Segment.class);
-	
-		
+
 		String prevGold = "none";
 
 		while (segIt.hasNext()) {
 
 			Segment segment = segIt.next();
-			
-			FeaturesUtil.addFeature("previous_habituality", prevGold, jCas, segment);
-			for (Annotation annot : SitEntUimaUtils.getList(segment.getFeatures())) {
-				SEFeature feat = (SEFeature) annot;
-				if (feat.getName().equals("class_habituality")){
-					prevGold = feat.getValue();
-					break;
-				}
-				prevGold ="none";
+
+			// FeaturesUtil.addFeature("previous_habituality", prevGold, jCas,
+			// segment);
+			// for (Annotation annot :
+			// SitEntUimaUtils.getList(segment.getFeatures())) {
+			// SEFeature feat = (SEFeature) annot;
+			// if (feat.getName().equals("class_habituality")){
+			// prevGold = feat.getValue();
+			// break;
+			// }
+			// prevGold ="none";
+			// }
+
+			// System.out.println("\n" + segment.getCoveredText());
+
+			// List<Dependency> deps = JCasUtil.selectCovered(Dependency.class,
+			// segment);
+			List<Dependency> deps = new LinkedList<Dependency>();
+			// TODO test: if all tokens of segment have been selected, this
+			// should result in the same selection as before.
+			for (Annotation t : SitEntUimaUtils.getList(segment.getTokens())) {
+				deps.addAll(JCasUtil.selectCovered(Dependency.class, t));
 			}
-			
-
-			//System.out.println("\n" + segment.getCoveredText());
-
-			List<Dependency> deps = JCasUtil.selectCovered(Dependency.class,
-					segment);
 
 			// (STEP 1) find subject ==> main referent
-			Annotation mainRef = getDependent(deps, segment.getMainVerb(),
-					"subj");
+			// Annotation mainRef = getDependent(deps, segment.getMainVerb(),
+			// "subj");
+			Annotation mainRef = segment.getMainReferent();
+
 			if (mainRef == null) {
 				// no subject found, try to find subject of a 'dep' head
 				for (Dependency dep : deps) {
 					if (dep.getDependent() == segment.getMainVerb()
-							&& dep.getDependencyType().matches(
-									"vmod|dep|conj\\_and")) {
+							&& dep.getDependencyType().matches("vmod|dep|conj\\_and")) {
 						// does this governor have a subject?
 						// System.out.println("found verb: "
 						// + dep.getDependencyType() + " "
 						// + dep.getGovernor().getCoveredText());
-						Annotation subj = getDependent(deps, dep.getGovernor(),
-								"subj");
+						Annotation subj = getDependent(deps, dep.getGovernor(), "subj");
 						if (subj != null) {
 							// System.out.println("found subj: "
 							// + subj.getCoveredText());
@@ -130,17 +133,17 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 				}
 			}
 			if (mainRef != null) {
-//				// set main referent
-//				MainReferent mr = new MainReferent(jCas);
-//				mr.setBegin(mainRef.getBegin());
-//				mr.setEnd(mainRef.getEnd());
-//				mr.addToIndexes();
-//				segment.setMainReferent(mr);
+				// // set main referent
+				// MainReferent mr = new MainReferent(jCas);
+				// mr.setBegin(mainRef.getBegin());
+				// mr.setEnd(mainRef.getEnd());
+				// mr.addToIndexes();
+				// segment.setMainReferent(mr);
 
 				addDependentFeature(mainRef, jCas, childNodeMap, segment, "subj");
 
 			}
-			
+
 			if (segment.getMainVerb() == null) {
 				// no main verb --> can't predict habituality.
 				continue;
@@ -150,8 +153,7 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			// TODO: only direct objects?
 			Annotation obj = getDependent(deps, segment.getMainVerb(), "obj");
 			Boolean objAbsent = obj == null;
-			FeaturesUtil.addFeature("main_verb_obj_absent",
-					objAbsent.toString(), jCas, segment);
+			FeaturesUtil.addFeature("main_verb_obj_absent", objAbsent.toString(), jCas, segment);
 			if (!objAbsent) {
 				addDependentFeature(obj, jCas, childNodeMap, segment, "obj");
 			}
@@ -162,8 +164,7 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			// sentence. (Going for the latter here.)
 			// Similarly: a prepositional phrase starting with at/in/on in the
 			// sentence?
-			List<Sentence> sentences = JCasUtil.selectCovering(jCas,
-					Sentence.class, segment.getMainVerb());
+			List<Sentence> sentences = JCasUtil.selectCovering(jCas, Sentence.class, segment.getMainVerb());
 			// should always be covered by exactly one sentence
 			Sentence sent = sentences.get(0);
 			Boolean conditional = false;
@@ -196,44 +197,38 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 					habitualAdv = true;
 				}
 			}
-			FeaturesUtil.addFeature("sent_conditional", conditional.toString(),
-					jCas, segment);
-			FeaturesUtil.addFeature("sent_atPrep", atPrep.toString(), jCas,
-					segment);
-			FeaturesUtil.addFeature("sent_inPrep", inPrep.toString(), jCas,
-					segment);
-			FeaturesUtil.addFeature("sent_onPrep", onPrep.toString(), jCas,
-					segment);
+			FeaturesUtil.addFeature("sent_conditional", conditional.toString(), jCas, segment);
+			FeaturesUtil.addFeature("sent_atPrep", atPrep.toString(), jCas, segment);
+			FeaturesUtil.addFeature("sent_inPrep", inPrep.toString(), jCas, segment);
+			FeaturesUtil.addFeature("sent_onPrep", onPrep.toString(), jCas, segment);
 
 			// (STEP 4) Temporal modifiers: quantificational or specific?
 			// TODO: this is somewhat approximate for now... test etc!!
-			boolean habitualPastMod = !containsIf
-					&& (sent.getCoveredText().contains("used to") || containsWould);
+			boolean habitualPastMod = !containsIf && (sent.getCoveredText().contains("used to") || containsWould);
 			Boolean quantTempMod = false;
 			Boolean specificTempMod = false;
 			// check TMP modifiers
 			List<TMOD> tmods = JCasUtil.selectCovered(TMOD.class, sent);
-//			if (!tmods.isEmpty()) {
-//				System.out.println("\n" + sent.getCoveredText());
-//			}
-			
-			/**TODO: these rules are stupid.
-			 * "a few days" -- specific.
+			// if (!tmods.isEmpty()) {
+			// System.out.println("\n" + sent.getCoveredText());
+			// }
+
+			/**
+			 * TODO: these rules are stupid. "a few days" -- specific.
 			 * 
 			 */
 			for (TMOD tmod : tmods) {
 				Token token = JCasUtil.selectCovered(Token.class, tmod).get(0);
 				// is this token quantified?
-				String detType = NounPhraseFeatures.getDeterminerType(jCas,
-						token, childNodeMap, false);
+				String detType = NounPhraseFeatures.getDeterminerType(jCas, token, childNodeMap, false);
 				if (detType.matches("def|demon|none|quantSpec|cd")) {
-					if (!token.getCoveredText()
-							.matches("hours|minutes|seconds")) {
+					if (!token.getCoveredText().matches("hours|minutes|seconds")) {
 						specificTempMod = true;
 					}
 				}
 				// Mathew treats indef as spc, but I think the rules have to be
-				// more precise here. TODO: if followed by after/before, it's SPC.
+				// more precise here. TODO: if followed by after/before, it's
+				// SPC.
 				if (detType.matches("quantDef|quantIndef")) {
 					quantTempMod = true;
 				}
@@ -241,40 +236,36 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 					Token following = JCasUtil.selectFollowing(Token.class, token, 1).get(0);
 					if (!following.getCoveredText().matches("after|before")) {
 						quantTempMod = true;
-					}
-					else {
+					} else {
 						specificTempMod = true;
 					}
 				}
-//				System.out.println(token.getCoveredText() + " " + detType
-//						+ " spc:" + specificTempMod + " hab:" + quantTempMod);
+				// System.out.println(token.getCoveredText() + " " + detType
+				// + " spc:" + specificTempMod + " hab:" + quantTempMod);
 			}
 			quantTempMod = habitualAdv || habitualPastMod || quantTempMod;
 
 			FeaturesUtil.addFeature("sent_quantTempMod", quantTempMod.toString(), jCas, segment);
 			FeaturesUtil.addFeature("sent_specTempMod", specificTempMod.toString(), jCas, segment);
 		}
-		
-		// Mark whether each segment is in the same sentence as the preceding segment
+
+		// Mark whether each segment is in the same sentence as the preceding
+		// segment
 		for (Sentence sent : JCasUtil.select(jCas, Sentence.class)) {
 			List<Segment> segments = JCasUtil.selectCovered(Segment.class, sent);
-			for (int i=0; i<segments.size(); i++) {
-				if (i==0) {
+			for (int i = 0; i < segments.size(); i++) {
+				if (i == 0) {
 					FeaturesUtil.addFeature("prevSegment_sameSent", "false", jCas, segments.get(i));
-				}
-				else {
+				} else {
 					FeaturesUtil.addFeature("prevSegment_sameSent", "true", jCas, segments.get(i));
 				}
 			}
 		}
-		
-		
 
 	}
 
-	private void addDependentFeature(Annotation mr, JCas jCas,
-			HashMap<Token, Set<Dependency>> childNodeMap, Segment segment,
-			String featName) {
+	private void addDependentFeature(Annotation mr, JCas jCas, HashMap<Token, Set<Dependency>> childNodeMap,
+			Segment segment, String featName) {
 		// extract subject-related features
 		Token head = SitEntUimaUtils.getHead(mr, jCas);
 
@@ -287,29 +278,21 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			// A POS tag was assigned to the head of the mention by the
 			// parser.
 			if (NounPhraseFeatures.isNounOrPronoun(head)) {
-				String detType = NounPhraseFeatures.getDeterminerType(jCas,
-						head, childNodeMap, false);
+				String detType = NounPhraseFeatures.getDeterminerType(jCas, head, childNodeMap, false);
 				String nounType = NounPhraseFeatures.getNounType(head);
 
 				// System.out.println(head.getCoveredText() + " " + detType +
 				// " "
 				// + nounType);
 
-				String isDefinite = ((Boolean) (detType
-						.matches("def|demon|quantDef") || nounType
-						.matches("proper|pronoun"))).toString();
-				String isIndefinite = ((Boolean) detType
-						.matches("indef|quantIndef")).toString();
-				FeaturesUtil.addFeature("main_verb_" + featName + "_def",
-						isDefinite, jCas, segment);
-				FeaturesUtil.addFeature("main_verb_" + featName + "_indef",
-						isIndefinite, jCas, segment);
+				String isDefinite = ((Boolean) (detType.matches("def|demon|quantDef")
+						|| nounType.matches("proper|pronoun"))).toString();
+				String isIndefinite = ((Boolean) detType.matches("indef|quantIndef")).toString();
+				FeaturesUtil.addFeature("main_verb_" + featName + "_def", isDefinite, jCas, segment);
+				FeaturesUtil.addFeature("main_verb_" + featName + "_indef", isIndefinite, jCas, segment);
 
-				String barePlural = ((Boolean) NounPhraseFeatures.isBarePlural(
-						jCas, head, childNodeMap)).toString();
-				FeaturesUtil.addFeature(
-						"main_verb_" + featName + "_barePlural", barePlural,
-						jCas, segment);
+				String barePlural = ((Boolean) NounPhraseFeatures.isBarePlural(jCas, head, childNodeMap)).toString();
+				FeaturesUtil.addFeature("main_verb_" + featName + "_barePlural", barePlural, jCas, segment);
 
 			}
 		}
@@ -323,8 +306,7 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 	 * @param verb
 	 * @return
 	 */
-	private Annotation getDependent(List<Dependency> deps, Annotation verb,
-			String type) {
+	private Annotation getDependent(List<Dependency> deps, Annotation verb, String type) {
 		// System.out.println("looking for: " + verb.getCoveredText());
 		for (Dependency dep : deps) {
 			// System.out.println("getsubj: "
@@ -332,18 +314,9 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			// + dep.getDependencyType() + " "
 			// + dep.getGovernor().getCoveredText());
 			// System.out.println(dep.getGovernor()== verb);
-			if (dep.getGovernor() == verb
-					&& dep.getDependencyType().contains(type)) { // vmod in
-																	// second
-																	// trial?
-																	// System.out.println("in getSubj"
-																	// +
-																	// dep.getDependencyType()
-																	// + " "
-				// + dep.getDependent().getCoveredText());
+			if (dep.getGovernor() == verb && dep.getDependencyType().contains(type)) {
 				// find covering NP
-				List<NP> nps = JCasUtil.selectCovering(NP.class,
-						dep.getDependent());
+				List<NP> nps = JCasUtil.selectCovering(NP.class, dep.getDependent());
 				if (nps.isEmpty()) {
 					return dep.getDependent();
 				} else {
@@ -351,8 +324,7 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 					NP np = nps.get(0);
 					for (int i = 1; i < nps.size(); i++) {
 						NP np2 = nps.get(i);
-						if (np2.getEnd() - np2.getBegin() < np.getEnd()
-								- np.getBegin()) {
+						if (np2.getEnd() - np2.getBegin() < np.getEnd() - np.getBegin()) {
 							np = np2;
 						}
 					}
@@ -362,12 +334,9 @@ public class MathewKatzFeaturesAnnotator extends JCasAnnotator_ImplBase {
 		}
 		return null;
 	}
-	
-	
 
 	@Override
-	public void collectionProcessComplete()
-			throws AnalysisEngineProcessException {
+	public void collectionProcessComplete() throws AnalysisEngineProcessException {
 		super.collectionProcessComplete();
 	}
 }
