@@ -245,23 +245,23 @@ public class SitEntUimaUtils {
 			}
 		}
 		if (tokenSet.size() > 1) {
-			System.err.println("could not identify head: " + annotation.getCoveredText());
-			System.err.println(tokenSet.size());
-			for (Token t : tokenSet) {
-				System.err.println("token: " + t.getCoveredText());
-			}
-			for (Dependency dep : deps) {
-				System.err.println(dep.getGovernor().getCoveredText() + " --> " + dep.getDependent().getCoveredText());
-			}
+			//System.err.println("could not identify head: " + annotation.getCoveredText());
+			//System.err.println(tokenSet.size());
+//			for (Token t : tokenSet) {
+//				System.err.println("token: " + t.getCoveredText());
+//			}
+//			for (Dependency dep : deps) {
+//				System.err.println(dep.getGovernor().getCoveredText() + " --> " + dep.getDependent().getCoveredText());
+//			}
 			// throw new RuntimeException();
 		}
 		if (tokenSet.isEmpty()) {
-			System.err.println("SitEntUimaUtils: No head found.");
-			for (Dependency dep : deps) {
-				System.err.println(dep.getGovernor().getCoveredText() + "(" + dep.getGovernor().getBegin() + ") --> "
-						+ dep.getDependencyType() + "-->" + dep.getDependent().getCoveredText() + " ("
-						+ dep.getDependent().getBegin() + ")");
-			}
+//			System.err.println("SitEntUimaUtils: No head found.");
+//			for (Dependency dep : deps) {
+//				System.err.println(dep.getGovernor().getCoveredText() + "(" + dep.getGovernor().getBegin() + ") --> "
+//						+ dep.getDependencyType() + "-->" + dep.getDependent().getCoveredText() + " ("
+//						+ dep.getDependent().getBegin() + ")");
+//			}
 			return null;
 		}
 		Iterator<Token> it = tokenSet.iterator();

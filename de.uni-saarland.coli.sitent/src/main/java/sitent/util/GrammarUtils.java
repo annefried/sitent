@@ -185,10 +185,10 @@ public class GrammarUtils {
 		List<Dependency> deps = JCasUtil.selectCovered(Dependency.class, annotation);
 		Set<Token> tokenSet = new HashSet<Token>(tokens);
 
-		for (Dependency dep : deps) {
-			System.err.println(dep.getGovernor().getCoveredText() + " --> " + dep.getDependencyType() + " "
-					+ dep.getDependent().getCoveredText());
-		}
+//		for (Dependency dep : deps) {
+//			System.err.println(dep.getGovernor().getCoveredText() + " --> " + dep.getDependencyType() + " "
+//					+ dep.getDependent().getCoveredText());
+//		}
 
 		// find the head of the tokens
 		// remove tokens not in the dependencies: have been collapsed.
@@ -249,8 +249,6 @@ public class GrammarUtils {
 				}
 			}
 		}
-
-		System.out.println("> " + head.getCoveredText());
 
 		// if in doubt, returns last token.
 		return head;

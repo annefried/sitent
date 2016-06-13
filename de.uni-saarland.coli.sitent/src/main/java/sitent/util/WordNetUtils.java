@@ -258,7 +258,7 @@ public class WordNetUtils {
 				return true;
 			}
 		}
-		System.out.println("not a hypo: " + word);
+		//System.out.println("not a hypo: " + word);
 		return false;
 	}
 

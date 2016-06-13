@@ -167,7 +167,7 @@ public class NounPhraseFeatures {
 			if (token.getPos().getPosValue().equals("EX")) {
 				return "unknown"; // existential 'there'
 			} else {
-				System.err.println("Use getPerson method only for nouns / pronouns.");
+				//System.err.println("Use getPerson method only for nouns / pronouns.");
 				throw new IllegalArgumentException();
 			}
 		}

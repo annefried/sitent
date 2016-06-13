@@ -50,8 +50,6 @@ public class VerbFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
 	private IDictionary wordnet = null;
 
-	private static final int CONTEXT_WINDOW_SIZE = 10;
-
 	@Override
 	public void initialize(UimaContext context) throws ResourceInitializationException {
 
@@ -102,7 +100,7 @@ public class VerbFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			List<VerbFeatures> vfList = JCasUtil.selectCovered(VerbFeatures.class, annot);
 
 			if (vfList.isEmpty()) {
-				System.out.println("No features found: " + annot.getCoveredText());
+				//System.out.println("No features found: " + annot.getCoveredText());
 				// no verb features found here
 				continue;
 			}
@@ -192,19 +190,19 @@ public class VerbFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
 	}
 
-	private String concatValues(List<Token> tokens) {
-		String retVal = "";
-		for (Token token : tokens) {
-			if (!token.getCoveredText().matches("\\p{Punct}+")) {
-				retVal += token.getLemma().getValue() + ":";
-			}
-		}
-		if (!retVal.equals("")) {
-			retVal = retVal.substring(0, retVal.length() - 1);
-		}
-		return retVal;
-	}
-	
+//	private String concatValues(List<Token> tokens) {
+//		String retVal = "";
+//		for (Token token : tokens) {
+//			if (!token.getCoveredText().matches("\\p{Punct}+")) {
+//				retVal += token.getLemma().getValue() + ":";
+//			}
+//		}
+//		if (!retVal.equals("")) {
+//			retVal = retVal.substring(0, retVal.length() - 1);
+//		}
+//		return retVal;
+//	}
+//	
 	
 
 }

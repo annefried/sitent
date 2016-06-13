@@ -307,7 +307,6 @@ public class SituationEntityIdentifierAnnotator extends JCasAnnotator_ImplBase {
 					XmiReader.PARAM_PATTERNS, new String[] { "[+]*.xmi" });
 
 			// tokenize, parse, add lemmas
-
 			AnalysisEngineDescription stParser = AnalysisEngineFactory.createEngineDescription(StanfordParser.class,
 					StanfordParser.PARAM_LANGUAGE, "en", StanfordParser.PARAM_WRITE_POS, true,
 					StanfordParser.PARAM_WRITE_PENN_TREE, true, StanfordParser.PARAM_MAX_TOKENS, 200,

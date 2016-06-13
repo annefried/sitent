@@ -1,0 +1,259 @@
+package sitent.classifiers;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.uima.UimaContext;
+import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
+import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
+import org.apache.uima.fit.descriptor.ConfigurationParameter;
+import org.apache.uima.fit.util.JCasUtil;
+import org.apache.uima.jcas.JCas;
+import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.resource.ResourceInitializationException;
+
+import sitent.types.ClassificationAnnotation;
+import sitent.types.Passage;
+import sitent.types.SEFeature;
+import sitent.types.Segment;
+import sitent.util.FeaturesUtil;
+import sitent.util.SitEntUimaUtils;
+import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
+
+public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
+
+	public static final String PARAM_ARFF_LOCATION = "arffLocation";
+	@ConfigurationParameter(name = PARAM_ARFF_LOCATION, mandatory = true, defaultValue = "null", description = "Location for ARFF file.")
+	private String arffLocation;
+
+	public static final String PARAM_SPARSE_FORMAT = "sparseFormat";
+	@ConfigurationParameter(name = PARAM_SPARSE_FORMAT, mandatory = true, defaultValue = "false", description = "Write sparse ARFF file.")
+	private Boolean sparseFormat;
+
+	public static final String PARAM_OMIT_FEATURES = "omitFeaturesPatterns";
+	@ConfigurationParameter(name = PARAM_OMIT_FEATURES, mandatory = true, defaultValue = "false", description = "Feature patterns: omit these features when writing ARFF.")
+	private String[] omitFeaturesPatterns;
+
+	public static final String PARAM_TARGET_TYPE = "targetType";
+	@ConfigurationParameter(name = PARAM_TARGET_TYPE, mandatory = true, defaultValue = "false", description = "Segment or Passage.")
+	private String targetType;
+
+	public static final String PARAM_CLASS_ATTRIBUTE = "classAttribute";
+	@ConfigurationParameter(name = PARAM_CLASS_ATTRIBUTE, mandatory = true, defaultValue = "null", description = "name of class attribute (last attribute in ARFF).")
+	private String classAttribute;
+
+	public static final String PARAM_RESET_SEGIDS = "resetSegIds";
+	@ConfigurationParameter(name = PARAM_RESET_SEGIDS, mandatory = true, defaultValue = "false", description = "whether to make sure segids are correct (for instanceid)")
+	private Boolean resetSegIds;
+
+	// public static final String PARAM_UNLABELED_DATA = "unlabeledData";
+	// @ConfigurationParameter(name = PARAM_UNLABELED_DATA, mandatory = true,
+	// defaultValue = "false", description = "set to true if data does not
+	// contain gold standard labels")
+	// private boolean unlabeledData;
+
+	@Override
+	public void initialize(UimaContext context) throws ResourceInitializationException {
+
+		super.initialize(context);
+
+		// create ARFF dir in case it doesn't exist yet.
+		File arffDir = new File(arffLocation);
+		if (!arffDir.exists()) {
+			arffDir.mkdirs();
+		} else {
+			arffDir.delete();
+			arffDir.mkdirs();
+		}
+	}
+
+	@Override
+	public void process(JCas jCas) throws AnalysisEngineProcessException {
+
+		DocumentMetaData dm = JCasUtil.selectSingle(jCas, DocumentMetaData.class);
+		System.out.println("Writing arff for: " + dm.getDocumentId());
+
+		if (resetSegIds) {
+			int i = 1;
+			for (Segment segment : JCasUtil.select(jCas, Segment.class)) {
+				FeaturesUtil.removeFeature("instanceid", segment, jCas);
+				String instanceId = dm.getDocumentId() + "_" + i++;
+				FeaturesUtil.addFeature("instanceid", instanceId, jCas, segment);
+			}
+		}
+
+		List<ClassificationAnnotation> classAnnots = new LinkedList<ClassificationAnnotation>();
+		if (targetType.equals("Segment")) {
+			Collection<Segment> segments = JCasUtil.select(jCas, Segment.class);
+			classAnnots.addAll(segments);
+
+		} else if (targetType.equals("Passage")) {
+			Collection<Passage> passages = JCasUtil.select(jCas, Passage.class);
+			classAnnots.addAll(passages);
+		}
+
+		try {
+			String filename = null;
+			if (dm.getDocumentUri() != null) {
+				String[] path = dm.getDocumentUri().split("/");
+				filename = path[path.length - 1];
+			} else {
+				filename = dm.getDocumentId();
+			}
+
+			PrintWriter arffWriter = new PrintWriter(new FileWriter(arffLocation + "/" + filename + ".arff"));
+
+			// collect information about features
+			Map<String, Boolean> isNumericFeature = new HashMap<String, Boolean>();
+			// collect values for nominal features
+			Map<String, Set<String>> nominalFeatures = new HashMap<String, Set<String>>();
+
+			// iterate over segments
+			for (ClassificationAnnotation segment : classAnnots) {
+				for (Annotation annot : SitEntUimaUtils.getList(segment.getFeatures())) {
+					SEFeature feat = (SEFeature) annot;
+
+					if (feat.getName().startsWith("main_verb_brownCluster_")
+							|| feat.getName().startsWith("main_referent_brownCluster)")) {
+						isNumericFeature.put(feat.getName(), false);
+						continue;
+					}
+
+					try {
+						Double.parseDouble(feat.getValue());
+						if (!isNumericFeature.containsKey(feat.getName())) {
+							isNumericFeature.put(feat.getName(), true);
+						}
+					} catch (NumberFormatException e) {
+						isNumericFeature.put(feat.getName(), false);
+					}
+					// collect values even if it seems to be a numeric feature,
+					// as there might be non-numeric values for this feature
+					// later, if it's actually nominal and only the first value
+					// seen is numeric.
+					if (!nominalFeatures.containsKey(feat.getName())) {
+						nominalFeatures.put(feat.getName(), new HashSet<String>());
+					}
+					nominalFeatures.get(feat.getName()).add(feat.getValue());
+				}
+			}
+			// create header
+			arffWriter.println("@relation sitent");
+			arffWriter.println("");
+			List<String> featList = new LinkedList<String>(isNumericFeature.keySet());
+			Collections.sort(featList);
+
+			// move class to end
+			if (featList.contains(classAttribute)) {
+				featList.remove(classAttribute);
+				featList.add(classAttribute);
+			}
+
+			// omit features that match one of the 'omit' patterns
+			for (int i = featList.size() - 1; i >= 0; i--) {
+				String featName = featList.get(i);
+				for (String omit : omitFeaturesPatterns) {
+					if (featName.matches(omit)) {
+						// if (featList.get(i).equals("instanceid"))
+						// System.out.println("removing: " + featList.get(i));
+						featList.remove(i);
+						break;
+					}
+				}
+			}
+
+			for (String featName : featList) {
+
+				// add other features to header
+				if (isNumericFeature.get(featName)) {
+					arffWriter.println("@attribute \""
+							+ featName.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ", "SPACE")
+							+ "\" numeric");
+				} else {
+					// if (nominalFeatures.get(featName).size() > 12) {
+					// arffWriter.println("@attribute " + featName + " string");
+					// } else {
+					String values = "";
+					if (sparseFormat) {
+						// add a dummy value, see
+						// https://weka.wikispaces.com/ARFF+%28stable+version%29
+						values += "\"THE-DUMMY-VALUE\",";
+					}
+					List<String> valueList = new LinkedList<String>(nominalFeatures.get(featName));
+					Collections.sort(valueList);
+					for (String value : valueList) {
+						// System.out.println(value);
+						values += "\""
+								+ value.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ", "SPACE")
+								+ "\",";
+					}
+					values = values.substring(0, values.length() - 1);
+					// add quotes to unquoted feature names
+					if (!featName.startsWith("\"")) {
+						featName = "\"" + featName + "\"";
+					}
+					arffWriter.println("@attribute " + featName + " {" + values + "}");
+				}
+			}
+			arffWriter.println("");
+			arffWriter.println("@data");
+			// create lines for instances
+			for (ClassificationAnnotation segment : classAnnots) {
+				Map<String, String> featMap = new HashMap<String, String>();
+				for (Annotation annot : SitEntUimaUtils.getList(segment.getFeatures())) {
+					SEFeature feat = (SEFeature) annot;
+					if (!isNumericFeature.get(feat.getName())) {
+						if (!(feat.getValue().startsWith("\"") && feat.getValue().endsWith("\""))) {
+							feat.setValue("\"" + feat.getValue().replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA")
+									.replaceAll(" ", "SPACE") + "\"");
+						} else if (feat.getValue().matches("\"|``")) {
+							feat.setValue("QUOTE");
+						}
+					}
+					featMap.put(feat.getName(), feat.getValue());
+				}
+				if (!sparseFormat) {
+					String line = "";
+					for (String featName : featList) {
+						if (!featMap.containsKey(featName)) {
+							line += "?,";
+						} else {
+							line += featMap.get(featName) + ",";
+						}
+					}
+					arffWriter.println(line.substring(0, line.length() - 1));
+				} else {
+					// sparse format
+					String values = "";
+					for (int i = 0; i < featList.size(); i++) {
+						String featName = featList.get(i);
+						if (featMap.containsKey(featName)) {
+							values += i + " " + featMap.get(featName) + ", ";
+						}
+					}
+					arffWriter.println("{" + values.substring(0, values.length() - 2) + "}");
+				}
+			}
+			arffWriter.close();
+
+		} catch (
+
+		IOException e)
+
+		{
+			e.printStackTrace();
+			throw new AnalysisEngineProcessException();
+		}
+
+	}
+}

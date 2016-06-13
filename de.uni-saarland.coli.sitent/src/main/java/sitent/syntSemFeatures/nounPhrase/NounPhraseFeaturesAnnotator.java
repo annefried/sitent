@@ -67,6 +67,7 @@ public class NounPhraseFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
 		try {
 
+			System.out.println("Loading WordNet ...");
 			System.out.println(new File(wordNetPath).getAbsolutePath());
 
 			wordnet = WordNetUtils.getDictionary(wordNetPath);

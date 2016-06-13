@@ -178,17 +178,17 @@ public class TenseExtraction {
 				}
 			}
 
-			if (noHeadInChain.size() >= 2) {
-				System.err.println("MULTIPLE HEADS IN CHAIN:");
-				for (Token t : noHeadInChain) {
-					System.err.println(">> " + t.getCoveredText());
-				}
-			} else {
-				System.err.println("NO HEADS IN CHAIN: (printing original chain)");
-				for (Token t : verbChain) {
-					System.err.println(">> " + t.getCoveredText());
-				}
-			}
+//			if (noHeadInChain.size() >= 2) {
+//				System.err.println("MULTIPLE HEADS IN CHAIN:");
+//				for (Token t : noHeadInChain) {
+//					System.err.println(">> " + t.getCoveredText());
+//				}
+//			} else {
+//				System.err.println("NO HEADS IN CHAIN: (printing original chain)");
+//				for (Token t : verbChain) {
+//					System.err.println(">> " + t.getCoveredText());
+//				}
+//			}
 			// for (Dependency dep : deps) {
 			// System.out.println(dep.getGovernor().getCoveredText() + " --"
 			// + dep.getDependencyType() + "--> "
