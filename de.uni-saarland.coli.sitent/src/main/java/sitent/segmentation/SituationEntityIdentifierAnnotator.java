@@ -16,6 +16,7 @@ package sitent.segmentation;
  *  
  *  !!! Selection of tokens that belong to the "clause" as defined by the head verb
  *  is "beta", needs to be tested more fully.
+ *  TODO: Let's ...
  */
 
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReader;

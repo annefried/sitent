@@ -59,7 +59,7 @@ CRFPP_INSTALL_DIR=/proj/anne-phd/software/CRF++-0.58-fixed
 #	- for labeled training/dev corpus
 #	- for labeled held-out test set
 #	--> this generates XMIs
-#java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-featureExtraction.jar -input $INPUT -output $OUTPUT -annotations $ANNOTATIONS -countability $COUNTABILITY_PATH -arff $ARFF -task $TASK
+java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-featureExtraction.jar -input $INPUT -output $OUTPUT -annotations $ANNOTATIONS -countability $COUNTABILITY_PATH -arff $ARFF -task $TASK
 	
 # Step 2: make the ARFF files compatible so Weka can process them
 

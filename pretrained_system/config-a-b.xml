@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiment>
+
+<!-- descriptive name for folder with results -->
+<desc>dev-a-b</desc>
+
+<!-- folder with input ARFF data -->
+<!-- must be relative to the folder that contains this file -->
+<inputArffDir>../processed_arff_split/dev</inputArffDir>
+
+<!-- Selected per feature group + some manually selected features. -->
+<numFolds>10</numFolds>
+<!-- Settings:
+genre:  genre-based cross validation, folds are defined by genres
+        feature 'document_genre' must be available in data
+withinGenre: execute x-Fold cross validation within each genre
+        (less folds are used if a genre has fewer documents than numFolds)
+xFold:  x-fold cross validation, will take numFolds into account
+test:   regular test and train setting, folder with ARFFs must contain
+        a dev and a test folder.
+-->
+<settings>
+    <!--setting>genre</setting-->
+    <!--setting>withinGenre</setting-->
+    <setting>xFold</setting>
+    <!--setting>learningCurve</setting-->
+    <!--setting>test</setting-->
+</settings>
+
+<classAttribute featureName="class_sitent_type">
+    <value>STATE</value>
+    <value>EVENT</value>
+    <value>REPORT</value>
+    <value>GENERALIZING_SENTENCE</value>
+    <value>GENERIC_SENTENCE</value>
+    <value>IMPERATIVE</value>
+    <value>QUESTION</value>
+</classAttribute>
+
+<featurePatterns>
+
+<feature>instanceid</feature>
+
+<!-- BC: Brown clusters -->
+<feature min="3">segment_brownCluster_320_.*</feature>
+<feature min="3">segment_brownCluster_1000_.*</feature>
+
+<!-- POS: part of speech tags -->
+<feature>segment_pos_.*</feature>
+
+<!-- MV: features describing main verb -->
+<feature>main_verb_predicate_pos</feature>
+<feature>main_verb_predicate_lemma</feature>
+<feature>main_verb_predicate_sense0</feature>
+<feature>main_verb_predicate_sense1</feature>
+<feature>main_verb_verb_tense</feature>
+<feature>main_verb_verb_coarseTense</feature>
+<feature>main_verb_verb_progressive</feature>
+<feature>main_verb_verb_perfect</feature>
+<feature>main_verb_verb_voice</feature>
+<feature>main_verb_obj_.*</feature>
+<feature>main_verb_hasAux</feature>
+<feature>main_verb_dep_.*</feature>
+<feature>main_verb_prep</feature>
+<feature>main_verb_prt</feature>
+<feature>main_verb_lingInd_.*</feature>
+
+
+<!-- MR: features describing main referent -->
+<feature>main_referent_number</feature>
+<feature>main_referent_person</feature>
+<feature>main_referent_countability</feature>
+<feature>main_referent_nounType</feature>
+<feature>main_referent_determinerType</feature>
+<feature>main_referent_barePlural</feature>
+<feature>main_referent_wnGranularity</feature>
+<feature>main_referent_sense0</feature>
+<feature>main_referent_sense1</feature>
+<feature>main_referent_sense2</feature>
+<feature>main_referent_sense3</feature>
+<feature>main_referent_senseTop</feature>
+<feature>main_referent_wnLexicalFilename</feature>
+<feature>main_verb_subj_.*</feature>
+<feature>main_referent_mentionLemma</feature>
+<feature>main_referent_depRel0</feature>
+<feature>main_referent_depRel1</feature>
+<feature>main_referent_depRel2</feature>
+<feature>main_referent_depRel3</feature>
+<feature>main_referent_depRel4</feature>
+
+<!-- CL: clause -->
+<feature>segment_acl2007_L_hasFiniteVerb</feature>
+<feature>segment_acl2007_L_hasVolitionalAdverb</feature>
+<feature>segment_acl2007_L_hasModalAdverb</feature>
+<feature>segment_speechMode_.*</feature>
+<feature>segment_questionWord_.*</feature>
+<feature>main_verb_subjAfterVerb</feature>
+<feature>sent_atPrep</feature>
+<feature>sent_onPrep</feature>
+<feature>sent_inPrep</feature>
+<feature>sent_conditional</feature>
+<feature>sent_quantTempMod</feature>
+<feature>sent_specTempMod</feature>
+<feature>main_verb_clauseAdverbDegree</feature>
+<feature>main_verb_clauseAdverbPred</feature>
+<feature>main_verb_clauseHasTmod</feature>
+<feature>main_verb_clauseNumMod</feature>
+<feature>main_verb_hasSubj</feature>
+<feature>main_verb_modal</feature>
+<feature>main_verb_subjAfterVerb</feature>
+<feature>segment_acl2007_L_genPred</feature>
+
+
+<!-- CX: features on embedding verb / context -->
+<feature>main_verb_ccompEmbedded</feature>
+<feature>main_verb_ccompHeadLemma</feature>
+<feature>main_verb_ccompHeadWordnet_sense0</feature>
+<feature>main_verb_ccompHeadWordnet_sense1</feature>
+<feature>main_verb_ccompHeadWordnet_sense2</feature>
+<feature>main_verb_ccompHeadWordnet_sense3</feature>
+<feature>main_verb_ccompHeadWordnet_senseTop</feature>
+<feature>main_verb_ccompHeadWordnet_wnGranularity</feature>
+<feature>main_verb_ccompHeadWordnet_wnLexicalFilename</feature>   
+<feature>segment_acl2007_L_factPred</feature>
+<feature>segment_acl2007_L_forcePred</feature>
+<feature>segment_acl2007_L_propPred</feature>
+
+</featurePatterns>
+
+<!-- whether to use B feature in CRF -->
+<bigramFeature used="true" gold="false"/>
+
+<!-- Weka classifier which to run additionally, ZeroR is majority
+class baseline -->
+<wekaClassifier>ZeroR</wekaClassifier>
+
+<!-- sampling configuration -->
+<!-- trainSampleFactor: if less than 100, training folds are downsampled.
+Make sure not to use bigrams in this case, as that would be meaningless! -->
+<trainSampleFactor>100</trainSampleFactor>
+
+</experiment>

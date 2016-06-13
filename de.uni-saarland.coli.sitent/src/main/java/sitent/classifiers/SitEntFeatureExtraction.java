@@ -28,6 +28,7 @@ import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordParser;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;
 import sitent.io.TextReaderWithFilename;
 import sitent.io.XmlAnnotationsReader;
+import sitent.segmentation.SituationEntityIdentifierAnnotator;
 import sitent.syntSemFeatures.nounPhrase.NounPhraseFeaturesAnnotator;
 import sitent.syntSemFeatures.nounPhrase.NounPhraseSelectorAnnotator;
 import sitent.syntSemFeatures.segment.Acl2007FeaturesAnnotator;
@@ -62,7 +63,8 @@ public class SitEntFeatureExtraction {
 			String inputDir = cmd.getOptionValue("input");
 			String outputDir = cmd.getOptionValue("output");
 			String annotDir = cmd.getOptionValue("annotations");
-			boolean segment = cmd.hasOption("segment");
+			// segment texts if no gold annotations are given
+			boolean segment = cmd.hasOption("annotDir");
 			String countabilityPath = cmd.getOptionValue("countability");
 			String arffPath = cmd.getOptionValue("arff");
 			String task = cmd.getOptionValue("task");
@@ -88,6 +90,10 @@ public class SitEntFeatureExtraction {
 			// add annotations from XML files
 			AnalysisEngineDescription xmlReader = AnalysisEngineFactory.createEngineDescription(
 					XmlAnnotationsReader.class, XmlAnnotationsReader.PARAM_INPUT_DIR, annotDir);
+
+			// segmenter
+			AnalysisEngineDescription segmenter = AnalysisEngineFactory
+					.createEngineDescription(SituationEntityIdentifierAnnotator.class);
 
 			// extract syntactic-semantic features
 			AnalysisEngineDescription npSelector = AnalysisEngineFactory.createEngineDescription(
@@ -147,9 +153,19 @@ public class SitEntFeatureExtraction {
 			AnalysisEngineDescription xmiWriter = AnalysisEngineFactory.createEngineDescription(XmiWriter.class,
 					XmiWriter.PARAM_TARGET_LOCATION, outputDir);
 
-			runPipeline(reader, stTokenizer, stParser, stLemmas, xmlReader, npSelector, npFeatures, verbSelector,
-					verbFeatures, lingInd, sitEntFeatureMapper, posLemma, speechModeFeatures, mkFeatures,
-					acl2007Features, brownFeatures, arffWriter, xmiWriter);
+			if (!segment) {
+				// gold data and segmentation given
+
+				runPipeline(reader, stTokenizer, stParser, stLemmas, xmlReader, npSelector, npFeatures, verbSelector,
+						verbFeatures, lingInd, sitEntFeatureMapper, posLemma, speechModeFeatures, mkFeatures,
+						acl2007Features, brownFeatures, arffWriter, xmiWriter);
+			} else {
+				// unlabeled text data, need to identify a situation entity
+				// segmentation
+				runPipeline(reader, stTokenizer, stParser, stLemmas, segmenter, npSelector, npFeatures, verbSelector,
+						verbFeatures, lingInd, sitEntFeatureMapper, posLemma, speechModeFeatures, mkFeatures,
+						acl2007Features, brownFeatures, arffWriter, xmiWriter);
+			}
 
 		} catch (ParseException e) {
 			e.printStackTrace();
