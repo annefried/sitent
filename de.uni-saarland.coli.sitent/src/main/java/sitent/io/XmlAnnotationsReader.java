@@ -58,6 +58,7 @@ public class XmlAnnotationsReader extends JCasAnnotator_ImplBase {
 				FeaturesUtil.addFeature("instanceid", instanceId, jCas, segAnnot);
 				segAnnot.setBegin(begin);
 				segAnnot.setEnd(end);
+				System.out.println(segAnnot.getCoveredText());
 
 				Node mvNode = segment.selectSingleNode("mainVerb");
 				if (mvNode != null) {
@@ -66,7 +67,7 @@ public class XmlAnnotationsReader extends JCasAnnotator_ImplBase {
 					// select token
 					List<Token> tokens = JCasUtil.selectCovered(jCas, Token.class, mvBegin, mvEnd);
 					if (tokens.isEmpty()) {
-						System.err.println("No token for this main verb?");
+						System.err.println("No token for this main verb? " + mvBegin + " " + mvEnd);
 						throw new AnalysisEngineProcessException();
 					} else {
 						segAnnot.setMainVerb(tokens.get(0));
@@ -79,7 +80,7 @@ public class XmlAnnotationsReader extends JCasAnnotator_ImplBase {
 					// select token
 					List<Token> tokens = JCasUtil.selectCovered(jCas, Token.class, mrBegin, mrEnd);
 					if (tokens.isEmpty()) {
-						System.err.println("No token for this main referent?");
+						System.err.println("No token for this main referent? " + mrBegin + " " + mrEnd);
 						throw new AnalysisEngineProcessException();
 					} else {
 						segAnnot.setMainReferent(tokens.get(0));

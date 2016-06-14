@@ -151,14 +151,29 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>2.2</version>
 				<executions>
-					<!-- execution> <id>feature-extraction</id> <phase>package</phase> <goals> 
-						<goal>shade</goal> </goals> <configuration> <transformers> <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"> 
-						<mainClass>sitent.classifiers.SitEntFeatureExtraction</mainClass> </transformer> 
-						<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer"> 
-						<resource> META-INF/org.apache.uima.fit/types.txt </resource> </transformer> 
-						</transformers> <outputFile> ${project.build.directory}/${project.artifactId}-${project.version}-featureExtraction.jar 
-						</outputFile> </configuration> </execution -->
-					<!-- execution>
+					<execution>
+						<id>feature-extraction</id>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>sitent.classifiers.SitEntFeatureExtraction</mainClass>
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource> META-INF/org.apache.uima.fit/types.txt </resource>
+								</transformer>
+							</transformers>
+							<outputFile>
+								${project.build.directory}/${project.artifactId}-${project.version}-featureExtraction.jar
+							</outputFile>
+						</configuration>
+					</execution>
+					<execution>
 						<id>arff-compatible</id>
 						<phase>package</phase>
 						<goals>
@@ -181,7 +196,7 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 								${project.build.directory}/${project.artifactId}-${project.version}-arffCompatible.jar
 							</outputFile>
 						</configuration>
-					</execution-->
+					</execution>
 					<execution>
 						<id>experimenter</id>
 						<phase>package</phase>

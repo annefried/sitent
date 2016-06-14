@@ -16,6 +16,7 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.log4j.Logger;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReader;
@@ -28,6 +29,7 @@ import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordParser;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;
 import sitent.io.TextReaderWithFilename;
 import sitent.io.XmlAnnotationsReader;
+import sitent.segmentation.SitEntSyntacticFeaturesAnnotator;
 import sitent.segmentation.SituationEntityIdentifierAnnotator;
 import sitent.syntSemFeatures.nounPhrase.NounPhraseFeaturesAnnotator;
 import sitent.syntSemFeatures.nounPhrase.NounPhraseSelectorAnnotator;
@@ -41,6 +43,8 @@ import sitent.syntSemFeatures.verbs.VerbFeaturesAnnotator;
 import sitent.syntSemFeatures.verbs.VerbSelectorAnnotator;
 
 public class SitEntFeatureExtraction {
+
+	static Logger log = Logger.getLogger(SitEntFeatureExtraction.class.getName());
 
 	public static void main(String[] args) {
 		Options options = new Options();
@@ -64,12 +68,13 @@ public class SitEntFeatureExtraction {
 			String outputDir = cmd.getOptionValue("output");
 			String annotDir = cmd.getOptionValue("annotations");
 			// segment texts if no gold annotations are given
-			boolean segment = cmd.hasOption("annotDir");
+			boolean segment = !cmd.hasOption("annotations");
+			
 			String countabilityPath = cmd.getOptionValue("countability");
 			String arffPath = cmd.getOptionValue("arff");
 			String task = cmd.getOptionValue("task");
 
-			// read XMI
+			// read text
 			CollectionReader reader = createReader(TextReaderWithFilename.class,
 					TextReaderWithFilename.PARAM_SOURCE_LOCATION, inputDir, TextReaderWithFilename.PARAM_PATTERNS,
 					new String[] { "[+]*.txt" }, TextReaderWithFilename.PARAM_LANGUAGE, "en");
@@ -94,6 +99,12 @@ public class SitEntFeatureExtraction {
 			// segmenter
 			AnalysisEngineDescription segmenter = AnalysisEngineFactory
 					.createEngineDescription(SituationEntityIdentifierAnnotator.class);
+			
+			// identify main referents
+			AnalysisEngineDescription mainRefIdentifier = AnalysisEngineFactory
+					.createEngineDescription(SitEntSyntacticFeaturesAnnotator.class);
+			
+			
 
 			// extract syntactic-semantic features
 			AnalysisEngineDescription npSelector = AnalysisEngineFactory.createEngineDescription(
@@ -145,7 +156,8 @@ public class SitEntFeatureExtraction {
 					WekaArffWriterAnnotator.PARAM_ARFF_LOCATION, arffPath,
 					WekaArffWriterAnnotator.PARAM_CLASS_ATTRIBUTE, task, WekaArffWriterAnnotator.PARAM_SPARSE_FORMAT,
 					true, WekaArffWriterAnnotator.PARAM_OMIT_FEATURES, "segment_acl2007_G_verbLemma_.*",
-					WekaArffWriterAnnotator.PARAM_TARGET_TYPE, "Segment");
+					WekaArffWriterAnnotator.PARAM_TARGET_TYPE, "Segment", WekaArffWriterAnnotator.PARAM_ESCAPE_VALUES,
+					true);
 			// can add more features to be omitted here if necessary
 			// (comma-separated list)
 
@@ -155,15 +167,16 @@ public class SitEntFeatureExtraction {
 
 			if (!segment) {
 				// gold data and segmentation given
-
+				log.info("Feature extraction: gold annotations given.");
 				runPipeline(reader, stTokenizer, stParser, stLemmas, xmlReader, npSelector, npFeatures, verbSelector,
 						verbFeatures, lingInd, sitEntFeatureMapper, posLemma, speechModeFeatures, mkFeatures,
 						acl2007Features, brownFeatures, arffWriter, xmiWriter);
 			} else {
 				// unlabeled text data, need to identify a situation entity
 				// segmentation
-				runPipeline(reader, stTokenizer, stParser, stLemmas, segmenter, npSelector, npFeatures, verbSelector,
-						verbFeatures, lingInd, sitEntFeatureMapper, posLemma, speechModeFeatures, mkFeatures,
+				log.info("Feature extraction: no gold standard annotations given, thus segmenting.");
+				runPipeline(reader, stTokenizer, stParser, stLemmas, npSelector, npFeatures, verbSelector,
+						verbFeatures, lingInd, segmenter, mainRefIdentifier, sitEntFeatureMapper, posLemma, speechModeFeatures, mkFeatures,
 						acl2007Features, brownFeatures, arffWriter, xmiWriter);
 			}
 

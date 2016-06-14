@@ -51,8 +51,9 @@ public class Experiment implements Runnable {
 	private Random randomGenerator = new Random();
 
 	// whether or not to use only the situations that also have FEATURE labels
-	// (main ref, aspectual class, habituality)
-	private static final boolean PARAM_USE_FULL_SITUATIONS = true;
+	// (main ref, aspectual class, habituality) -- set true for 'pipeline'
+	// experimentsF
+	private static final boolean PARAM_USE_FULL_SITUATIONS = false;
 
 	// genre, xFold, test
 	private String setting;
@@ -69,6 +70,8 @@ public class Experiment implements Runnable {
 	private String arffDir;
 	// path to config file so it can be copied
 	private String configFile;
+	// path to pre-trained model (optional)
+	private String pretrainedModel;
 
 	// info on class attribute
 	private String classAttribute;
@@ -110,6 +113,11 @@ public class Experiment implements Runnable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public void setPretrainedModel(String pretrainedModel) {
+		this.pretrainedModel = pretrainedModel;
+	}
+	
 
 	public void setTimestampText(String timestampText) {
 		this.timestampText = timestampText;
@@ -285,6 +293,33 @@ public class Experiment implements Runnable {
 		log.info(setting + "\t" + "Done.");
 		return folds;
 
+	}
+
+	/**
+	 * Read in data into one Instances object (for the setting of just labeling
+	 * data using a pre-trained model). (returning array for compatibility with
+	 * other functions, array will have only one element)
+	 * 
+	 * @param arffDir
+	 * @return
+	 * @throws IOException
+	 */
+	private Instances[] getData(String arffDir) throws IOException {
+		Instances data = null;
+		for (String inputFile : new File(arffDir).list()) {
+			BufferedReader reader = new BufferedReader(new FileReader(arffDir + "/" + inputFile));
+			Instances fileData = new Instances(reader);
+			if (data == null) {
+				data = fileData;
+			} else {
+				for (int j = 0; j < fileData.numInstances(); j++) {
+					data.add(fileData.instance(j));
+				}
+			}
+		}
+		Instances[] retVal = new Instances[1];
+		retVal[0] = data;
+		return retVal;
 	}
 
 	/**
@@ -464,7 +499,7 @@ public class Experiment implements Runnable {
 		}
 		String[] valuesToBeFilteredArray = new String[valuesToBeFiltered.size()];
 		valuesToBeFiltered.toArray(valuesToBeFilteredArray);
-		if (!setting.equals("testUnlabeled")) {
+		if (!setting.equals("applyModel")) {
 			data = WekaUtils.removeWithValues(data, classAttribute, valuesToBeFilteredArray);
 		} else {
 			// remove instances only from train fold.
@@ -602,9 +637,10 @@ public class Experiment implements Runnable {
 	private void performCrossValidation(Instances[] folds, String predictionsPath, String crfppDir, String resultsFile)
 			throws Exception {
 
-		if (this.wekaClassifierType.equals("J48")) {
-			crfppDir = null;
-		}
+		// this was just used for pipeline experiments
+//		if (this.wekaClassifierType.equals("J48")) {
+//			crfppDir = null;
+//		}
 
 		log.info(setting + "\t" + "Performing cross validation... " + setting);
 
@@ -696,17 +732,7 @@ public class Experiment implements Runnable {
 
 			// create crfppTrain files only now (after potential downsampling)
 			if (crfppDir != null) {
-				// if (setting.equals("genreSelected")) {
-				// // find out genre of test fold
-				// Attribute genreAttr = test.attribute("document_genre");
-				// String genre = test.instance(0).stringValue(genreAttr);
-				// System.out.println("GENRE OF TEST FOLD: " + genre);
-				//
-				// crfppTrain += CrfppUtils.getCrfppRepresentation(train,
-				// trainDocsByGenre.get(genre)) + "\n";
-				// } else {
 				crfppTrain += CrfppUtils.getCrfppRepresentation(train, null) + "\n";
-				// }
 			}
 
 			Classifier classifier = null;
@@ -810,7 +836,7 @@ public class Experiment implements Runnable {
 
 			// if train and test setting, do this only once (first fold is test,
 			// 2nd fold is train)
-			if (setting.equals("test") || setting.equals("testUnlabeled")) {
+			if (setting.equals("test") || setting.equals("applyModel")) {
 				break;
 			}
 
@@ -1001,6 +1027,27 @@ public class Experiment implements Runnable {
 		}
 		w.close();
 	}
+	
+	private void applyModel(String model, Instances data, String crfppDir) throws IOException, InterruptedException {
+		// get CRFPP input files
+		String crfppFileContent = CrfppUtils.getCrfppRepresentation(data, null).toString();
+		PrintWriter w = new PrintWriter(new FileWriter(crfppDir + "/data.csv"));
+		w.print(crfppFileContent.trim());
+		w.close();
+		// run CRF++
+		// apply on test data
+		Process p = Runtime.getRuntime().exec(crfppPath + "/crf_test -m " + "sitent.model "
+				+ crfppDir + "/data.csv");
+		BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		w = new PrintWriter(new FileWriter(crfppDir + "/predictions.csv"));
+		String s;
+		while ((s = stdInput.readLine()) != null) {
+			w.println(s);
+		}
+		p.waitFor();
+		w.close();
+	}
+	
 
 	@SuppressWarnings("rawtypes")
 	/**
@@ -1033,6 +1080,11 @@ public class Experiment implements Runnable {
 		TIMESTAMP_TEXT += "_" + timeStr.split(":")[0] + ":" + timeStr.split(":")[1];
 
 		String EXPERIMENT_DESCRIPTION = root.selectSingleNode("desc").getText();
+		
+		String PRETRAINED_MODEL = null;
+		if (root.selectSingleNode("model") != null) {
+			PRETRAINED_MODEL = root.selectSingleNode("model").getText();
+		}
 
 		// input directory with one ARFF per document.
 		String ARFF_DIR = EXPERIMENT_FOLDER + "/" + root.selectSingleNode("inputArffDir").getText();
@@ -1173,6 +1225,7 @@ public class Experiment implements Runnable {
 			experiment.setTimestampText(TIMESTAMP_TEXT);
 			experiment.setArffDir(ARFF_DIR);
 			experiment.setConfigFile(args[0]);
+			experiment.setPretrainedModel(PRETRAINED_MODEL);
 			experiment.setClassAttribute(CLASS_ATTRIBUTE);
 			experiment.setClassValues(CLASS_VALUES);
 			experiment.setFeaturesUsed(FEATURES_USED);
@@ -1227,7 +1280,7 @@ public class Experiment implements Runnable {
 			log.error("Error copying config file!");
 		}
 
-		// will hold data
+		// will hold data for experiments
 		Instances[] folds = null;
 
 		try {
@@ -1235,11 +1288,11 @@ public class Experiment implements Runnable {
 			case "test":
 				folds = getTrainAndTestFold(arffDir);
 				break;
-			case "testUnlabeled":
-				folds = getTrainAndTestFold(arffDir);
-				break;
 			case "xFold":
 				folds = getFoldsCrossValidationEqual(arffDir, null);
+				break;
+			case "applyModel":
+				folds = getData(arffDir);
 				break;
 			case "genre":
 				folds = getFoldsCrossValidationByGenre(arffDir);
@@ -1254,7 +1307,22 @@ public class Experiment implements Runnable {
 			throw new RuntimeException();
 		}
 
-		if (this.setting.equals("withinGenre")) {
+		if (this.setting.equals("applyModel")) {
+			try {
+				// filter data according to feature configuration
+				folds = prepareData(folds);
+				// create CRFPP representation
+				// TODO: does this match the one used in training?
+				crfppFilesDir = experimentSubDir + "/crfpp";
+				new File(crfppFilesDir).mkdirs();
+				applyModel(pretrainedModel, folds[0], crfppFilesDir);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+		} else if (this.setting.equals("withinGenre")) {
 			// perform one within-genre experiment per genre
 			for (String genre : new String[] { "blog", "email", "letters", "govt-docs", "fiction", "jokes", "journal",
 					"travel", "ficlets", "technical", "news", "essays", "wiki" }) {
@@ -1281,11 +1349,11 @@ public class Experiment implements Runnable {
 			}
 
 			// TODO: write results for the genres into one file
-			// e.g., excute the python script from here
+			// e.g., execute the python script from here
 		}
 
 		else {
-			// test, testUnlabeled, genre, xFold settings
+			// test, genre, xFold settings
 			crfppFilesDir = experimentSubDir + "/crfpp";
 			new File(crfppFilesDir).mkdirs();
 
