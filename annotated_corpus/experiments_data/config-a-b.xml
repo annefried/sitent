@@ -2,11 +2,12 @@
 <experiment>
 
 <!-- descriptive name for folder with results -->
-<desc>dev-a-b</desc>
+<desc>heldout-a-b</desc>
 
 <!-- folder with input ARFF data -->
 <!-- must be relative to the folder that contains this file -->
-<inputArffDir>../processed_arff_split/dev</inputArffDir>
+<inputArffDir>../processed_arff_split</inputArffDir>
+
 
 <!-- Selected per feature group + some manually selected features. -->
 <numFolds>10</numFolds>
@@ -22,9 +23,9 @@ test:   regular test and train setting, folder with ARFFs must contain
 <settings>
     <!--setting>genre</setting-->
     <!--setting>withinGenre</setting-->
-    <setting>xFold</setting>
+    <!--setting>xFold</setting-->
     <!--setting>learningCurve</setting-->
-    <!--setting>test</setting-->
+    <setting>test</setting>
 </settings>
 
 <classAttribute featureName="class_sitent_type">
