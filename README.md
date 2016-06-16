@@ -1,5 +1,11 @@
 # Situation entity type labeling system
 
+---
+```
+UNDER CONSTRUCTION!
+```
+---
+
 This repository contains the code for the system described in:
 
 Annemarie Friedrich, Alexis Palmer and Manfred Pinkal. **Situation entity types: automatic classification of clause-level aspect.** August 2016. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (ACL). Berlin, Germany.
@@ -23,3 +29,9 @@ Americanism	AMBIG
 ```
 
 The results using Celex are about 0.8-2.4% in better in accuracy compared to the results obtained using WebCelex. (On the held-out test set: 74.9% using Celex, 72.5% using WebCelex. Using 10-fold cross validation on the dev set: 76.3% using Celex, 75.5% using WebCelex).
+
+
+
+### Errata
+* The POS features are actually binary per segment, stating whether or not a POS tag occurs in a segment (rather than numeric as the paper says).
+* The linguistic indicator features are numeric; however, CRF++ treats them as strings, which means that they have little impact due to sparsity. Results without using the linguistic indicator features are 75.8% in the 10-fold cross validation on dev, and 73.3% on the test set (vs. 76.3% / 74.9 when using them).
