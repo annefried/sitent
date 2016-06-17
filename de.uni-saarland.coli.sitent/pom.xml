@@ -68,11 +68,6 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 			<version>2.3</version>
 		</dependency>
 		<dependency>
-			<groupId>de.tudarmstadt.ukp.dkpro.statistics</groupId>
-			<artifactId>dkpro-statistics-agreement</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-		<dependency>
 			<groupId>edu.mit</groupId>
 			<artifactId>jwi</artifactId>
 			<version>2.2.3</version>
@@ -132,16 +127,6 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 			<groupId>org.cleartk</groupId>
 			<artifactId>cleartk-timeml</artifactId>
 			<version>2.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -219,6 +204,56 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 							</transformers>
 							<outputFile>
 								${project.build.directory}/${project.artifactId}-${project.version}-experimenter.jar
+							</outputFile>
+						</configuration>
+					</execution>
+					<execution>
+						<id>collectPredictions</id>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<!-- Set the main class of the executable JAR -->
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>sitent.io.AddCrfppPredictions</mainClass>
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>
+										META-INF/org.apache.uima.fit/types.txt
+									</resource>
+								</transformer>
+							</transformers>
+							<outputFile>
+								${project.build.directory}/${project.artifactId}-${project.version}-collectPredictions.jar
+							</outputFile>
+						</configuration>
+					</execution>
+					<execution>
+						<id>xmlWriter</id>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<!-- Set the main class of the executable JAR -->
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>sitent.io.CorpusToCsvWriterAnnotator</mainClass>
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>
+										META-INF/org.apache.uima.fit/types.txt
+									</resource>
+								</transformer>
+							</transformers>
+							<outputFile>
+								${project.build.directory}/${project.artifactId}-${project.version}-xmlWriter.jar
 							</outputFile>
 						</configuration>
 					</execution>

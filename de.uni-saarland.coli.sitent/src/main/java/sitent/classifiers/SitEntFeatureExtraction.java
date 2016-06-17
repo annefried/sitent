@@ -119,7 +119,7 @@ public class SitEntFeatureExtraction {
 					VerbFeaturesAnnotator.PARAM_TENSE_FILE, "resources/tense/tense.txt");
 			AnalysisEngineDescription lingInd = AnalysisEngineFactory.createEngineDescription(
 					LinguisticIndicatorsAnnotator.class, LinguisticIndicatorsAnnotator.PARAM_LING_IND_FILE,
-					"resources/linguistic_indicators/linguistic-indicators-Gigagword-AFE-XIE.csv");
+					"resources/linguistic_indicators/linguistic-indicators-Gigaword-AFE-XIE.csv");
 
 			// add features for classification to the Segment annotations for
 			// the above syntactic-semantic features

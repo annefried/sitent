@@ -20,6 +20,7 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.log4j.Logger;
 
 /**
  * 
@@ -33,12 +34,14 @@ import org.apache.commons.io.FilenameUtils;
 
 public class MakeArffCompatible {
 
+	static Logger log = Logger.getLogger(MakeArffCompatible.class.getName());
+
 	private List<ArffDoc> docs;
 	private Map<String, Set<String>> jointFeatures;
 	private Map<String, String> jointFeatureTypes;
 	private Map<String, String[]> sortedJointFeatures;
 	// joint header string
-	private String header;
+	private StringBuffer header;
 	private Map<String, Integer> featNameToIndex;
 	private Map<Integer, String> featIndextoName;
 	private List<String> featNames;
@@ -90,6 +93,13 @@ public class MakeArffCompatible {
 				if (parts.length < 3) {
 					continue;
 				}
+				// quote feature names
+				if (!featureName.startsWith("\"")) {
+					featureName = "\""
+							+ featureName.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ", "SPACE")
+							+ "\"";
+				}
+
 				if (parts[2].equals("numeric")) {
 					doc.featureType.put(featureName, "numeric");
 				} else if (parts[2].equals("string")) {
@@ -115,9 +125,8 @@ public class MakeArffCompatible {
 	 * @throws IOException
 	 */
 	public void readArffs(String prefix, String inputDir, boolean sparse) throws IOException {
-		System.out.println("Reading ARFFs from directory: " + prefix + "/" + inputDir);
+		log.info("Reading ARFFs from directory: " + prefix + "/" + inputDir);
 		for (String path : new File(prefix + "/" + inputDir).list()) {
-			System.out.println(path);
 			docs.add(readDocument(prefix + "/" + inputDir + "/" + path, sparse, prefix));
 		}
 	}
@@ -148,7 +157,7 @@ public class MakeArffCompatible {
 	 * 
 	 */
 	private void collectJointHeader(String className) {
-		System.out.println("Collecting joint header...");
+		log.info("Collecting joint header... (this may take a while)");
 
 		jointFeatures = new HashMap<String, Set<String>>();
 		jointFeatureTypes = new HashMap<String, String>();
@@ -177,8 +186,10 @@ public class MakeArffCompatible {
 		for (String featName : jointFeatures.keySet()) {
 			List<String> featVals = new LinkedList<String>(jointFeatures.get(featName));
 			Collections.sort(featVals);
-			// put dummy value first
+			// put dummy value first, making sure there is no second dummy value
+			// due to quotation
 			featVals.remove("\"THE-DUMMY-VALUE\"");
+			featVals.remove("THE-DUMMY-VALUE");
 			featVals.add(0, "\"THE-DUMMY-VALUE\"");
 			String[] featValArray = new String[featVals.size()];
 			featVals.toArray(featValArray);
@@ -202,41 +213,41 @@ public class MakeArffCompatible {
 			featIndextoName.put(i, featNames.get(i));
 		}
 
-		System.out.println("... collecting joint header string.");
+		log.info("Done collecting joint header string.");
 
 		// create header string
-		header = "@relation sitent\n";
+		header = new StringBuffer("@relation sitent\n");
 		for (String featName : featNames) {
 			if (featName.equals("\"null\"")) {
 				continue;
 			}
-			// System.out.println(featName);
 			if (jointFeatureTypes.get(featName).equals("numeric")) {
-				header += "@attribute " + featName + " numeric\n";
+				header.append("@attribute " + featName + " numeric\n");
 			} else if (jointFeatureTypes.get(featName).equals("string")) {
-				header += "@attribute " + featName + " string\n";
+				header.append("@attribute " + featName + " string\n");
 			} else {
-				String values = "";
+				StringBuffer values = new StringBuffer("");
 				for (String value : sortedJointFeatures.get(featName)) {
 					if (!value.trim().equals("")) {
-						values += "" + value + ",";
+						values.append(value + ",");
 					}
 				}
-				values = values.substring(0, values.length() - 1);
-				header += "@attribute " + featName + " {" + values + "}\n";
+				values = new StringBuffer(values.substring(0, values.length() - 1));
+				header.append("@attribute " + featName + " {" + values + "}\n");
 			}
 		}
-		header += "\n";
-		System.out.println("Done.");
+		header.append("\n");
+		log.info("Done creating new header string.");
 	}
 
 	private void writeCompatibleArffs(String outputDir, boolean sparse) throws IOException {
 
 		// add one file with all instances
-		//PrintWriter wAll = new PrintWriter(new FileWriter(outputDir + "/allData.arff"));
-		//wAll.println(header);
-		//wAll.println("@data");
-		//System.out.println("opening all writer...");
+		// PrintWriter wAll = new PrintWriter(new FileWriter(outputDir +
+		// "/allData.arff"));
+		// wAll.println(header);
+		// wAll.println("@data");
+		// System.out.println("opening all writer...");
 
 		for (ArffDoc doc : docs) {
 			String[] parts = doc.path.split("/");
@@ -261,7 +272,7 @@ public class MakeArffCompatible {
 					}
 					line = line.substring(0, line.length() - 1);
 					w.println(line);
-					//wAll.println(line);
+					// wAll.println(line);
 				} else {
 					// sparse format
 					String values = "";
@@ -276,14 +287,14 @@ public class MakeArffCompatible {
 					}
 					String line = "{" + values.substring(0, values.length() - 2) + "}";
 					w.println(line);
-//					wAll.println(line);
-//					wAll.flush();
+					// wAll.println(line);
+					// wAll.flush();
 				}
 			}
 
 			w.close();
 		}
-//		wAll.close();
+		// wAll.close();
 	}
 
 	public static void main(String[] args) {
@@ -315,8 +326,8 @@ public class MakeArffCompatible {
 			// if input directory has subdirectories, process them all
 			// assumes only one level of subdirs!
 			File inputFile = new File(inputDir);
-			System.out.println("input directory: " + inputFile);
-			System.out.println("is dir? " + inputFile.isDirectory());
+			log.info("input directory: " + inputFile);
+			log.info("is dir? " + inputFile.isDirectory());
 
 			String[] inputDirs = null;
 			// are there subdirectories?
@@ -327,7 +338,7 @@ public class MakeArffCompatible {
 					break;
 				}
 			}
-			System.out.println("subdirs? " + subDirs);
+			log.info("subdirs? " + subDirs);
 
 			if (subDirs) {
 				inputDirs = inputFile.list();
@@ -346,14 +357,16 @@ public class MakeArffCompatible {
 				}
 				// create the matching output directories
 				File outDir = new File(outputDir);
-				//File outDir = new File(outputDir + "/" + id);
 				if (outDir.exists()) {
 					outDir.delete();
 				}
 				outDir.mkdirs();
 			}
+			log.info("now starting to collect the joint header.");
 			mac.collectJointHeader(classAttribute);
+			log.info("done collecting joint header.");
 			mac.writeCompatibleArffs(outputDir, sparse);
+			log.info("done writing ARFFs");
 
 		} catch (ParseException e) {
 			e.printStackTrace();

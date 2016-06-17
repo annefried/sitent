@@ -1,6 +1,7 @@
 package sitent.classifiers;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -72,6 +73,10 @@ public class Experiment implements Runnable {
 	private String configFile;
 	// path to pre-trained model (optional)
 	private String pretrainedModel;
+	// for processing unlabeled data: need to map to features used when training
+	// the model
+	private String trainDataArff = null;
+	private String pretrainedModelType = null;
 
 	// info on class attribute
 	private String classAttribute;
@@ -110,14 +115,21 @@ public class Experiment implements Runnable {
 		this.experimentFolder = experimentFolder;
 	}
 
+	public void setTrainDataArff(String trainDataArff) {
+		this.trainDataArff = trainDataArff;
+	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public void setPretrainedModel(String pretrainedModel) {
 		this.pretrainedModel = pretrainedModel;
 	}
-	
+
+	public void setPretrainedModelType(String pretrainedModelType) {
+		this.pretrainedModelType = pretrainedModelType;
+	}
 
 	public void setTimestampText(String timestampText) {
 		this.timestampText = timestampText;
@@ -306,6 +318,7 @@ public class Experiment implements Runnable {
 	 */
 	private Instances[] getData(String arffDir) throws IOException {
 		Instances data = null;
+		log.info("Reading arffs from directory: " + arffDir);
 		for (String inputFile : new File(arffDir).list()) {
 			BufferedReader reader = new BufferedReader(new FileReader(arffDir + "/" + inputFile));
 			Instances fileData = new Instances(reader);
@@ -334,10 +347,8 @@ public class Experiment implements Runnable {
 		Instances[] folds = new Instances[2];
 
 		for (String inputFile : new File(arffDir + "/test").list()) {
-			System.out.println("test file: " + arffDir + "/test/" + inputFile);
 			BufferedReader reader = new BufferedReader(new FileReader(arffDir + "/test/" + inputFile));
 			Instances data = new Instances(reader);
-			System.out.println(data.numInstances());
 			reader.close();
 			if (folds[0] == null) {
 				folds[0] = data;
@@ -384,8 +395,20 @@ public class Experiment implements Runnable {
 		log.info(setting + "\t" + "Setting class attribute and filtering instances...");
 		log.info(setting + "\t" + "number of attributes at beginning: " + data[0].numAttributes());
 
-		log.info(setting + "\t" + "size of class values" + classValues.length);
+		log.info(setting + "\t" + "size of class values " + classValues.length);
 		log.info(setting + "\t" + "Number of folds: " + data.length);
+
+		// for applyModel case: read in arff used for training model
+		Set<String> keepFeatures = new HashSet<String>();
+		if (setting.equals("applyModel")) {
+			System.out.println("Working Directory = " + System.getProperty("user.dir"));
+			BufferedReader reader = new BufferedReader(new FileReader(trainDataArff));
+			Instances keepFeaturesInst = new Instances(reader);
+			log.info(setting + "\tattributes in training: " + keepFeaturesInst.numAttributes());
+			for (int a = 0; a < keepFeaturesInst.numAttributes(); a++) {
+				keepFeatures.add(keepFeaturesInst.attribute(a).name());
+			}
+		}
 
 		List<Integer> indicesToRemove;
 		int[] indices;
@@ -418,47 +441,58 @@ public class Experiment implements Runnable {
 		indicesToRemove = new LinkedList<Integer>();
 		for (int i = 0; i < data[0].numAttributes(); i++) {
 			String attrName = data[0].attribute(i).name();
-			if (attrName.equals(classAttribute)) {
-				continue;
-			} else if (!featuresUsed.contains(attrName)) {
-				boolean matchFound = false;
-				for (String pattern : featuresUsed) {
-					if (attrName.matches(pattern)) {
-						matchFound = true;
-						break;
-
-					}
-				}
-				for (String pattern : featuresExcluded) {
-					if (attrName.matches(pattern)) {
-						matchFound = false;
-						break;
-					}
-				}
-				if (!matchFound) {
+			// in applyModel case, keep exactly the features that the training
+			// data had
+			if (setting.equals("applyModel")) {
+				if (!keepFeatures.contains(attrName)) {
+					log.debug("Removing (keepFeatures version): " + attrName);
 					indicesToRemove.add(i);
 				}
+			}
 
-				// additionally remove infrequently occuring features and
-				// features that occur only with the same value within any fold
-				// (that do not occur in a fold)
-				else {
-					// is there a minimum occurrence constraint?
-					Integer configuredMinOccurrence = null;
-					for (String key : featuresMinimumOccurrences.keySet()) {
-						if (attrName.matches(key)) {
-							configuredMinOccurrence = featuresMinimumOccurrences.get(key);
+			else {
+				if (attrName.equals(classAttribute)) {
+					continue;
+				} else if (!featuresUsed.contains(attrName)) {
+					boolean matchFound = false;
+					for (String pattern : featuresUsed) {
+						if (attrName.matches(pattern)) {
+							matchFound = true;
+							break;
+
 						}
 					}
-					if (configuredMinOccurrence != null) {
-						if (!ClassificationUtils.frequencyHigherEqualThan(data, data[0].attribute(i),
-								configuredMinOccurrence)) {
-							indicesToRemove.add(i);
-							log.info("Removing: " + attrName);
+					for (String pattern : featuresExcluded) {
+						if (attrName.matches(pattern)) {
+							matchFound = false;
+							break;
+						}
+					}
+					if (!matchFound) {
+						indicesToRemove.add(i);
+					}
+
+					// additionally remove infrequently occuring features and
+					// features that occur only with the same value within any
+					// fold
+					// (that do not occur in a fold)
+					else {
+						// is there a minimum occurrence constraint?
+						Integer configuredMinOccurrence = null;
+						for (String key : featuresMinimumOccurrences.keySet()) {
+							if (attrName.matches(key)) {
+								configuredMinOccurrence = featuresMinimumOccurrences.get(key);
+							}
+						}
+						if (configuredMinOccurrence != null) {
+							if (!ClassificationUtils.frequencyHigherEqualThan(data, data[0].attribute(i),
+									configuredMinOccurrence)) {
+								indicesToRemove.add(i);
+								log.info("Removing: " + attrName);
+							}
 						}
 					}
 				}
-
 			}
 		}
 		indices = new int[indicesToRemove.size()];
@@ -503,14 +537,16 @@ public class Experiment implements Runnable {
 			data = WekaUtils.removeWithValues(data, classAttribute, valuesToBeFilteredArray);
 		} else {
 			// remove instances only from train fold.
-			Instances[] dataTemp = new Instances[1];
-			dataTemp[0] = data[1];
-			dataTemp = WekaUtils.removeWithValues(dataTemp, classAttribute, valuesToBeFilteredArray);
-			data[1] = dataTemp[0];
+			// new version: there is no train fold
+			// Instances[] dataTemp = new Instances[1];
+			// dataTemp[0] = data[1];
+			// dataTemp = WekaUtils.removeWithValues(dataTemp, classAttribute,
+			// valuesToBeFilteredArray);
+			// data[1] = dataTemp[0];
 		}
 
 		// change class attribute if given
-		System.out.println("updated class attribute: " + updatedClassAttribute);
+		log.debug("updated class attribute: " + updatedClassAttribute);
 		if (updatedClassAttribute != null) {
 
 			// index of original class attribute
@@ -599,26 +635,51 @@ public class Experiment implements Runnable {
 		// }
 
 		// print out the attributes actually used
-		log.info("Using the following features:");
-		for (int i = 0; i < data[0].numAttributes(); i++) {
-			log.info("> " + data[0].attribute(i).name());
-			if (i == data[0].classIndex()) {
-				log.info("<< this is the class attribute");
+		// log.info("Using the following features:");
+		// for (int i = 0; i < data[0].numAttributes(); i++) {
+		// log.info("> " + data[0].attribute(i).name());
+		// if (i == data[0].classIndex()) {
+		// log.info("<< this is the class attribute");
+		// }
+		// }
+
+		// write out (filtered) ARFF data for debugging
+		if (!setting.equals("applyModel")) {
+			for (int i = 0; i < data.length; i++) {
+				File folder = new File(experimentFolder + "/data_filtered");
+				if (folder.exists()) {
+					folder.delete();
+				}
+				folder.mkdirs();
+				PrintWriter w = new PrintWriter(new FileWriter(experimentFolder + "/data_filtered/" + i + ".arff"));
+				w.println("@relation sitent");
+				for (int a = 0; a < data[i].numAttributes(); a++) {
+					String featName = "\"" + data[i].attribute(a).name().replaceAll("\"|``", "QUOTE")
+							.replaceAll(",", "COMMA").replaceAll(" ", "SPACE") + "\"";
+					if (data[i].attribute(a).isNumeric()) {
+						w.println("@attribute " + featName + " numeric");
+					}
+					if (data[i].attribute(a).isString()) {
+						w.println("@attribute " + featName + " string");
+					}
+					if (data[i].attribute(a).isNominal()) {
+						// feature values already escaped?
+						StringBuffer line = new StringBuffer("@attribute " + featName + " {");
+						for (int v = 0; v < data[i].attribute(a).numValues(); v++) {
+							line.append("\"" + data[i].attribute(a).value(v) + "\"");
+							if (v < data[i].attribute(a).numValues() - 1) {
+								line.append(",");
+							}
+						}
+						line.append("}");
+						w.println(line);
+					}
+				}
+				w.println("");
+				w.println("@data");
+				w.close();
 			}
 		}
-
-		// // write out data for debugging
-		// for (int i = 0; i < data.length; i++) {
-		// File folder = new File(experimentFolder + "/temp-data");
-		// if (folder.exists()) {
-		// folder.delete();
-		// }
-		// folder.mkdirs();
-		// BufferedWriter w = new BufferedWriter(new FileWriter(experimentFolder
-		// + "/temp-data/" + i + ".arff"));
-		// w.write(data[i].toString());
-		// w.close();
-		// }
 
 		return data;
 	}
@@ -638,9 +699,9 @@ public class Experiment implements Runnable {
 			throws Exception {
 
 		// this was just used for pipeline experiments
-//		if (this.wekaClassifierType.equals("J48")) {
-//			crfppDir = null;
-//		}
+		// if (this.wekaClassifierType.equals("J48")) {
+		// crfppDir = null;
+		// }
 
 		log.info(setting + "\t" + "Performing cross validation... " + setting);
 
@@ -761,6 +822,8 @@ public class Experiment implements Runnable {
 
 			// using Weka
 			classifier.buildClassifier(train);
+			// write to file
+			weka.core.SerializationHelper.write(experimentFolder + "/weka.model", classifier);
 			eval.evaluateModel(classifier, test);
 
 			if (predictionsPath != null) {
@@ -917,8 +980,8 @@ public class Experiment implements Runnable {
 	 * @param w
 	 * @throws IOException
 	 */
-	private void evaluateCrfpp(String crfppDir, String[] classValues, PrintWriter w) throws IOException {
-		log.info(setting + "\t" + "Evaluating CRF++ results...");
+	private static void evaluateCrfpp(String crfppDir, String[] classValues, PrintWriter w) throws IOException {
+		// log.info(setting + "\t" + "Evaluating CRF++ results...");
 		w.println("\n\nCRF++ results");
 
 		Map<String, Map<String, Integer>> confMatrix = new HashMap<String, Map<String, Integer>>();
@@ -956,8 +1019,8 @@ public class Experiment implements Runnable {
 			r.close();
 		}
 
-		log.info(setting + "\t" + "Accuracy CRF++: " + totalCorrect / total);
-		log.info(setting + "\t" + "Number of instances: " + total);
+		// log.info(setting + "\t" + "Accuracy CRF++: " + totalCorrect / total);
+		// log.info(setting + "\t" + "Number of instances: " + total);
 		if (w != null) {
 			w.println("Accuracy CRF++: " + totalCorrect / total);
 			w.println("Number of instances: " + total);
@@ -1027,27 +1090,37 @@ public class Experiment implements Runnable {
 		}
 		w.close();
 	}
-	
+
 	private void applyModel(String model, Instances data, String crfppDir) throws IOException, InterruptedException {
-		// get CRFPP input files
-		String crfppFileContent = CrfppUtils.getCrfppRepresentation(data, null).toString();
-		PrintWriter w = new PrintWriter(new FileWriter(crfppDir + "/data.csv"));
-		w.print(crfppFileContent.trim());
-		w.close();
-		// run CRF++
-		// apply on test data
-		Process p = Runtime.getRuntime().exec(crfppPath + "/crf_test -m " + "sitent.model "
-				+ crfppDir + "/data.csv");
-		BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-		w = new PrintWriter(new FileWriter(crfppDir + "/predictions.csv"));
-		String s;
-		while ((s = stdInput.readLine()) != null) {
-			w.println(s);
+		log.info("Applying model on unlabeled data ..." + data.numAttributes());
+		if (pretrainedModelType.equals("crfpp")) {
+			log.info("CRF++ model ...");
+			// get CRFPP input files
+			String crfppFileContent = CrfppUtils.getCrfppRepresentation(data, null).toString();
+			PrintWriter w = new PrintWriter(new FileWriter(crfppDir + "/data.csv"));
+			w.print(crfppFileContent.trim());
+			w.close();
+			// run CRF++
+			// apply on test data
+			log.info("Now running CRFPP using pretrained model: " + pretrainedModel);
+			log.info(crfppPath + "/crf_test -m " + pretrainedModel + " " + crfppDir + "/data.csv");
+			Process p = Runtime.getRuntime()
+					.exec(crfppPath + "/crf_test -m " + pretrainedModel + " " + crfppDir + "/data.csv");
+			BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String s = null;
+			w = new PrintWriter(new FileWriter(crfppDir + "/predictions.csv"));
+			while ((s = stdInput.readLine()) != null) {
+				w.println(s);
+			}
+			p.waitFor();
+			w.close();
+			log.info("Done running CRFPP.");
 		}
-		p.waitFor();
-		w.close();
+		else if (pretrainedModelType.equals("weka")) {
+			// TODO
+		}
+
 	}
-	
 
 	@SuppressWarnings("rawtypes")
 	/**
@@ -1059,40 +1132,55 @@ public class Experiment implements Runnable {
 	 */
 	public static void main(String[] args) throws Exception {
 
-		log.info("Reading experiment(s) configuration from: " + args[0]);
+		// config file
+		String configFile = args[0];
+
+		// path to installation of CRFPP
+		String CRFPP_INSTALLATION_DIR = args[1];
+
+		// String crfppDir =
+		// "/proj/anne-phd/situation_entities/git_repo/sitent/annotated_corpus/experiments_data/2016-06-16_16:48_dev-celex-binnedLingInd_xFold/crfpp";
+		// String[] classValues = new String[] { "EVENT", "STATE",
+		// "GENERIC_SENTENCE", "REPORT", "GENERALIZING_SENTENCE",
+		// "IMPERATIVE", "QUESTION" };
+		// PrintWriter w = new PrintWriter(new FileWriter(
+		// "/proj/anne-phd/situation_entities/git_repo/sitent/annotated_corpus/experiments_data/2016-06-16_16:48_dev-celex-binnedLingInd_xFold/results.txt"));
+		// evaluateCrfpp(crfppDir, classValues, w);
+		// w.close();
+
+		log.info("Reading experiment(s) configuration from: " + configFile);
 
 		// Read configuration for experiments.
-		File fXmlFile = new File(args[0]);
+		File fXmlFile = new File(configFile);
 		SAXReader reader = new SAXReader();
 		Document doc = reader.read(fXmlFile);
 		Element root = doc.getRootElement();
 
-		// parent directory for experiments
-		String EXPERIMENT_FOLDER = new File(args[0]).getParent();
-		log.info("Experiments running in folder: " + EXPERIMENT_FOLDER);
+		// experiment / labeling setting
+		Node settingNode = root.selectSingleNode("setting");
+		String SETTING = settingNode.getText();
+		log.info("Will run setting: " + SETTING);
 
-		// timestamp to be used for folders of this experiment
-		Date date = new Date();
-		Timestamp timestamp = new Timestamp(date.getTime());
-		String timeStampString = timestamp.toString();
-		String TIMESTAMP_TEXT = timeStampString.split(" ")[0];
-		String timeStr = timeStampString.split(" ")[1];
-		TIMESTAMP_TEXT += "_" + timeStr.split(":")[0] + ":" + timeStr.split(":")[1];
+		// parent directory for experiments (when the config file is in some
+		// subdirectory)
+		String EXPERIMENT_FOLDER = new File(args[0]).getParent();
+		log.info("Experiment folder: " + EXPERIMENT_FOLDER);
 
 		String EXPERIMENT_DESCRIPTION = root.selectSingleNode("desc").getText();
-		
+		String TIMESTAMP_TEXT = null;
+		String ARFF_DIR = null;
+		int NUM_FOLDS = 0;
+		String UPDATED_CLASS_ATTRIBUTE = null;
+		String[] UPDATED_CLASS_VALUES = null;
+		Set<String> FEATURES_USED = null;
+		Map<String, Integer> FEATURES_MIN_OCCURRENCES = null;
+		Set<String> FEATURES_EXCLUDED = null;
+		Double TRAIN_SAMPLE_FACTOR = null;
+		String USE_BIGRAM_FEATURES = null;
 		String PRETRAINED_MODEL = null;
-		if (root.selectSingleNode("model") != null) {
-			PRETRAINED_MODEL = root.selectSingleNode("model").getText();
-		}
-
-		// input directory with one ARFF per document.
-		String ARFF_DIR = EXPERIMENT_FOLDER + "/" + root.selectSingleNode("inputArffDir").getText();
-		log.info("ARFF data in: " + ARFF_DIR);
-
-		// number of folds, applies for xFold or withinGenre setting
-		int NUM_FOLDS = Integer.parseInt(root.selectSingleNode("numFolds").getText());
-		log.info("Number of folds: " + NUM_FOLDS);
+		String TRAIN_FEATURE_CONFIG = null;
+		String PRETRAINED_MODEL_TYPE = null;
+		String WEKA_CLASSIFIER = null;
 
 		// class attribute: classification / sequence labeling task executed for
 		// this feature
@@ -1112,135 +1200,148 @@ public class Experiment implements Runnable {
 			log.info("- class value: " + classVals.get(i));
 		}
 
-		// possibly updating class attribute, e.g. mapping to something else
-		List<String> updatedClassVals = new LinkedList<String>();
-		String UPDATED_CLASS_ATTRIBUTE = null;
-		String[] UPDATED_CLASS_VALUES = null;
-		Element updatedValNodes = (Element) root.selectSingleNode("updatedClassAttribute");
-		if (updatedValNodes != null) {
-			for (Iterator i = updatedValNodes.elementIterator("value"); i.hasNext();) {
-				Element foo = (Element) i.next();
-				updatedClassVals.add(foo.getText());
-			}
-			UPDATED_CLASS_VALUES = new String[updatedClassVals.size()];
-			for (int i = 0; i < updatedClassVals.size(); i++) {
-				UPDATED_CLASS_VALUES[i] = updatedClassVals.get(i);
-				System.out.println("- updated class value: " + updatedClassVals.get(i));
-			}
-			UPDATED_CLASS_ATTRIBUTE = root.selectSingleNode("updatedClassAttribute/@featureName").getText();
-		}
+		if (!SETTING.equals("applyModel")) {
+			// an actual experiment
+			// timestamp to be used for folders of this experiment
+			Date date = new Date();
+			Timestamp timestamp = new Timestamp(date.getTime());
+			String timeStampString = timestamp.toString();
+			TIMESTAMP_TEXT = timeStampString.split(" ")[0];
+			String timeStr = timeStampString.split(" ")[1];
+			TIMESTAMP_TEXT += "_" + timeStr.split(":")[0] + ":" + timeStr.split(":")[1];
 
-		// Use all the features configured in FEATURES_USED, but exclude the
-		// ones that additionally match FEATURES_EXCLUDED. NodeList
-		// featNodes
-		Set<String> FEATURES_USED = new HashSet<String>();
-		Map<String, Integer> FEATURES_MIN_OCCURRENCES = new HashMap<String, Integer>();
-		Set<String> FEATURES_EXCLUDED = new HashSet<String>();
-		Element featPatternNode = (Element) root.selectSingleNode("featurePatterns");
-		for (Iterator i = featPatternNode.elementIterator("feature"); i.hasNext();) {
-			Node pattern = (Node) i.next();
-			if (pattern.selectSingleNode("@used") != null
-					&& pattern.selectSingleNode("@used").getStringValue().equals("false")) {
-				String patternText = pattern.getText();
-				if (!patternText.endsWith(".*")) {
-					patternText = "\\Q" + patternText + "\\E";
+			// input directory with one ARFF per document.
+			ARFF_DIR = EXPERIMENT_FOLDER + "/" + root.selectSingleNode("inputArffDir").getText();
+			log.info("ARFF data in: " + ARFF_DIR);
+
+			// number of folds, applies for xFold or withinGenre setting
+			if (root.selectSingleNode("numFolds") != null) {
+				NUM_FOLDS = Integer.parseInt(root.selectSingleNode("numFolds").getText());
+				log.info("Number of folds: " + NUM_FOLDS);
+			}
+
+			// possibly updating class attribute, e.g. mapping to something else
+			List<String> updatedClassVals = new LinkedList<String>();
+			Element updatedValNodes = (Element) root.selectSingleNode("updatedClassAttribute");
+			if (updatedValNodes != null) {
+				for (Iterator i = updatedValNodes.elementIterator("value"); i.hasNext();) {
+					Element foo = (Element) i.next();
+					updatedClassVals.add(foo.getText());
 				}
-				FEATURES_EXCLUDED.add(patternText);
-			} else {
-				// assume being used as the default
-				String patternText = pattern.getText();
-				if (!patternText.endsWith(".*")) {
-					patternText = "\\Q" + patternText + "\\E";
+				UPDATED_CLASS_VALUES = new String[updatedClassVals.size()];
+				for (int i = 0; i < updatedClassVals.size(); i++) {
+					UPDATED_CLASS_VALUES[i] = updatedClassVals.get(i);
+					System.out.println("- updated class value: " + updatedClassVals.get(i));
 				}
-				FEATURES_USED.add(patternText);
+				UPDATED_CLASS_ATTRIBUTE = root.selectSingleNode("updatedClassAttribute/@featureName").getText();
 			}
-			if (pattern.selectSingleNode("@min") != null) {
-				try {
-					Integer minimumOccurrences = Integer.parseInt(pattern.selectSingleNode("@min").getText());
-					FEATURES_MIN_OCCURRENCES.put(pattern.getText(), minimumOccurrences);
-				} catch (NumberFormatException e) {
-					log.error("Minimum number of occurrences of feature must be an integer!");
-					log.error("Error trying to get minimum for feature: " + pattern.getText());
-					System.err.println("Minimum number of occurrences of feature must be an integer!");
-					System.err.println("Error trying to get minimum for feature: " + pattern.getText());
-					throw new RuntimeException();
+
+			// Weka classifier for comparison
+			WEKA_CLASSIFIER = root.selectSingleNode("wekaClassifier").getText();
+			log.info("Weka classifier to be run: " + WEKA_CLASSIFIER);
+
+			// Use all the features configured in FEATURES_USED, but exclude the
+			// ones that additionally match FEATURES_EXCLUDED. NodeList
+			// featNodes
+
+			FEATURES_USED = new HashSet<String>();
+			FEATURES_MIN_OCCURRENCES = new HashMap<String, Integer>();
+			FEATURES_EXCLUDED = new HashSet<String>();
+			Element featPatternNode = (Element) root.selectSingleNode("featurePatterns");
+			for (Iterator i = featPatternNode.elementIterator("feature"); i.hasNext();) {
+				Node pattern = (Node) i.next();
+				if (pattern.selectSingleNode("@used") != null
+						&& pattern.selectSingleNode("@used").getStringValue().equals("false")) {
+					String patternText = pattern.getText();
+					if (!patternText.endsWith(".*")) {
+						patternText = "\\Q" + patternText + "\\E";
+					}
+					FEATURES_EXCLUDED.add(patternText);
+				} else {
+					// assume being used as the default
+					String patternText = pattern.getText();
+					if (!patternText.endsWith(".*")) {
+						patternText = "\\Q" + patternText + "\\E";
+					}
+					FEATURES_USED.add(patternText);
+				}
+				if (pattern.selectSingleNode("@min") != null) {
+					try {
+						Integer minimumOccurrences = Integer.parseInt(pattern.selectSingleNode("@min").getText());
+						FEATURES_MIN_OCCURRENCES.put(pattern.getText(), minimumOccurrences);
+					} catch (NumberFormatException e) {
+						log.error("Minimum number of occurrences of feature must be an integer!");
+						log.error("Error trying to get minimum for feature: " + pattern.getText());
+						System.err.println("Minimum number of occurrences of feature must be an integer!");
+						System.err.println("Error trying to get minimum for feature: " + pattern.getText());
+						throw new RuntimeException();
+					}
 				}
 			}
-		}
 
-		// whether or not to use bigram features in CRF, values are true, false
-		// or gold.
-		String USE_BIGRAM_FEATURES = root.selectSingleNode("bigramFeature/@used").getStringValue();
-		if (Boolean.parseBoolean(root.selectSingleNode("bigramFeature/@gold").getStringValue())) {
-			USE_BIGRAM_FEATURES = "gold";
-		}
-		log.info("Using bigram features: " + USE_BIGRAM_FEATURES);
-
-		// downsampling training data?
-		Node trainSampleNode = root.selectSingleNode("trainSampleFactor");
-		Double TRAIN_SAMPLE_FACTOR = null;
-		if (trainSampleNode != null) {
-			TRAIN_SAMPLE_FACTOR = Double.parseDouble(trainSampleNode.getText());
-		}
-		log.info("Train sample factor: " + TRAIN_SAMPLE_FACTOR);
-
-		// Weka classifier for comparison
-		String WEKA_CLASSIFIER = root.selectSingleNode("wekaClassifier").getText();
-		log.info("Weka classifier to be run: " + WEKA_CLASSIFIER);
-
-		// updating the class attribute?
-		if (UPDATED_CLASS_ATTRIBUTE != null) {
-			String[] newClassVals = new String[UPDATED_CLASS_VALUES.length + 1];
-			for (int i = 0; i < UPDATED_CLASS_VALUES.length; i++) {
-				newClassVals[i] = UPDATED_CLASS_VALUES[i];
+			// whether or not to use bigram features in CRF, values are true,
+			// false
+			// or gold.
+			USE_BIGRAM_FEATURES = root.selectSingleNode("bigramFeature/@used").getStringValue();
+			if (Boolean.parseBoolean(root.selectSingleNode("bigramFeature/@gold").getStringValue())) {
+				USE_BIGRAM_FEATURES = "gold";
 			}
-			newClassVals[UPDATED_CLASS_VALUES.length] = "OTHER";
-			UPDATED_CLASS_VALUES = newClassVals;
+			log.info("Using bigram features: " + USE_BIGRAM_FEATURES);
+
+			// downsampling training data?
+			Node trainSampleNode = root.selectSingleNode("trainSampleFactor");
+
+			if (trainSampleNode != null) {
+				TRAIN_SAMPLE_FACTOR = Double.parseDouble(trainSampleNode.getText());
+			}
+			log.info("Train sample factor: " + TRAIN_SAMPLE_FACTOR);
+
+			// updating the class attribute?
+			if (UPDATED_CLASS_ATTRIBUTE != null) {
+				String[] newClassVals = new String[UPDATED_CLASS_VALUES.length + 1];
+				for (int i = 0; i < UPDATED_CLASS_VALUES.length; i++) {
+					newClassVals[i] = UPDATED_CLASS_VALUES[i];
+				}
+				newClassVals[UPDATED_CLASS_VALUES.length] = "OTHER";
+				UPDATED_CLASS_VALUES = newClassVals;
+			}
+
+		} else {
+			// applying a pre-trained model on some unlabeled data
+			Node pretrainedModelNode = root.selectSingleNode("model");
+			PRETRAINED_MODEL = pretrainedModelNode.getText();
+			Node featuresNode = root.selectSingleNode("features");
+			TRAIN_FEATURE_CONFIG = featuresNode.getText();
+			PRETRAINED_MODEL_TYPE = root.selectSingleNode("model/@type").getStringValue();
+			ARFF_DIR = EXPERIMENT_FOLDER + "/temp/processed_arff_compatible";
 		}
 
-		// cross validation settings are going to be executed
-		Set<String> EXPERIMENT_SETTINGS = new HashSet<String>();
-		Node settingsNode = root.selectSingleNode("settings");
-		@SuppressWarnings("unchecked")
-		List<Node> settingsNodes = (List<Node>) settingsNode.selectNodes("setting");
-		for (Node setting : settingsNodes) {
-			EXPERIMENT_SETTINGS.add(setting.getText());
-			log.info("will run setting: " + setting.getText());
-		}
-
-		// double trainDocsPercentage = 1.0;
-		// if (crossValidationSettings.contains("genreSelected")) {
-		// trainDocsPercentage =
-		// Double.parseDouble(root.selectSingleNode("trainDocsPercentage").getText());
-		// }
-
-		// path to installation of CRFPP
-		String CRFPP_INSTALLATION_DIR = args[1];// root.selectSingleNode("crfpp").getText();
-
-		for (String SETTING : EXPERIMENT_SETTINGS) {
-			Experiment experiment = new Experiment();
-			experiment.setSetting(SETTING);
-			experiment.setExperimentFolder(EXPERIMENT_FOLDER);
-			experiment.setDescription(EXPERIMENT_DESCRIPTION);
-			experiment.setTimestampText(TIMESTAMP_TEXT);
-			experiment.setArffDir(ARFF_DIR);
-			experiment.setConfigFile(args[0]);
-			experiment.setPretrainedModel(PRETRAINED_MODEL);
-			experiment.setClassAttribute(CLASS_ATTRIBUTE);
-			experiment.setClassValues(CLASS_VALUES);
-			experiment.setFeaturesUsed(FEATURES_USED);
-			experiment.setFeaturesExcluded(FEATURES_EXCLUDED);
-			experiment.setFeaturesMinimumOccurrences(FEATURES_MIN_OCCURRENCES);
-			experiment.setClassifierType(WEKA_CLASSIFIER);
-			experiment.setNumFolds(NUM_FOLDS);
-			experiment.setUseBigramFeatures(USE_BIGRAM_FEATURES);
-			experiment.setTrainSampleFactor(TRAIN_SAMPLE_FACTOR);
-			experiment.setCrfppPath(CRFPP_INSTALLATION_DIR);
-			experiment.setUpdatedClassAttribute(UPDATED_CLASS_ATTRIBUTE);
-			experiment.setUpdatedClassValues(UPDATED_CLASS_VALUES);
-			// start this experiment thread
-			(new Thread(experiment)).start();
-		}
+		log.info("Experiments running in folder: " + EXPERIMENT_FOLDER);
+		// start the experiment / labeling
+		Experiment experiment = new Experiment();
+		experiment.setSetting(SETTING);
+		experiment.setExperimentFolder(EXPERIMENT_FOLDER);
+		experiment.setDescription(EXPERIMENT_DESCRIPTION);
+		experiment.setTimestampText(TIMESTAMP_TEXT);
+		experiment.setArffDir(ARFF_DIR);
+		experiment.setConfigFile(configFile);
+		experiment.setPretrainedModel(PRETRAINED_MODEL);
+		experiment.setPretrainedModelType(PRETRAINED_MODEL_TYPE);
+		experiment.setTrainDataArff(TRAIN_FEATURE_CONFIG);
+		experiment.setClassAttribute(CLASS_ATTRIBUTE);
+		experiment.setClassValues(CLASS_VALUES);
+		experiment.setFeaturesUsed(FEATURES_USED);
+		experiment.setFeaturesExcluded(FEATURES_EXCLUDED);
+		experiment.setFeaturesMinimumOccurrences(FEATURES_MIN_OCCURRENCES);
+		experiment.setClassifierType(WEKA_CLASSIFIER);
+		experiment.setNumFolds(NUM_FOLDS);
+		experiment.setUseBigramFeatures(USE_BIGRAM_FEATURES);
+		experiment.setTrainSampleFactor(TRAIN_SAMPLE_FACTOR);
+		experiment.setCrfppPath(CRFPP_INSTALLATION_DIR);
+		experiment.setUpdatedClassAttribute(UPDATED_CLASS_ATTRIBUTE);
+		experiment.setUpdatedClassValues(UPDATED_CLASS_VALUES);
+		// start this experiment thread
+		(new Thread(experiment)).start();
 	}
 
 	// randomly remove instances of one document
@@ -1264,7 +1365,13 @@ public class Experiment implements Runnable {
 		log.info("STARTING AN EXPERIMENT THREAD with setting: " + setting);
 
 		experimentSubDir = experimentFolder + "/" + timestampText + "_" + description + "_" + setting;
-		if (this.trainSampleFactor != 100.0) {
+		if (this.setting.equals("applyModel")) {
+			// don't use timestamp, just use the configured name.
+			// (To be able to find the predictions later on)
+			experimentSubDir = experimentFolder + "/" + classAttribute;
+		}
+
+		if (this.trainSampleFactor != null && this.trainSampleFactor != 100.0) {
 			experimentSubDir += "_sample:" + this.trainSampleFactor;
 		}
 
@@ -1310,18 +1417,19 @@ public class Experiment implements Runnable {
 		if (this.setting.equals("applyModel")) {
 			try {
 				// filter data according to feature configuration
+				log.info("Number of attributes in ARFF: " + folds[0].numAttributes());
 				folds = prepareData(folds);
+				log.info("after filtering: " + folds[0].numAttributes());
 				// create CRFPP representation
 				// TODO: does this match the one used in training?
 				crfppFilesDir = experimentSubDir + "/crfpp";
 				new File(crfppFilesDir).mkdirs();
 				applyModel(pretrainedModel, folds[0], crfppFilesDir);
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			
+
 		} else if (this.setting.equals("withinGenre")) {
 			// perform one within-genre experiment per genre
 			for (String genre : new String[] { "blog", "email", "letters", "govt-docs", "fiction", "jokes", "journal",
