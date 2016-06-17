@@ -1,11 +1,5 @@
 #!/bin/bash
 
-export LANG=en_US.utf8
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
-
-# the directory where the code is run
-cd /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent
-
 ###########################################
 # Situation Entity Types labeling system  #
 ###########################################
@@ -13,63 +7,107 @@ cd /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent
 # This script runs a pre-trained version of our system on the data of your choice.
 # The system has been trained with the dev portion as described in the ACL 2016 paper.
 
-# Should output at least version 8.
+# Annemarie Friedrich, Alexis Palmer and Manfred Pinkal. Situation entity types:
+# automatic classification of clause-level aspect. August 2016. In Proceedings of the
+# 54th Annual Meeting of the Association for Computational Linguistics (ACL). Berlin,
+# Germany.
+
+# You need at least Java version 8.
 java -version
 
 # In addition, you need to install CRF++: https://taku910.github.io/crfpp/
 # !! Adapt the path to your installation below.
+CRFPP_INSTALL_DIR=/proj/anne-phd/software/CRF++-0.58-fixed  #TODO: command line argument
+
+# By default, WebCelex countability features are used.
+# Substitute this path with the path to your Celex countability file
+# if you have the license and want to use Celex instead.
+COUNTABILITY_PATH=resources/countability/webcelex_countabilityNouns.txt
+
+# If you are using Celex, adapt the path belwo and modify the paths to the models and
+# train-header ARFFs in the config files of all 4 tasks: simply change "webCelex"
+# in the filenames to "celex". (See also the filenames in the models directory.)
+#COUNTABILITY_PATH=my-resources/countability/celex_countabilityNouns.txt
+
+
+export LANG=en_US.utf8
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
+
+# for development
+cp /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent/target/*.jar jars/
+
 
 
 # -------------------------------- #
 # Configuration of paths to data   #
 # -------------------------------- #
 
-# your data that should be processed, should be in raw text format.
+EXPERIMENT_FOLDER=sample_data  #TODO: command line argument
+
+# Your text data (in raw text format)
 # (The sample data are some texts from our held-out test set.)
-INPUT=../sample_data/raw_text
-# writes the XMI/ARFF of your test files here (for inspection or potential future processing)
-OUTPUT=../sample_data/processed_xmi
-ARFF=../sample_data/processed_arff
+INPUT=$EXPERIMENT_FOLDER/raw_text
 
-# TODO: create pre-trained models for all tasks, make this configurable here.
-# -- run test setting once per task, use those models.
-# could also be class_aspectual_class, class_main_referent or class_habituality
-TASK=class_sitent_type
 
-# --------------------------------------------- #
-# Configuration for experiment / labeling mode  #
-# --------------------------------------------- #
-# Take a look at this example config file (it is the full system as used in the
-# ACL 2016 paper
-EXPERIMENT_CONFIG=../annotated_corpus/experiments_data/config-a-b.xml
+# XMI/ARFF with intermediate steps and results (for inspection or potential future processing)
+XMI_OUTPUT=$EXPERIMENT_FOLDER/temp/processed_xmi
+ARFF=$EXPERIMENT_FOLDER/temp/processed_arff
+OUTPUT_XMI_FINAL=$EXPERIMENT_FOLDER/temp/processed_xmi_final
 
-# ----------------------------------- #
-# Configuration of paths for system   #
-# ----------------------------------- #
-COUNTABILITY_PATH=resources/countability/webcelex_countabilityNouns.txt
-# Here, you need to put the directory where you installed CRF++ on your 
-# system, see above.
-CRFPP_INSTALL_DIR=/proj/anne-phd/software/CRF++-0.58-fixed
+# The labeled output in XML format.
+XML_OUTPUT=$EXPERIMENT_FOLDER/labeled_text
+
+declare -a TASKS=("class_sitent_type" "class_main_referent" "class_habituality" "class_aspectual_class")
+TASK="class_sitent_type"
 
 # --------------- #
 # Run the system  #
 # --------------- #
 
 # Step 1: preprocessing and feature extraction (only for test part of data)
-#	--> this generates XMIs
-#   --> also segments the texts, approximating situation entity segmentation. This is done automatically  if no gold annotations are given. TODO: test this
-java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-featureExtraction.jar -input $INPUT -output $OUTPUT -countability $COUNTABILITY_PATH -arff $ARFF -task $TASK
-	
-# Step 2: make the ARFF files compatible so Weka can process them
-# TODO: add a different mode of making ARFF compatible to the training file!!
+#	--> this generates XMIs with the feature information
+#   --> also segments the texts, approximating situation entity segmentation.
+#       This is done automatically if no gold annotations are given.
 
-java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-arffCompatible.jar -input $ARFF -output $ARFF-compatible -sparse -classAttribute $TASK
+#java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-featureExtraction.jar -input $INPUT -output $XMI_OUTPUT -countability $COUNTABILITY_PATH -arff $ARFF -task $TASK
+
+# copy XMI
+mkdir $OUTPUT_XMI_FINAL
+cp -rf $XMI_OUTPUT/* $OUTPUT_XMI_FINAL/
+
+for TASK in "${TASKS[@]}"
+do
+  	echo $TASK
+
+	# Take a look at this example config file (it is the full system as used in the
+	# ACL 2016 paper) if you want to make changes to the set of features used or to the
+	# classification method.
+	EXPERIMENT_CONFIG=config_$TASK.xml
+	cp $EXPERIMENT_CONFIG $EXPERIMENT_FOLDER/
+
+	PREDICTED_FEATURE_NAME=predicted_$TASK
+	echo $MODEL
+	echo $PREDICTED_FEATURE_NAME
+
+	# Step 2: make the ARFF files compatible so Weka can process them
+	# (copy the ARFF file containing the header for the training data to the ARFF directory)
+
+	cp models/trainHeaderFiltered_$TASK"_webCelex".arff $ARFF/
+	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-arffCompatible.jar -input $ARFF -output $ARFF"_compatible" -sparse -classAttribute $TASK
+	rm $ARFF/trainHeaderFiltered_$TASK"_webCelex".arff
+	rm $ARFF"_compatible"/trainHeaderFiltered_$TASK"_webCelex".arff
+
+	# Step 3: run system: filter text data according to configured features, classify instances.
+	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-experimenter.jar $EXPERIMENT_FOLDER/$EXPERIMENT_CONFIG $CRFPP_INSTALL_DIR $TASK $MODEL models/trainHeaderFiltered_$TASK"_webCelex".arff	
+
+	# Step 4: add predictions to XMI
+	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-collectPredictions.jar -input $OUTPUT_XMI_FINAL -outputXmi $OUTPUT_XMI_FINAL -featureName $PREDICTED_FEATURE_NAME -predictions $EXPERIMENT_FOLDER/$TASK/crfpp/predictions.csv
+
+done
 
 
-# Step 3: run system: filter data according to configured features, apply system on the "test" data.
+# Step 4: output in XML format (XMI with predictions can be found at  ..)
+echo "Writing XML files ..."
+mkdir $XML_OUTPUT
+java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-xmlWriter.jar -input $OUTPUT_XMI_FINAL -output $XML_OUTPUT
 
-java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-experimenter.jar $EXPERIMENT_CONFIG $CRFPP_INSTALL_DIR
-
-# Results will be in the $EXPERIMENT_CONFIG folder: look in the folders created for each experiment there!
-
-# Step 4: TODO: how to output this in a nice format?
