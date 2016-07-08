@@ -39,7 +39,6 @@ import org.apache.uima.resource.ResourceInitializationException;
 
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
-import sb.coli.types.pdtb.PdtbRelation;
 import sitent.types.ClassificationAnnotation;
 import sitent.types.Passage;
 import sitent.types.SEFeature;
@@ -72,6 +71,10 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 	public static final String PARAM_RESET_SEGIDS = "resetSegIds";
 	@ConfigurationParameter(name = PARAM_RESET_SEGIDS, mandatory = true, defaultValue = "false", description = "whether to make sure segids are correct (for instanceid)")
 	private Boolean resetSegIds;
+
+	public static final String PARAM_ESCAPE_VALUES = "escapeValues";
+	@ConfigurationParameter(name = PARAM_ESCAPE_VALUES, mandatory = true, defaultValue = "true", description = "escape the values so a valid ARFF is created. set to false if values are already quoted in SEFeature.")
+	private Boolean escapeValues;
 
 	// public static final String PARAM_UNLABELED_DATA = "unlabeledData";
 	// @ConfigurationParameter(name = PARAM_UNLABELED_DATA, mandatory = true,
@@ -117,9 +120,6 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 
 		} else if (targetType.equals("Passage")) {
 			Collection<Passage> passages = JCasUtil.select(jCas, Passage.class);
-			classAnnots.addAll(passages);
-		} else if (targetType.equals("PdtbRelation")) {
-			Collection<PdtbRelation> passages = JCasUtil.select(jCas, PdtbRelation.class);
 			classAnnots.addAll(passages);
 		}
 
@@ -207,21 +207,24 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 					// if (nominalFeatures.get(featName).size() > 12) {
 					// arffWriter.println("@attribute " + featName + " string");
 					// } else {
-					String values = "";
+					StringBuffer values = new StringBuffer("");
 					if (sparseFormat) {
 						// add a dummy value, see
 						// https://weka.wikispaces.com/ARFF+%28stable+version%29
-						values += "\"THE-DUMMY-VALUE\",";
+						values.append("\"THE-DUMMY-VALUE\",");
 					}
 					List<String> valueList = new LinkedList<String>(nominalFeatures.get(featName));
 					Collections.sort(valueList);
 					for (String value : valueList) {
-						// System.out.println(value);
-						values += "\""
-								+ value.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ", "SPACE")
-								+ "\",";
+						if (escapeValues) {
+							values.append("\"" + value.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ",
+									"SPACE") + "\",");
+						} else {
+							values.append(value + ",");
+						}
+
 					}
-					values = values.substring(0, values.length() - 1);
+					values = new StringBuffer(values.toString().substring(0, values.length() - 1));
 					// add quotes to unquoted feature names
 					if (!featName.startsWith("\"")) {
 						featName = "\"" + featName + "\"";
@@ -282,6 +285,40 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 		{
 			e.printStackTrace();
 			throw new AnalysisEngineProcessException();
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		String inputDir = args[0]; // with XMis
+		String arffPath = args[1]; // ARFF files are written here
+		String task = args[2]; // e.g., class_sitent_type
+
+		// write ARFF files (for classification toolkit Weka, also used to
+		// generate CRFPP input files)
+		try {
+
+			// read XMI
+			CollectionReader reader = createReader(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION, inputDir,
+					XmiReader.PARAM_PATTERNS, new String[] { "[+]*.xmi" }, XmiReader.PARAM_LANGUAGE, "en");
+
+			AnalysisEngineDescription arffWriter = AnalysisEngineFactory.createEngineDescription(
+					WekaArffWriterAnnotator.class, WekaArffWriterAnnotator.PARAM_RESET_SEGIDS, false,
+					WekaArffWriterAnnotator.PARAM_ARFF_LOCATION, arffPath,
+					WekaArffWriterAnnotator.PARAM_CLASS_ATTRIBUTE, task, WekaArffWriterAnnotator.PARAM_SPARSE_FORMAT,
+					true, WekaArffWriterAnnotator.PARAM_OMIT_FEATURES, "segment_acl2007_G_verbLemma_.*",
+					WekaArffWriterAnnotator.PARAM_TARGET_TYPE, "Segment", WekaArffWriterAnnotator.PARAM_ESCAPE_VALUES,
+					false);
+
+			runPipeline(reader, arffWriter);
+
+		} catch (ResourceInitializationException e) {
+			e.printStackTrace();
+		} catch (UIMAException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}
