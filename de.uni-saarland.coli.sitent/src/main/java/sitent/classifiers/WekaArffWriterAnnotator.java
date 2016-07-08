@@ -39,6 +39,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiReader;
+import sb.coli.types.pdtb.PdtbRelation;
 import sitent.types.ClassificationAnnotation;
 import sitent.types.Passage;
 import sitent.types.SEFeature;
@@ -72,10 +73,6 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 	@ConfigurationParameter(name = PARAM_RESET_SEGIDS, mandatory = true, defaultValue = "false", description = "whether to make sure segids are correct (for instanceid)")
 	private Boolean resetSegIds;
 
-	public static final String PARAM_ESCAPE_VALUES = "escapeValues";
-	@ConfigurationParameter(name = PARAM_ESCAPE_VALUES, mandatory = true, defaultValue = "true", description = "escape the values so a valid ARFF is created. set to false if values are already quoted in SEFeature.")
-	private Boolean escapeValues;
-
 	// public static final String PARAM_UNLABELED_DATA = "unlabeledData";
 	// @ConfigurationParameter(name = PARAM_UNLABELED_DATA, mandatory = true,
 	// defaultValue = "false", description = "set to true if data does not
@@ -108,6 +105,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 			for (Segment segment : JCasUtil.select(jCas, Segment.class)) {
 				FeaturesUtil.removeFeature("instanceid", segment, jCas);
 				String instanceId = dm.getDocumentId() + "_" + i++;
+				// System.out.println(instanceId);
 				FeaturesUtil.addFeature("instanceid", instanceId, jCas, segment);
 			}
 		}
@@ -119,6 +117,9 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 
 		} else if (targetType.equals("Passage")) {
 			Collection<Passage> passages = JCasUtil.select(jCas, Passage.class);
+			classAnnots.addAll(passages);
+		} else if (targetType.equals("PdtbRelation")) {
+			Collection<PdtbRelation> passages = JCasUtil.select(jCas, PdtbRelation.class);
 			classAnnots.addAll(passages);
 		}
 
@@ -184,6 +185,8 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 				String featName = featList.get(i);
 				for (String omit : omitFeaturesPatterns) {
 					if (featName.matches(omit)) {
+						// if (featList.get(i).equals("instanceid"))
+						// System.out.println("removing: " + featList.get(i));
 						featList.remove(i);
 						break;
 					}
@@ -191,6 +194,9 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 			}
 
 			for (String featName : featList) {
+
+				// if (featName.equals("instanceid"))
+				// System.out.println(featName);
 
 				// add other features to header
 				if (isNumericFeature.get(featName)) {
@@ -210,13 +216,10 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 					List<String> valueList = new LinkedList<String>(nominalFeatures.get(featName));
 					Collections.sort(valueList);
 					for (String value : valueList) {
-
-						if (escapeValues) {
-							values += "\"" + value.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ",
-									"SPACE") + "\",";
-						} else {
-							values += value + ",";
-						}
+						// System.out.println(value);
+						values += "\""
+								+ value.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ", "SPACE")
+								+ "\",";
 					}
 					values = values.substring(0, values.length() - 1);
 					// add quotes to unquoted feature names
@@ -224,16 +227,23 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 						featName = "\"" + featName + "\"";
 					}
 					arffWriter.println("@attribute " + featName + " {" + values + "}");
+					// }
 				}
 			}
 			arffWriter.println("");
 			arffWriter.println("@data");
+			// speed up: map feature names to indices
+			Map<String, Integer> indexMap = new HashMap<String, Integer>();
+			for (int i = 0; i < featList.size(); i++) {
+				String featName = featList.get(i);
+				indexMap.put(featName, i);
+			}
+
 			// create lines for instances
 			for (ClassificationAnnotation segment : classAnnots) {
 				Map<String, String> featMap = new HashMap<String, String>();
 				for (Annotation annot : SitEntUimaUtils.getList(segment.getFeatures())) {
 					SEFeature feat = (SEFeature) annot;
-					// System.out.println(feat.getName());
 					if (!isNumericFeature.get(feat.getName())) {
 						if (!(feat.getValue().startsWith("\"") && feat.getValue().endsWith("\""))) {
 							feat.setValue("\"" + feat.getValue().replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA")
@@ -245,25 +255,22 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 					featMap.put(feat.getName(), feat.getValue());
 				}
 				if (!sparseFormat) {
-					String line = "";
+					StringBuffer line = new StringBuffer("");
 					for (String featName : featList) {
 						if (!featMap.containsKey(featName)) {
-							line += "?,";
+							line.append("?,");
 						} else {
-							line += featMap.get(featName) + ",";
+							line.append(featMap.get(featName) + ",");
 						}
 					}
-					arffWriter.println(line.substring(0, line.length() - 1));
+					arffWriter.println(line.toString().substring(0, line.length() - 1));
 				} else {
 					// sparse format
-					String values = "";
-					for (int i = 0; i < featList.size(); i++) {
-						String featName = featList.get(i);
-						if (featMap.containsKey(featName)) {
-							values += i + " " + featMap.get(featName) + ", ";
-						}
+					StringBuffer values = new StringBuffer("");
+					for (String featName : featMap.keySet()) {
+						values.append(indexMap.get(featName) + " " + featMap.get(featName) + ", ");
 					}
-					arffWriter.println("{" + values.substring(0, values.length() - 2) + "}");
+					arffWriter.println("{" + values.toString().substring(0, values.length() - 2) + "}");
 				}
 			}
 			arffWriter.close();
@@ -276,40 +283,6 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 			e.printStackTrace();
 			throw new AnalysisEngineProcessException();
 		}
-	}
-
-	public static void main(String[] args) {
-
-		String inputDir = args[0]; // with XMis
-		String arffPath = args[1]; // ARFF files are written here
-		String task = args[2]; // e.g., class_sitent_type
-
-		// write ARFF files (for classification toolkit Weka, also used to
-		// generate CRFPP input files)
-		try {
-
-			// read XMI
-			CollectionReader reader = createReader(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION, inputDir,
-					XmiReader.PARAM_PATTERNS, new String[] { "[+]*.xmi" }, XmiReader.PARAM_LANGUAGE, "en");
-
-			AnalysisEngineDescription arffWriter = AnalysisEngineFactory.createEngineDescription(
-					WekaArffWriterAnnotator.class, WekaArffWriterAnnotator.PARAM_RESET_SEGIDS, false,
-					WekaArffWriterAnnotator.PARAM_ARFF_LOCATION, arffPath,
-					WekaArffWriterAnnotator.PARAM_CLASS_ATTRIBUTE, task, WekaArffWriterAnnotator.PARAM_SPARSE_FORMAT,
-					true, WekaArffWriterAnnotator.PARAM_OMIT_FEATURES, "segment_acl2007_G_verbLemma_.*",
-					WekaArffWriterAnnotator.PARAM_TARGET_TYPE, "Segment", WekaArffWriterAnnotator.PARAM_ESCAPE_VALUES,
-					false);
-
-			runPipeline(reader, arffWriter);
-
-		} catch (ResourceInitializationException e) {
-			e.printStackTrace();
-		} catch (UIMAException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
 	}
-
 }
