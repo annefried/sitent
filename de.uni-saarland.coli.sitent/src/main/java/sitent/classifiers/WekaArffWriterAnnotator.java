@@ -144,8 +144,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 				for (Annotation annot : SitEntUimaUtils.getList(segment.getFeatures())) {
 					SEFeature feat = (SEFeature) annot;
 
-					if (feat.getName().startsWith("main_verb_brownCluster_")
-							|| feat.getName().startsWith("main_referent_brownCluster)")) {
+					if (feat.getName().matches("main_verb_brownCluster_.*|main_referent_brownCluster.*")) {
 						isNumericFeature.put(feat.getName(), false);
 						continue;
 					}
@@ -207,6 +206,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 					// if (nominalFeatures.get(featName).size() > 12) {
 					// arffWriter.println("@attribute " + featName + " string");
 					// } else {
+
 					StringBuffer values = new StringBuffer("");
 					if (sparseFormat) {
 						// add a dummy value, see
@@ -217,8 +217,8 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 					Collections.sort(valueList);
 					for (String value : valueList) {
 						if (escapeValues) {
-							values.append("\"" + value.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ",
-									"SPACE") + "\",");
+							values.append("\"" + value.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA")
+									.replaceAll(" ", "SPACE") + "\",");
 						} else {
 							values.append(value + ",");
 						}
@@ -270,8 +270,12 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 				} else {
 					// sparse format
 					StringBuffer values = new StringBuffer("");
-					for (String featName : featMap.keySet()) {
-						values.append(indexMap.get(featName) + " " + featMap.get(featName) + ", ");
+					for (String featName : featList) {
+						if (featMap.keySet().contains(featName)) {
+							if (featMap.get(featName) != null) {
+								values.append(indexMap.get(featName) + " " + featMap.get(featName) + ", ");
+							}
+						}
 					}
 					arffWriter.println("{" + values.toString().substring(0, values.length() - 2) + "}");
 				}

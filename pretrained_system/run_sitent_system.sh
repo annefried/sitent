@@ -22,7 +22,7 @@ CRFPP_INSTALL_DIR=/proj/anne-phd/software/CRF++-0.58-fixed  #TODO: command line 
 # By default, WebCelex countability features are used.
 # Substitute this path with the path to your Celex countability file
 # if you have the license and want to use Celex instead.
-COUNTABILITY_PATH=resources/countability/webcelex_countabilityNouns.txt
+COUNTABILITY_PATH=my-resources/countability/celex_countabilityNouns.txt
 
 # If you are using Celex, adapt the path belwo and modify the paths to the models and
 # train-header ARFFs in the config files of all 4 tasks: simply change "webCelex"
@@ -37,12 +37,13 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
 cp /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent/target/*.jar jars/
 
 
+cd /proj/anne-phd/situation_entities/git_repo/sitent/pretrained_system
 
 # -------------------------------- #
 # Configuration of paths to data   #
 # -------------------------------- #
 
-EXPERIMENT_FOLDER=sample_data  #TODO: command line argument
+EXPERIMENT_FOLDER=$1 #sample_data
 
 # Your text data (in raw text format)
 # (The sample data are some texts from our held-out test set.)
@@ -69,7 +70,7 @@ TASK="class_sitent_type"
 #   --> also segments the texts, approximating situation entity segmentation.
 #       This is done automatically if no gold annotations are given.
 
-#java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-featureExtraction.jar -input $INPUT -output $XMI_OUTPUT -countability $COUNTABILITY_PATH -arff $ARFF -task $TASK
+java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-featureExtraction.jar -input $INPUT -output $XMI_OUTPUT -countability $COUNTABILITY_PATH -arff $ARFF -task $TASK
 
 # copy XMI
 mkdir $OUTPUT_XMI_FINAL
@@ -92,13 +93,13 @@ do
 	# Step 2: make the ARFF files compatible so Weka can process them
 	# (copy the ARFF file containing the header for the training data to the ARFF directory)
 
-	cp models/trainHeaderFiltered_$TASK"_webCelex".arff $ARFF/
+	cp models/trainHeaderFiltered_$TASK"_celex".arff $ARFF/
 	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-arffCompatible.jar -input $ARFF -output $ARFF"_compatible" -sparse -classAttribute $TASK
-	rm $ARFF/trainHeaderFiltered_$TASK"_webCelex".arff
-	rm $ARFF"_compatible"/trainHeaderFiltered_$TASK"_webCelex".arff
+	rm $ARFF/trainHeaderFiltered_$TASK"_celex".arff
+	rm $ARFF"_compatible"/trainHeaderFiltered_$TASK"_celex".arff
 
 	# Step 3: run system: filter text data according to configured features, classify instances.
-	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-experimenter.jar $EXPERIMENT_FOLDER/$EXPERIMENT_CONFIG $CRFPP_INSTALL_DIR $TASK $MODEL models/trainHeaderFiltered_$TASK"_webCelex".arff	
+	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-experimenter.jar $EXPERIMENT_FOLDER/$EXPERIMENT_CONFIG $CRFPP_INSTALL_DIR $TASK $MODEL models/trainHeaderFiltered_$TASK"_celex".arff	
 
 	# Step 4: add predictions to XMI
 	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-collectPredictions.jar -input $OUTPUT_XMI_FINAL -outputXmi $OUTPUT_XMI_FINAL -featureName $PREDICTED_FEATURE_NAME -predictions $EXPERIMENT_FOLDER/$TASK/crfpp/predictions.csv

@@ -36,7 +36,8 @@ import weka.classifiers.bayes.BayesNet;
 import weka.classifiers.functions.Logistic;
 import weka.classifiers.rules.ZeroR;
 import weka.classifiers.trees.J48;
-import weka.classifiers.trees.RandomForest;
+//import weka.classifiers.trees.RandomForest;
+import hr.irb.fastRandomForest.FastRandomForest;
 import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -803,7 +804,7 @@ public class Experiment implements Runnable {
 				break;
 			}
 			case "RandomForest": {
-				classifier = new RandomForest();
+				classifier = new FastRandomForest();
 				break;
 			}
 			case "Logistic": {

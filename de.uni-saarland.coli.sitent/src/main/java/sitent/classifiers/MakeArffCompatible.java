@@ -126,7 +126,10 @@ public class MakeArffCompatible {
 	 */
 	public void readArffs(String prefix, String inputDir, boolean sparse) throws IOException {
 		log.info("Reading ARFFs from directory: " + prefix + "/" + inputDir);
+		int num = 0;
+		int total = new File(prefix + "/" + inputDir).list().length;
 		for (String path : new File(prefix + "/" + inputDir).list()) {
+			log.info("... " + path + " " + num++ + "/" + total);
 			docs.add(readDocument(prefix + "/" + inputDir + "/" + path, sparse, prefix));
 		}
 	}
@@ -164,6 +167,8 @@ public class MakeArffCompatible {
 		sortedJointFeatures = new HashMap<String, String[]>();
 
 		for (ArffDoc doc : docs) {
+			System.out.println(doc.path);
+
 			for (String featName : doc.featureType.keySet()) {
 				String featureType = doc.featureType.get(featName);
 				if (jointFeatures.containsKey(featName)) {
@@ -171,7 +176,14 @@ public class MakeArffCompatible {
 						featureType = "string";
 					}
 				}
-				jointFeatureTypes.put(featName, featureType);
+				if (!jointFeatureTypes.containsKey(featName)) {
+					jointFeatureTypes.put(featName, featureType);
+				}
+				if (featureType.equals("numeric") && jointFeatureTypes.get(featName).equals("nominal")) {
+					// keep it that way
+				} else if (featureType.equals("nominal") && jointFeatureTypes.get(featName).equals("numeric")) {
+					jointFeatureTypes.put(featName, featureType);
+				}
 				if (featureType.equals("nominal")) {
 					if (!jointFeatures.containsKey(featName)) {
 						jointFeatures.put(featName, new HashSet<String>());
@@ -183,8 +195,20 @@ public class MakeArffCompatible {
 			}
 		}
 		// sort feature values for joint header
+		log.info("sorting features ... ");
 		for (String featName : jointFeatures.keySet()) {
 			List<String> featVals = new LinkedList<String>(jointFeatures.get(featName));
+			// add all values from document
+			Set<String> featSet = new HashSet<String>(featVals);
+			for (ArffDoc doc : docs) {
+				for (Map<String, String> inst : doc.instances) {
+					if (inst.get(featName) != null) {
+						featSet.add(inst.get(featName));
+					}
+				}
+			}
+			featVals = new LinkedList<String>(featSet);
+			// ... done
 			Collections.sort(featVals);
 			// put dummy value first, making sure there is no second dummy value
 			// due to quotation
@@ -248,11 +272,13 @@ public class MakeArffCompatible {
 		// wAll.println(header);
 		// wAll.println("@data");
 		// System.out.println("opening all writer...");
+		int num = 0;
+		int total = docs.size();
 
 		for (ArffDoc doc : docs) {
 			String[] parts = doc.path.split("/");
 			String filename = parts[parts.length - 1];
-			System.out.println("Writing: " + filename);
+			System.out.println("Writing: " + filename + " " + num++ + "/" + total);
 			// use doc.path here instead of filename if using dev/test
 			String outPath = outputDir + "/" + filename;
 			// write header
@@ -327,7 +353,7 @@ public class MakeArffCompatible {
 			// assumes only one level of subdirs!
 			File inputFile = new File(inputDir);
 			log.info("input directory: " + inputFile);
-			log.info("is dir? " + inputFile.isDirectory());
+			log.info("is directory? " + inputFile.isDirectory());
 
 			String[] inputDirs = null;
 			// are there subdirectories?
@@ -338,12 +364,13 @@ public class MakeArffCompatible {
 					break;
 				}
 			}
-			log.info("subdirs? " + subDirs);
+			log.info("has subdirectories? " + subDirs);
 
 			if (subDirs) {
 				inputDirs = inputFile.list();
 			} else {
 				String directory = FilenameUtils.getName(inputDir);
+				log.info("the directory: " + directory);
 				inputDirs = new String[] { directory };
 			}
 			// add the files to the list of documents.
@@ -351,6 +378,11 @@ public class MakeArffCompatible {
 				if (inputDirs.length == 1) {
 					// only one input directory
 					String prefix = FilenameUtils.getPath(inputDir);
+					if (inputDir.startsWith("/")) {
+						// absolute path
+						prefix = "/" + prefix;
+					}
+					log.info("prefix: " + prefix);
 					mac.readArffs(prefix, id, sparse);
 				} else {
 					mac.readArffs(inputDir, id, sparse);
