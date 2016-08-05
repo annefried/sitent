@@ -1,11 +1,5 @@
 #!/bin/bash
 
-export LANG=en_US.utf8
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
-
-# the directory where the code is run
-cd /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent
-
 ###########################################
 # Situation Entity Types labeling system  #
 ###########################################
@@ -14,11 +8,19 @@ cd /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent
 # or make modifications to the system. If you just want to run the system
 # on your data, please follow the steps described in the README.txt.
 
+export LANG=en_US.utf8
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
+
+# the directory where the code is run
+cd /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent
+
 # Should output at least version 8.
 java -version
 
 # In addition, you need to install CRF++: https://taku910.github.io/crfpp/
 
+# build system / package jars needed below:
+mvn package
 
 # -------------------------------- #
 # Configuration of paths to data   #
@@ -59,7 +61,7 @@ CRFPP_INSTALL_DIR=/proj/anne-phd/software/CRF++-0.58-fixed
 #	- for labeled training/dev corpus
 #	- for labeled held-out test set
 #	--> this generates XMIs
-#java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-featureExtraction.jar -input $INPUT -output $OUTPUT -annotations $ANNOTATIONS -countability $COUNTABILITY_PATH -arff $ARFF -task $TASK
+java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-featureExtraction.jar -input $INPUT -output $OUTPUT -annotations $ANNOTATIONS -countability $COUNTABILITY_PATH -arff $ARFF -task $TASK
 	
 # Step 2: make the ARFF files compatible so Weka can process them
 

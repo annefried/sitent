@@ -134,7 +134,7 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>2.2</version>
+				<version>2.4.3</version>
 				<executions>
 					<execution>
 						<id>feature-extraction</id>
@@ -258,6 +258,15 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
