@@ -17,38 +17,31 @@ java -version
 
 # In addition, you need to install CRF++: https://taku910.github.io/crfpp/
 # !! Adapt the path to your installation below.
-CRFPP_INSTALL_DIR=/proj/anne-phd/software/CRF++-0.58-fixed  #TODO: command line argument
+CRFPP_INSTALL_DIR=$1
 
 # By default, WebCelex countability features are used.
 # Substitute this path with the path to your Celex countability file
 # if you have the license and want to use Celex instead.
-COUNTABILITY_PATH=my-resources/countability/celex_countabilityNouns.txt
+COUNTABILITY_PATH=resources/countability/webcelex_countabilityNouns.txt
 
-# If you are using Celex, adapt the path belwo and modify the paths to the models and
-# train-header ARFFs in the config files of all 4 tasks: simply change "webCelex"
-# in the filenames to "celex". (See also the filenames in the models directory.)
-#COUNTABILITY_PATH=my-resources/countability/celex_countabilityNouns.txt
-
+# If you are using Celex, adapt the path to it above and simply change "webCelex"
+# in the variable here to "celex". (See also the filenames in the models directory.)
+CELEX="_webCelex"
 
 export LANG=en_US.utf8
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
-
-# for development
-cp /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent/target/*.jar jars/
-
-
-cd /proj/anne-phd/situation_entities/git_repo/sitent/pretrained_system
 
 # -------------------------------- #
 # Configuration of paths to data   #
 # -------------------------------- #
 
-EXPERIMENT_FOLDER=$1 #sample_data
+EXPERIMENT_FOLDER=$2 #for example: sample_data. This folder needs to contain a subfolder called raw_text with the input (raw) text documents ending in .txt
 
 # Your text data (in raw text format)
 # (The sample data are some texts from our held-out test set.)
 INPUT=$EXPERIMENT_FOLDER/raw_text
 
+# copy config files
+cp models/configs/* $EXPERIMENT_FOLDER
 
 # XMI/ARFF with intermediate steps and results (for inspection or potential future processing)
 XMI_OUTPUT=$EXPERIMENT_FOLDER/temp/processed_xmi
@@ -93,13 +86,13 @@ do
 	# Step 2: make the ARFF files compatible so Weka can process them
 	# (copy the ARFF file containing the header for the training data to the ARFF directory)
 
-	cp models/trainHeaderFiltered_$TASK"_celex".arff $ARFF/
+	cp models/trainHeaderFiltered_$TASK$CELEX.arff $ARFF/
 	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-arffCompatible.jar -input $ARFF -output $ARFF"_compatible" -sparse -classAttribute $TASK
-	rm $ARFF/trainHeaderFiltered_$TASK"_celex".arff
-	rm $ARFF"_compatible"/trainHeaderFiltered_$TASK"_celex".arff
+	rm $ARFF/trainHeaderFiltered_$TASK$CELEX.arff
+	rm $ARFF"_compatible"/trainHeaderFiltered_$TASK$CELEX.arff
 
 	# Step 3: run system: filter text data according to configured features, classify instances.
-	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-experimenter.jar $EXPERIMENT_FOLDER/$EXPERIMENT_CONFIG $CRFPP_INSTALL_DIR $TASK $MODEL models/trainHeaderFiltered_$TASK"_celex".arff	
+	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-experimenter.jar $EXPERIMENT_FOLDER/$EXPERIMENT_CONFIG $CRFPP_INSTALL_DIR $TASK $MODEL models/trainHeaderFiltered_$TASK$CELEX.arff	
 
 	# Step 4: add predictions to XMI
 	java -jar jars/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-collectPredictions.jar -input $OUTPUT_XMI_FINAL -outputXmi $OUTPUT_XMI_FINAL -featureName $PREDICTED_FEATURE_NAME -predictions $EXPERIMENT_FOLDER/$TASK/crfpp/predictions.csv
