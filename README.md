@@ -2,7 +2,7 @@
 
 ---
 ```
-UNDER CONSTRUCTION!
+Feedback / questions appreciated!
 ```
 ---
 
@@ -35,7 +35,7 @@ For more details related to this project, please see our project web site (http:
 * IMPORTANT: the system uses the methods of the ACL 2016 and ACL 2015 papers for situation entity type and for main referent genericity. It also outputs values for lexical aspectual class and habituality using maximum entropy models (which differ from the methods in the ACL 2014 / EMNLP 2015 papers, which use Random Forest classifiers for this task).
  
 ### Using the code
-
+* To reproduce the results in the paper or to work on your own experiments, take a look at the code base in de.uni-saarland.coli.sitent. The script run_sitent.sh in that folder has pointers to the entry points and necessary configurations.
 
 
 
