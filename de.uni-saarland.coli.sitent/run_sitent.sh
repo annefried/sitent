@@ -12,7 +12,7 @@ export LANG=en_US.utf8
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre
 
 # the directory where the code is run
-cd /proj/anne-phd/situation_entities/git_repo/sitent/de.uni-saarland.coli.sitent
+cd /local/workspace/gitRepos/sitent/de.uni-saarland.coli.sitent
 
 # Should output at least version 8.
 java -version
