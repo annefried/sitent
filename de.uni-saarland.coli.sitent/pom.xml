@@ -131,6 +131,16 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 	</dependencies>
 	<build>
 		<plugins>
+<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                   <source>1.8</source>
+                   <target>1.8</target>
+                </configuration>
+        </plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
@@ -150,7 +160,7 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-									<resource>META-INF/org.apache.uima.fit/types.txt</resource>
+									<resource> META-INF/org.apache.uima.fit/types.txt </resource>
 								</transformer>
 							</transformers>
 							<outputFile>
@@ -172,7 +182,9 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-									<resource>META-INF/org.apache.uima.fit/types.txt</resource>
+									<resource>
+										META-INF/org.apache.uima.fit/types.txt
+									</resource>
 								</transformer>
 							</transformers>
 							<outputFile>
@@ -195,7 +207,9 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-									<resource>META-INF/org.apache.uima.fit/types.txt</resource>
+									<resource>
+										META-INF/org.apache.uima.fit/types.txt
+									</resource>
 								</transformer>
 							</transformers>
 							<outputFile>
@@ -218,7 +232,9 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-									<resource>META-INF/org.apache.uima.fit/types.txt</resource>
+									<resource>
+										META-INF/org.apache.uima.fit/types.txt
+									</resource>
 								</transformer>
 							</transformers>
 							<outputFile>
@@ -236,12 +252,14 @@ Contains the collection of syntactic-semantic features (for verbs and noun phras
 							<transformers>
 								<!-- Set the main class of the executable JAR -->
 								<transformer
-						implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<mainClass>sitent.io.CorpusToCsvWriterAnnotator</mainClass>
 								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-									<resource>META-INF/org.apache.uima.fit/types.txt</resource>
+									<resource>
+										META-INF/org.apache.uima.fit/types.txt
+									</resource>
 								</transformer>
 							</transformers>
 							<outputFile>
