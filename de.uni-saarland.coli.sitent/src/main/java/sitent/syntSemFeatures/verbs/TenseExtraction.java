@@ -99,7 +99,8 @@ public class TenseExtraction {
 		while (sentIt.hasNext()) {
 
 			Sentence sent = sentIt.next();
-			Collection<Dependency> sentDeps = JCasUtil.selectCovered(Dependency.class, sent);
+			Collection<Dependency> sentDeps = JCasUtil.selectCovered(
+					Dependency.class, sent);
 
 			// System.out.println("\n" + sent.getCoveredText());
 			List<List<Token>> verbChains = identifyVerbChains(sent);
@@ -141,7 +142,8 @@ public class TenseExtraction {
 	 * @param verbChain
 	 * @return
 	 */
-	private Token getHeadOfChain(List<Token> verbChain, Collection<Dependency> deps) {
+	private Token getHeadOfChain(List<Token> verbChain,
+			Collection<Dependency> deps) {
 		// simple case: only one verb in the chain
 		if (verbChain.size() == 1) {
 			return verbChain.get(0);
@@ -159,10 +161,12 @@ public class TenseExtraction {
 			for (Token verb : noHeadInChain) {
 				// used as copula / auxilary
 				for (Dependency dep : deps) {
-					if (dep.getDependent() == verb && dep.getDependencyType().equals("aux")) {
+					if (dep.getDependent() == verb
+							&& dep.getDependencyType().equals("aux")) {
 						// check if governor is not a verb and has a copula
 						for (Dependency dep2 : deps) {
-							if (dep2.getGovernor() == dep.getGovernor() && dep2.getDependencyType().equals("cop")) {
+							if (dep2.getGovernor() == dep.getGovernor()
+									&& dep2.getDependencyType().equals("cop")) {
 								// the 'might be best' case
 								return dep2.getDependent();
 							}
@@ -172,23 +176,24 @@ public class TenseExtraction {
 					}
 				}
 				for (Dependency dep : deps) {
-					if (dep.getDependent() == verb && dep.getDependencyType().equals("cop")) {
+					if (dep.getDependent() == verb
+							&& dep.getDependencyType().equals("cop")) {
 						return verb;
 					}
 				}
 			}
 
-//			if (noHeadInChain.size() >= 2) {
-//				System.err.println("MULTIPLE HEADS IN CHAIN:");
-//				for (Token t : noHeadInChain) {
-//					System.err.println(">> " + t.getCoveredText());
-//				}
-//			} else {
-//				System.err.println("NO HEADS IN CHAIN: (printing original chain)");
-//				for (Token t : verbChain) {
-//					System.err.println(">> " + t.getCoveredText());
-//				}
-//			}
+			// if (noHeadInChain.size() >= 2) {
+			// System.err.println("MULTIPLE HEADS IN CHAIN:");
+			// for (Token t : noHeadInChain) {
+			// System.err.println(">> " + t.getCoveredText());
+			// }
+			// } else {
+			// System.err.println("NO HEADS IN CHAIN: (printing original chain)");
+			// for (Token t : verbChain) {
+			// System.err.println(">> " + t.getCoveredText());
+			// }
+			// }
 			// for (Dependency dep : deps) {
 			// System.out.println(dep.getGovernor().getCoveredText() + " --"
 			// + dep.getDependencyType() + "--> "
@@ -199,10 +204,13 @@ public class TenseExtraction {
 		}
 	}
 
-	private boolean hasHeadInChain(List<Token> verbChain, Token token, Collection<Dependency> deps) {
+	private boolean hasHeadInChain(List<Token> verbChain, Token token,
+			Collection<Dependency> deps) {
 		for (Dependency dep : deps) {
-			if (dep.getDependent() == token && verbChain.contains(dep.getGovernor())
-					&& dep.getDependencyType().matches("aux|auxpass|prt|cop|xcomp")) {
+			if (dep.getDependent() == token
+					&& verbChain.contains(dep.getGovernor())
+					&& dep.getDependencyType().matches(
+							"aux|auxpass|prt|cop|xcomp")) {
 				// System.out.println("head in chain: " + token.getCoveredText()
 				// + "<--" + dep.getGovernor().getCoveredText());
 				return true;
@@ -236,13 +244,15 @@ public class TenseExtraction {
 			values = new TenseFeatures("past_perf_cont", "active");
 		} else if (tenseMap.get("PApast_perfect").contains(posChain)) {
 			values = new TenseFeatures("past_perf", "passive");
-		} else if (tenseMap.get("past_perfect").contains(posChain) && !verbsList.get(0).matches("was|were")) {
+		} else if (tenseMap.get("past_perfect").contains(posChain)
+				&& !verbsList.get(0).matches("was|were")) {
 			values = new TenseFeatures("past_perf", "active");
 		} else if (tenseMap.get("PApast_cont").contains(posChain)) {
 			values = new TenseFeatures("past_cont", "passive");
 		} else if (tenseMap.get("past_cont").contains(posChain)) {
 			values = new TenseFeatures("past_cont", "active");
-		} else if (tenseMap.get("PAsim_past").contains(posChain) && verbsList.get(0).matches("was|were")) {
+		} else if (tenseMap.get("PAsim_past").contains(posChain)
+				&& verbsList.get(0).matches("was|were")) {
 			values = new TenseFeatures("sim_past", "passive");
 		} else if (tenseMap.get("sim_past").contains(posChain)) {
 			values = new TenseFeatures("sim_past", "active");
@@ -250,13 +260,15 @@ public class TenseExtraction {
 			values = new TenseFeatures("pres_perf_cont", "active");
 		} else if (tenseMap.get("PApres_perfect").contains(posChain)) {
 			values = new TenseFeatures("pres_perf", "passive");
-		} else if (tenseMap.get("pres_perfect").contains(posChain) && !verbsList.get(0).matches("is|are")) {
+		} else if (tenseMap.get("pres_perfect").contains(posChain)
+				&& !verbsList.get(0).matches("is|are")) {
 			values = new TenseFeatures("pres_perf", "active");
 		} else if (tenseMap.get("PApres_cont").contains(posChain)) {
 			values = new TenseFeatures("pres_cont", "passive");
 		} else if (tenseMap.get("pres_cont").contains(posChain)) {
 			values = new TenseFeatures("pres_cont", "active");
-		} else if (tenseMap.get("PApres").contains(posChain) && verbsList.get(0).matches("is|are")) {
+		} else if (tenseMap.get("PApres").contains(posChain)
+				&& verbsList.get(0).matches("is|are")) {
 			values = new TenseFeatures("pres", "passive");
 		} else if (tenseMap.get("pres").contains(posChain)) {
 			values = new TenseFeatures("pres", "active");
@@ -266,7 +278,8 @@ public class TenseExtraction {
 		} else if (tenseMap.get("PAfut_perfect").contains(posChain)
 				&& tenseMap.get("fut_modal").contains(verbsList.get(0))) {
 			values = new TenseFeatures("fut_perf", "passive");
-		} else if (tenseMap.get("PAfut").contains(posChain) && tenseMap.get("fut_modal").contains(verbsList.get(0))) {
+		} else if (tenseMap.get("PAfut").contains(posChain)
+				&& tenseMap.get("fut_modal").contains(verbsList.get(0))) {
 			if (verbsList.contains("be")) {
 				values = new TenseFeatures("fut", "passive");
 			} else {
@@ -278,7 +291,8 @@ public class TenseExtraction {
 		} else if (tenseMap.get("fut_cont").contains(posChain)
 				&& tenseMap.get("fut_modal").contains(verbsList.get(0))) {
 			values = new TenseFeatures("fut_cont", "active");
-		} else if (tenseMap.get("fut").contains(posChain) && tenseMap.get("fut_modal").contains(verbsList.get(0))) {
+		} else if (tenseMap.get("fut").contains(posChain)
+				&& tenseMap.get("fut_modal").contains(verbsList.get(0))) {
 			values = new TenseFeatures("fut", "active");
 		} else if (tenseMap.get("fut_perfect_cont").contains(posChain)
 				&& tenseMap.get("cond_modal").contains(verbsList.get(0))) {
@@ -299,7 +313,8 @@ public class TenseExtraction {
 		} else if (tenseMap.get("fut_cont").contains(posChain)
 				&& tenseMap.get("cond_modal").contains(verbsList.get(0))) {
 			values = new TenseFeatures("cond_cont", "active");
-		} else if (tenseMap.get("fut").contains(posChain) && tenseMap.get("cond_modal").contains(verbsList.get(0))) {
+		} else if (tenseMap.get("fut").contains(posChain)
+				&& tenseMap.get("cond_modal").contains(verbsList.get(0))) {
 			values = new TenseFeatures("cond", "active");
 		} else {
 			values = new TenseFeatures("other", "unknown");
@@ -311,7 +326,8 @@ public class TenseExtraction {
 	private static List<List<Token>> identifyVerbChains(Sentence sent) {
 		List<List<Token>> verbChains = new LinkedList<List<Token>>();
 
-		List<Dependency> sentDeps = JCasUtil.selectCovered(Dependency.class, sent);
+		List<Dependency> sentDeps = JCasUtil.selectCovered(Dependency.class,
+				sent);
 
 		// for (Dependency dep : sentDeps) {
 		// System.out.println(dep.getGovernor().getCoveredText() + " --"
@@ -330,7 +346,8 @@ public class TenseExtraction {
 				// occasionally parsers messes this up??
 				continue;
 			}
-			if (token.getPos().getPosValue().matches("MD|VB|VBD|VBG|VBN|VBP|VBZ|RP|TO")) {
+			if (token.getPos().getPosValue()
+					.matches("MD|VB|VBD|VBG|VBN|VBP|VBZ|RP|TO")) {
 				verbTokens.add(token);
 			} else {
 				otherTokens.add(token);
@@ -381,8 +398,8 @@ public class TenseExtraction {
 						List<Token> chain1 = verbChains.get(i);
 						List<Token> chain2 = verbChains.get(j);
 						for (Token token : otherTokens) {
-							if ((isHeadOrDepInChain(chain1, token, sentDeps)
-									&& isHeadOrDepInChain(chain2, token, sentDeps))) {
+							if ((isHeadOrDepInChain(chain1, token, sentDeps) && isHeadOrDepInChain(
+									chain2, token, sentDeps))) {
 								// merge the two chains
 								// System.out.println(token.getCoveredText());
 								chain1.addAll(chain2);
@@ -399,7 +416,8 @@ public class TenseExtraction {
 		// remove 'chains' that only consist of 'to/TO'
 		List<List<Token>> toRemove = new LinkedList<List<Token>>();
 		for (List<Token> chain : verbChains) {
-			if (chain.size() == 1 && chain.get(0).getLemma().getValue().equals("to")) {
+			if (chain.size() == 1
+					&& chain.get(0).getLemma().getValue().equals("to")) {
 				toRemove.add(chain);
 			}
 		}
@@ -415,14 +433,26 @@ public class TenseExtraction {
 		return verbChains;
 	}
 
-	private static boolean isHeadOrDepInChain(List<Token> verbChain, Token verb, List<Dependency> sentDeps) {
+	/**
+	 * Checks whether the verb token is related to one of the tokens in the
+	 * verbChain via one of the dependency relations aux|auxpass|prt|cop.
+	 * 
+	 * @param verbChain
+	 * @param verb
+	 * @param sentDeps
+	 * @return
+	 */
+	private static boolean isHeadOrDepInChain(List<Token> verbChain,
+			Token verb, List<Dependency> sentDeps) {
 		// check all the heads/dependents of this verb
 		List<Token> depsToToken = new LinkedList<Token>();
 		for (Dependency dep : sentDeps) {
-			if (dep.getDependent() == verb && dep.getDependencyType().matches("aux|auxpass|prt|cop")) {
+			if (dep.getDependent() == verb
+					&& dep.getDependencyType().matches("aux|auxpass|prt|cop")) {
 				depsToToken.add(dep.getGovernor());
 			}
-			if (dep.getGovernor() == verb && dep.getDependencyType().matches("aux|auxpass|prt|cop")) {
+			if (dep.getGovernor() == verb
+					&& dep.getDependencyType().matches("aux|auxpass|prt|cop")) {
 				depsToToken.add(dep.getDependent());
 			}
 		}
