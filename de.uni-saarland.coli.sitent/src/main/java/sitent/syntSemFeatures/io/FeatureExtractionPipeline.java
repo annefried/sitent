@@ -34,15 +34,16 @@ import sitent.syntSemFeatures.nounPhrase.NounPhraseFeaturesAnnotator;
 import sitent.syntSemFeatures.nounPhrase.NounPhraseSelectorAnnotator;
 import sitent.syntSemFeatures.verbs.VerbFeaturesAnnotator;
 import sitent.syntSemFeatures.verbs.VerbSelectorAnnotator;
+import sitent.tests.ParseWriterAnnotator;
 
 public class FeatureExtractionPipeline {
 
 	private static String wordNetPath = null;
 	private static String countabilityPath = null;
 
-	private static void process(String inputDir, String xmiOutputDir, String csvOutputDir)
+	private static void process(String inputDir, String xmiOutputDir, String csvOutputDir, String parseDir)
 			throws UIMAException, IOException {
-
+		
 		CollectionReader reader = createReader(TextReader.class, TextReader.PARAM_SOURCE_LOCATION, inputDir,
 				TextReader.PARAM_LANGUAGE, "en", TextReader.PARAM_PATTERNS, new String[] { "[+]*.txt" });
 
@@ -84,6 +85,13 @@ public class FeatureExtractionPipeline {
 			csvWriter = AnalysisEngineFactory.createEngineDescription(SyntSemFeaturesCSVWriter.class,
 					SyntSemFeaturesCSVWriter.PARAM_OUTPUT_FOLDER, csvOutputDir);
 		}
+		
+		// write out dependency parses (for development)
+		AnalysisEngineDescription parseWriter = null;
+		if (parseDir != null) {
+			parseWriter = AnalysisEngineFactory.createEngineDescription(ParseWriterAnnotator.class,
+					ParseWriterAnnotator.PARAM_OUTPUT_FILE, parseDir);
+		}
 
 		// writes out XMIs (can then be inspected with UIMA annotation viewer,
 		// or used for further processing in an UIMA pipeline)
@@ -103,8 +111,9 @@ public class FeatureExtractionPipeline {
 		}
 
 		if (xmiOutputDir == null && csvOutputDir != null) {
+			// TODO: proper configuration of pipeline for parseWriter
 			runPipeline(reader, stTokenizer, stParser, stLemmas, npSelector, npFeatures, verbSelector, verbFeatures,
-					csvWriter);
+					csvWriter, parseWriter);
 		}
 
 	}
@@ -117,6 +126,7 @@ public class FeatureExtractionPipeline {
 		options.addOption("wordnet", true, "Path to WordNet database (required).");
 		options.addOption("countability", true, "Path to file with countability information (optional).");
 		options.addOption("csvOutput", true, "Path to folder for CSV output (standoff format, optional).");
+		options.addOption("parserOutput", true, "Path to folder where to write parses (optional)");
 		HelpFormatter formatter = new HelpFormatter();
 		formatter.printHelp("SitEnt SyntSem FeatureExtraction", options);
 
@@ -133,6 +143,7 @@ public class FeatureExtractionPipeline {
 			String inputDir = cmd.getOptionValue("input");
 			String xmiOutputDir = cmd.getOptionValue("xmiOutput");
 			String csvOutputDir = cmd.getOptionValue("csvOutput");
+			String parseDir = cmd.getOptionValue("parserOutput");
 
 			if (cmd.hasOption("wordnet")) {
 				wordNetPath = cmd.getOptionValue("wordnet");
@@ -144,7 +155,11 @@ public class FeatureExtractionPipeline {
 			if (csvOutputDir != null && !(new File(csvOutputDir).exists())) {
 				new File(csvOutputDir).mkdirs();
 			}
-
+			
+			if (parseDir != null && !(new File(parseDir).exists())) {
+				new File(parseDir).mkdirs();
+			}
+			
 			if (csvOutputDir == null && xmiOutputDir == null) {
 				System.out.println("Please give either a path for XMI output, or for CSV output."
 						+ " Otherwise you won't be able to see the extracted features!");
@@ -152,7 +167,7 @@ public class FeatureExtractionPipeline {
 				return;
 			}
 
-			process(inputDir, xmiOutputDir, csvOutputDir);
+			process(inputDir, xmiOutputDir, csvOutputDir, parseDir);
 
 		} catch (ParseException e) {
 			e.printStackTrace();
