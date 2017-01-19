@@ -45,7 +45,7 @@ public class FeatureExtractionPipeline {
 			throws UIMAException, IOException {
 		
 		CollectionReader reader = createReader(TextReader.class, TextReader.PARAM_SOURCE_LOCATION, inputDir,
-				TextReader.PARAM_LANGUAGE, "en", TextReader.PARAM_PATTERNS, new String[] { "[+]*.txt" });
+				TextReader.PARAM_LANGUAGE, "en", TextReader.PARAM_PATTERNS, new String[] { "[+]*/*" }); // suffix .txt?
 
 		// Preprocessing with Stanford CoreNLP components
 		AnalysisEngineDescription stTokenizer = AnalysisEngineFactory.createEngineDescription(StanfordSegmenter.class,
@@ -127,6 +127,7 @@ public class FeatureExtractionPipeline {
 		options.addOption("countability", true, "Path to file with countability information (optional).");
 		options.addOption("csvOutput", true, "Path to folder for CSV output (standoff format, optional).");
 		options.addOption("parserOutput", true, "Path to folder where to write parses (optional)");
+		
 		HelpFormatter formatter = new HelpFormatter();
 		formatter.printHelp("SitEnt SyntSem FeatureExtraction", options);
 
