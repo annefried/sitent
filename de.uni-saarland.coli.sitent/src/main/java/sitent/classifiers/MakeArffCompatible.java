@@ -77,6 +77,9 @@ public class MakeArffCompatible {
 				} else {
 					// remove brackets
 					line = line.trim().substring(1, line.trim().length() - 1);
+					if (line.trim().equals("")) {
+						continue;
+					}
 					String[] values = line.split(",");
 					for (String value : values) {
 						// remove quotes if necessary
