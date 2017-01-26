@@ -26,10 +26,11 @@ import sitent.types.Segment;
 import sitent.util.GrammarUtils;
 
 public class SitEntSyntacticFeaturesAnnotator extends JCasAnnotator_ImplBase {
+	
 
 	@Override
 	public void process(JCas jcas) throws AnalysisEngineProcessException {
-
+		
 		// (STEP 2) iterate over segments: find main verbs. Iterator<Segment>
 		Iterator<Segment> segIt = JCasUtil.iterator(jcas, Segment.class);
 

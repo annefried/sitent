@@ -17,6 +17,7 @@ import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 
+import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token;
 import sitent.types.ClassificationAnnotation;
 import sitent.util.FeaturesUtil;
@@ -69,6 +70,9 @@ public class LinguisticIndicatorsAnnotator extends JCasAnnotator_ImplBase {
 
 	@Override
 	public void process(JCas jcas) throws AnalysisEngineProcessException {
+		
+		DocumentMetaData dm = JCasUtil.selectSingle(jcas, DocumentMetaData.class);
+		System.out.println(dm.getDocumentId());
 
 		// add LINGUISTIC INDICATOR features for verbs
 		Iterator<ClassificationAnnotation> annots = JCasUtil.select(jcas, ClassificationAnnotation.class).iterator();
@@ -90,7 +94,12 @@ public class LinguisticIndicatorsAnnotator extends JCasAnnotator_ImplBase {
 			List<Token> tokens = JCasUtil.selectCovered(Token.class, annot);
 			if (tokens.size() != 1) {
 				// this should not happen
-				throw new IllegalStateException();
+				System.err.println(tokens.size() + annot.getCoveredText());
+				for (Token token: tokens) {
+					System.out.println(token);
+				}
+				return;
+				//throw new IllegalStateException();
 			}
 			Token verb = tokens.get(0);
 

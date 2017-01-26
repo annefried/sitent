@@ -31,7 +31,7 @@ public class SitEntFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
 	@Override
 	public void process(JCas jCas) throws AnalysisEngineProcessException {
-
+		
 		DocumentMetaData dm = JCasUtil.selectSingle(jCas, DocumentMetaData.class);
 
 		Collection<Segment> segments = JCasUtil.select(jCas, Segment.class);
@@ -129,6 +129,8 @@ public class SitEntFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			FeaturesUtil.addFeature("instanceid", instanceId, jCas, segment);
 
 		}
+		
+		System.out.println("done");
 
 	}
 

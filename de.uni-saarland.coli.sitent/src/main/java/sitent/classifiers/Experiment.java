@@ -69,6 +69,8 @@ public class Experiment implements Runnable {
 
 	// directory with input files
 	private String arffDir;
+	// directory with extra training data (if any)
+	private String extraTrainingDataDir;
 	// path to config file so it can be copied
 	private String configFile;
 	// path to pre-trained model (optional)
@@ -117,6 +119,10 @@ public class Experiment implements Runnable {
 
 	public void setTrainDataArff(String trainDataArff) {
 		this.trainDataArff = trainDataArff;
+	}
+
+	public void setExtraTrainingDataDir(String extraTrainingDataDir) {
+		this.extraTrainingDataDir = extraTrainingDataDir;
 	}
 
 	public void setDescription(String description) {
@@ -236,6 +242,7 @@ public class Experiment implements Runnable {
 
 		for (int i = 0; i < inputFilesList.size(); i++) {
 
+			log.info("reading: " + dir + "/" + inputFilesList.get(i));
 			BufferedReader reader = new BufferedReader(new FileReader(dir + "/" + inputFilesList.get(i)));
 			Instances data = new Instances(reader);
 			reader.close();
@@ -695,8 +702,8 @@ public class Experiment implements Runnable {
 	 * @param trainDocsByGenre
 	 * @throws Exception
 	 */
-	private void performCrossValidation(Instances[] folds, String predictionsPath, String crfppDir, String resultsFile)
-			throws Exception {
+	private void performCrossValidation(Instances[] folds, Instances extraTrainingData, String predictionsPath,
+			String crfppDir, String resultsFile) throws Exception {
 
 		// this was just used for pipeline experiments
 		// if (this.wekaClassifierType.equals("J48")) {
@@ -766,6 +773,12 @@ public class Experiment implements Runnable {
 				} else {
 					for (int k = 0; k < folds[j].numInstances(); k++) {
 						train.add(folds[j].instance(k));
+					}
+					// add extra training data if any
+					if (extraTrainingData != null) {
+						for (int k = 0; k < extraTrainingData.numInstances(); k++) {
+							train.add(extraTrainingData.instance(k));
+						}
 					}
 				}
 			}
@@ -1115,8 +1128,7 @@ public class Experiment implements Runnable {
 			p.waitFor();
 			w.close();
 			log.info("Done running CRFPP.");
-		}
-		else if (pretrainedModelType.equals("weka")) {
+		} else if (pretrainedModelType.equals("weka")) {
 			// TODO
 		}
 
@@ -1169,6 +1181,7 @@ public class Experiment implements Runnable {
 		String EXPERIMENT_DESCRIPTION = root.selectSingleNode("desc").getText();
 		String TIMESTAMP_TEXT = null;
 		String ARFF_DIR = null;
+		String EXTRA_TRAINING_DATA_DIR = null;
 		int NUM_FOLDS = 0;
 		String UPDATED_CLASS_ATTRIBUTE = null;
 		String[] UPDATED_CLASS_VALUES = null;
@@ -1213,6 +1226,13 @@ public class Experiment implements Runnable {
 			// input directory with one ARFF per document.
 			ARFF_DIR = EXPERIMENT_FOLDER + "/" + root.selectSingleNode("inputArffDir").getText();
 			log.info("ARFF data in: " + ARFF_DIR);
+
+			// input directory with one ARFF per document, extra training data
+			if (root.selectSingleNode("extraTrainingData") != null) {
+				EXTRA_TRAINING_DATA_DIR = EXPERIMENT_FOLDER + "/"
+						+ root.selectSingleNode("extraTrainingData").getText();
+				log.info("Extra training data: " + EXTRA_TRAINING_DATA_DIR);
+			}
 
 			// number of folds, applies for xFold or withinGenre setting
 			if (root.selectSingleNode("numFolds") != null) {
@@ -1324,6 +1344,7 @@ public class Experiment implements Runnable {
 		experiment.setDescription(EXPERIMENT_DESCRIPTION);
 		experiment.setTimestampText(TIMESTAMP_TEXT);
 		experiment.setArffDir(ARFF_DIR);
+		experiment.setExtraTrainingDataDir(EXTRA_TRAINING_DATA_DIR);
 		experiment.setConfigFile(configFile);
 		experiment.setPretrainedModel(PRETRAINED_MODEL);
 		experiment.setPretrainedModelType(PRETRAINED_MODEL_TYPE);
@@ -1389,6 +1410,7 @@ public class Experiment implements Runnable {
 
 		// will hold data for experiments
 		Instances[] folds = null;
+		Instances extraTrainingData = null;
 
 		try {
 			switch (setting) {
@@ -1408,6 +1430,13 @@ public class Experiment implements Runnable {
 				featuresExcluded.remove("document_genre");
 				break;
 			}
+			// read extra training data if any given
+			if (extraTrainingDataDir != null) {
+				log.info("Reading extra training data...");
+				extraTrainingData = getData(extraTrainingDataDir)[0];
+				log.info(extraTrainingData.numInstances() + " additional training instances.");
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			log.error("Error reading arff data from " + arffDir);
@@ -1445,11 +1474,10 @@ public class Experiment implements Runnable {
 					// reset to 10
 					numFolds = 10;
 					folds = getFoldsCrossValidationEqual(arffDir, genre);
-
 					folds = prepareData(folds);
 					crfppFilesDir = genreSubDir + "/crfpp";
 					new File(crfppFilesDir).mkdirs();
-					performCrossValidation(folds, null, crfppFilesDir, genreResultsFile);
+					performCrossValidation(folds, null, null, crfppFilesDir, genreResultsFile);
 				} catch (Exception e) {
 					e.printStackTrace();
 					log.error("Error doing within-genre cross validation");
@@ -1469,8 +1497,27 @@ public class Experiment implements Runnable {
 			String resultsFile = experimentSubDir + "/" + "results_" + description + "_" + timestampText + ".txt";
 
 			try {
-				folds = prepareData(folds);
-				performCrossValidation(folds, null, crfppFilesDir, resultsFile);
+				// if there is extra training data, treat as additional fold for
+				// filtering
+				// folds = prepareData(folds);
+				Instances[] tempFolds = folds;
+				if (extraTrainingData != null) {
+					tempFolds = new Instances[folds.length + 1];
+					for (int i = 0; i < folds.length; i++) {
+						tempFolds[i] = folds[i];
+					}
+					tempFolds[folds.length] = extraTrainingData;
+				}
+				// filter
+				tempFolds = prepareData(tempFolds);
+				// copy back
+				if (extraTrainingData != null) {
+					for (int i = 0; i < folds.length; i++) {
+						folds[i] = tempFolds[i];
+					}
+					extraTrainingData = tempFolds[tempFolds.length - 1];
+				}
+				performCrossValidation(folds, extraTrainingData, null, crfppFilesDir, resultsFile);
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.error("Error doing cross validation");

@@ -86,6 +86,10 @@ public class MakeArffCompatible {
 						String[] parts = value.trim().split(" ");
 						int featIndex = Integer.parseInt(parts[0]);
 						String featName = doc.orderedFeatures.get(featIndex);
+						if (parts[1].equals("QUOTE")) {
+							// this was wrong in Intercorp features?!
+							parts[1] = "\"QUOTE\"";
+						}
 						instance.put(featName, parts[1]);
 					}
 				}
@@ -267,7 +271,8 @@ public class MakeArffCompatible {
 		log.info("Done creating new header string.");
 	}
 
-	private void writeCompatibleArffs(String outputDir, boolean sparse) throws IOException {
+	private void writeCompatibleArffs(String outputDir, boolean sparse, boolean keepDirectoryStructure)
+			throws IOException {
 
 		// add one file with all instances
 		// PrintWriter wAll = new PrintWriter(new FileWriter(outputDir +
@@ -282,8 +287,11 @@ public class MakeArffCompatible {
 			String[] parts = doc.path.split("/");
 			String filename = parts[parts.length - 1];
 			System.out.println("Writing: " + filename + " " + num++ + "/" + total);
-			// use doc.path here instead of filename if using dev/test
 			String outPath = outputDir + "/" + filename;
+			if (keepDirectoryStructure) {
+				// use doc.path here instead of filename if using dev/test
+				outPath = outputDir + "/" + doc.path;
+			}
 			// write header
 			PrintWriter w = new PrintWriter(new FileWriter(outPath));
 			w.println(header);
@@ -333,6 +341,8 @@ public class MakeArffCompatible {
 		options.addOption("output", true, "Output path for compatible ARFFs.");
 		options.addOption("sparse", false, "Arff in sparse format?");
 		options.addOption("classAttribute", true, "last attribute in ARFF");
+		options.addOption("keepDirs", false,
+				"if given, keep directory structure for output (otherwise all ARFFs are written into one directory)");
 
 		// Parse command line and configure
 		CommandLineParser parser = new DefaultParser();
@@ -344,6 +354,7 @@ public class MakeArffCompatible {
 			String outputDir = cmd.getOptionValue("output");
 			boolean sparse = cmd.hasOption("sparse");
 			String classAttribute = cmd.getOptionValue("classAttribute");
+			boolean keepDirectoryStructure = cmd.hasOption("keepDirs");
 
 			File outputDirFile = new File(outputDir);
 			if (outputDirFile.exists()) {
@@ -396,11 +407,15 @@ public class MakeArffCompatible {
 					outDir.delete();
 				}
 				outDir.mkdirs();
+				if (keepDirectoryStructure) {
+					outDir = new File (outputDir + "/" + id);
+					outDir.mkdirs();
+				}
 			}
 			log.info("now starting to collect the joint header.");
 			mac.collectJointHeader(classAttribute);
 			log.info("done collecting joint header.");
-			mac.writeCompatibleArffs(outputDir, sparse);
+			mac.writeCompatibleArffs(outputDir, sparse, keepDirectoryStructure);
 			log.info("done writing ARFFs");
 
 		} catch (ParseException e) {

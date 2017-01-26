@@ -186,8 +186,13 @@ public class GrammarUtils {
 		Set<Token> tokenSet = new HashSet<Token>(tokens);
 
 //		for (Dependency dep : deps) {
-//			System.err.println(dep.getGovernor().getCoveredText() + " --> " + dep.getDependencyType() + " "
+//			System.out.println(dep.getGovernor().getCoveredText() + " --> " + dep.getDependencyType() + " --> "
 //					+ dep.getDependent().getCoveredText());
+//		}
+		
+//		System.out.println("token set");
+//		for (Token t : tokenSet) {
+//			System.out.println(t.getCoveredText());
 //		}
 
 		// find the head of the tokens
@@ -237,6 +242,7 @@ public class GrammarUtils {
 		if (tokenSet.isEmpty()) {
 			return null;
 		}
+		
 		Iterator<Token> it = tokenSet.iterator();
 		Token head = it.next();
 

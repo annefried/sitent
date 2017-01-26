@@ -81,9 +81,13 @@ public class VerbFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
+		
+		
+		
 
 		// (STEP 2) add the features for the verbs in question
 		Iterator<ClassificationAnnotation> annots = JCasUtil.select(jcas, ClassificationAnnotation.class).iterator();
+		
 
 		while (annots.hasNext()) {
 

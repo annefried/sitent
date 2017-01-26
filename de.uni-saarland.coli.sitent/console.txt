@@ -1,0 +1,2686 @@
+2017-01-26 14:51:11 INFO  - Reading experiment(s) configuration from: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/config.xml
+2017-01-26 14:51:12 INFO  - Will run setting: xFold
+2017-01-26 14:51:12 INFO  - Experiment folder: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined
+2017-01-26 14:51:12 INFO  - Class attribute: class_telicity
+2017-01-26 14:51:12 INFO  - - class value: telic
+2017-01-26 14:51:12 INFO  - - class value: atelic
+2017-01-26 14:51:12 INFO  - ARFF data in: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp
+2017-01-26 14:51:12 INFO  - Number of folds: 10
+2017-01-26 14:51:12 INFO  - Weka classifier to be run: ZeroR
+2017-01-26 14:51:12 INFO  - Using bigram features: false
+2017-01-26 14:51:12 INFO  - Train sample factor: 100.0
+2017-01-26 14:51:12 INFO  - Experiments running in folder: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined
+2017-01-26 14:51:12 INFO  - STARTING AN EXPERIMENT THREAD with setting: xFold
+2017-01-26 14:51:12 INFO  - Files will be written to : /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/2017-01-26_14:51_cv10-ic_xFold
+2017-01-26 14:51:12 INFO  - xFold	getting x folds: 10
+2017-01-26 14:51:12 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/woolfova-mezi_akty.csv.txt.arff
+2017-01-26 14:51:12 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/woolfova-dallowayova.csv.txt.arff
+2017-01-26 14:51:12 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/wilde-stastny_princ.csv.txt.arff
+2017-01-26 14:51:12 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/weinberg-sneni_finalni.csv.txt.arff
+2017-01-26 14:51:12 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/trevor-lucy_gault.csv.txt.arff
+2017-01-26 14:51:12 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/styblova-skalpel_pros.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/stevenson-jekyll.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/skvorecky-hrichy_pater.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/siddons-bezpec_vysiny.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/searle-mysl_mozek_veda.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/rowlingova-hpot_kamen.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/robilant-milenci_benat.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/pavic-chazarsky_slov.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/otcenasek-romeo_julie.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/orwell-farma_zvirat.csv.txt.arff
+2017-01-26 14:51:13 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/mulisch-atentat.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/morris-naha_opice.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/mccarthy-C.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/kis-hrobka.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/kis-encyklopedie.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/king-carrie.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/kilham-mezi_medvedy.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/joyce-dubliners.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/ishiguro-malir_sveta.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/hemingway-starec_a_mor.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/hawking-historie_casu.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/havel-largo_desolato.csv.txt.arff
+2017-01-26 14:51:14 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/harris-mlceni_jehn.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/hailey-konecna_diag.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/grisham-advokat_chudy.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/doyle-posledni_poklona.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/day-cirkus_v_zime.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/cook-toxin.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/clarke-setkani_ramou.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/chevalier-divka_s_perl.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/chandler-muz_rad_psy.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/cermak-zaklady_metod.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/carroll-alenka_zrcadle.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/carroll-alenka_v_kraji.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/bates-poupata_v_maji.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/barnes-zadny_duvod.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/banville-more.csv.txt.arff
+2017-01-26 14:51:15 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/banks-pisen_kamene.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/asimov-rozum.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/asimov-ocelove_jesky.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/anonym-anglick_pohadky.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/angellova-dvoji_zivot.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/adams-stoparuv_pruvodc.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/adams-sbohem_a_dik.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/adams-restaurant_na_ko.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Woolfova-strasidelny.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Wells-Valka_svetu.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Wells-Stroj_casu.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Wells-Neviditelny.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Watson-DNA.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Viewegh-VychovaDivekCR.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Verne-Cesta_kolem_sv.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Tolkien-Hobit.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Skvorecky-PribehIng_2.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Skvorecky-PribehIng_1.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/SaintExupery-Malyprinc.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Ridley-Genom.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Read-Ja_tuzka.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Petrov-dvanact_kres.csv.txt.arff
+2017-01-26 14:51:16 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Pamuk-Istanbul.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Palahniuk-zalknuti.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Ondaatje-Anglicky_Paci.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Obama-Inauguracni_rec.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Nosov-Neznalkovy_prih.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Nabokov-Lolita.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Jirotka-Saturnin.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Jerome-TriM_ve_cl.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Irving-Rok_vdovou.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Havel-Dalkovy_vyslech.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Hasek-OsudyDobrehoVvSV.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Frankova-DenikA_Franko.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Francis-Drahy_cas.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Francis-Chladna_zrada.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Foucault-Slova_a_veci.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Fitzgerald-VelkyGatsby.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Fitzgerald-Diamant.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Fischerova-Hodina_mezi.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Fieldingova-panenka.csv.txt.arff
+2017-01-26 14:51:17 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Bulgakov-MistrAMarketk.csv.txt.arff
+2017-01-26 14:51:18 INFO  - reading: /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/arff_comp/intercorp/Brown-zdravim_temnoto.csv.txt.arff
+2017-01-26 14:51:18 INFO  - xFold	Setting class attribute and filtering instances...
+2017-01-26 14:51:18 INFO  - xFold	number of attributes at beginning: 64
+2017-01-26 14:51:18 INFO  - xFold	size of class values 2
+2017-01-26 14:51:18 INFO  - xFold	Number of folds: 10
+2017-01-26 14:51:18 INFO  - xFold	... filtering.
+2017-01-26 14:51:18 INFO  - xFold	Number of attributes after filtering: 49
+2017-01-26 14:51:19 INFO  - xFold	Performing cross validation... xFold
+2017-01-26 14:51:19 INFO  - xFold	writing CRFPP template...
+2017-01-26 14:51:19 INFO  - xFold	...fold: 1
+2017-01-26 14:51:19 INFO  - Getting CRFPP representation: 19347
+2017-01-26 14:51:19 INFO  - false
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 0
+2017-01-26 14:51:19 INFO  - adding extra newline
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1800
+2017-01-26 14:51:19 INFO  - adding extra newline
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 1900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 2900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 3900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 4900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 5900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6000
+2017-01-26 14:51:19 INFO  - adding extra newline
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 6900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 7900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8500
+2017-01-26 14:51:19 INFO  - adding extra newline
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 8900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9500
+2017-01-26 14:51:19 INFO  - adding extra newline
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 9900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 10900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 11900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12800
+2017-01-26 14:51:19 INFO  - adding extra newline
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 12900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 13900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14500
+2017-01-26 14:51:19 INFO  - adding extra newline
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 14900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15200
+2017-01-26 14:51:19 INFO  - adding extra newline
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 15900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 16900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17400
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17500
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17600
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17700
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17800
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 17900
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 18000
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 18100
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 18200
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 18300
+2017-01-26 14:51:19 INFO  - writing input for CRF++... 18400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 18500
+2017-01-26 14:51:20 INFO  - adding extra newline
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 18600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 18700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 18800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 18900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 19000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 19100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 19200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 19300
+2017-01-26 14:51:20 INFO  - wrote 19347 lines
+2017-01-26 14:51:20 INFO  - Getting CRFPP representation: 197067
+2017-01-26 14:51:20 INFO  - false
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 0
+2017-01-26 14:51:20 INFO  - adding extra newline
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 1900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 2900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3100
+2017-01-26 14:51:20 INFO  - adding extra newline
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 3900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 4900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 5900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 6900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7500
+2017-01-26 14:51:20 INFO  - adding extra newline
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 7900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 8900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 9900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 10900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11600
+2017-01-26 14:51:20 INFO  - adding extra newline
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11800
+2017-01-26 14:51:20 INFO  - adding extra newline
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 11900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 12900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 13900
+2017-01-26 14:51:20 INFO  - adding extra newline
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 14900
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15700
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15800
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 15900
+2017-01-26 14:51:20 INFO  - adding extra newline
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 16000
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 16100
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 16200
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 16300
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 16400
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 16500
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 16600
+2017-01-26 14:51:20 INFO  - writing input for CRF++... 16700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 16800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 16900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 17900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 18900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 19900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20100
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 20900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 21900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22700
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 22900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23400
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 23900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24600
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 24900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 25900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 26900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 27900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28400
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 28900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29100
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 29900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30600
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 30900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 31900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 32900
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 33900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34000
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 34900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 35900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 36900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 37900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 38900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 39900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 40900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 41900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 42900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 43900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 44900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45100
+2017-01-26 14:51:21 INFO  - adding extra newline
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 45900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 46900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47700
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47800
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 47900
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 48000
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 48100
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 48200
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 48300
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 48400
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 48500
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 48600
+2017-01-26 14:51:21 INFO  - writing input for CRF++... 48700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 48800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 48900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 49900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50500
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 50900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 51900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52800
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 52900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 53900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54600
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 54900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 55900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 56900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57300
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 57900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 58900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 59900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60300
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60600
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 60900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 61900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62800
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 62900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 63900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 64900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 65900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66700
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 66900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 67900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68200
+2017-01-26 14:51:22 INFO  - adding extra newline
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 68900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69700
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69800
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 69900
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 70000
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 70100
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 70200
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 70300
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 70400
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 70500
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 70600
+2017-01-26 14:51:22 INFO  - writing input for CRF++... 70700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 70800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 70900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 71900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72200
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 72900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 73900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 74900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75800
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 75900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76800
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 76900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 77900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78300
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 78900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 79900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 80900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 81900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 82900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83600
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 83900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 84900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 85900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 86900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87000
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 87900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88800
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 88900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 89900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 90900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91600
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 91900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 92900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 93900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 94900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 95900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96800
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 96900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 97900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 98900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 99900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 100900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 101900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 102900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 103900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104300
+2017-01-26 14:51:23 INFO  - adding extra newline
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 104900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 105900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 106900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107000
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107100
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107200
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107300
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107400
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107500
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107600
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107700
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107800
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 107900
+2017-01-26 14:51:23 INFO  - writing input for CRF++... 108000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108100
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 108900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 109900
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 110900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111100
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111800
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 111900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112700
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 112900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 113900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 114900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115200
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 115900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 116900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 117900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118200
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 118900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 119900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 120900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121400
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 121900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122300
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 122900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 123900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124100
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124700
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 124900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125000
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 125900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 126900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 127900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128800
+2017-01-26 14:51:24 INFO  - adding extra newline
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 128900
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129000
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129100
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129200
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129300
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129400
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129500
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129600
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129700
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129800
+2017-01-26 14:51:24 INFO  - writing input for CRF++... 129900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130700
+2017-01-26 14:51:25 INFO  - adding extra newline
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 130900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 131900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 132900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 133900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 134900
+2017-01-26 14:51:25 INFO  - adding extra newline
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 135900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136700
+2017-01-26 14:51:25 INFO  - adding extra newline
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 136900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 137900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 138900
+2017-01-26 14:51:25 INFO  - adding extra newline
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 139900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 140900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 141900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 142900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143600
+2017-01-26 14:51:25 INFO  - adding extra newline
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 143900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 144900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 145900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 146900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 147900
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148000
+2017-01-26 14:51:25 INFO  - adding extra newline
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148400
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148500
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148600
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148700
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148800
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 148900
+2017-01-26 14:51:25 INFO  - adding extra newline
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 149000
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 149100
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 149200
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 149300
+2017-01-26 14:51:25 INFO  - writing input for CRF++... 149400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 149500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 149600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 149700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 149800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 149900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150600
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 150900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 151900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 152900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 153900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154600
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154700
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 154900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 155900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156800
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 156900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 157900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 158900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 159900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160700
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 160900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161700
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 161900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 162900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 163900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 164900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 165900
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166600
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 166900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 167900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168700
+2017-01-26 14:51:26 INFO  - adding extra newline
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 168900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169300
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169400
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169500
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169600
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169700
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169800
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 169900
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 170000
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 170100
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 170200
+2017-01-26 14:51:26 INFO  - writing input for CRF++... 170300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 170400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 170500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 170600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 170700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 170800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 170900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 171900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172800
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 172900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 173900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174400
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 174900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 175900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 176900
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177600
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 177900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178800
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 178900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 179900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 180900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 181900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 182900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183600
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 183900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 184900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185200
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 185900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 186900
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 187900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 188900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 189900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190500
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 190900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 191900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 192900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 193900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194100
+2017-01-26 14:51:27 INFO  - adding extra newline
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 194900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 195900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196000
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196100
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196200
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196300
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196400
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196500
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196600
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196700
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196800
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 196900
+2017-01-26 14:51:27 INFO  - writing input for CRF++... 197000
+2017-01-26 14:51:27 INFO  - wrote 197067 lines
+2017-01-26 14:51:28 INFO  - xFold	Running CRF++...
+2017-01-26 14:51:28 INFO  - xFold	done writing the crf files.
+2017-01-26 14:51:28 INFO  - CRF++: Yet Another CRF Tool Kit
+2017-01-26 14:51:28 INFO  - Copyright (C) 2005-2013 Taku Kudo, All rights reserved.
+2017-01-26 14:51:28 INFO  - 
+2017-01-26 14:51:28 INFO  - tag : atelic
+2017-01-26 14:51:28 INFO  - tag : telic
+2017-01-26 14:51:28 INFO  - /media/annemarie/Data/Work/Projects/AspectPrediction/Telicity-EN-CZ/automatic_classification/combined/2017-01-26_14:51_cv10-ic_xFold/crfpp/train0.csv
+2017-01-26 14:51:32 INFO  - reading training data: 0
+2017-01-26 14:51:32 INFO  - 1
+2017-01-26 14:51:32 INFO  - 2
+2017-01-26 14:51:32 INFO  - 3
+2017-01-26 14:51:32 INFO  - 4
+2017-01-26 14:51:32 INFO  - 5
+2017-01-26 14:51:32 INFO  - 6
+2017-01-26 14:51:32 INFO  - 7
+2017-01-26 14:51:32 INFO  - 8
+2017-01-26 14:51:32 INFO  - 9
+2017-01-26 14:51:32 INFO  - 10
+2017-01-26 14:51:32 INFO  - 11
+2017-01-26 14:51:32 INFO  - 12
+2017-01-26 14:51:32 INFO  - 13
+2017-01-26 14:51:32 INFO  - 14
+2017-01-26 14:51:32 INFO  - 15
+2017-01-26 14:51:32 INFO  - 16
+2017-01-26 14:51:32 INFO  - 17
+2017-01-26 14:51:32 INFO  - 18
+2017-01-26 14:51:32 INFO  - 19
+2017-01-26 14:51:32 INFO  - 20
+2017-01-26 14:51:32 INFO  - 21
+2017-01-26 14:51:32 INFO  - 22
+2017-01-26 14:51:32 INFO  - 23
+2017-01-26 14:51:32 INFO  - 24
+2017-01-26 14:51:32 INFO  - 25
+2017-01-26 14:51:32 INFO  - 26
+2017-01-26 14:51:32 INFO  - 27
+2017-01-26 14:51:32 INFO  - 28
+2017-01-26 14:51:32 INFO  - 29
+2017-01-26 14:51:32 INFO  - 30
+2017-01-26 14:51:32 INFO  - 31
+2017-01-26 14:51:32 INFO  - 32
+2017-01-26 14:51:32 INFO  - 33
+2017-01-26 14:51:32 INFO  - 34
+2017-01-26 14:51:32 INFO  - 35
+2017-01-26 14:51:32 INFO  - 36
+2017-01-26 14:51:32 INFO  - 37
+2017-01-26 14:51:32 INFO  - 38
+2017-01-26 14:51:32 INFO  - 39
+2017-01-26 14:51:32 INFO  - 40
+2017-01-26 14:51:32 INFO  - 41
+2017-01-26 14:51:32 INFO  - 42
+2017-01-26 14:51:32 INFO  - 43
+2017-01-26 14:51:32 INFO  - 44
+2017-01-26 14:51:32 INFO  - 45
+2017-01-26 14:51:32 INFO  - 46
+2017-01-26 14:51:32 INFO  - 47
+2017-01-26 14:51:32 INFO  - 48
+2017-01-26 14:51:32 INFO  - 49
+2017-01-26 14:51:32 INFO  - 50
+2017-01-26 14:51:32 INFO  - 51
+2017-01-26 14:51:32 INFO  - 52
+2017-01-26 14:51:32 INFO  - 53
+2017-01-26 14:51:32 INFO  - 54
+2017-01-26 14:51:32 INFO  - 55
+2017-01-26 14:51:32 INFO  - 56
+2017-01-26 14:51:32 INFO  - 57
+2017-01-26 14:51:32 INFO  - 58
+2017-01-26 14:51:32 INFO  - 59
+2017-01-26 14:51:32 INFO  - 60
+2017-01-26 14:51:32 INFO  - 61
+2017-01-26 14:51:32 INFO  - 62
+2017-01-26 14:51:32 INFO  - 63
+2017-01-26 14:51:32 INFO  - 64
+2017-01-26 14:51:32 INFO  - 65
+2017-01-26 14:51:32 INFO  - 66
+2017-01-26 14:51:32 INFO  - 67
+2017-01-26 14:51:32 INFO  - 68
+2017-01-26 14:51:32 INFO  - 69
+2017-01-26 14:51:32 INFO  - 70
+2017-01-26 14:51:32 INFO  - 71
+2017-01-26 14:51:32 INFO  - 72
+2017-01-26 14:51:32 INFO  - 73
+2017-01-26 14:51:32 INFO  - 74
+2017-01-26 14:51:32 INFO  - 75
+2017-01-26 14:51:32 INFO  - 
+2017-01-26 14:51:32 INFO  - Done!3.54 s
+2017-01-26 14:51:32 INFO  - 
+2017-01-26 14:51:32 INFO  - Number of sentences: 76
+2017-01-26 14:51:32 INFO  - Number of features:  110230
+2017-01-26 14:51:32 INFO  - Number of thread(s): 4
+2017-01-26 14:51:32 INFO  - Freq:                1
+2017-01-26 14:51:32 INFO  - eta:                 0.00010
+2017-01-26 14:51:32 INFO  - C:                   1.00000
+2017-01-26 14:51:32 INFO  - shrinking size:      20
+2017-01-26 14:51:32 INFO  - iter=0 terr=0.52476 serr=1.00000 act=110230 obj=136596.43543 diff=1.00000
+2017-01-26 14:51:32 INFO  - iter=1 terr=0.47524 serr=1.00000 act=110230 obj=336767.00739 diff=1.46542
+2017-01-26 14:51:32 INFO  - iter=2 terr=0.47524 serr=1.00000 act=110230 obj=134860.56371 diff=0.59954
+2017-01-26 14:51:32 INFO  - iter=3 terr=0.46452 serr=1.00000 act=110230 obj=133085.42788 diff=0.01316
+2017-01-26 14:51:33 INFO  - iter=4 terr=0.35070 serr=1.00000 act=110230 obj=127555.75416 diff=0.04155
+2017-01-26 14:51:33 INFO  - iter=5 terr=0.34072 serr=1.00000 act=110230 obj=120868.33622 diff=0.05243
+2017-01-26 14:51:33 INFO  - iter=6 terr=0.30962 serr=1.00000 act=110230 obj=115508.36859 diff=0.04435
+2017-01-26 14:51:33 INFO  - iter=7 terr=0.28550 serr=1.00000 act=110230 obj=110104.30585 diff=0.04679
+2017-01-26 14:51:33 INFO  - iter=8 terr=0.27088 serr=1.00000 act=110230 obj=106821.95501 diff=0.02981
+2017-01-26 14:51:33 INFO  - iter=9 terr=0.26408 serr=1.00000 act=110230 obj=103944.99420 diff=0.02693
+2017-01-26 14:51:33 INFO  - iter=10 terr=0.25005 serr=1.00000 act=110230 obj=105038.97360 diff=0.01052
+2017-01-26 14:51:34 INFO  - iter=11 terr=0.25397 serr=1.00000 act=110230 obj=102858.13836 diff=0.02076
+2017-01-26 14:51:34 INFO  - iter=12 terr=0.25145 serr=1.00000 act=110230 obj=102212.93801 diff=0.00627
+2017-01-26 14:51:34 INFO  - iter=13 terr=0.24632 serr=1.00000 act=110230 obj=100487.66411 diff=0.01688
+2017-01-26 14:51:34 INFO  - iter=14 terr=0.24191 serr=1.00000 act=110230 obj=99112.42946 diff=0.01369
+2017-01-26 14:51:34 INFO  - iter=15 terr=0.23610 serr=1.00000 act=110230 obj=97228.03938 diff=0.01901
+2017-01-26 14:51:34 INFO  - iter=16 terr=0.22696 serr=1.00000 act=110230 obj=95962.50069 diff=0.01302
+2017-01-26 14:51:34 INFO  - iter=17 terr=0.23505 serr=1.00000 act=110230 obj=96175.78483 diff=0.00222
+2017-01-26 14:51:34 INFO  - iter=18 terr=0.22904 serr=1.00000 act=110230 obj=95686.04650 diff=0.00509
+2017-01-26 14:51:34 INFO  - iter=19 terr=0.22867 serr=1.00000 act=110230 obj=95218.45227 diff=0.00489
+2017-01-26 14:51:35 INFO  - iter=20 terr=0.22798 serr=1.00000 act=110230 obj=94667.42282 diff=0.00579
+2017-01-26 14:51:35 INFO  - iter=21 terr=0.22623 serr=1.00000 act=110230 obj=94037.11227 diff=0.00666
+2017-01-26 14:51:35 INFO  - iter=22 terr=0.22408 serr=1.00000 act=110230 obj=93247.71301 diff=0.00839
+2017-01-26 14:51:35 INFO  - iter=23 terr=0.22073 serr=1.00000 act=110230 obj=92185.80759 diff=0.01139
+2017-01-26 14:51:35 INFO  - iter=24 terr=0.24163 serr=1.00000 act=110230 obj=96592.36728 diff=0.04780
+2017-01-26 14:51:35 INFO  - iter=25 terr=0.21824 serr=1.00000 act=110230 obj=92004.93901 diff=0.04749
+2017-01-26 14:51:35 INFO  - iter=26 terr=0.21633 serr=1.00000 act=110230 obj=91319.54082 diff=0.00745
+2017-01-26 14:51:35 INFO  - iter=27 terr=0.21523 serr=1.00000 act=110230 obj=91063.37326 diff=0.00281
+2017-01-26 14:51:36 INFO  - iter=28 terr=0.21378 serr=1.00000 act=110230 obj=90818.36291 diff=0.00269
+2017-01-26 14:51:36 INFO  - iter=29 terr=0.21214 serr=1.00000 act=110230 obj=90540.45067 diff=0.00306
+2017-01-26 14:51:36 INFO  - iter=30 terr=0.21284 serr=1.00000 act=110230 obj=90185.79268 diff=0.00392
+2017-01-26 14:51:36 INFO  - iter=31 terr=0.21289 serr=1.00000 act=110230 obj=90728.18464 diff=0.00601
+2017-01-26 14:51:36 INFO  - iter=32 terr=0.21079 serr=1.00000 act=110230 obj=90002.58439 diff=0.00800
+2017-01-26 14:51:36 INFO  - iter=33 terr=0.20993 serr=1.00000 act=110230 obj=89645.29949 diff=0.00397
+2017-01-26 14:51:36 INFO  - iter=34 terr=0.20877 serr=1.00000 act=110230 obj=89219.61361 diff=0.00475
+2017-01-26 14:51:36 INFO  - iter=35 terr=0.20878 serr=1.00000 act=110230 obj=88987.59250 diff=0.00260
+2017-01-26 14:51:37 INFO  - iter=36 terr=0.20894 serr=1.00000 act=110230 obj=88787.04226 diff=0.00225
+2017-01-26 14:51:37 INFO  - iter=37 terr=0.20795 serr=1.00000 act=110230 obj=88316.39880 diff=0.00530
+2017-01-26 14:51:37 INFO  - iter=38 terr=0.20534 serr=1.00000 act=110230 obj=87959.25808 diff=0.00404
+2017-01-26 14:51:37 INFO  - iter=39 terr=0.20420 serr=1.00000 act=110230 obj=87577.52795 diff=0.00434
+2017-01-26 14:51:37 INFO  - iter=40 terr=0.20347 serr=1.00000 act=110230 obj=87398.20530 diff=0.00205
+2017-01-26 14:51:37 INFO  - iter=41 terr=0.20325 serr=1.00000 act=110230 obj=87229.57028 diff=0.00193
+2017-01-26 14:51:37 INFO  - iter=42 terr=0.20264 serr=1.00000 act=110230 obj=87031.56645 diff=0.00227
+2017-01-26 14:51:37 INFO  - iter=43 terr=0.20246 serr=1.00000 act=110230 obj=86817.61712 diff=0.00246
+2017-01-26 14:51:37 INFO  - iter=44 terr=0.20119 serr=1.00000 act=110230 obj=86760.03301 diff=0.00066
+2017-01-26 14:51:38 INFO  - iter=45 terr=0.20161 serr=1.00000 act=110230 obj=86700.13334 diff=0.00069
+2017-01-26 14:51:38 INFO  - iter=46 terr=0.20190 serr=1.00000 act=110230 obj=86680.89813 diff=0.00022
+2017-01-26 14:51:38 INFO  - iter=47 terr=0.20239 serr=1.00000 act=110230 obj=86619.07614 diff=0.00071
+2017-01-26 14:51:38 INFO  - iter=48 terr=0.20261 serr=1.00000 act=110230 obj=86518.74336 diff=0.00116
+2017-01-26 14:51:38 INFO  - iter=49 terr=0.20253 serr=1.00000 act=110230 obj=86360.67291 diff=0.00183
+2017-01-26 14:51:38 INFO  - iter=50 terr=0.20102 serr=1.00000 act=110230 obj=86234.41695 diff=0.00146
+2017-01-26 14:51:38 INFO  - iter=51 terr=0.19926 serr=1.00000 act=110230 obj=85968.58106 diff=0.00308
+2017-01-26 14:51:38 INFO  - iter=52 terr=0.19884 serr=1.00000 act=110230 obj=85921.17755 diff=0.00055
+2017-01-26 14:51:39 INFO  - iter=53 terr=0.19790 serr=1.00000 act=110230 obj=85843.55546 diff=0.00090
+2017-01-26 14:51:39 INFO  - iter=54 terr=0.19799 serr=1.00000 act=110230 obj=85717.30348 diff=0.00147
+2017-01-26 14:51:39 INFO  - iter=55 terr=0.19668 serr=1.00000 act=110230 obj=85596.08891 diff=0.00141
+2017-01-26 14:51:39 INFO  - iter=56 terr=0.19804 serr=1.00000 act=110230 obj=85449.57248 diff=0.00171
+2017-01-26 14:51:39 INFO  - iter=57 terr=0.19703 serr=1.00000 act=110230 obj=85335.91955 diff=0.00133
+2017-01-26 14:51:39 INFO  - iter=58 terr=0.19647 serr=1.00000 act=110230 obj=85568.04788 diff=0.00272
+2017-01-26 14:51:39 INFO  - iter=59 terr=0.19668 serr=1.00000 act=110230 obj=85302.46291 diff=0.00310
+2017-01-26 14:51:39 INFO  - iter=60 terr=0.19663 serr=1.00000 act=110230 obj=85271.13599 diff=0.00037
+2017-01-26 14:51:40 INFO  - iter=61 terr=0.19659 serr=1.00000 act=110230 obj=85122.40029 diff=0.00174
+2017-01-26 14:51:40 INFO  - iter=62 terr=0.19673 serr=1.00000 act=110230 obj=84957.87624 diff=0.00193
+2017-01-26 14:51:40 INFO  - iter=63 terr=0.19619 serr=1.00000 act=110230 obj=84713.31907 diff=0.00288
+2017-01-26 14:51:40 INFO  - iter=64 terr=0.19552 serr=1.00000 act=110230 obj=84366.75305 diff=0.00409
+2017-01-26 14:51:40 INFO  - iter=65 terr=0.19610 serr=1.00000 act=110230 obj=84406.77676 diff=0.00047
+2017-01-26 14:51:40 INFO  - iter=66 terr=0.19536 serr=1.00000 act=110230 obj=84211.13494 diff=0.00232
+2017-01-26 14:51:40 INFO  - iter=67 terr=0.19415 serr=1.00000 act=110230 obj=84080.34692 diff=0.00155
+2017-01-26 14:51:41 INFO  - iter=68 terr=0.19419 serr=1.00000 act=110230 obj=84021.87059 diff=0.00070
+2017-01-26 14:51:41 INFO  - iter=69 terr=0.19449 serr=1.00000 act=110230 obj=83983.59533 diff=0.00046
+2017-01-26 14:51:41 INFO  - iter=70 terr=0.19414 serr=1.00000 act=110230 obj=83896.00840 diff=0.00104
+2017-01-26 14:51:41 INFO  - iter=71 terr=0.19378 serr=1.00000 act=110230 obj=83593.84729 diff=0.00360
+2017-01-26 14:51:41 INFO  - iter=72 terr=0.19349 serr=1.00000 act=110230 obj=83360.77926 diff=0.00279
+2017-01-26 14:51:41 INFO  - iter=73 terr=0.19525 serr=1.00000 act=110230 obj=83474.22581 diff=0.00136
+2017-01-26 14:51:41 INFO  - iter=74 terr=0.19419 serr=1.00000 act=110230 obj=83280.71841 diff=0.00232
+2017-01-26 14:51:42 INFO  - iter=75 terr=0.19331 serr=1.00000 act=110230 obj=83150.82402 diff=0.00156
+2017-01-26 14:51:42 INFO  - iter=76 terr=0.19248 serr=1.00000 act=110230 obj=83068.63526 diff=0.00099
+2017-01-26 14:51:42 INFO  - iter=77 terr=0.19230 serr=1.00000 act=110230 obj=83027.81200 diff=0.00049
+2017-01-26 14:51:42 INFO  - iter=78 terr=0.19171 serr=1.00000 act=110230 obj=82882.86634 diff=0.00175
+2017-01-26 14:51:42 INFO  - iter=79 terr=0.19165 serr=1.00000 act=110230 obj=82706.12742 diff=0.00213
+2017-01-26 14:51:42 INFO  - iter=80 terr=0.19130 serr=1.00000 act=110230 obj=82898.73081 diff=0.00233
+2017-01-26 14:51:42 INFO  - iter=81 terr=0.19098 serr=1.00000 act=110230 obj=82641.96491 diff=0.00310
+2017-01-26 14:51:42 INFO  - iter=82 terr=0.19122 serr=1.00000 act=110230 obj=82558.08761 diff=0.00101
+2017-01-26 14:51:42 INFO  - iter=83 terr=0.19110 serr=1.00000 act=110230 obj=82531.39040 diff=0.00032
+2017-01-26 14:51:43 INFO  - iter=84 terr=0.19107 serr=1.00000 act=110230 obj=82469.79465 diff=0.00075
+2017-01-26 14:51:43 INFO  - iter=85 terr=0.19086 serr=1.00000 act=110230 obj=82338.45877 diff=0.00159
+2017-01-26 14:51:43 INFO  - iter=86 terr=0.19083 serr=1.00000 act=110230 obj=82222.47905 diff=0.00141
+2017-01-26 14:51:43 INFO  - iter=87 terr=0.19036 serr=1.00000 act=110230 obj=82423.07192 diff=0.00244
+2017-01-26 14:51:43 INFO  - iter=88 terr=0.19048 serr=1.00000 act=110230 obj=82179.42005 diff=0.00296
+2017-01-26 14:51:43 INFO  - iter=89 terr=0.19092 serr=1.00000 act=110230 obj=82157.16576 diff=0.00027
+2017-01-26 14:51:43 INFO  - iter=90 terr=0.19073 serr=1.00000 act=110230 obj=82112.00677 diff=0.00055
+2017-01-26 14:51:44 INFO  - iter=91 terr=0.19049 serr=1.00000 act=110230 obj=82094.97246 diff=0.00021
+2017-01-26 14:51:44 INFO  - iter=92 terr=0.19012 serr=1.00000 act=110230 obj=82060.20571 diff=0.00042
+2017-01-26 14:51:44 INFO  - iter=93 terr=0.18992 serr=1.00000 act=110230 obj=81964.58154 diff=0.00117
+2017-01-26 14:51:44 INFO  - iter=94 terr=0.18989 serr=1.00000 act=110230 obj=81857.79634 diff=0.00130
+2017-01-26 14:51:44 INFO  - iter=95 terr=0.19536 serr=1.00000 act=110230 obj=82527.05982 diff=0.00818
+2017-01-26 14:51:44 INFO  - iter=96 terr=0.19056 serr=1.00000 act=110230 obj=81818.84447 diff=0.00858
+2017-01-26 14:51:44 INFO  - iter=97 terr=0.18997 serr=1.00000 act=110230 obj=81694.91626 diff=0.00151
+2017-01-26 14:51:44 INFO  - iter=98 terr=0.18964 serr=1.00000 act=110230 obj=81609.53110 diff=0.00105
+2017-01-26 14:51:44 INFO  - iter=99 terr=0.18974 serr=1.00000 act=110230 obj=81508.19789 diff=0.00124
+2017-01-26 14:51:45 INFO  - iter=100 terr=0.18977 serr=1.00000 act=110230 obj=81480.72195 diff=0.00034
+2017-01-26 14:51:45 INFO  - iter=101 terr=0.18978 serr=1.00000 act=110230 obj=81414.40446 diff=0.00081
+2017-01-26 14:51:45 INFO  - iter=102 terr=0.19028 serr=1.00000 act=110230 obj=81326.72285 diff=0.00108
+2017-01-26 14:51:45 INFO  - iter=103 terr=0.18916 serr=1.00000 act=110230 obj=81211.65161 diff=0.00141
+2017-01-26 14:51:45 INFO  - iter=104 terr=0.18879 serr=1.00000 act=110230 obj=81157.80241 diff=0.00066
+2017-01-26 14:51:45 INFO  - iter=105 terr=0.18882 serr=1.00000 act=110230 obj=81107.07346 diff=0.00063
+2017-01-26 14:51:45 INFO  - iter=106 terr=0.18887 serr=1.00000 act=110230 obj=81033.50166 diff=0.00091
+2017-01-26 14:51:45 INFO  - iter=107 terr=0.18894 serr=1.00000 act=110230 obj=81138.94472 diff=0.00130
+2017-01-26 14:51:45 INFO  - iter=108 terr=0.18873 serr=1.00000 act=110230 obj=80996.97128 diff=0.00175
+2017-01-26 14:51:46 INFO  - iter=109 terr=0.18922 serr=1.00000 act=110230 obj=80959.98206 diff=0.00046
+2017-01-26 14:51:46 INFO  - iter=110 terr=0.18912 serr=1.00000 act=110230 obj=80935.79518 diff=0.00030
+2017-01-26 14:51:46 INFO  - iter=111 terr=0.18874 serr=1.00000 act=110230 obj=80844.06267 diff=0.00113
+2017-01-26 14:51:46 INFO  - iter=112 terr=0.18798 serr=1.00000 act=110230 obj=80793.41341 diff=0.00063
+2017-01-26 14:51:46 INFO  - iter=113 terr=0.18799 serr=1.00000 act=110230 obj=80755.40981 diff=0.00047
+2017-01-26 14:51:46 INFO  - iter=114 terr=0.18827 serr=1.00000 act=110230 obj=80695.19446 diff=0.00075
+2017-01-26 14:51:46 INFO  - iter=115 terr=0.18837 serr=1.00000 act=110230 obj=80648.10338 diff=0.00058
+2017-01-26 14:51:46 INFO  - iter=116 terr=0.18827 serr=1.00000 act=110230 obj=80645.55649 diff=0.00003
+2017-01-26 14:51:46 INFO  - iter=117 terr=0.18813 serr=1.00000 act=110230 obj=80605.22967 diff=0.00050
+2017-01-26 14:51:47 INFO  - iter=118 terr=0.18802 serr=1.00000 act=110230 obj=80561.77407 diff=0.00054
+2017-01-26 14:51:47 INFO  - iter=119 terr=0.18782 serr=1.00000 act=110230 obj=80518.84267 diff=0.00053
+2017-01-26 14:51:47 INFO  - iter=120 terr=0.18761 serr=1.00000 act=110230 obj=80477.91132 diff=0.00051
+2017-01-26 14:51:47 INFO  - iter=121 terr=0.18779 serr=1.00000 act=110230 obj=80385.43707 diff=0.00115
+2017-01-26 14:51:47 INFO  - iter=122 terr=0.18788 serr=1.00000 act=110230 obj=80367.56005 diff=0.00022
+2017-01-26 14:51:47 INFO  - iter=123 terr=0.18788 serr=1.00000 act=110230 obj=80335.12247 diff=0.00040
+2017-01-26 14:51:47 INFO  - iter=124 terr=0.18686 serr=1.00000 act=110230 obj=80433.61402 diff=0.00123
+2017-01-26 14:51:47 INFO  - iter=125 terr=0.18749 serr=1.00000 act=110230 obj=80309.98905 diff=0.00154
+2017-01-26 14:51:48 INFO  - iter=126 terr=0.18725 serr=1.00000 act=110230 obj=80275.63022 diff=0.00043
+2017-01-26 14:51:48 INFO  - iter=127 terr=0.18747 serr=1.00000 act=110230 obj=80192.85056 diff=0.00103
+2017-01-26 14:51:48 INFO  - iter=128 terr=0.18686 serr=1.00000 act=110230 obj=80188.81700 diff=0.00005
+2017-01-26 14:51:48 INFO  - iter=129 terr=0.18700 serr=1.00000 act=110230 obj=80166.53652 diff=0.00028
+2017-01-26 14:51:48 INFO  - iter=130 terr=0.18713 serr=1.00000 act=110230 obj=80147.02710 diff=0.00024
+2017-01-26 14:51:48 INFO  - iter=131 terr=0.18687 serr=1.00000 act=110230 obj=80101.05283 diff=0.00057
+2017-01-26 14:51:48 INFO  - iter=132 terr=0.18657 serr=1.00000 act=110230 obj=80021.86931 diff=0.00099
+2017-01-26 14:51:48 INFO  - iter=133 terr=0.18800 serr=1.00000 act=110230 obj=80333.93313 diff=0.00390
+2017-01-26 14:51:48 INFO  - iter=134 terr=0.18662 serr=1.00000 act=110230 obj=80005.80335 diff=0.00408
+2017-01-26 14:51:49 INFO  - iter=135 terr=0.18648 serr=1.00000 act=110230 obj=79994.45172 diff=0.00014
+2017-01-26 14:51:49 INFO  - iter=136 terr=0.18625 serr=1.00000 act=110230 obj=79961.07772 diff=0.00042
+2017-01-26 14:51:49 INFO  - iter=137 terr=0.18652 serr=1.00000 act=110230 obj=79915.45272 diff=0.00057
+2017-01-26 14:51:49 INFO  - iter=138 terr=0.18624 serr=1.00000 act=110230 obj=79877.55493 diff=0.00047
+2017-01-26 14:51:49 INFO  - iter=139 terr=0.18652 serr=1.00000 act=110230 obj=79848.40838 diff=0.00036
+2017-01-26 14:51:49 INFO  - iter=140 terr=0.18647 serr=1.00000 act=110230 obj=79823.15444 diff=0.00032
+2017-01-26 14:51:49 INFO  - iter=141 terr=0.18638 serr=1.00000 act=110230 obj=79801.28794 diff=0.00027
+2017-01-26 14:51:49 INFO  - iter=142 terr=0.18632 serr=1.00000 act=110230 obj=79754.49950 diff=0.00059
+2017-01-26 14:51:49 INFO  - iter=143 terr=0.18896 serr=1.00000 act=110230 obj=80511.10054 diff=0.00949
+2017-01-26 14:51:50 INFO  - iter=144 terr=0.18630 serr=1.00000 act=110230 obj=79741.06835 diff=0.00956
+2017-01-26 14:51:50 INFO  - iter=145 terr=0.18604 serr=1.00000 act=110230 obj=79710.91516 diff=0.00038
+2017-01-26 14:51:50 INFO  - iter=146 terr=0.18576 serr=1.00000 act=110230 obj=79687.05143 diff=0.00030
+2017-01-26 14:51:50 INFO  - iter=147 terr=0.18570 serr=1.00000 act=110230 obj=79673.09372 diff=0.00018
+2017-01-26 14:51:50 INFO  - iter=148 terr=0.18546 serr=1.00000 act=110230 obj=79637.74505 diff=0.00044
+2017-01-26 14:51:50 INFO  - iter=149 terr=0.18515 serr=1.00000 act=110230 obj=79585.83750 diff=0.00065
+2017-01-26 14:51:50 INFO  - iter=150 terr=0.18563 serr=1.00000 act=110230 obj=79599.57934 diff=0.00017
+2017-01-26 14:51:51 INFO  - iter=151 terr=0.18538 serr=1.00000 act=110230 obj=79563.24250 diff=0.00046
+2017-01-26 14:51:51 INFO  - iter=152 terr=0.18547 serr=1.00000 act=110230 obj=79531.18611 diff=0.00040
+2017-01-26 14:51:51 INFO  - iter=153 terr=0.18508 serr=1.00000 act=110230 obj=79462.09263 diff=0.00087
+2017-01-26 14:51:51 INFO  - iter=154 terr=0.18557 serr=1.00000 act=110230 obj=79430.84803 diff=0.00039
+2017-01-26 14:51:51 INFO  - iter=155 terr=0.18534 serr=1.00000 act=110230 obj=79403.61732 diff=0.00034
+2017-01-26 14:51:51 INFO  - iter=156 terr=0.18451 serr=1.00000 act=110230 obj=79306.76732 diff=0.00122
+2017-01-26 14:51:51 INFO  - iter=157 terr=0.18497 serr=1.00000 act=110230 obj=79257.76003 diff=0.00062
+2017-01-26 14:51:52 INFO  - iter=158 terr=0.18424 serr=1.00000 act=110230 obj=79213.25292 diff=0.00056
+2017-01-26 14:51:52 INFO  - iter=159 terr=0.18460 serr=1.00000 act=110230 obj=79174.33781 diff=0.00049
+2017-01-26 14:51:52 INFO  - iter=160 terr=0.18481 serr=1.00000 act=110230 obj=79122.63763 diff=0.00065
+2017-01-26 14:51:52 INFO  - iter=161 terr=0.18461 serr=1.00000 act=110230 obj=79097.08060 diff=0.00032
+2017-01-26 14:51:52 INFO  - iter=162 terr=0.18423 serr=1.00000 act=110230 obj=79031.42935 diff=0.00083
+2017-01-26 14:51:52 INFO  - iter=163 terr=0.18476 serr=1.00000 act=110230 obj=79478.27050 diff=0.00565
+2017-01-26 14:51:52 INFO  - iter=164 terr=0.18390 serr=1.00000 act=110230 obj=79014.74270 diff=0.00583
+2017-01-26 14:51:52 INFO  - iter=165 terr=0.18371 serr=1.00000 act=110230 obj=78990.61463 diff=0.00031
+2017-01-26 14:51:53 INFO  - iter=166 terr=0.18366 serr=1.00000 act=110230 obj=78972.40916 diff=0.00023
+2017-01-26 14:51:53 INFO  - iter=167 terr=0.18337 serr=1.00000 act=110230 obj=78957.66761 diff=0.00019
+2017-01-26 14:51:53 INFO  - iter=168 terr=0.18338 serr=1.00000 act=110230 obj=78922.57680 diff=0.00044
+2017-01-26 14:51:53 INFO  - iter=169 terr=0.18323 serr=1.00000 act=110230 obj=78889.68812 diff=0.00042
+2017-01-26 14:51:53 INFO  - iter=170 terr=0.18284 serr=1.00000 act=110230 obj=78918.68709 diff=0.00037
+2017-01-26 14:51:53 INFO  - iter=171 terr=0.18273 serr=1.00000 act=110230 obj=78874.62776 diff=0.00056
+2017-01-26 14:51:53 INFO  - iter=172 terr=0.18279 serr=1.00000 act=110230 obj=78851.05257 diff=0.00030
+2017-01-26 14:51:54 INFO  - iter=173 terr=0.18287 serr=1.00000 act=110230 obj=78839.05429 diff=0.00015
+2017-01-26 14:51:54 INFO  - iter=174 terr=0.18248 serr=1.00000 act=110230 obj=78817.43711 diff=0.00027
+2017-01-26 14:51:54 INFO  - iter=175 terr=0.18249 serr=1.00000 act=110230 obj=78792.44947 diff=0.00032
+2017-01-26 14:51:54 INFO  - iter=176 terr=0.18235 serr=1.00000 act=110230 obj=78757.99983 diff=0.00044
+2017-01-26 14:51:54 INFO  - iter=177 terr=0.18251 serr=1.00000 act=110230 obj=78732.53715 diff=0.00032
+2017-01-26 14:51:54 INFO  - iter=178 terr=0.18226 serr=1.00000 act=110230 obj=78704.88679 diff=0.00035
+2017-01-26 14:51:54 INFO  - iter=179 terr=0.18274 serr=1.00000 act=110230 obj=78663.02875 diff=0.00053
+2017-01-26 14:51:54 INFO  - iter=180 terr=0.18278 serr=1.00000 act=110230 obj=78628.43721 diff=0.00044
+2017-01-26 14:51:54 INFO  - iter=181 terr=0.18252 serr=1.00000 act=110230 obj=78593.60092 diff=0.00044
+2017-01-26 14:51:55 INFO  - iter=182 terr=0.18246 serr=1.00000 act=110230 obj=78571.08808 diff=0.00029
+2017-01-26 14:51:55 INFO  - iter=183 terr=0.18237 serr=1.00000 act=110230 obj=78532.68403 diff=0.00049
+2017-01-26 14:51:55 INFO  - iter=184 terr=0.18235 serr=1.00000 act=110230 obj=78523.48904 diff=0.00012
+2017-01-26 14:51:55 INFO  - iter=185 terr=0.18245 serr=1.00000 act=110230 obj=78500.14969 diff=0.00030
+2017-01-26 14:51:55 INFO  - iter=186 terr=0.18250 serr=1.00000 act=110230 obj=78479.74290 diff=0.00026
+2017-01-26 14:51:55 INFO  - iter=187 terr=0.18230 serr=1.00000 act=110230 obj=78466.60595 diff=0.00017
+2017-01-26 14:51:55 INFO  - iter=188 terr=0.18192 serr=1.00000 act=110230 obj=78415.78795 diff=0.00065
+2017-01-26 14:51:55 INFO  - iter=189 terr=0.18204 serr=1.00000 act=110230 obj=78606.04694 diff=0.00243
+2017-01-26 14:51:56 INFO  - iter=190 terr=0.18206 serr=1.00000 act=110230 obj=78408.08366 diff=0.00252
+2017-01-26 14:51:56 INFO  - iter=191 terr=0.18193 serr=1.00000 act=110230 obj=78402.35468 diff=0.00007
+2017-01-26 14:51:56 INFO  - iter=192 terr=0.18199 serr=1.00000 act=110230 obj=78379.91720 diff=0.00029
+2017-01-26 14:51:56 INFO  - iter=193 terr=0.18197 serr=1.00000 act=110230 obj=78352.56013 diff=0.00035
+2017-01-26 14:51:56 INFO  - iter=194 terr=0.18185 serr=1.00000 act=110230 obj=78306.40940 diff=0.00059
+2017-01-26 14:51:56 INFO  - iter=195 terr=0.18149 serr=1.00000 act=110230 obj=78319.99476 diff=0.00017
+2017-01-26 14:51:56 INFO  - iter=196 terr=0.18163 serr=1.00000 act=110230 obj=78279.40267 diff=0.00052
+2017-01-26 14:51:56 INFO  - iter=197 terr=0.18176 serr=1.00000 act=110230 obj=78258.86102 diff=0.00026
+2017-01-26 14:51:57 INFO  - iter=198 terr=0.18155 serr=1.00000 act=110230 obj=78247.68383 diff=0.00014
+2017-01-26 14:51:57 INFO  - iter=199 terr=0.18147 serr=1.00000 act=110230 obj=78220.44699 diff=0.00035
+2017-01-26 14:51:57 INFO  - iter=200 terr=0.18137 serr=1.00000 act=110230 obj=78188.78600 diff=0.00040
+2017-01-26 14:51:57 INFO  - iter=201 terr=0.18140 serr=1.00000 act=110230 obj=78170.43872 diff=0.00023
+2017-01-26 14:51:57 INFO  - iter=202 terr=0.18143 serr=1.00000 act=110230 obj=78138.07759 diff=0.00041
+2017-01-26 14:51:57 INFO  - iter=203 terr=0.18125 serr=1.00000 act=110230 obj=78100.25461 diff=0.00048
+2017-01-26 14:51:57 INFO  - iter=204 terr=0.18122 serr=1.00000 act=110230 obj=78078.85302 diff=0.00027
+2017-01-26 14:51:57 INFO  - iter=205 terr=0.18086 serr=1.00000 act=110230 obj=78049.68439 diff=0.00037
+2017-01-26 14:51:58 INFO  - iter=206 terr=0.18094 serr=1.00000 act=110230 obj=78039.39089 diff=0.00013
+2017-01-26 14:51:58 INFO  - iter=207 terr=0.18100 serr=1.00000 act=110230 obj=78027.98567 diff=0.00015
+2017-01-26 14:51:58 INFO  - iter=208 terr=0.18101 serr=1.00000 act=110230 obj=78018.42354 diff=0.00012
+2017-01-26 14:51:58 INFO  - iter=209 terr=0.18105 serr=1.00000 act=110230 obj=77995.86458 diff=0.00029
+2017-01-26 14:51:58 INFO  - iter=210 terr=0.18108 serr=1.00000 act=110230 obj=77951.73919 diff=0.00057
+2017-01-26 14:51:58 INFO  - iter=211 terr=0.18108 serr=1.00000 act=110230 obj=77950.92828 diff=0.00001
+2017-01-26 14:51:58 INFO  - iter=212 terr=0.18120 serr=1.00000 act=110230 obj=77934.70782 diff=0.00021
+2017-01-26 14:51:58 INFO  - iter=213 terr=0.18108 serr=1.00000 act=110230 obj=77911.99023 diff=0.00029
+2017-01-26 14:51:59 INFO  - iter=214 terr=0.18094 serr=1.00000 act=110230 obj=77897.72173 diff=0.00018
+2017-01-26 14:51:59 INFO  - iter=215 terr=0.18100 serr=1.00000 act=110230 obj=77886.88600 diff=0.00014
+2017-01-26 14:51:59 INFO  - iter=216 terr=0.18065 serr=1.00000 act=110230 obj=77843.84590 diff=0.00055
+2017-01-26 14:51:59 INFO  - iter=217 terr=0.18056 serr=1.00000 act=110230 obj=77816.92474 diff=0.00035
+2017-01-26 14:51:59 INFO  - iter=218 terr=0.18039 serr=1.00000 act=110230 obj=77805.28437 diff=0.00015
+2017-01-26 14:51:59 INFO  - iter=219 terr=0.18033 serr=1.00000 act=110230 obj=77797.94253 diff=0.00009
+2017-01-26 14:52:00 INFO  - iter=220 terr=0.18036 serr=1.00000 act=110230 obj=77791.43530 diff=0.00008
+2017-01-26 14:52:00 INFO  - iter=221 terr=0.18027 serr=1.00000 act=110230 obj=77783.13061 diff=0.00011
+2017-01-26 14:52:00 INFO  - iter=222 terr=0.18039 serr=1.00000 act=110230 obj=77759.91861 diff=0.00030
+2017-01-26 14:52:00 INFO  - iter=223 terr=0.18020 serr=1.00000 act=110230 obj=77755.41355 diff=0.00006
+2017-01-26 14:52:00 INFO  - iter=224 terr=0.18033 serr=1.00000 act=110230 obj=77735.81962 diff=0.00025
+2017-01-26 14:52:00 INFO  - iter=225 terr=0.18037 serr=1.00000 act=110230 obj=77730.53061 diff=0.00007
+2017-01-26 14:52:00 INFO  - iter=226 terr=0.18047 serr=1.00000 act=110230 obj=77726.94425 diff=0.00005
