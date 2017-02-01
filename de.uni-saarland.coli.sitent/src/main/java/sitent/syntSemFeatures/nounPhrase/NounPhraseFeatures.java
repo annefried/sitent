@@ -97,7 +97,7 @@ public class NounPhraseFeatures {
 		}
 		if (pos.matches("PRP\\$?|CD")) {
 			String lemma = token.getLemma().getValue().toLowerCase();
-			if (lemma.matches("I|me|myself|he|him|himself|she|her|herself|it|itself|one|onself|mine|thine|his|hers")) {
+			if (lemma.matches("i|me|myself|he|him|himself|she|her|herself|it|itself|one|onself|mine|thine|his|hers")) {
 				return "sg";
 			}
 			if (lemma.matches("we|us|ourselves|ourself|yourselves|they|them|themselves|theirselves|theirs|ours")) {

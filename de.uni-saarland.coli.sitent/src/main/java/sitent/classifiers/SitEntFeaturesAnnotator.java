@@ -122,6 +122,7 @@ public class SitEntFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			
 			// add features for object of the main verb (e.g., for habituality classification)
 			
+			
 
 			// add instance id feature (for mapping predictions back to segments
 			// later)

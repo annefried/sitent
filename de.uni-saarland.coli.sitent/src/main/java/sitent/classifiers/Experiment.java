@@ -774,12 +774,12 @@ public class Experiment implements Runnable {
 					for (int k = 0; k < folds[j].numInstances(); k++) {
 						train.add(folds[j].instance(k));
 					}
-					// add extra training data if any
-					if (extraTrainingData != null) {
-						for (int k = 0; k < extraTrainingData.numInstances(); k++) {
-							train.add(extraTrainingData.instance(k));
-						}
-					}
+				}
+			}
+			// add extra training data if any
+			if (extraTrainingData != null) {
+				for (int k = 0; k < extraTrainingData.numInstances(); k++) {
+					train.add(extraTrainingData.instance(k));
 				}
 			}
 
