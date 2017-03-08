@@ -108,6 +108,13 @@ public class BrownClusterFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			for (Annotation annot : tokenAnnots) {
 				tokens.add((Token) annot);
 			}
+			
+			// add tokens for main referent (if any and if not already in segment)
+			if (segment.getMainReferent() != null) {
+				if (!SitEntUimaUtils.covers(segment, segment.getMainReferent())) {
+					tokens.add((Token) segment.getMainReferent());
+				}
+			}
 
 			numTokensPerSegment.put(i, tokens.size());
 
