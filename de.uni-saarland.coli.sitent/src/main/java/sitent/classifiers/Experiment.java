@@ -102,6 +102,8 @@ public class Experiment implements Runnable {
 	private String crfppPath;
 	// path to file for CRFPP files
 	private String crfppFilesDir;
+	// path to file for CRFsuite files
+	private String crfsuiteDir;
 
 	// private double trainDocsPercentage;
 
@@ -761,6 +763,9 @@ public class Experiment implements Runnable {
 			String crfppTrain = "";
 			String crfppTest = null;
 
+			String crfsuiteTrain = "";
+			String crfsuiteTest = null;
+
 			Instances train = new Instances(folds[i]);
 			train.delete(); // remove all instances
 			Instances test = null;
@@ -769,6 +774,7 @@ public class Experiment implements Runnable {
 					test = folds[j];
 					if (crfppDir != null) {
 						crfppTest = CrfppUtils.getCrfppRepresentation(test, null).toString();// crfppFileContents[j].toString();
+						crfsuiteTest = CrfSuiteUtils.getCrfsuiteRepresentation(test, null).toString();
 					}
 				} else {
 					for (int k = 0; k < folds[j].numInstances(); k++) {
@@ -807,6 +813,7 @@ public class Experiment implements Runnable {
 			// create crfppTrain files only now (after potential downsampling)
 			if (crfppDir != null) {
 				crfppTrain += CrfppUtils.getCrfppRepresentation(train, null) + "\n";
+				crfsuiteTrain += CrfSuiteUtils.getCrfsuiteRepresentation(train, null) + "\n";
 			}
 
 			Classifier classifier = null;
@@ -873,13 +880,20 @@ public class Experiment implements Runnable {
 			}
 
 			if (crfppDir != null) {
-				log.info(setting + "\t" + "Running CRF++...");
+				log.info(setting + "\t" + "Running CRF++ / CRFSuite...");
 				PrintWriter w = new PrintWriter(new FileWriter(crfppDir + "/train" + i + ".csv"));
 				w.print(crfppTrain.trim());
 				w.close();
 				w = new PrintWriter(new FileWriter(crfppDir + "/test" + i + ".csv"));
 				w.print(crfppTest);
 				w.close();
+
+				PrintWriter w2 = new PrintWriter(new FileWriter(crfsuiteDir + "/train" + i + ".csv"));
+				w.print(crfsuiteTrain.trim());
+				w2.close();
+				w2 = new PrintWriter(new FileWriter(crfsuiteDir + "/test" + i + ".csv"));
+				w2.print(crfsuiteTest);
+				w2.close();
 
 				// CrfppUtils.writeCrfpp(train, crfppDir + "/train" + i +
 				// ".csv");
@@ -1452,6 +1466,7 @@ public class Experiment implements Runnable {
 				// create CRFPP representation
 				// TODO: does this match the one used in training?
 				crfppFilesDir = experimentSubDir + "/crfpp";
+				crfsuiteDir = experimentSubDir + "/crfsuite";
 				new File(crfppFilesDir).mkdirs();
 				applyModel(pretrainedModel, folds[0], crfppFilesDir);
 
@@ -1476,6 +1491,7 @@ public class Experiment implements Runnable {
 					folds = getFoldsCrossValidationEqual(arffDir, genre);
 					folds = prepareData(folds);
 					crfppFilesDir = genreSubDir + "/crfpp";
+					crfsuiteDir = genreSubDir + "/crfsuite";
 					new File(crfppFilesDir).mkdirs();
 					performCrossValidation(folds, null, null, crfppFilesDir, genreResultsFile);
 				} catch (Exception e) {
@@ -1491,6 +1507,7 @@ public class Experiment implements Runnable {
 		else {
 			// test, genre, xFold settings
 			crfppFilesDir = experimentSubDir + "/crfpp";
+			crfsuiteDir = experimentSubDir + "/crfsuite";
 			new File(crfppFilesDir).mkdirs();
 
 			// file with results (for most settings)
