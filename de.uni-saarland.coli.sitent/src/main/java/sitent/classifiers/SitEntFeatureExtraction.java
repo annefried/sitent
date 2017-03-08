@@ -38,6 +38,7 @@ import sitent.syntSemFeatures.segment.BrownClusterFeaturesAnnotator;
 import sitent.syntSemFeatures.segment.MathewKatzFeaturesAnnotator;
 import sitent.syntSemFeatures.segment.PosLemmaDepFeaturesAnnotator;
 import sitent.syntSemFeatures.segment.SpeechModeFeaturesAnnotator;
+import sitent.syntSemFeatures.segment.VectorFeaturesAnnotator;
 import sitent.syntSemFeatures.verbs.LinguisticIndicatorsAnnotator;
 import sitent.syntSemFeatures.verbs.VerbFeaturesAnnotator;
 import sitent.syntSemFeatures.verbs.VerbSelectorAnnotator;
@@ -148,6 +149,10 @@ public class SitEntFeatureExtraction {
 			AnalysisEngineDescription brownFeatures = AnalysisEngineFactory.createEngineDescription(
 					BrownClusterFeaturesAnnotator.class, BrownClusterFeaturesAnnotator.PARAM_BROWN_CLUSTER_DIR,
 					"resources/brown_clusters");
+			
+			AnalysisEngineDescription w2vecFeatures = AnalysisEngineFactory.createEngineDescription(
+					VectorFeaturesAnnotator.class, VectorFeaturesAnnotator.PARAM_COMPOSED_VECTORS_DIR,
+					"resources/vectors/composed_data.csv");
 
 			// write ARFF files (for classification toolkit Weka, also used to
 			// generate CRFPP input files)
@@ -177,7 +182,7 @@ public class SitEntFeatureExtraction {
 				log.info("Feature extraction: no gold standard annotations given, thus segmenting.");
 				runPipeline(reader, stTokenizer, stParser, stLemmas, npSelector, npFeatures, verbSelector,
 						verbFeatures, lingInd, segmenter, mainRefIdentifier, sitEntFeatureMapper, posLemma, speechModeFeatures, mkFeatures,
-						acl2007Features, brownFeatures, arffWriter, xmiWriter);
+						acl2007Features, brownFeatures, w2vecFeatures, arffWriter, xmiWriter);
 			}
 
 		} catch (ParseException e) {
