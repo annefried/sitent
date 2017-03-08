@@ -52,6 +52,8 @@ public class VectorFeaturesAnnotator extends JCasAnnotator_ImplBase {
 	public void initialize(UimaContext context) throws ResourceInitializationException {
 		super.initialize(context);
 		
+		log.info("Reading in word2vec features ...");
+		
 		composedVectors = new HashMap<String, List<String>>();
 		
 		// read in composed vectors
@@ -79,6 +81,8 @@ public class VectorFeaturesAnnotator extends JCasAnnotator_ImplBase {
 			e.printStackTrace();
 		}
 		
+	    log.info("done.");
+	    
 	}
 	
 	@Override
@@ -87,9 +91,11 @@ public class VectorFeaturesAnnotator extends JCasAnnotator_ImplBase {
 		List<Segment> segments = new LinkedList<Segment>(JCasUtil.select(jCas, Segment.class));
 		for (Segment segment : segments) {
 			String instanceId = FeaturesUtil.getFeatureValue("instanceid", segment);
+			log.info("instanceid: " + instanceId + " " + segment.getCoveredText());
 			if (!composedVectors.containsKey(instanceId)) {
 				continue;
 			}
+			log.info("adding vector for: " + instanceId);
 			List<String> vector = composedVectors.get(instanceId);
 			for (int i=1; i<vector.size(); i++) {
 				// one feature per dimension of the vector

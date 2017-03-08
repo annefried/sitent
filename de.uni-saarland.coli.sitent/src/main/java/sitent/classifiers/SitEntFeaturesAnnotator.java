@@ -126,8 +126,12 @@ public class SitEntFeaturesAnnotator extends JCasAnnotator_ImplBase {
 
 			// add instance id feature (for mapping predictions back to segments
 			// later)
-			String instanceId = dm.getDocumentId() + "_" + segment.getSegid();
-			FeaturesUtil.addFeature("instanceid", instanceId, jCas, segment);
+			// is there already an instance ID?
+			String instId = FeaturesUtil.getFeatureValue("instanceid", segment);
+			if (instId == null) {
+				String instanceId = dm.getDocumentId() + "_" + segment.getSegid();
+				FeaturesUtil.addFeature("instanceid", instanceId, jCas, segment);
+			}
 
 		}
 		

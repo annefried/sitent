@@ -175,7 +175,7 @@ public class SitEntFeatureExtraction {
 				log.info("Feature extraction: gold annotations given.");
 				runPipeline(reader, stTokenizer, stParser, stLemmas, xmlReader, npSelector, npFeatures, verbSelector,
 						verbFeatures, lingInd, sitEntFeatureMapper, posLemma, speechModeFeatures, mkFeatures,
-						acl2007Features, brownFeatures, arffWriter, xmiWriter);
+						acl2007Features, brownFeatures, w2vecFeatures, arffWriter, xmiWriter);
 			} else {
 				// unlabeled text data, need to identify a situation entity
 				// segmentation
