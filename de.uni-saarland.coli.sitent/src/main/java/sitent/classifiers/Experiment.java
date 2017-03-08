@@ -1169,7 +1169,7 @@ public class Experiment implements Runnable {
 		Element root = doc.getRootElement();
 
 		// experiment / labeling setting
-		Node settingNode = root.selectSingleNode("setting");
+		Node settingNode = root.selectSingleNode("settings/setting");
 		String SETTING = settingNode.getText();
 		log.info("Will run setting: " + SETTING);
 
