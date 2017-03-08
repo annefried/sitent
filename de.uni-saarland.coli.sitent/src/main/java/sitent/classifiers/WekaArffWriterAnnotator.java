@@ -83,8 +83,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 	// private boolean unlabeledData;
 
 	@Override
-	public void initialize(UimaContext context)
-			throws ResourceInitializationException {
+	public void initialize(UimaContext context) throws ResourceInitializationException {
 
 		super.initialize(context);
 
@@ -101,8 +100,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 	@Override
 	public void process(JCas jCas) throws AnalysisEngineProcessException {
 
-		DocumentMetaData dm = JCasUtil.selectSingle(jCas,
-				DocumentMetaData.class);
+		DocumentMetaData dm = JCasUtil.selectSingle(jCas, DocumentMetaData.class);
 		System.out.println("Writing arff for: " + dm.getDocumentId());
 
 		if (resetSegIds) {
@@ -111,8 +109,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 				FeaturesUtil.removeFeature("instanceid", segment, jCas);
 				String instanceId = dm.getDocumentId() + "_" + i++;
 				// System.out.println(instanceId);
-				FeaturesUtil
-						.addFeature("instanceid", instanceId, jCas, segment);
+				FeaturesUtil.addFeature("instanceid", instanceId, jCas, segment);
 			}
 		}
 
@@ -125,8 +122,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 			Collection<Passage> passages = JCasUtil.select(jCas, Passage.class);
 			classAnnots.addAll(passages);
 		} else if (targetType.equals("ClassificationAnnotation")) {
-			Collection<ClassificationAnnotation> classAnnot = JCasUtil.select(
-					jCas, ClassificationAnnotation.class);
+			Collection<ClassificationAnnotation> classAnnot = JCasUtil.select(jCas, ClassificationAnnotation.class);
 			classAnnots.addAll(classAnnot);
 		}
 
@@ -139,8 +135,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 				filename = dm.getDocumentId();
 			}
 
-			PrintWriter arffWriter = new PrintWriter(new FileWriter(
-					arffLocation + "/" + filename + ".arff"));
+			PrintWriter arffWriter = new PrintWriter(new FileWriter(arffLocation + "/" + filename + ".arff"));
 
 			// collect information about features
 			Map<String, Boolean> isNumericFeature = new HashMap<String, Boolean>();
@@ -149,32 +144,29 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 
 			// iterate over segments
 			for (ClassificationAnnotation segment : classAnnots) {
-				for (Annotation annot : SitEntUimaUtils.getList(segment
-						.getFeatures())) {
+				for (Annotation annot : SitEntUimaUtils.getList(segment.getFeatures())) {
 					SEFeature feat = (SEFeature) annot;
 
-					if (feat.getName()
-							.matches(
-									"main_verb_brownCluster_.*|main_referent_brownCluster.*")) {
+					if (feat.getName().matches("main_verb_brownCluster_.*|main_referent_brownCluster.*")) {
 						isNumericFeature.put(feat.getName(), false);
-						continue;
-					}
-
-					try {
-						Double.parseDouble(feat.getValue());
-						if (!isNumericFeature.containsKey(feat.getName())) {
-							isNumericFeature.put(feat.getName(), true);
+					} else if (feat.getName().matches("main_verb_bc_.*|main_verb_dobj_bc_.*")) {
+						isNumericFeature.put(feat.getName(), false);
+					} else {
+						try {
+							Double.parseDouble(feat.getValue());
+							if (!isNumericFeature.containsKey(feat.getName())) {
+								isNumericFeature.put(feat.getName(), true);
+							}
+						} catch (NumberFormatException e) {
+							isNumericFeature.put(feat.getName(), false);
 						}
-					} catch (NumberFormatException e) {
-						isNumericFeature.put(feat.getName(), false);
 					}
 					// collect values even if it seems to be a numeric feature,
 					// as there might be non-numeric values for this feature
 					// later, if it's actually nominal and only the first value
 					// seen is numeric.
 					if (!nominalFeatures.containsKey(feat.getName())) {
-						nominalFeatures.put(feat.getName(),
-								new HashSet<String>());
+						nominalFeatures.put(feat.getName(), new HashSet<String>());
 					}
 					nominalFeatures.get(feat.getName()).add(feat.getValue());
 				}
@@ -182,8 +174,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 			// create header
 			arffWriter.println("@relation sitent");
 			arffWriter.println("");
-			List<String> featList = new LinkedList<String>(
-					isNumericFeature.keySet());
+			List<String> featList = new LinkedList<String>(isNumericFeature.keySet());
 			Collections.sort(featList);
 
 			// move class to end
@@ -213,9 +204,8 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 				// add other features to header
 				if (isNumericFeature.get(featName)) {
 					arffWriter.println("@attribute \""
-							+ featName.replaceAll("\"|``", "QUOTE")
-									.replaceAll(",", "COMMA")
-									.replaceAll(" ", "SPACE") + "\" numeric");
+							+ featName.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA").replaceAll(" ", "SPACE")
+							+ "\" numeric");
 				} else {
 					// if (nominalFeatures.get(featName).size() > 12) {
 					// arffWriter.println("@attribute " + featName + " string");
@@ -227,28 +217,23 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 						// https://weka.wikispaces.com/ARFF+%28stable+version%29
 						values.append("\"THE-DUMMY-VALUE\",");
 					}
-					List<String> valueList = new LinkedList<String>(
-							nominalFeatures.get(featName));
+					List<String> valueList = new LinkedList<String>(nominalFeatures.get(featName));
 					Collections.sort(valueList);
 					for (String value : valueList) {
 						if (escapeValues) {
-							values.append("\""
-									+ value.replaceAll("\"|``", "QUOTE")
-											.replaceAll(",", "COMMA")
-											.replaceAll(" ", "SPACE") + "\",");
+							values.append("\"" + value.replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA")
+									.replaceAll(" ", "SPACE") + "\",");
 						} else {
 							values.append(value + ",");
 						}
 
 					}
-					values = new StringBuffer(values.toString().substring(0,
-							values.length() - 1));
+					values = new StringBuffer(values.toString().substring(0, values.length() - 1));
 					// add quotes to unquoted feature names
 					if (!featName.startsWith("\"")) {
 						featName = "\"" + featName + "\"";
 					}
-					arffWriter.println("@attribute " + featName + " {" + values
-							+ "}");
+					arffWriter.println("@attribute " + featName + " {" + values + "}");
 					// }
 				}
 			}
@@ -264,17 +249,12 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 			// create lines for instances
 			for (ClassificationAnnotation segment : classAnnots) {
 				Map<String, String> featMap = new HashMap<String, String>();
-				for (Annotation annot : SitEntUimaUtils.getList(segment
-						.getFeatures())) {
+				for (Annotation annot : SitEntUimaUtils.getList(segment.getFeatures())) {
 					SEFeature feat = (SEFeature) annot;
 					if (!isNumericFeature.get(feat.getName())) {
-						if (!(feat.getValue().startsWith("\"") && feat
-								.getValue().endsWith("\""))) {
-							feat.setValue("\""
-									+ feat.getValue()
-											.replaceAll("\"|``", "QUOTE")
-											.replaceAll(",", "COMMA")
-											.replaceAll(" ", "SPACE") + "\"");
+						if (!(feat.getValue().startsWith("\"") && feat.getValue().endsWith("\""))) {
+							feat.setValue("\"" + feat.getValue().replaceAll("\"|``", "QUOTE").replaceAll(",", "COMMA")
+									.replaceAll(" ", "SPACE") + "\"");
 						} else if (feat.getValue().matches("\"|``")) {
 							feat.setValue("QUOTE");
 						}
@@ -290,23 +270,19 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 							line.append(featMap.get(featName) + ",");
 						}
 					}
-					arffWriter.println(line.toString().substring(0,
-							line.length() - 1));
+					arffWriter.println(line.toString().substring(0, line.length() - 1));
 				} else {
 					// sparse format
 					StringBuffer values = new StringBuffer("");
 					for (String featName : featList) {
 						if (featMap.keySet().contains(featName)) {
 							if (featMap.get(featName) != null) {
-								values.append(indexMap.get(featName) + " "
-										+ featMap.get(featName) + ", ");
+								values.append(indexMap.get(featName) + " " + featMap.get(featName) + ", ");
 							}
 						}
 					}
 					if (values.toString().length() >= 2) {
-						arffWriter.println("{"
-								+ values.toString().substring(0,
-										values.length() - 2) + "}");
+						arffWriter.println("{" + values.toString().substring(0, values.length() - 2) + "}");
 					} else {
 						arffWriter.println("{}");
 					}
@@ -336,23 +312,16 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 		try {
 
 			// read XMI
-			CollectionReader reader = createReader(XmiReader.class,
-					XmiReader.PARAM_SOURCE_LOCATION, inputDir,
-					XmiReader.PARAM_PATTERNS, new String[] { "[+]*.xmi" },
-					XmiReader.PARAM_LANGUAGE, "en");
+			CollectionReader reader = createReader(XmiReader.class, XmiReader.PARAM_SOURCE_LOCATION, inputDir,
+					XmiReader.PARAM_PATTERNS, new String[] { "[+]*.xmi" }, XmiReader.PARAM_LANGUAGE, "en");
 
-			AnalysisEngineDescription arffWriter = AnalysisEngineFactory
-					.createEngineDescription(WekaArffWriterAnnotator.class,
-							WekaArffWriterAnnotator.PARAM_RESET_SEGIDS, false,
-							WekaArffWriterAnnotator.PARAM_ARFF_LOCATION,
-							arffPath,
-							WekaArffWriterAnnotator.PARAM_CLASS_ATTRIBUTE,
-							task, WekaArffWriterAnnotator.PARAM_SPARSE_FORMAT,
-							true, WekaArffWriterAnnotator.PARAM_OMIT_FEATURES,
-							"segment_acl2007_G_verbLemma_.*",
-							WekaArffWriterAnnotator.PARAM_TARGET_TYPE,
-							"Segment",
-							WekaArffWriterAnnotator.PARAM_ESCAPE_VALUES, false);
+			AnalysisEngineDescription arffWriter = AnalysisEngineFactory.createEngineDescription(
+					WekaArffWriterAnnotator.class, WekaArffWriterAnnotator.PARAM_RESET_SEGIDS, false,
+					WekaArffWriterAnnotator.PARAM_ARFF_LOCATION, arffPath,
+					WekaArffWriterAnnotator.PARAM_CLASS_ATTRIBUTE, task, WekaArffWriterAnnotator.PARAM_SPARSE_FORMAT,
+					true, WekaArffWriterAnnotator.PARAM_OMIT_FEATURES, "segment_acl2007_G_verbLemma_.*",
+					WekaArffWriterAnnotator.PARAM_TARGET_TYPE, "Segment", WekaArffWriterAnnotator.PARAM_ESCAPE_VALUES,
+					false);
 
 			runPipeline(reader, arffWriter);
 

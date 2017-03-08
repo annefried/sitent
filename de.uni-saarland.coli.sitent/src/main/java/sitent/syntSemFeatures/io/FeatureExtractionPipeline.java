@@ -45,7 +45,7 @@ public class FeatureExtractionPipeline {
 			throws UIMAException, IOException {
 		
 		CollectionReader reader = createReader(TextReader.class, TextReader.PARAM_SOURCE_LOCATION, inputDir,
-				TextReader.PARAM_LANGUAGE, "en", TextReader.PARAM_PATTERNS, new String[] { "[+]*/*" }); // suffix .txt?
+				TextReader.PARAM_LANGUAGE, "en", TextReader.PARAM_PATTERNS, new String[] {"*.txt"}); // for WSJ subfolders: { "[+]*/*" }); // suffix .txt?
 
 		// Preprocessing with Stanford CoreNLP components
 		AnalysisEngineDescription stTokenizer = AnalysisEngineFactory.createEngineDescription(StanfordSegmenter.class,
