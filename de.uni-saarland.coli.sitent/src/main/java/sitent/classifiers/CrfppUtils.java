@@ -50,7 +50,7 @@ public class CrfppUtils {
 			if (!documentId.equals(previousDocId)) {
 				// extra new line to separate documents
 				content.append("\n");
-				log.info("adding extra newline");
+				//log.info("adding extra newline");
 				previousDocId = documentId;
 			}
 			

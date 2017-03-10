@@ -1,8 +1,8 @@
 package sitent.classifiers;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -98,12 +98,21 @@ public class Experiment implements Runnable {
 	private String updatedClassAttribute;
 	private String[] updatedClassValues;
 
+	private boolean useCrfpp;
+	private boolean useCrfsuite;
+	private boolean useLibLinear;
 	// path to CRFPP installation
 	private String crfppPath;
+	// path to CRFSuite installation
+	private String crfsuitePath;
+	// path to LibLinear installation
+	private String libLinearPath;
 	// path to file for CRFPP files
 	private String crfppFilesDir;
 	// path to file for CRFsuite files
 	private String crfsuiteDir;
+	// path to file with LIBSVM files
+	private String libSVMDir;
 
 	// private double trainDocsPercentage;
 
@@ -191,6 +200,27 @@ public class Experiment implements Runnable {
 		this.crfppPath = crfppPath;
 	}
 
+	public void setCrfsuitePath(String crfsuitePath) {
+		this.crfsuitePath = crfsuitePath;
+	}
+
+	public void setLibLinearPath(String libLinearPath) {
+		this.libLinearPath = libLinearPath;
+
+	}
+
+	public void setUseCrfpp(boolean useCrfpp) {
+		this.useCrfpp = useCrfpp;
+	}
+
+	public void setUseCrfsuite(boolean useCrfsuite) {
+		this.useCrfsuite = useCrfsuite;
+	}
+
+	public void setUseLibLinear(boolean useLibLinear) {
+		this.useLibLinear = useLibLinear;
+	}
+
 	public void setUpdatedClassAttribute(String updatedClassAttribute) {
 		this.updatedClassAttribute = updatedClassAttribute;
 	}
@@ -217,7 +247,7 @@ public class Experiment implements Runnable {
 	 * @throws IOException
 	 */
 	private Instances[] getFoldsCrossValidationEqual(String dir, String genre) throws IOException {
-		log.info(setting + "\t" + "getting x folds: " + numFolds);
+		log.info(setting + "\t" + "getting x folds: " + numFolds + " from " + dir);
 
 		String[] inputFiles = new File(dir).list();
 		List<String> inputFilesList = new LinkedList<String>();
@@ -705,7 +735,7 @@ public class Experiment implements Runnable {
 	 * @throws Exception
 	 */
 	private void performCrossValidation(Instances[] folds, Instances extraTrainingData, String predictionsPath,
-			String crfppDir, String resultsFile) throws Exception {
+			String crfppDir, String crfsuiteDir, String libSVMDir, String resultsFile) throws Exception {
 
 		// this was just used for pipeline experiments
 		// if (this.wekaClassifierType.equals("J48")) {
@@ -766,15 +796,23 @@ public class Experiment implements Runnable {
 			String crfsuiteTrain = "";
 			String crfsuiteTest = null;
 
+			String libSVMTrain = "";
+			String libSVMTest = null;
+
 			Instances train = new Instances(folds[i]);
 			train.delete(); // remove all instances
 			Instances test = null;
 			for (int j = 0; j < folds.length; j++) {
 				if (i == j) {
 					test = folds[j];
-					if (crfppDir != null) {
+					if (useCrfpp) {
 						crfppTest = CrfppUtils.getCrfppRepresentation(test, null).toString();// crfppFileContents[j].toString();
+					}
+					if (useCrfsuite) {
 						crfsuiteTest = CrfSuiteUtils.getCrfsuiteRepresentation(test, null).toString();
+					}
+					if (useLibLinear) {
+						libSVMTest = LIBSVMUtils.getLibSVMRepresentation(test, null).toString();
 					}
 				} else {
 					for (int k = 0; k < folds[j].numInstances(); k++) {
@@ -810,10 +848,16 @@ public class Experiment implements Runnable {
 				}
 			}
 
-			// create crfppTrain files only now (after potential downsampling)
-			if (crfppDir != null) {
+			// create crfppTrain // crfsuiteTrain files only now (after
+			// potential downsampling)
+			if (useCrfpp) {
 				crfppTrain += CrfppUtils.getCrfppRepresentation(train, null) + "\n";
+			}
+			if (useCrfsuite) {
 				crfsuiteTrain += CrfSuiteUtils.getCrfsuiteRepresentation(train, null) + "\n";
+			}
+			if (useLibLinear) {
+				libSVMTrain += LIBSVMUtils.getLibSVMRepresentation(train, null);
 			}
 
 			Classifier classifier = null;
@@ -879,8 +923,38 @@ public class Experiment implements Runnable {
 
 			}
 
-			if (crfppDir != null) {
+			if (useLibLinear && libSVMDir != null) {
+				log.info("Writing LIBSVM (LIBLINEAR) files ... ");
+				PrintWriter w = new PrintWriter(new FileWriter(libSVMDir + "/train" + i + ".csv"));
+				w.print(libSVMTrain.trim());
+				w.close();
+				w = new PrintWriter(new FileWriter(libSVMDir + "/test" + i + ".csv"));
+				w.print(libSVMTest);
+				w.close();
+
+				log.info("done.");
+
+				// run LibLINEAR: train model
+				Process p = Runtime.getRuntime().exec(libLinearPath + "/train " + libSVMDir + "/train" + i + ".csv "
+						+ libSVMDir + "/sitent" + i + ".model");
+				BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				BufferedReader stError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+				String s = null;
+				while ((s = stdInput.readLine()) != null || (s = stError.readLine()) != null) {
+					log.info(s);
+				}
+				p.waitFor();
+				log.info("Training done, will now predict.");
+				// apply on test data
+				p = Runtime.getRuntime().exec(libLinearPath + "/predict " + libSVMDir + "/test" + i + ".csv "
+						+ libSVMDir + "/sitent" + i + ".model " + libSVMDir + "/predictions" + i + ".csv");
+				p.waitFor();
+				log.info("Predictions done.");
+			}
+
+			if (useCrfpp && crfppDir != null) {
 				log.info(setting + "\t" + "Running CRF++ / CRFSuite...");
+				// CRFPP input files
 				PrintWriter w = new PrintWriter(new FileWriter(crfppDir + "/train" + i + ".csv"));
 				w.print(crfppTrain.trim());
 				w.close();
@@ -888,19 +962,9 @@ public class Experiment implements Runnable {
 				w.print(crfppTest);
 				w.close();
 
-				PrintWriter w2 = new PrintWriter(new FileWriter(crfsuiteDir + "/train" + i + ".csv"));
-				w.print(crfsuiteTrain.trim());
-				w2.close();
-				w2 = new PrintWriter(new FileWriter(crfsuiteDir + "/test" + i + ".csv"));
-				w2.print(crfsuiteTest);
-				w2.close();
-
-				// CrfppUtils.writeCrfpp(train, crfppDir + "/train" + i +
-				// ".csv");
-				// CrfppUtils.writeCrfpp(test, crfppDir + "/test" + i + ".csv");
 				log.info(setting + "\t" + "done writing the crf files.");
-				// run CRF++: train model
 
+				// run CRF++: train model
 				Process p = Runtime.getRuntime().exec(crfppPath + "/crf_learn -p 4 " + crfppDir + "/template.txt "
 						+ crfppDir + "/train" + i + ".csv " + crfppDir + "/sitent" + i + ".model");
 				BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -924,6 +988,44 @@ public class Experiment implements Runnable {
 				log.info("Predictions done.");
 			}
 
+			if (useCrfsuite) {
+
+				System.out.println(crfsuiteTrain.trim().length());
+
+				// CRFSuite input files
+				PrintWriter w = new PrintWriter(new FileWriter(crfsuiteDir + "/train" + i + ".csv"));
+				w.print(crfsuiteTrain.trim());
+				w.close();
+				w = new PrintWriter(new FileWriter(crfsuiteDir + "/test" + i + ".csv"));
+				w.print(crfsuiteTest);
+				w.close();
+				log.info("done writing CRFSuite input files.");
+
+				// run CRFsuite: train model
+				Process p = Runtime.getRuntime().exec(crfsuitePath + "/crfsuite learn -m " + crfsuiteDir + "/sitent" + i
+						+ ".model " + crfsuiteDir + "/train" + i + ".csv ");
+				BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				BufferedReader stError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+				String s = null;
+				while ((s = stdInput.readLine()) != null || (s = stError.readLine()) != null) {
+					log.info(s);
+				}
+				p.waitFor();
+				log.info("Training done, will now predict.");
+				// apply on test data
+				p = Runtime.getRuntime().exec(crfsuitePath + "/crfsuite tag -m " + crfsuiteDir + "/sitent" + i
+						+ ".model " + crfsuiteDir + "/test" + i + ".csv");
+				stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				w = new PrintWriter(new FileWriter(crfsuiteDir + "/predictions" + i + ".csv"));
+				while ((s = stdInput.readLine()) != null) {
+					w.println(s);
+				}
+				p.waitFor();
+				w.close();
+				log.info("Predictions done.");
+
+			}
+
 			// if train and test setting, do this only once (first fold is test,
 			// 2nd fold is train)
 			if (setting.equals("test") || setting.equals("applyModel")) {
@@ -932,7 +1034,9 @@ public class Experiment implements Runnable {
 
 		}
 
-		if (predictionsPath != null) {
+		if (predictionsPath != null)
+
+		{
 			predWriter.close();
 		}
 
@@ -985,9 +1089,14 @@ public class Experiment implements Runnable {
 		w.println(String.format("F-of-Macro: %.2f", f_of_macro));
 		w.println(String.format("Accuracy: %.2f", eval.pctCorrect()));
 
-		if (crfppDir != null) {
+		if (useCrfpp) {
 			evaluateCrfpp(crfppDir, classValues, w);
 		}
+
+		if (useLibLinear) {
+			evaluateLibLinear(libSVMDir, folds[0], w);
+		}
+
 		w.close();
 
 		// evaluate CRFPP results by genre (if genre-based cross validation)
@@ -1118,6 +1227,56 @@ public class Experiment implements Runnable {
 		w.close();
 	}
 
+	private void evaluateLibLinear(String libSVMDir, Instances data, PrintWriter w) throws IOException {
+		// map from value index to class value names
+		Map<Integer, String> classValNames = new HashMap<Integer, String>();
+		Attribute classAttr = data.attribute(data.classIndex());
+		for (int i = 0; i < classAttr.numValues(); i++) {
+			classValNames.put(i, classAttr.value(i));
+		}
+
+		List<Integer> predictions = new LinkedList<Integer>();
+		List<Integer> gold = new LinkedList<Integer>();
+
+		// create confusion matrix
+		for (String predFile : new File(libSVMDir).list()) {
+			if (!predFile.startsWith("prediction")) {
+				continue;
+			}
+			// read predictions
+			BufferedReader r = new BufferedReader(new FileReader(libSVMDir + "/" + predFile));
+			String line;
+			while ((line = r.readLine()) != null) {
+				if (line.trim().equals("")) {
+					continue;
+				}
+				predictions.add(Integer.parseInt(line.trim()));
+			}
+			r.close();
+			// read gold standard
+			r = new BufferedReader(new FileReader(libSVMDir + "/" + predFile.replace("predictions", "test")));
+			while ((line = r.readLine()) != null) {
+				if (line.trim().equals("")) {
+					continue;
+				}
+				String[] columns = line.split(" ");
+				gold.add(Integer.parseInt(columns[0]));
+			}
+			r.close();
+		}
+
+		// get overall accuracy
+		int correct = 0;
+		for (int i = 0; i < predictions.size(); i++) {
+			if (predictions.get(i) == gold.get(i)) {
+				correct++;
+			}
+		}
+		log.info("Accuracy for LIBLINEAR: " + correct + " " + predictions.size() + "  "
+				+ (double) correct / (double) predictions.size());
+
+	}
+
 	private void applyModel(String model, Instances data, String crfppDir) throws IOException, InterruptedException {
 		log.info("Applying model on unlabeled data ..." + data.numAttributes());
 		if (pretrainedModelType.equals("crfpp")) {
@@ -1151,7 +1310,13 @@ public class Experiment implements Runnable {
 	@SuppressWarnings("rawtypes")
 	/**
 	 * Two command line arguments: arg[0] should point to the configuration
-	 * file, arg[1] to the installation directory of CRF++.
+	 * file, arg[1] to the installation directory of CRF++, arg[2] to the
+	 * installation directory of CRFsuite.
+	 * 
+	 * CRFSuite requires numeric features to be normalized, i.e., [0,1]. The
+	 * code in this class does not ensure normalization as the normalizatio
+	 * method may differ per feature group -- make sure that configuration
+	 * allows only normalized feautures if using CRFsuite.
 	 * 
 	 * @param args
 	 * @throws Exception
@@ -1163,6 +1328,8 @@ public class Experiment implements Runnable {
 
 		// path to installation of CRFPP
 		String CRFPP_INSTALLATION_DIR = args[1];
+		String CRFSUITE_INSTALLATION_DIR = args[2];
+		String LIBLINEAR_INSTALLATION_DIR = args[3];
 
 		// String crfppDir =
 		// "/proj/anne-phd/situation_entities/git_repo/sitent/annotated_corpus/experiments_data/2016-06-16_16:48_dev-celex-binnedLingInd_xFold/crfpp";
@@ -1208,6 +1375,9 @@ public class Experiment implements Runnable {
 		String TRAIN_FEATURE_CONFIG = null;
 		String PRETRAINED_MODEL_TYPE = null;
 		String WEKA_CLASSIFIER = null;
+		boolean USE_CRFPP = false;
+		boolean USE_CRFSUITE = false;
+		boolean USE_LIBLINEAR = false;
 
 		// class attribute: classification / sequence labeling task executed for
 		// this feature
@@ -1313,6 +1483,12 @@ public class Experiment implements Runnable {
 				}
 			}
 
+			// which CRF toolkit to use
+			// <crfToolkit crpp="true" crfsuite="true" liblinear="true"/>
+			USE_CRFPP = Boolean.parseBoolean(root.selectSingleNode("crfToolkit/@crfpp").getStringValue());
+			USE_CRFSUITE = Boolean.parseBoolean(root.selectSingleNode("crfToolkit/@crfsuite").getStringValue());
+			USE_LIBLINEAR = Boolean.parseBoolean(root.selectSingleNode("crfToolkit/@liblinear").getStringValue());
+
 			// whether or not to use bigram features in CRF, values are true,
 			// false
 			// or gold.
@@ -1373,6 +1549,11 @@ public class Experiment implements Runnable {
 		experiment.setUseBigramFeatures(USE_BIGRAM_FEATURES);
 		experiment.setTrainSampleFactor(TRAIN_SAMPLE_FACTOR);
 		experiment.setCrfppPath(CRFPP_INSTALLATION_DIR);
+		experiment.setCrfsuitePath(CRFSUITE_INSTALLATION_DIR);
+		experiment.setLibLinearPath(LIBLINEAR_INSTALLATION_DIR);
+		experiment.setUseCrfpp(USE_CRFPP);
+		experiment.setUseCrfsuite(USE_CRFSUITE);
+		experiment.setUseLibLinear(USE_LIBLINEAR);
 		experiment.setUpdatedClassAttribute(UPDATED_CLASS_ATTRIBUTE);
 		experiment.setUpdatedClassValues(UPDATED_CLASS_VALUES);
 		// start this experiment thread
@@ -1467,7 +1648,10 @@ public class Experiment implements Runnable {
 				// TODO: does this match the one used in training?
 				crfppFilesDir = experimentSubDir + "/crfpp";
 				crfsuiteDir = experimentSubDir + "/crfsuite";
+				libSVMDir = experimentSubDir = "/libsvm";
 				new File(crfppFilesDir).mkdirs();
+				new File(crfsuiteDir).mkdirs();
+				new File(libSVMDir).mkdirs();
 				applyModel(pretrainedModel, folds[0], crfppFilesDir);
 
 			} catch (Exception e) {
@@ -1492,8 +1676,11 @@ public class Experiment implements Runnable {
 					folds = prepareData(folds);
 					crfppFilesDir = genreSubDir + "/crfpp";
 					crfsuiteDir = genreSubDir + "/crfsuite";
+					libSVMDir = genreSubDir + "/libsvm";
 					new File(crfppFilesDir).mkdirs();
-					performCrossValidation(folds, null, null, crfppFilesDir, genreResultsFile);
+					new File(crfsuiteDir).mkdirs();
+					new File(libSVMDir).mkdirs();
+					performCrossValidation(folds, null, null, crfppFilesDir, crfsuiteDir, libSVMDir, genreResultsFile);
 				} catch (Exception e) {
 					e.printStackTrace();
 					log.error("Error doing within-genre cross validation");
@@ -1508,7 +1695,10 @@ public class Experiment implements Runnable {
 			// test, genre, xFold settings
 			crfppFilesDir = experimentSubDir + "/crfpp";
 			crfsuiteDir = experimentSubDir + "/crfsuite";
+			libSVMDir = experimentSubDir + "/libsvm";
 			new File(crfppFilesDir).mkdirs();
+			new File(crfsuiteDir).mkdirs();
+			new File(libSVMDir).mkdirs();
 
 			// file with results (for most settings)
 			String resultsFile = experimentSubDir + "/" + "results_" + description + "_" + timestampText + ".txt";
@@ -1534,7 +1724,8 @@ public class Experiment implements Runnable {
 					}
 					extraTrainingData = tempFolds[tempFolds.length - 1];
 				}
-				performCrossValidation(folds, extraTrainingData, null, crfppFilesDir, resultsFile);
+				performCrossValidation(folds, extraTrainingData, null, crfppFilesDir, crfsuiteDir, libSVMDir,
+						resultsFile);
 			} catch (Exception e) {
 				e.printStackTrace();
 				log.error("Error doing cross validation");

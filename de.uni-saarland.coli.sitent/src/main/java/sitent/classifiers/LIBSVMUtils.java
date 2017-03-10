@@ -1,7 +1,6 @@
 package sitent.classifiers;
 
 import java.io.FileNotFoundException;
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Set;
 
@@ -11,9 +10,10 @@ import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
 
-public class CrfSuiteUtils {
+public class LIBSVMUtils {
+
 	static Logger log = Logger.getLogger(CrfppUtils.class.getName());
-	
+
 	static DecimalFormat df = new DecimalFormat();
 	static {
 		df.setMaximumFractionDigits(10);
@@ -21,43 +21,36 @@ public class CrfSuiteUtils {
 	}
 
 	/**
-	 * Writes a Weka Instances data set to a file in CRFSuite format.
+	 * Writes a Weka Instances data set to a file in LibSVM format.
 	 * 
 	 * 
 	 * @param instances
 	 *            A Weka Instances object.
 	 * @param path
-	 *            Path where to write the CRFSuite input file.
+	 *            Path where to write the LIBSVM input file.
 	 * @throws FileNotFoundException
 	 */
-	public static StringBuffer getCrfsuiteRepresentation(Instances instances, Set<String> trainDocs)
+	public static StringBuffer getLibSVMRepresentation(Instances instances, Set<String> trainDocs)
 			throws FileNotFoundException {
-		log.info("Getting CRFSuite representation: " + instances.numInstances());
+		log.info("Getting LIBSVM representation: " + instances.numInstances());
 		log.info("Train docs null? " + trainDocs == null);
 		int x = 0;
 		StringBuffer content = new StringBuffer();
 
-		String previousDocId = "";
+		// Map<String, Set<String>> singleValuedAttributes = new HashMap<String,
+		// Set<String>>();
 
 		instancesLoop: for (int j = 0; j < instances.numInstances(); j++) {
 			if (j % 100 == 0) {
-				log.info("writing input for CRFSuite ... " + j);
+				log.info("writing input for LIBSVM... " + j);
 			}
 			String line = "";
 			Instance inst = instances.instance(j);
-
-			// gold class
-			line += inst.stringValue(inst.classIndex()) + "\t";
 
 			// get document Id
 			Attribute instIdAttr = instances.attribute("instanceid");
 			String instId = inst.stringValue(instIdAttr);
 			String documentId = instId.substring(0, instId.lastIndexOf("_"));
-			if (!documentId.equals(previousDocId)) {
-				// extra new line to separate documents
-				content.append("\n");
-				previousDocId = documentId;
-			}
 
 			if (trainDocs != null) {
 				// skip instance if from a document that should not be used in
@@ -69,35 +62,29 @@ public class CrfSuiteUtils {
 				}
 				// System.out.println("using: " + documentId);
 			}
+			
+			// class label: value index!
+			line += new Double(inst.value(inst.classIndex())).intValue();
+			
 			for (int k = 0; k < instances.numAttributes(); k++) {
-				String attrName = instances.attribute(k).name();
 				if (k != instances.classIndex()) {
 					String val;
-					if (instances.attribute(k).isNominal()) {
-						val = inst.stringValue(k);
-					} else {
+					if (instances.attribute(k).isNumeric()) {
 						try {
-							//val = new BigDecimal(inst.value(k)).toPlainString();
-							val = df.format(inst.value(k));
+							val = df.format(inst.value(k));// new
+															// BigDecimal(inst.value(k)).toPlainString();
 						} catch (NumberFormatException e) {
 							val = "0.0";
 						}
-					}
-					if (!val.equals("THE-DUMMY-VALUE")) {
-
-						if (instances.attribute(k).isNumeric()) {
-							//if (val.length() > 11) {
-								// Nachkommastellen abschneiden.
-								// Stattdessen Logarithmus nehmen? Oder ist das
-								// ok so, avoiding overfitting?
-								//val = val.substring(0, 10);
-							//}
-							// weighted features
-							line += attrName + ":" + val + "\t";
-						} else {
-							// other features, categorical/nominal features
-							line += attrName + "=" + val + "\t";
+						line += " " + k + ":" + val;
+					} else {
+						if (instances.attribute(k).name().equals("instanceid")) {
+							continue;
 						}
+						
+						log.error("LIBSVM can only handle numeric features!");
+						log.error("Trying to use feature: " + instances.attribute(k).name());
+						throw new IllegalStateException();
 
 					}
 				}
