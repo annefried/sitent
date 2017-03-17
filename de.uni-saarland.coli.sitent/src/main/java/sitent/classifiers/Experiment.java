@@ -759,7 +759,7 @@ public class Experiment implements Runnable {
 		Evaluation eval = new Evaluation(allData);
 
 		// StringBuffer[] crfppFileContents = new StringBuffer[folds.length];
-		if (crfppDir != null) {
+		if (useCrfpp) {
 			log.info(setting + "\t" + "writing CRFPP template...");
 			// create the template file
 			// num attributes -1 because we don't need the class attribute
@@ -935,8 +935,8 @@ public class Experiment implements Runnable {
 				log.info("done.");
 
 				// run LibLINEAR: train model
-				Process p = Runtime.getRuntime().exec(libLinearPath + "/train -s 0 -e 0.001 -B 1 " + libSVMDir + "/train" + i + ".csv "
-						+ libSVMDir + "/sitent" + i + ".model");
+				Process p = Runtime.getRuntime().exec(libLinearPath + "/train -s 0 -e 0.001 -B 1 " + libSVMDir
+						+ "/train" + i + ".csv " + libSVMDir + "/sitent" + i + ".model");
 				BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				BufferedReader stError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
 				String s = null;
@@ -1264,7 +1264,7 @@ public class Experiment implements Runnable {
 			}
 			r.close();
 		}
-		
+
 		w.println("\n\nLIBLINEAR results");
 
 		Map<String, Map<String, Integer>> confMatrix = new HashMap<String, Map<String, Integer>>();
@@ -1272,22 +1272,22 @@ public class Experiment implements Runnable {
 		double totalCorrect = 0;
 
 		// fill confusion matrix
-		for (int i=0; i<predictions.size(); i++) {
-				// second last column: gold label
-				String gold = goldList.get(i);
-				// last column: predicted label
-				String pred = predictions.get(i);
-				if (!confMatrix.containsKey(gold)) {
-					confMatrix.put(gold, new HashMap<String, Integer>());
-				}
-				if (!confMatrix.get(gold).containsKey(pred)) {
-					confMatrix.get(gold).put(pred, 0);
-				}
-				confMatrix.get(gold).put(pred, confMatrix.get(gold).get(pred) + 1);
-				total++;
-				if (gold.equals(pred)) {
-					totalCorrect++;
-				}
+		for (int i = 0; i < predictions.size(); i++) {
+			// second last column: gold label
+			String gold = goldList.get(i);
+			// last column: predicted label
+			String pred = predictions.get(i);
+			if (!confMatrix.containsKey(gold)) {
+				confMatrix.put(gold, new HashMap<String, Integer>());
+			}
+			if (!confMatrix.get(gold).containsKey(pred)) {
+				confMatrix.get(gold).put(pred, 0);
+			}
+			confMatrix.get(gold).put(pred, confMatrix.get(gold).get(pred) + 1);
+			total++;
+			if (gold.equals(pred)) {
+				totalCorrect++;
+			}
 		}
 
 		if (w != null) {
@@ -1296,7 +1296,6 @@ public class Experiment implements Runnable {
 		}
 
 		EvaluationUtils.printResults(confMatrix, w, classValues);
-		
 
 	}
 
@@ -1351,8 +1350,8 @@ public class Experiment implements Runnable {
 
 		// path to installation of CRFPP
 		String CRFPP_INSTALLATION_DIR = args[1];
-		String CRFSUITE_INSTALLATION_DIR = args[2];
-		String LIBLINEAR_INSTALLATION_DIR = args[3];
+		String LIBLINEAR_INSTALLATION_DIR = args[2];
+		String CRFSUITE_INSTALLATION_DIR = args[3];
 
 		// String crfppDir =
 		// "/proj/anne-phd/situation_entities/git_repo/sitent/annotated_corpus/experiments_data/2016-06-16_16:48_dev-celex-binnedLingInd_xFold/crfpp";
