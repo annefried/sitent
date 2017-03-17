@@ -65,11 +65,24 @@ public class LIBSVMUtils {
 			
 			// class label: value index!
 			line += new Double(inst.value(inst.classIndex())).intValue();
+			String endOfLine = "";
 			
 			for (int k = 0; k < instances.numAttributes(); k++) {
 				if (k != instances.classIndex()) {
 					String val;
 					if (instances.attribute(k).isNumeric()) {
+						// for "binary" features (1/0):
+						if (inst.value(k) == 0) {
+							// feature off
+							endOfLine += " " + (k +  instances.numAttributes()) + ":1.0";
+						}
+						else {
+							// value should be 1.0
+							// feature on
+							line += " " + k + ":1.0";
+						}
+						
+						/*
 						try {
 							val = df.format(inst.value(k));// new
 															// BigDecimal(inst.value(k)).toPlainString();
@@ -77,6 +90,7 @@ public class LIBSVMUtils {
 							val = "0.0";
 						}
 						line += " " + k + ":" + val;
+						*/
 					} else {
 						if (instances.attribute(k).name().equals("instanceid")) {
 							continue;
@@ -90,7 +104,7 @@ public class LIBSVMUtils {
 				}
 
 			}
-			content.append(line + "\n");
+			content.append(line + " " + endOfLine + "\n");
 			x++;
 		}
 		log.info("wrote " + x + " lines");

@@ -935,7 +935,7 @@ public class Experiment implements Runnable {
 				log.info("done.");
 
 				// run LibLINEAR: train model
-				Process p = Runtime.getRuntime().exec(libLinearPath + "/train " + libSVMDir + "/train" + i + ".csv "
+				Process p = Runtime.getRuntime().exec(libLinearPath + "/train -s 0 -e 0.001 -B 1 " + libSVMDir + "/train" + i + ".csv "
 						+ libSVMDir + "/sitent" + i + ".model");
 				BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				BufferedReader stError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
@@ -1235,10 +1235,10 @@ public class Experiment implements Runnable {
 			classValNames.put(i, classAttr.value(i));
 		}
 
-		List<Integer> predictions = new LinkedList<Integer>();
-		List<Integer> gold = new LinkedList<Integer>();
+		List<String> predictions = new LinkedList<String>();
+		List<String> goldList = new LinkedList<String>();
 
-		// create confusion matrix
+		// read gold / predictions
 		for (String predFile : new File(libSVMDir).list()) {
 			if (!predFile.startsWith("prediction")) {
 				continue;
@@ -1250,7 +1250,7 @@ public class Experiment implements Runnable {
 				if (line.trim().equals("")) {
 					continue;
 				}
-				predictions.add(Integer.parseInt(line.trim()));
+				predictions.add(classValNames.get(Integer.parseInt(line.trim())));
 			}
 			r.close();
 			// read gold standard
@@ -1260,20 +1260,43 @@ public class Experiment implements Runnable {
 					continue;
 				}
 				String[] columns = line.split(" ");
-				gold.add(Integer.parseInt(columns[0]));
+				goldList.add(classValNames.get(Integer.parseInt(columns[0])));
 			}
 			r.close();
 		}
+		
+		w.println("\n\nLIBLINEAR results");
 
-		// get overall accuracy
-		int correct = 0;
-		for (int i = 0; i < predictions.size(); i++) {
-			if (predictions.get(i) == gold.get(i)) {
-				correct++;
-			}
+		Map<String, Map<String, Integer>> confMatrix = new HashMap<String, Map<String, Integer>>();
+		double total = 0;
+		double totalCorrect = 0;
+
+		// fill confusion matrix
+		for (int i=0; i<predictions.size(); i++) {
+				// second last column: gold label
+				String gold = goldList.get(i);
+				// last column: predicted label
+				String pred = predictions.get(i);
+				if (!confMatrix.containsKey(gold)) {
+					confMatrix.put(gold, new HashMap<String, Integer>());
+				}
+				if (!confMatrix.get(gold).containsKey(pred)) {
+					confMatrix.get(gold).put(pred, 0);
+				}
+				confMatrix.get(gold).put(pred, confMatrix.get(gold).get(pred) + 1);
+				total++;
+				if (gold.equals(pred)) {
+					totalCorrect++;
+				}
 		}
-		log.info("Accuracy for LIBLINEAR: " + correct + " " + predictions.size() + "  "
-				+ (double) correct / (double) predictions.size());
+
+		if (w != null) {
+			w.println("Accuracy LIBLINEAR++: " + totalCorrect / total);
+			w.println("Number of instances: " + total);
+		}
+
+		EvaluationUtils.printResults(confMatrix, w, classValues);
+		
 
 	}
 
@@ -1649,9 +1672,15 @@ public class Experiment implements Runnable {
 				crfppFilesDir = experimentSubDir + "/crfpp";
 				crfsuiteDir = experimentSubDir + "/crfsuite";
 				libSVMDir = experimentSubDir = "/libsvm";
-				new File(crfppFilesDir).mkdirs();
-				new File(crfsuiteDir).mkdirs();
-				new File(libSVMDir).mkdirs();
+				if (useCrfpp) {
+					new File(crfppFilesDir).mkdirs();
+				}
+				if (useCrfsuite) {
+					new File(crfsuiteDir).mkdirs();
+				}
+				if (useLibLinear) {
+					new File(libSVMDir).mkdirs();
+				}
 				applyModel(pretrainedModel, folds[0], crfppFilesDir);
 
 			} catch (Exception e) {
@@ -1677,9 +1706,15 @@ public class Experiment implements Runnable {
 					crfppFilesDir = genreSubDir + "/crfpp";
 					crfsuiteDir = genreSubDir + "/crfsuite";
 					libSVMDir = genreSubDir + "/libsvm";
-					new File(crfppFilesDir).mkdirs();
-					new File(crfsuiteDir).mkdirs();
-					new File(libSVMDir).mkdirs();
+					if (useCrfpp) {
+						new File(crfppFilesDir).mkdirs();
+					}
+					if (useCrfsuite) {
+						new File(crfsuiteDir).mkdirs();
+					}
+					if (useLibLinear) {
+						new File(libSVMDir).mkdirs();
+					}
 					performCrossValidation(folds, null, null, crfppFilesDir, crfsuiteDir, libSVMDir, genreResultsFile);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -1696,9 +1731,15 @@ public class Experiment implements Runnable {
 			crfppFilesDir = experimentSubDir + "/crfpp";
 			crfsuiteDir = experimentSubDir + "/crfsuite";
 			libSVMDir = experimentSubDir + "/libsvm";
-			new File(crfppFilesDir).mkdirs();
-			new File(crfsuiteDir).mkdirs();
-			new File(libSVMDir).mkdirs();
+			if (useCrfpp) {
+				new File(crfppFilesDir).mkdirs();
+			}
+			if (useCrfsuite) {
+				new File(crfsuiteDir).mkdirs();
+			}
+			if (useLibLinear) {
+				new File(libSVMDir).mkdirs();
+			}
 
 			// file with results (for most settings)
 			String resultsFile = experimentSubDir + "/" + "results_" + description + "_" + timestampText + ".txt";

@@ -51,7 +51,8 @@ EXPERIMENT_CONFIG=../annotated_corpus/experiments_data/config-a-b.xml
 COUNTABILITY_PATH=resources/countability/webcelex_countabilityNouns.txt
 # Here, you need to put the directory where you installed CRF++ on your 
 # system, see above.
-CRFPP_INSTALL_DIR=/proj/anne-phd/software/CRF++-0.58-fixed
+CRFPP_INSTALL_DIR=~/software/CRF++-0.58-fixed
+CRFSUITE_INSTALL_DIR=~/software/crfsuite-0.12/bin
 
 # --------------- #
 # Run the system  #
@@ -75,6 +76,6 @@ python3 python-scripts/split.py $ARFF-compatible $TRAIN_TEST_SPLIT $ARFF"_split"
 
 # Step 4: run experiment: filter data according to configured features, train classifier, develop using 10-fold-CV, or apply on test set.
 
-java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-experimenter.jar $EXPERIMENT_CONFIG $CRFPP_INSTALL_DIR
+java -jar target/de.uni-saarland.coli.sitent-0.0.1-SNAPSHOT-experimenter.jar $EXPERIMENT_CONFIG $CRFPP_INSTALL_DIR $CRFSUITE_INSTALL_DIR
 
 # Results will be in the $EXPERIMENT_CONFIG folder: look in the folders created for each experiment there!
