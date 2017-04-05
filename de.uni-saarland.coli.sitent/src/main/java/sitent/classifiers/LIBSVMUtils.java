@@ -6,6 +6,11 @@ package sitent.classifiers;
 
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -23,6 +28,10 @@ public class LIBSVMUtils {
 		df.setMaximumFractionDigits(10);
 		df.setMinimumFractionDigits(1);
 	}
+
+	// map from features (=feature-value combinations) to indices
+	private static Map<String, Integer> featureIndexMap = new HashMap<String, Integer>();
+	private static int indexCounter = 0;
 
 	/**
 	 * Writes a Weka Instances data set to a file in LibSVM format.
@@ -50,6 +59,8 @@ public class LIBSVMUtils {
 			}
 			String line = "";
 			Instance inst = instances.instance(j);
+			// so they can be sorted (otherwise LIBLINEAR dies)
+			Map<Integer, String> featureFunctionValues = new HashMap<Integer, String>();
 
 			// get document Id
 			Attribute instIdAttr = instances.attribute("instanceid");
@@ -72,7 +83,8 @@ public class LIBSVMUtils {
 			String endOfLine = "";
 
 			for (int k = 0; k < instances.numAttributes(); k++) {
-				//log.info("Feature: " + instances.attribute(k).name() + " with value " + inst.value(k));
+				// log.info("Feature: " + instances.attribute(k).name() + " with
+				// value " + inst.value(k));
 				if (k != instances.classIndex()) {
 					String val;
 					if (instances.attribute(k).isNumeric()) {
@@ -84,31 +96,62 @@ public class LIBSVMUtils {
 						 * ":1.0"; }
 						 */
 
+						// feature index for this numeric feature
+						if (!featureIndexMap.containsKey(instances.attribute(k).name())) {
+							indexCounter++;
+							featureIndexMap.put(instances.attribute(k).name(), indexCounter);
+						}
+						Integer index = featureIndexMap.get(instances.attribute(k).name());
+
 						try {
-							val = df.format(inst.value(k));// new
-															// BigDecimal(inst.value(k)).toPlainString();
+							val = df.format(inst.value(k)).replaceAll(",", "");// new
+							// BigDecimal(inst.value(k)).toPlainString();
 						} catch (NumberFormatException e) {
 							val = "0.0";
 						}
-						line += " " + k + ":" + val;
+						// line += " " + index + ":" + val;
+						featureFunctionValues.put(index, val);
 
 					} else {
 						if (instances.attribute(k).name().equals("instanceid")) {
 							continue;
 						}
 
-						log.error("LIBSVM can only handle numeric features!");
-						log.error("Trying to use feature: " + instances.attribute(k).name() + " with value " + inst.value(k));
-						for (int q=0; q<instances.attribute(k).numValues(); q++) {
-							System.out.println("- value:  " +  instances.attribute(k).value(q));
+						// create indices for non-numeric features --> indicator
+						// functions
+						String featureFunction = instances.attribute(k).name() + "==" + inst.value(k);
+						if (!featureIndexMap.containsKey(featureFunction)) {
+							indexCounter++;
+							featureIndexMap.put(featureFunction, indexCounter);
 						}
-	
-						throw new IllegalStateException();
+						Integer index = featureIndexMap.get(featureFunction);
+						// line += " " + index + ":1.0";
+						featureFunctionValues.put(index, "1.0");
+
+						// log.error("LIBSVM can only handle numeric
+						// features!");
+						// log.error("Trying to use feature: " +
+						// instances.attribute(k).name() + " with value " +
+						// inst.value(k));
+						// for (int q=0; q<instances.attribute(k).numValues();
+						// q++) {
+						// System.out.println("- value: " +
+						// instances.attribute(k).value(q));
+						// }
+						//
+						// throw new IllegalStateException();
 
 					}
 				}
 
 			}
+			// sort keyset
+			List<Integer> featureIndices = new LinkedList<Integer>(featureFunctionValues.keySet());
+			Collections.sort(featureIndices);
+			for (int index : featureIndices) {
+				line += " " + index + ":" + featureFunctionValues.get(index);
+			}
+
 			content.append(line + " " + endOfLine + "\n");
 			x++;
 		}

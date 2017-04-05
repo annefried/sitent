@@ -935,7 +935,7 @@ public class Experiment implements Runnable {
 				log.info("done.");
 
 				// run LibLINEAR: train model
-				Process p = Runtime.getRuntime().exec(libLinearPath + "/train -s 0 -e 0.001 -B 1 " + libSVMDir
+				Process p = Runtime.getRuntime().exec(libLinearPath + "/train -s 1 -e 0.0000001 -B 1 " + libSVMDir
 						+ "/train" + i + ".csv " + libSVMDir + "/sitent" + i + ".model");
 				BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				BufferedReader stError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
