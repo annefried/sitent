@@ -306,6 +306,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 		String inputDir = args[0]; // with XMis
 		String arffPath = args[1]; // ARFF files are written here
 		String task = args[2]; // e.g., class_sitent_type
+		String targetType = args[3]; // Segment, Passage or ClassificationAnnotation
 
 		// write ARFF files (for classification toolkit Weka, also used to
 		// generate CRFPP input files)
@@ -320,7 +321,7 @@ public class WekaArffWriterAnnotator extends JCasAnnotator_ImplBase {
 					WekaArffWriterAnnotator.PARAM_ARFF_LOCATION, arffPath,
 					WekaArffWriterAnnotator.PARAM_CLASS_ATTRIBUTE, task, WekaArffWriterAnnotator.PARAM_SPARSE_FORMAT,
 					true, WekaArffWriterAnnotator.PARAM_OMIT_FEATURES, "segment_acl2007_G_verbLemma_.*",
-					WekaArffWriterAnnotator.PARAM_TARGET_TYPE, "Segment", WekaArffWriterAnnotator.PARAM_ESCAPE_VALUES,
+					WekaArffWriterAnnotator.PARAM_TARGET_TYPE, targetType, WekaArffWriterAnnotator.PARAM_ESCAPE_VALUES,
 					false);
 
 			runPipeline(reader, arffWriter);
