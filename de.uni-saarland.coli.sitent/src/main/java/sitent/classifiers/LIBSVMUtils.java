@@ -54,7 +54,7 @@ public class LIBSVMUtils {
 		// Set<String>>();
 
 		instancesLoop: for (int j = 0; j < instances.numInstances(); j++) {
-			if (j % 100 == 0) {
+			if (j % 10000 == 0) {
 				log.info("writing input for LIBSVM... " + j);
 			}
 			String line = "";
