@@ -70,6 +70,9 @@ public class EvaluationUtils {
 		double macroPrecision = 0;
 		double macroRecall = 0;
 		double macroFMeasure = 0;
+		double accuracy = 0;
+		double total = 0;
+		
 		for (String val : confMatrix.keySet()) {
 			// skip classes that were never predicted
 
@@ -78,6 +81,8 @@ public class EvaluationUtils {
 			for (int count : predictions.values()) {
 				goldSum += count;
 			}
+			total += goldSum;
+			
 			double r = 0;
 			if (confMatrix.containsKey(val) && confMatrix.get(val).containsKey(val)) {
 				r = confMatrix.get(val).get(val) / (double) goldSum;
@@ -91,6 +96,7 @@ public class EvaluationUtils {
 			}
 			double p = 0;
 			if (confMatrix.containsKey(val) && confMatrix.get(val).containsKey(val)) {
+				accuracy += confMatrix.get(val).get(val);
 				p = confMatrix.get(val).get(val) / (double) predictedSum;
 			}
 			precision.put(val, p);
@@ -134,6 +140,12 @@ public class EvaluationUtils {
 
 		log.info(line);
 		log.info("F-of-macro: " + String.format("%.2f", fOfMacro * 100));
+		
+		log.info("");
+		accuracy /= total;
+		log.info("observed agreement / accuracy: " + String.format("%.2f", accuracy * 100));
+		w.println("observed agreement / accuracy: " + String.format("%.2f", accuracy * 100));
+		
 
 	}
 
