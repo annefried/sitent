@@ -20,7 +20,7 @@ splitInfo = {}
 with open(csvFile) as f:
     csvFile = csv.reader(f, delimiter="\t")
     for row in csvFile:
-        splitInfo[row[0]] = row[3]
+        splitInfo[row[0][:-4]] = row[3] # removing ".txt" ending
 
 if os.path.exists(outDirTrain):
     shutil.rmtree(outDirTrain)
