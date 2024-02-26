@@ -61,6 +61,7 @@ for doc_name in sorted(coll.docs):
 
         # add a Situation annotation (webanno.custom.Situation)
         se_annot = Annotation(doc, None, SITUATION_TYPE, begin, end)
+        se_annot.set_feature_value("instanceid", instanceid)
         se_annot.add_to_indices()
 
         for child in s:
@@ -88,6 +89,7 @@ for doc_name in sorted(coll.docs):
                         mv_annot.set_feature_value("Habituality", child.attrib["habituality"])
                     if "mainVerbAspectualClass" in child.attrib:
                         mv_annot.set_feature_value("AspectualClass", child.attrib["mainVerbAspectualClass"])
+    #break # for development
 
 # Adding UD features and dependency annotations using UDPipe
 num_tokens_matched = 0
@@ -177,17 +179,15 @@ for doc_name in coll.docs:
                 # did not find matching token
                 pass
 
-
-    for token in analysed_doc:
-        if not token in spacyTok_to_xmiPos:
+        for token in analysed_doc:
+            if token not in spacyTok_to_xmiTok:
                 continue
 
-        try:
             token_annot = spacyTok_to_xmiTok[token]
-    
-            # add dependencies
-            if token.head in spacyTok_to_xmiTok and token in spacyTok_to_xmiTok:
 
+            # add dependencies
+            if token.head in spacyTok_to_xmiPos and token in spacyTok_to_xmiPos and \
+                token.head in spacyTok_to_xmiTok and token in spacyTok_to_xmiTok: # if POS does not exist, rendering in Inception not possible
                 dep_rel = Annotation(doc, None, DEP_TYPE, token_annot.begin, token_annot.end)
                 dep_rel.set_feature_value("flavor", "basic")
                 dep_rel.set_feature_value("Dependent", spacyTok_to_xmiTok[token], valueRefersToAnnotation=True)
@@ -195,9 +195,7 @@ for doc_name in coll.docs:
                 dep_rel.set_feature_value("DependencyType", token.dep_)
                 dep_rel.add_to_indices()
 
-        except StopIteration:
-            pass # a few are missing for whatever reason
-            #print("did not find a XMI token for", token)
-        
+    #break   # for development
+
 coll.serialize(OUT_PATH)
 print(num_tokens_matched, num_tokens_not_matched)

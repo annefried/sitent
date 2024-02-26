@@ -3438,6 +3438,15 @@ relational adjectives, such as "proud" (with arguments who and of what).
             <supertypeName>uima.tcas.Annotation</supertypeName>
                         
             <features>
+                <featureDescription>
+                                        
+                    <name>instanceid</name>
+                                        
+                    <description/>
+                                        
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                                    
+                </featureDescription>
                                 
                 <featureDescription>
                                         
@@ -3458,6 +3467,7 @@ relational adjectives, such as "proud" (with arguments who and of what).
                     <rangeTypeName>uima.cas.String</rangeTypeName>
                                     
                 </featureDescription>
+
                             
             </features>
                     
@@ -3533,23 +3543,6 @@ relational adjectives, such as "proud" (with arguments who and of what).
                     <name>headOfVerbChain</name>
                     <description/>
                     <rangeTypeName>uima.tcas.Annotation</rangeTypeName>
-                </featureDescription>
-            </features>
-        </typeDescription>
-        <typeDescription>
-            <name>webanno.custom.Situation</name>
-            <description/>
-            <supertypeName>uima.tcas.Annotation</supertypeName>
-            <features>
-                <featureDescription>
-                    <name>SE_Type</name>
-                    <description/>
-                    <rangeTypeName>uima.cas.String</rangeTypeName>
-                </featureDescription>
-                <featureDescription>
-                    <name>Progression</name>
-                    <description/>
-                    <rangeTypeName>uima.cas.StringArray</rangeTypeName>
                 </featureDescription>
             </features>
         </typeDescription>
