@@ -1,0 +1,1854 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type="http:///de/tudarmstadt/ukp/clarin/webanno/api/type.ecore" xmlns:types="http:///webanno.custom.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type11="http:///org/dkpro/core/api/xml/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type10="http:///org/dkpro/core/api/pdf/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/structure/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmlns:custom="http:///webanno/custom.ecore" xmi:version="2.0">
+  <cas:NULL xmi:id="0"/>
+  <type3:DocumentMetaData xmi:id="1" sofa="12" begin="0" end="2773" language="en" documentTitle="email_54262.txt" documentId="email_54262.txt" documentUri="file:/home/friannem/repos/research/sitent/annotated_corpus/raw_text/email_54262.txt" collectionId="file:/home/friannem/repos/research/sitent/annotated_corpus/raw_text/" documentBaseUri="file:/home/friannem/repos/research/sitent/annotated_corpus/raw_text/" isLastSegment="false"/>
+  <types:SourceDocumentInformation xmi:id="19" sofa="12" begin="0" end="0" AbsolutePath="/home/friannem/repos/research/sitent/annotated_corpus/raw_text/email_54262.txt" DocId="email_54262.txt" hasPdtbAnnotations="false"/>
+  <type5:Token xmi:id="26" sofa="12" begin="0" end="10"/>
+  <type5:Token xmi:id="39" sofa="12" begin="10" end="11" pos="501959"/>
+  <type5:Token xmi:id="52" sofa="12" begin="12" end="57"/>
+  <type5:Token xmi:id="65" sofa="12" begin="58" end="62" pos="501962"/>
+  <type5:Token xmi:id="78" sofa="12" begin="62" end="63" pos="501965"/>
+  <type5:Token xmi:id="91" sofa="12" begin="64" end="67" pos="501968"/>
+  <type5:Token xmi:id="104" sofa="12" begin="67" end="68" pos="501971"/>
+  <type5:Token xmi:id="117" sofa="12" begin="69" end="70" pos="501974"/>
+  <type5:Token xmi:id="130" sofa="12" begin="71" end="74" pos="501977"/>
+  <type5:Token xmi:id="143" sofa="12" begin="75" end="79" pos="501980"/>
+  <type5:Token xmi:id="156" sofa="12" begin="80" end="88" pos="501983"/>
+  <type5:Token xmi:id="169" sofa="12" begin="89" end="94" pos="501986"/>
+  <type5:Token xmi:id="182" sofa="12" begin="95" end="96" pos="501989"/>
+  <type5:Token xmi:id="195" sofa="12" begin="96" end="99" pos="501992"/>
+  <type5:Token xmi:id="208" sofa="12" begin="99" end="100" pos="501995"/>
+  <type5:Token xmi:id="221" sofa="12" begin="101" end="105" pos="501998"/>
+  <type5:Token xmi:id="234" sofa="12" begin="105" end="106" pos="502001"/>
+  <type5:Token xmi:id="247" sofa="12" begin="107" end="125" pos="502004"/>
+  <type5:Token xmi:id="260" sofa="12" begin="126" end="128" pos="502007"/>
+  <type5:Token xmi:id="273" sofa="12" begin="128" end="129" pos="502010"/>
+  <type5:Token xmi:id="286" sofa="12" begin="130" end="152" pos="502013"/>
+  <type5:Token xmi:id="299" sofa="12" begin="153" end="160" pos="502016"/>
+  <type5:Token xmi:id="312" sofa="12" begin="160" end="161" pos="502019"/>
+  <type5:Token xmi:id="325" sofa="12" begin="162" end="164" pos="502022"/>
+  <type5:Token xmi:id="338" sofa="12" begin="164" end="165" pos="502025"/>
+  <type5:Token xmi:id="351" sofa="12" begin="166" end="170" pos="502028"/>
+  <type5:Token xmi:id="364" sofa="12" begin="171" end="175" pos="502031"/>
+  <type5:Token xmi:id="377" sofa="12" begin="176" end="185" pos="502034"/>
+  <type5:Token xmi:id="390" sofa="12" begin="186" end="198"/>
+  <type5:Token xmi:id="403" sofa="12" begin="198" end="199" pos="502037"/>
+  <type5:Token xmi:id="416" sofa="12" begin="200" end="203" pos="502040"/>
+  <type5:Token xmi:id="429" sofa="12" begin="204" end="216"/>
+  <type5:Token xmi:id="442" sofa="12" begin="216" end="217" pos="502043"/>
+  <type5:Token xmi:id="455" sofa="12" begin="218" end="228"/>
+  <type5:Token xmi:id="468" sofa="12" begin="228" end="229" pos="502046"/>
+  <type5:Token xmi:id="481" sofa="12" begin="230" end="237"/>
+  <type5:Token xmi:id="494" sofa="12" begin="237" end="238"/>
+  <type5:Token xmi:id="507" sofa="12" begin="238" end="246"/>
+  <type5:Token xmi:id="520" sofa="12" begin="247" end="272"/>
+  <type5:Token xmi:id="533" sofa="12" begin="272" end="273" pos="502049"/>
+  <type5:Token xmi:id="546" sofa="12" begin="274" end="278"/>
+  <type5:Token xmi:id="559" sofa="12" begin="280" end="285" pos="502052"/>
+  <type5:Token xmi:id="572" sofa="12" begin="285" end="286" pos="502055"/>
+  <type5:Token xmi:id="585" sofa="12" begin="289" end="292" pos="502058"/>
+  <type5:Token xmi:id="598" sofa="12" begin="294" end="299" pos="502061"/>
+  <type5:Token xmi:id="611" sofa="12" begin="302" end="307"/>
+  <type5:Token xmi:id="624" sofa="12" begin="307" end="315"/>
+  <type5:Token xmi:id="637" sofa="12" begin="316" end="323" pos="502064"/>
+  <type5:Token xmi:id="650" sofa="12" begin="323" end="328" pos="502067"/>
+  <type5:Token xmi:id="663" sofa="12" begin="329" end="333" pos="502070"/>
+  <type5:Token xmi:id="676" sofa="12" begin="333" end="334" pos="502073"/>
+  <type5:Token xmi:id="689" sofa="12" begin="336" end="337" pos="502076"/>
+  <type5:Token xmi:id="702" sofa="12" begin="337" end="343" pos="502079"/>
+  <type5:Token xmi:id="715" sofa="12" begin="344" end="352" pos="502082"/>
+  <type5:Token xmi:id="728" sofa="12" begin="352" end="353" pos="502085"/>
+  <type5:Token xmi:id="741" sofa="12" begin="354" end="380"/>
+  <type5:Token xmi:id="754" sofa="12" begin="380" end="386"/>
+  <type5:Token xmi:id="767" sofa="12" begin="387" end="388" pos="502088"/>
+  <type5:Token xmi:id="780" sofa="12" begin="388" end="485"/>
+  <type5:Token xmi:id="793" sofa="12" begin="486" end="490" pos="502091"/>
+  <type5:Token xmi:id="806" sofa="12" begin="490" end="491"/>
+  <type5:Token xmi:id="819" sofa="12" begin="492" end="500" pos="502094"/>
+  <type5:Token xmi:id="832" sofa="12" begin="500" end="501" pos="502097"/>
+  <type5:Token xmi:id="845" sofa="12" begin="502" end="505" pos="502100"/>
+  <type5:Token xmi:id="858" sofa="12" begin="506" end="508" pos="502103"/>
+  <type5:Token xmi:id="871" sofa="12" begin="508" end="509" pos="502106"/>
+  <type5:Token xmi:id="884" sofa="12" begin="510" end="514" pos="502109"/>
+  <type5:Token xmi:id="897" sofa="12" begin="515" end="519" pos="502112"/>
+  <type5:Token xmi:id="910" sofa="12" begin="520" end="522" pos="502115"/>
+  <type5:Token xmi:id="923" sofa="12" begin="524" end="526" pos="502118"/>
+  <type5:Token xmi:id="936" sofa="12" begin="526" end="527"/>
+  <type5:Token xmi:id="949" sofa="12" begin="528" end="536" pos="502121"/>
+  <type5:Token xmi:id="962" sofa="12" begin="536" end="537" pos="502124"/>
+  <type5:Token xmi:id="975" sofa="12" begin="538" end="543" pos="502127"/>
+  <type5:Token xmi:id="988" sofa="12" begin="544" end="545" pos="502130"/>
+  <type5:Token xmi:id="1001" sofa="12" begin="546" end="553" pos="502133"/>
+  <type5:Token xmi:id="1014" sofa="12" begin="553" end="554" pos="502142"/>
+  <type5:Token xmi:id="1027" sofa="12" begin="555" end="557" pos="502139"/>
+  <type5:Token xmi:id="1040" sofa="12" begin="557" end="558"/>
+  <type5:Token xmi:id="1053" sofa="12" begin="559" end="563" pos="502145"/>
+  <type5:Token xmi:id="1066" sofa="12" begin="564" end="568" pos="502148"/>
+  <type5:Token xmi:id="1079" sofa="12" begin="569" end="578" pos="502151"/>
+  <type5:Token xmi:id="1092" sofa="12" begin="580" end="586" pos="502154"/>
+  <type5:Token xmi:id="1105" sofa="12" begin="587" end="592" pos="502157"/>
+  <type5:Token xmi:id="1118" sofa="12" begin="593" end="594" pos="502160"/>
+  <type5:Token xmi:id="1131" sofa="12" begin="595" end="596" pos="502163"/>
+  <type5:Token xmi:id="1144" sofa="12" begin="596" end="599" pos="502166"/>
+  <type5:Token xmi:id="1157" sofa="12" begin="600" end="604" pos="502169"/>
+  <type5:Token xmi:id="1170" sofa="12" begin="605" end="608" pos="502172"/>
+  <type5:Token xmi:id="1183" sofa="12" begin="609" end="610" pos="502175"/>
+  <type5:Token xmi:id="1196" sofa="12" begin="611" end="614" pos="502178"/>
+  <type5:Token xmi:id="1209" sofa="12" begin="614" end="615" pos="502181"/>
+  <type5:Token xmi:id="1222" sofa="12" begin="618" end="623"/>
+  <type5:Token xmi:id="1235" sofa="12" begin="623" end="631"/>
+  <type5:Token xmi:id="1248" sofa="12" begin="632" end="639" pos="502184"/>
+  <type5:Token xmi:id="1261" sofa="12" begin="639" end="644" pos="502187"/>
+  <type5:Token xmi:id="1274" sofa="12" begin="645" end="649" pos="502190"/>
+  <type5:Token xmi:id="1287" sofa="12" begin="649" end="650" pos="502193"/>
+  <type5:Token xmi:id="1300" sofa="12" begin="651" end="677" pos="502196"/>
+  <type5:Token xmi:id="1313" sofa="12" begin="678" end="679" pos="502199"/>
+  <type5:Token xmi:id="1326" sofa="12" begin="679" end="713"/>
+  <type5:Token xmi:id="1339" sofa="12" begin="714" end="718" pos="502202"/>
+  <type5:Token xmi:id="1352" sofa="12" begin="718" end="719" pos="502205"/>
+  <type5:Token xmi:id="1365" sofa="12" begin="720" end="728" pos="502208"/>
+  <type5:Token xmi:id="1378" sofa="12" begin="728" end="729" pos="502211"/>
+  <type5:Token xmi:id="1391" sofa="12" begin="730" end="733" pos="502214"/>
+  <type5:Token xmi:id="1404" sofa="12" begin="734" end="736" pos="502217"/>
+  <type5:Token xmi:id="1417" sofa="12" begin="736" end="737" pos="502220"/>
+  <type5:Token xmi:id="1430" sofa="12" begin="738" end="742" pos="502223"/>
+  <type5:Token xmi:id="1443" sofa="12" begin="743" end="748" pos="502226"/>
+  <type5:Token xmi:id="1456" sofa="12" begin="749" end="751" pos="502229"/>
+  <type5:Token xmi:id="1469" sofa="12" begin="753" end="755" pos="502232"/>
+  <type5:Token xmi:id="1482" sofa="12" begin="755" end="756" pos="502235"/>
+  <type5:Token xmi:id="1495" sofa="12" begin="757" end="781" pos="502238"/>
+  <type5:Token xmi:id="1508" sofa="12" begin="782" end="789" pos="502241"/>
+  <type5:Token xmi:id="1521" sofa="12" begin="789" end="790" pos="502244"/>
+  <type5:Token xmi:id="1534" sofa="12" begin="791" end="793" pos="502247"/>
+  <type5:Token xmi:id="1547" sofa="12" begin="793" end="794" pos="502250"/>
+  <type5:Token xmi:id="1560" sofa="12" begin="795" end="799" pos="502253"/>
+  <type5:Token xmi:id="1573" sofa="12" begin="800" end="804" pos="502256"/>
+  <type5:Token xmi:id="1586" sofa="12" begin="805" end="814" pos="502259"/>
+  <type5:Token xmi:id="1599" sofa="12" begin="816" end="822" pos="502262"/>
+  <type5:Token xmi:id="1612" sofa="12" begin="822" end="823" pos="502265"/>
+  <type5:Token xmi:id="1625" sofa="12" begin="826" end="832" pos="502268"/>
+  <type5:Token xmi:id="1638" sofa="12" begin="832" end="833" pos="502271"/>
+  <type5:Token xmi:id="1651" sofa="12" begin="834" end="837" pos="502274"/>
+  <type5:Token xmi:id="1664" sofa="12" begin="838" end="843" pos="502277"/>
+  <type5:Token xmi:id="1677" sofa="12" begin="844" end="849" pos="502280"/>
+  <type5:Token xmi:id="1690" sofa="12" begin="850" end="854" pos="502283"/>
+  <type5:Token xmi:id="1703" sofa="12" begin="855" end="863" pos="502286"/>
+  <type5:Token xmi:id="1716" sofa="12" begin="864" end="874" pos="502289"/>
+  <type5:Token xmi:id="1729" sofa="12" begin="874" end="875" pos="502292"/>
+  <type5:Token xmi:id="1742" sofa="12" begin="878" end="880" pos="502295"/>
+  <type5:Token xmi:id="1755" sofa="12" begin="881" end="883" pos="502298"/>
+  <type5:Token xmi:id="1768" sofa="12" begin="884" end="887" pos="502301"/>
+  <type5:Token xmi:id="1781" sofa="12" begin="888" end="892" pos="502304"/>
+  <type5:Token xmi:id="1794" sofa="12" begin="893" end="899" pos="502307"/>
+  <type5:Token xmi:id="1807" sofa="12" begin="900" end="902" pos="502310"/>
+  <type5:Token xmi:id="1820" sofa="12" begin="903" end="913" pos="502313"/>
+  <type5:Token xmi:id="1833" sofa="12" begin="914" end="919" pos="502316"/>
+  <type5:Token xmi:id="1846" sofa="12" begin="920" end="923" pos="502319"/>
+  <type5:Token xmi:id="1859" sofa="12" begin="923" end="924" pos="502322"/>
+  <type5:Token xmi:id="1872" sofa="12" begin="927" end="932" pos="502325"/>
+  <type5:Token xmi:id="1885" sofa="12" begin="935" end="940" pos="502328"/>
+  <type5:Token xmi:id="1898" sofa="12" begin="940" end="948" pos="502331"/>
+  <type5:Token xmi:id="1911" sofa="12" begin="949" end="956" pos="502334"/>
+  <type5:Token xmi:id="1924" sofa="12" begin="956" end="961" pos="502337"/>
+  <type5:Token xmi:id="1937" sofa="12" begin="962" end="966" pos="502340"/>
+  <type5:Token xmi:id="1950" sofa="12" begin="966" end="967" pos="502343"/>
+  <type5:Token xmi:id="1963" sofa="12" begin="968" end="969" pos="502346"/>
+  <type5:Token xmi:id="1976" sofa="12" begin="969" end="975" pos="502349"/>
+  <type5:Token xmi:id="1989" sofa="12" begin="976" end="984" pos="502352"/>
+  <type5:Token xmi:id="2002" sofa="12" begin="984" end="985" pos="502355"/>
+  <type5:Token xmi:id="2015" sofa="12" begin="986" end="1012"/>
+  <type5:Token xmi:id="2028" sofa="12" begin="1012" end="1018"/>
+  <type5:Token xmi:id="2041" sofa="12" begin="1020" end="1021" pos="502358"/>
+  <type5:Token xmi:id="2054" sofa="12" begin="1021" end="1027"/>
+  <type5:Token xmi:id="2067" sofa="12" begin="1027" end="1028"/>
+  <type5:Token xmi:id="2080" sofa="12" begin="1028" end="1038"/>
+  <type5:Token xmi:id="2093" sofa="12" begin="1038" end="1039"/>
+  <type5:Token xmi:id="2106" sofa="12" begin="1039" end="1042"/>
+  <type5:Token xmi:id="2119" sofa="12" begin="1042" end="1048"/>
+  <type5:Token xmi:id="2132" sofa="12" begin="1048" end="1051"/>
+  <type5:Token xmi:id="2145" sofa="12" begin="1051" end="1059"/>
+  <type5:Token xmi:id="2158" sofa="12" begin="1059" end="1062"/>
+  <type5:Token xmi:id="2171" sofa="12" begin="1062" end="1065"/>
+  <type5:Token xmi:id="2184" sofa="12" begin="1065" end="1067"/>
+  <type5:Token xmi:id="2197" sofa="12" begin="1067" end="1077"/>
+  <type5:Token xmi:id="2210" sofa="12" begin="1077" end="1080"/>
+  <type5:Token xmi:id="2223" sofa="12" begin="1080" end="1090"/>
+  <type5:Token xmi:id="2236" sofa="12" begin="1090" end="1092"/>
+  <type5:Token xmi:id="2249" sofa="12" begin="1092" end="1096"/>
+  <type5:Token xmi:id="2262" sofa="12" begin="1097" end="1099"/>
+  <type5:Token xmi:id="2275" sofa="12" begin="1099" end="1119"/>
+  <type5:Token xmi:id="2288" sofa="12" begin="1122" end="1126" pos="502361"/>
+  <type5:Token xmi:id="2301" sofa="12" begin="1126" end="1127" pos="502364"/>
+  <type5:Token xmi:id="2314" sofa="12" begin="1128" end="1137" pos="502367"/>
+  <type5:Token xmi:id="2327" sofa="12" begin="1137" end="1138" pos="502370"/>
+  <type5:Token xmi:id="2340" sofa="12" begin="1139" end="1142" pos="502373"/>
+  <type5:Token xmi:id="2353" sofa="12" begin="1143" end="1145" pos="502376"/>
+  <type5:Token xmi:id="2366" sofa="12" begin="1145" end="1146" pos="502379"/>
+  <type5:Token xmi:id="2379" sofa="12" begin="1147" end="1151" pos="502382"/>
+  <type5:Token xmi:id="2392" sofa="12" begin="1152" end="1156" pos="502385"/>
+  <type5:Token xmi:id="2405" sofa="12" begin="1157" end="1159" pos="502388"/>
+  <type5:Token xmi:id="2418" sofa="12" begin="1161" end="1163" pos="502391"/>
+  <type5:Token xmi:id="2431" sofa="12" begin="1163" end="1164" pos="502394"/>
+  <type5:Token xmi:id="2444" sofa="12" begin="1165" end="1173" pos="502397"/>
+  <type5:Token xmi:id="2457" sofa="12" begin="1173" end="1174" pos="502400"/>
+  <type5:Token xmi:id="2470" sofa="12" begin="1175" end="1180" pos="502403"/>
+  <type5:Token xmi:id="2483" sofa="12" begin="1181" end="1182" pos="502406"/>
+  <type5:Token xmi:id="2496" sofa="12" begin="1183" end="1190" pos="502409"/>
+  <type5:Token xmi:id="2509" sofa="12" begin="1190" end="1191" pos="502418"/>
+  <type5:Token xmi:id="2522" sofa="12" begin="1192" end="1194" pos="502415"/>
+  <type5:Token xmi:id="2535" sofa="12" begin="1194" end="1195"/>
+  <type5:Token xmi:id="2548" sofa="12" begin="1196" end="1200" pos="502421"/>
+  <type5:Token xmi:id="2561" sofa="12" begin="1201" end="1205" pos="502424"/>
+  <type5:Token xmi:id="2574" sofa="12" begin="1206" end="1215" pos="502427"/>
+  <type5:Token xmi:id="2587" sofa="12" begin="1217" end="1222" pos="502430"/>
+  <type5:Token xmi:id="2600" sofa="12" begin="1225" end="1231" pos="502433"/>
+  <type5:Token xmi:id="2613" sofa="12" begin="1232" end="1235" pos="502436"/>
+  <type5:Token xmi:id="2626" sofa="12" begin="1236" end="1242" pos="502439"/>
+  <type5:Token xmi:id="2639" sofa="12" begin="1243" end="1247" pos="502442"/>
+  <type5:Token xmi:id="2652" sofa="12" begin="1248" end="1250" pos="502445"/>
+  <type5:Token xmi:id="2665" sofa="12" begin="1251" end="1253" pos="502448"/>
+  <type5:Token xmi:id="2678" sofa="12" begin="1254" end="1256" pos="502451"/>
+  <type5:Token xmi:id="2691" sofa="12" begin="1257" end="1261" pos="502454"/>
+  <type5:Token xmi:id="2704" sofa="12" begin="1262" end="1268" pos="502457"/>
+  <type5:Token xmi:id="2717" sofa="12" begin="1268" end="1269" pos="502460"/>
+  <type5:Token xmi:id="2730" sofa="12" begin="1270" end="1275" pos="502463"/>
+  <type5:Token xmi:id="2743" sofa="12" begin="1276" end="1279" pos="502466"/>
+  <type5:Token xmi:id="2756" sofa="12" begin="1280" end="1282" pos="502469"/>
+  <type5:Token xmi:id="2769" sofa="12" begin="1283" end="1287" pos="502472"/>
+  <type5:Token xmi:id="2782" sofa="12" begin="1288" end="1290" pos="502475"/>
+  <type5:Token xmi:id="2795" sofa="12" begin="1291" end="1298" pos="502478"/>
+  <type5:Token xmi:id="2808" sofa="12" begin="1299" end="1305" pos="502481"/>
+  <type5:Token xmi:id="2821" sofa="12" begin="1306" end="1310" pos="502484"/>
+  <type5:Token xmi:id="2834" sofa="12" begin="1311" end="1312" pos="502487"/>
+  <type5:Token xmi:id="2847" sofa="12" begin="1313" end="1319" pos="502490"/>
+  <type5:Token xmi:id="2860" sofa="12" begin="1320" end="1322" pos="502493"/>
+  <type5:Token xmi:id="2873" sofa="12" begin="1323" end="1332" pos="502496"/>
+  <type5:Token xmi:id="2886" sofa="12" begin="1332" end="1333" pos="502499"/>
+  <type5:Token xmi:id="2899" sofa="12" begin="1334" end="1340" pos="502502"/>
+  <type5:Token xmi:id="2912" sofa="12" begin="1341" end="1343" pos="502505"/>
+  <type5:Token xmi:id="2925" sofa="12" begin="1344" end="1346" pos="502508"/>
+  <type5:Token xmi:id="2938" sofa="12" begin="1347" end="1350" pos="502511"/>
+  <type5:Token xmi:id="2951" sofa="12" begin="1351" end="1356" pos="502514"/>
+  <type5:Token xmi:id="2964" sofa="12" begin="1357" end="1359" pos="502517"/>
+  <type5:Token xmi:id="2977" sofa="12" begin="1360" end="1364" pos="502520"/>
+  <type5:Token xmi:id="2990" sofa="12" begin="1365" end="1367" pos="502523"/>
+  <type5:Token xmi:id="3003" sofa="12" begin="1368" end="1371" pos="502526"/>
+  <type5:Token xmi:id="3016" sofa="12" begin="1372" end="1374" pos="502529"/>
+  <type5:Token xmi:id="3029" sofa="12" begin="1375" end="1382" pos="502532"/>
+  <type5:Token xmi:id="3042" sofa="12" begin="1383" end="1386" pos="502535"/>
+  <type5:Token xmi:id="3055" sofa="12" begin="1387" end="1397" pos="502538"/>
+  <type5:Token xmi:id="3068" sofa="12" begin="1398" end="1404" pos="502541"/>
+  <type5:Token xmi:id="3081" sofa="12" begin="1404" end="1405" pos="502544"/>
+  <type5:Token xmi:id="3094" sofa="12" begin="1408" end="1412" pos="502547"/>
+  <type5:Token xmi:id="3107" sofa="12" begin="1413" end="1420" pos="502550"/>
+  <type5:Token xmi:id="3120" sofa="12" begin="1420" end="1421" pos="502553"/>
+  <type5:Token xmi:id="3133" sofa="12" begin="1424" end="1430" pos="502556"/>
+  <type5:Token xmi:id="3146" sofa="12" begin="1433" end="1438" pos="502559"/>
+  <type5:Token xmi:id="3159" sofa="12" begin="1438" end="1446" pos="502562"/>
+  <type5:Token xmi:id="3172" sofa="12" begin="1447" end="1454" pos="502565"/>
+  <type5:Token xmi:id="3185" sofa="12" begin="1454" end="1459" pos="502568"/>
+  <type5:Token xmi:id="3198" sofa="12" begin="1460" end="1464" pos="502571"/>
+  <type5:Token xmi:id="3211" sofa="12" begin="1464" end="1465" pos="502574"/>
+  <type5:Token xmi:id="3224" sofa="12" begin="1466" end="1492" pos="502577"/>
+  <type5:Token xmi:id="3237" sofa="12" begin="1493" end="1494" pos="502580"/>
+  <type5:Token xmi:id="3250" sofa="12" begin="1494" end="1528"/>
+  <type5:Token xmi:id="3263" sofa="12" begin="1529" end="1533" pos="502583"/>
+  <type5:Token xmi:id="3276" sofa="12" begin="1533" end="1534" pos="502586"/>
+  <type5:Token xmi:id="3289" sofa="12" begin="1535" end="1543" pos="502589"/>
+  <type5:Token xmi:id="3302" sofa="12" begin="1543" end="1544" pos="502592"/>
+  <type5:Token xmi:id="3315" sofa="12" begin="1545" end="1548" pos="502595"/>
+  <type5:Token xmi:id="3328" sofa="12" begin="1549" end="1551" pos="502598"/>
+  <type5:Token xmi:id="3341" sofa="12" begin="1551" end="1552" pos="502601"/>
+  <type5:Token xmi:id="3354" sofa="12" begin="1553" end="1557" pos="502604"/>
+  <type5:Token xmi:id="3367" sofa="12" begin="1558" end="1563" pos="502607"/>
+  <type5:Token xmi:id="3380" sofa="12" begin="1564" end="1566" pos="502610"/>
+  <type5:Token xmi:id="3393" sofa="12" begin="1568" end="1570" pos="502613"/>
+  <type5:Token xmi:id="3406" sofa="12" begin="1570" end="1571" pos="502616"/>
+  <type5:Token xmi:id="3419" sofa="12" begin="1572" end="1596" pos="502619"/>
+  <type5:Token xmi:id="3432" sofa="12" begin="1597" end="1599" pos="502622"/>
+  <type5:Token xmi:id="3445" sofa="12" begin="1599" end="1600" pos="502625"/>
+  <type5:Token xmi:id="3458" sofa="12" begin="1601" end="1618" pos="502628"/>
+  <type5:Token xmi:id="3471" sofa="12" begin="1619" end="1626" pos="502631"/>
+  <type5:Token xmi:id="3484" sofa="12" begin="1626" end="1627" pos="502634"/>
+  <type5:Token xmi:id="3497" sofa="12" begin="1628" end="1630" pos="502637"/>
+  <type5:Token xmi:id="3510" sofa="12" begin="1630" end="1631" pos="502640"/>
+  <type5:Token xmi:id="3523" sofa="12" begin="1632" end="1636" pos="502643"/>
+  <type5:Token xmi:id="3536" sofa="12" begin="1637" end="1641" pos="502646"/>
+  <type5:Token xmi:id="3549" sofa="12" begin="1642" end="1651" pos="502649"/>
+  <type5:Token xmi:id="3562" sofa="12" begin="1653" end="1659" pos="502652"/>
+  <type5:Token xmi:id="3575" sofa="12" begin="1659" end="1660" pos="502655"/>
+  <type5:Token xmi:id="3588" sofa="12" begin="1663" end="1664" pos="502658"/>
+  <type5:Token xmi:id="3601" sofa="12" begin="1665" end="1669" pos="502661"/>
+  <type5:Token xmi:id="3614" sofa="12" begin="1670" end="1672" pos="502664"/>
+  <type5:Token xmi:id="3627" sofa="12" begin="1673" end="1680" pos="502667"/>
+  <type5:Token xmi:id="3640" sofa="12" begin="1681" end="1684" pos="502670"/>
+  <type5:Token xmi:id="3653" sofa="12" begin="1685" end="1695" pos="502673"/>
+  <type5:Token xmi:id="3666" sofa="12" begin="1696" end="1700" pos="502676"/>
+  <type5:Token xmi:id="3679" sofa="12" begin="1701" end="1708" pos="502679"/>
+  <type5:Token xmi:id="3692" sofa="12" begin="1708" end="1709" pos="502682"/>
+  <type5:Token xmi:id="3705" sofa="12" begin="1710" end="1711" pos="502685"/>
+  <type5:Token xmi:id="3718" sofa="12" begin="1712" end="1716" pos="502688"/>
+  <type5:Token xmi:id="3731" sofa="12" begin="1717" end="1720" pos="502691"/>
+  <type5:Token xmi:id="3744" sofa="12" begin="1721" end="1725" pos="502694"/>
+  <type5:Token xmi:id="3757" sofa="12" begin="1726" end="1737" pos="502697"/>
+  <type5:Token xmi:id="3770" sofa="12" begin="1738" end="1743" pos="502700"/>
+  <type5:Token xmi:id="3783" sofa="12" begin="1744" end="1747" pos="502703"/>
+  <type5:Token xmi:id="3796" sofa="12" begin="1747" end="1748" pos="502706"/>
+  <type5:Token xmi:id="3809" sofa="12" begin="1751" end="1756" pos="502709"/>
+  <type5:Token xmi:id="3822" sofa="12" begin="1757" end="1765" pos="502712"/>
+  <type5:Token xmi:id="3835" sofa="12" begin="1768" end="1773"/>
+  <type5:Token xmi:id="3848" sofa="12" begin="1773" end="1781"/>
+  <type5:Token xmi:id="3861" sofa="12" begin="1782" end="1789" pos="502715"/>
+  <type5:Token xmi:id="3874" sofa="12" begin="1789" end="1794" pos="502718"/>
+  <type5:Token xmi:id="3887" sofa="12" begin="1795" end="1799" pos="502721"/>
+  <type5:Token xmi:id="3900" sofa="12" begin="1799" end="1800" pos="502724"/>
+  <type5:Token xmi:id="3913" sofa="12" begin="1801" end="1802" pos="502727"/>
+  <type5:Token xmi:id="3926" sofa="12" begin="1802" end="1808" pos="502730"/>
+  <type5:Token xmi:id="3939" sofa="12" begin="1809" end="1817" pos="502733"/>
+  <type5:Token xmi:id="3952" sofa="12" begin="1817" end="1818" pos="502736"/>
+  <type5:Token xmi:id="3965" sofa="12" begin="1819" end="1845"/>
+  <type5:Token xmi:id="3978" sofa="12" begin="1845" end="1851"/>
+  <type5:Token xmi:id="3991" sofa="12" begin="1853" end="1854" pos="502739"/>
+  <type5:Token xmi:id="4004" sofa="12" begin="1854" end="1860"/>
+  <type5:Token xmi:id="4017" sofa="12" begin="1860" end="1861"/>
+  <type5:Token xmi:id="4030" sofa="12" begin="1861" end="1871"/>
+  <type5:Token xmi:id="4043" sofa="12" begin="1871" end="1872"/>
+  <type5:Token xmi:id="4056" sofa="12" begin="1872" end="1875"/>
+  <type5:Token xmi:id="4069" sofa="12" begin="1875" end="1881"/>
+  <type5:Token xmi:id="4082" sofa="12" begin="1881" end="1884"/>
+  <type5:Token xmi:id="4095" sofa="12" begin="1884" end="1892"/>
+  <type5:Token xmi:id="4108" sofa="12" begin="1892" end="1895"/>
+  <type5:Token xmi:id="4121" sofa="12" begin="1895" end="1898"/>
+  <type5:Token xmi:id="4134" sofa="12" begin="1898" end="1900"/>
+  <type5:Token xmi:id="4147" sofa="12" begin="1900" end="1910"/>
+  <type5:Token xmi:id="4160" sofa="12" begin="1910" end="1913"/>
+  <type5:Token xmi:id="4173" sofa="12" begin="1913" end="1923"/>
+  <type5:Token xmi:id="4186" sofa="12" begin="1923" end="1925"/>
+  <type5:Token xmi:id="4199" sofa="12" begin="1925" end="1929"/>
+  <type5:Token xmi:id="4212" sofa="12" begin="1930" end="1932"/>
+  <type5:Token xmi:id="4225" sofa="12" begin="1932" end="1952"/>
+  <type5:Token xmi:id="4238" sofa="12" begin="1955" end="1959" pos="502742"/>
+  <type5:Token xmi:id="4251" sofa="12" begin="1959" end="1960" pos="502745"/>
+  <type5:Token xmi:id="4264" sofa="12" begin="1961" end="1967" pos="502748"/>
+  <type5:Token xmi:id="4277" sofa="12" begin="1967" end="1968" pos="502751"/>
+  <type5:Token xmi:id="4290" sofa="12" begin="1969" end="1972" pos="502754"/>
+  <type5:Token xmi:id="4303" sofa="12" begin="1973" end="1975" pos="502757"/>
+  <type5:Token xmi:id="4316" sofa="12" begin="1975" end="1976" pos="502760"/>
+  <type5:Token xmi:id="4329" sofa="12" begin="1977" end="1981" pos="502763"/>
+  <type5:Token xmi:id="4342" sofa="12" begin="1982" end="1986" pos="502766"/>
+  <type5:Token xmi:id="4355" sofa="12" begin="1987" end="1989" pos="502769"/>
+  <type5:Token xmi:id="4368" sofa="12" begin="1991" end="1993" pos="502772"/>
+  <type5:Token xmi:id="4381" sofa="12" begin="1993" end="1994" pos="502775"/>
+  <type5:Token xmi:id="4394" sofa="12" begin="1995" end="2012" pos="502778"/>
+  <type5:Token xmi:id="4407" sofa="12" begin="2013" end="2020" pos="502781"/>
+  <type5:Token xmi:id="4420" sofa="12" begin="2020" end="2021" pos="502784"/>
+  <type5:Token xmi:id="4433" sofa="12" begin="2022" end="2026" pos="502787"/>
+  <type5:Token xmi:id="4446" sofa="12" begin="2027" end="2031" pos="502790"/>
+  <type5:Token xmi:id="4459" sofa="12" begin="2032" end="2041" pos="502793"/>
+  <type5:Token xmi:id="4472" sofa="12" begin="2043" end="2047" pos="502796"/>
+  <type5:Token xmi:id="4485" sofa="12" begin="2048" end="2053" pos="502799"/>
+  <type5:Token xmi:id="4498" sofa="12" begin="2056" end="2060" pos="502802"/>
+  <type5:Token xmi:id="4511" sofa="12" begin="2061" end="2062" pos="502805"/>
+  <type5:Token xmi:id="4524" sofa="12" begin="2063" end="2068" pos="502808"/>
+  <type5:Token xmi:id="4537" sofa="12" begin="2069" end="2076"/>
+  <type5:Token xmi:id="4550" sofa="12" begin="2077" end="2079" pos="502811"/>
+  <type5:Token xmi:id="4563" sofa="12" begin="2080" end="2086" pos="502814"/>
+  <type5:Token xmi:id="4576" sofa="12" begin="2087" end="2089" pos="502817"/>
+  <type5:Token xmi:id="4589" sofa="12" begin="2090" end="2092" pos="502820"/>
+  <type5:Token xmi:id="4602" sofa="12" begin="2093" end="2096" pos="502823"/>
+  <type5:Token xmi:id="4615" sofa="12" begin="2097" end="2102" pos="502826"/>
+  <type5:Token xmi:id="4628" sofa="12" begin="2103" end="2107" pos="502829"/>
+  <type5:Token xmi:id="4641" sofa="12" begin="2108" end="2109" pos="502832"/>
+  <type5:Token xmi:id="4654" sofa="12" begin="2110" end="2114" pos="502835"/>
+  <type5:Token xmi:id="4667" sofa="12" begin="2115" end="2118" pos="502838"/>
+  <type5:Token xmi:id="4680" sofa="12" begin="2119" end="2127" pos="502841"/>
+  <type5:Token xmi:id="4693" sofa="12" begin="2128" end="2136" pos="502844"/>
+  <type5:Token xmi:id="4706" sofa="12" begin="2137" end="2140" pos="502847"/>
+  <type5:Token xmi:id="4719" sofa="12" begin="2141" end="2143" pos="502850"/>
+  <type5:Token xmi:id="4732" sofa="12" begin="2144" end="2149" pos="502853"/>
+  <type5:Token xmi:id="4745" sofa="12" begin="2150" end="2152" pos="502856"/>
+  <type5:Token xmi:id="4758" sofa="12" begin="2153" end="2156" pos="502859"/>
+  <type5:Token xmi:id="4771" sofa="12" begin="2157" end="2168" pos="502862"/>
+  <type5:Token xmi:id="4784" sofa="12" begin="2169" end="2177" pos="502865"/>
+  <type5:Token xmi:id="4797" sofa="12" begin="2177" end="2178" pos="502868"/>
+  <type5:Token xmi:id="4810" sofa="12" begin="2179" end="2183" pos="502871"/>
+  <type5:Token xmi:id="4823" sofa="12" begin="2184" end="2188" pos="502874"/>
+  <type5:Token xmi:id="4836" sofa="12" begin="2189" end="2198" pos="502877"/>
+  <type5:Token xmi:id="4849" sofa="12" begin="2198" end="2199" pos="502880"/>
+  <type5:Token xmi:id="4862" sofa="12" begin="2200" end="2205" pos="502883"/>
+  <type5:Token xmi:id="4875" sofa="12" begin="2206" end="2208" pos="502886"/>
+  <type5:Token xmi:id="4888" sofa="12" begin="2209" end="2215" pos="502889"/>
+  <type5:Token xmi:id="4901" sofa="12" begin="2216" end="2221" pos="502892"/>
+  <type5:Token xmi:id="4914" sofa="12" begin="2222" end="2224"/>
+  <type5:Token xmi:id="4927" sofa="12" begin="2225" end="2231" pos="502895"/>
+  <type5:Token xmi:id="4940" sofa="12" begin="2232" end="2234" pos="502898"/>
+  <type5:Token xmi:id="4953" sofa="12" begin="2235" end="2237" pos="502901"/>
+  <type5:Token xmi:id="4966" sofa="12" begin="2238" end="2239" pos="502904"/>
+  <type5:Token xmi:id="4979" sofa="12" begin="2240" end="2242" pos="502907"/>
+  <type5:Token xmi:id="4992" sofa="12" begin="2243" end="2249" pos="502910"/>
+  <type5:Token xmi:id="5005" sofa="12" begin="2250" end="2254" pos="502913"/>
+  <type5:Token xmi:id="5018" sofa="12" begin="2254" end="2255" pos="502916"/>
+  <type5:Token xmi:id="5031" sofa="12" begin="2256" end="2260" pos="502919"/>
+  <type5:Token xmi:id="5044" sofa="12" begin="2261" end="2264" pos="502922"/>
+  <type5:Token xmi:id="5057" sofa="12" begin="2265" end="2268" pos="502925"/>
+  <type5:Token xmi:id="5070" sofa="12" begin="2269" end="2271" pos="502928"/>
+  <type5:Token xmi:id="5083" sofa="12" begin="2272" end="2283" pos="502931"/>
+  <type5:Token xmi:id="5096" sofa="12" begin="2284" end="2286" pos="502934"/>
+  <type5:Token xmi:id="5109" sofa="12" begin="2287" end="2295" pos="502937"/>
+  <type5:Token xmi:id="5122" sofa="12" begin="2296" end="2299" pos="502940"/>
+  <type5:Token xmi:id="5135" sofa="12" begin="2300" end="2310" pos="502943"/>
+  <type5:Token xmi:id="5148" sofa="12" begin="2311" end="2314" pos="502946"/>
+  <type5:Token xmi:id="5161" sofa="12" begin="2314" end="2315" pos="502949"/>
+  <type5:Token xmi:id="5174" sofa="12" begin="2316" end="2318" pos="502952"/>
+  <type5:Token xmi:id="5187" sofa="12" begin="2319" end="2322" pos="502955"/>
+  <type5:Token xmi:id="5200" sofa="12" begin="2323" end="2329" pos="502958"/>
+  <type5:Token xmi:id="5213" sofa="12" begin="2330" end="2332" pos="502961"/>
+  <type5:Token xmi:id="5226" sofa="12" begin="2333" end="2337" pos="502964"/>
+  <type5:Token xmi:id="5239" sofa="12" begin="2338" end="2341" pos="502967"/>
+  <type5:Token xmi:id="5252" sofa="12" begin="2342" end="2351" pos="502970"/>
+  <type5:Token xmi:id="5265" sofa="12" begin="2352" end="2359" pos="502973"/>
+  <type5:Token xmi:id="5278" sofa="12" begin="2360" end="2364" pos="502976"/>
+  <type5:Token xmi:id="5291" sofa="12" begin="2365" end="2369" pos="502979"/>
+  <type5:Token xmi:id="5304" sofa="12" begin="2369" end="2370" pos="502982"/>
+  <type5:Token xmi:id="5317" sofa="12" begin="2371" end="2373" pos="502985"/>
+  <type5:Token xmi:id="5330" sofa="12" begin="2374" end="2375" pos="502988"/>
+  <type5:Token xmi:id="5343" sofa="12" begin="2376" end="2381" pos="502991"/>
+  <type5:Token xmi:id="5356" sofa="12" begin="2382" end="2388" pos="502994"/>
+  <type5:Token xmi:id="5369" sofa="12" begin="2389" end="2393" pos="502997"/>
+  <type5:Token xmi:id="5382" sofa="12" begin="2394" end="2396" pos="503000"/>
+  <type5:Token xmi:id="5395" sofa="12" begin="2397" end="2401" pos="503003"/>
+  <type5:Token xmi:id="5408" sofa="12" begin="2402" end="2404" pos="503006"/>
+  <type5:Token xmi:id="5421" sofa="12" begin="2405" end="2409" pos="503009"/>
+  <type5:Token xmi:id="5434" sofa="12" begin="2410" end="2412" pos="503012"/>
+  <type5:Token xmi:id="5447" sofa="12" begin="2413" end="2421" pos="503015"/>
+  <type5:Token xmi:id="5460" sofa="12" begin="2422" end="2424" pos="503018"/>
+  <type5:Token xmi:id="5473" sofa="12" begin="2425" end="2428" pos="503021"/>
+  <type5:Token xmi:id="5486" sofa="12" begin="2429" end="2434" pos="503024"/>
+  <type5:Token xmi:id="5499" sofa="12" begin="2435" end="2437" pos="503027"/>
+  <type5:Token xmi:id="5512" sofa="12" begin="2438" end="2447" pos="503030"/>
+  <type5:Token xmi:id="5525" sofa="12" begin="2448" end="2450" pos="503033"/>
+  <type5:Token xmi:id="5538" sofa="12" begin="2451" end="2456" pos="503036"/>
+  <type5:Token xmi:id="5551" sofa="12" begin="2457" end="2459" pos="503039"/>
+  <type5:Token xmi:id="5564" sofa="12" begin="2460" end="2464" pos="503042"/>
+  <type5:Token xmi:id="5577" sofa="12" begin="2465" end="2469" pos="503045"/>
+  <type5:Token xmi:id="5590" sofa="12" begin="2469" end="2471" pos="503048"/>
+  <type5:Token xmi:id="5603" sofa="12" begin="2472" end="2480" pos="503051"/>
+  <type5:Token xmi:id="5616" sofa="12" begin="2480" end="2481" pos="503054"/>
+  <type5:Token xmi:id="5629" sofa="12" begin="2484" end="2485" pos="503057"/>
+  <type5:Token xmi:id="5642" sofa="12" begin="2486" end="2488" pos="503060"/>
+  <type5:Token xmi:id="5655" sofa="12" begin="2489" end="2496" pos="503063"/>
+  <type5:Token xmi:id="5668" sofa="12" begin="2497" end="2501" pos="503066"/>
+  <type5:Token xmi:id="5681" sofa="12" begin="2502" end="2505" pos="503069"/>
+  <type5:Token xmi:id="5694" sofa="12" begin="2506" end="2510" pos="503072"/>
+  <type5:Token xmi:id="5707" sofa="12" begin="2511" end="2515" pos="503075"/>
+  <type5:Token xmi:id="5720" sofa="12" begin="2516" end="2522" pos="503078"/>
+  <type5:Token xmi:id="5733" sofa="12" begin="2523" end="2526" pos="503081"/>
+  <type5:Token xmi:id="5746" sofa="12" begin="2527" end="2531" pos="503084"/>
+  <type5:Token xmi:id="5759" sofa="12" begin="2532" end="2536" pos="503087"/>
+  <type5:Token xmi:id="5772" sofa="12" begin="2537" end="2541" pos="503090"/>
+  <type5:Token xmi:id="5785" sofa="12" begin="2542" end="2543" pos="503093"/>
+  <type5:Token xmi:id="5798" sofa="12" begin="2543" end="2546" pos="503096"/>
+  <type5:Token xmi:id="5811" sofa="12" begin="2546" end="2547" pos="503099"/>
+  <type5:Token xmi:id="5824" sofa="12" begin="2548" end="2552" pos="503102"/>
+  <type5:Token xmi:id="5837" sofa="12" begin="2554" end="2558" pos="503105"/>
+  <type5:Token xmi:id="5850" sofa="12" begin="2559" end="2563" pos="503108"/>
+  <type5:Token xmi:id="5863" sofa="12" begin="2563" end="2564" pos="503111"/>
+  <type5:Token xmi:id="5876" sofa="12" begin="2564" end="2565" pos="503114"/>
+  <type5:Token xmi:id="5889" sofa="12" begin="2566" end="2569" pos="503117"/>
+  <type5:Token xmi:id="5902" sofa="12" begin="2570" end="2571" pos="503120"/>
+  <type5:Token xmi:id="5915" sofa="12" begin="2572" end="2575" pos="503123"/>
+  <type5:Token xmi:id="5928" sofa="12" begin="2576" end="2578" pos="503126"/>
+  <type5:Token xmi:id="5941" sofa="12" begin="2579" end="2588" pos="503129"/>
+  <type5:Token xmi:id="5954" sofa="12" begin="2589" end="2591" pos="503132"/>
+  <type5:Token xmi:id="5967" sofa="12" begin="2592" end="2597" pos="503135"/>
+  <type5:Token xmi:id="5980" sofa="12" begin="2598" end="2603" pos="503138"/>
+  <type5:Token xmi:id="5993" sofa="12" begin="2604" end="2606" pos="503141"/>
+  <type5:Token xmi:id="6006" sofa="12" begin="2607" end="2609" pos="503144"/>
+  <type5:Token xmi:id="6019" sofa="12" begin="2610" end="2615" pos="503147"/>
+  <type5:Token xmi:id="6032" sofa="12" begin="2615" end="2616" pos="503150"/>
+  <type5:Token xmi:id="6045" sofa="12" begin="2619" end="2623" pos="503153"/>
+  <type5:Token xmi:id="6058" sofa="12" begin="2624" end="2631" pos="503156"/>
+  <type5:Token xmi:id="6071" sofa="12" begin="2631" end="2632" pos="503159"/>
+  <type5:Token xmi:id="6084" sofa="12" begin="2635" end="2641" pos="503162"/>
+  <type5:Token xmi:id="6097" sofa="12" begin="2644" end="2650"/>
+  <type5:Token xmi:id="6110" sofa="12" begin="2651" end="2659" pos="503165"/>
+  <type5:Token xmi:id="6123" sofa="12" begin="2660" end="2670" pos="503168"/>
+  <type5:Token xmi:id="6136" sofa="12" begin="2671" end="2679" pos="503171"/>
+  <type5:Token xmi:id="6149" sofa="12" begin="2680" end="2684" pos="503174"/>
+  <type5:Token xmi:id="6162" sofa="12" begin="2685" end="2691" pos="503177"/>
+  <type5:Token xmi:id="6175" sofa="12" begin="2692" end="2697" pos="503180"/>
+  <type5:Token xmi:id="6188" sofa="12" begin="2700" end="2716"/>
+  <type5:Token xmi:id="6201" sofa="12" begin="2718" end="2734"/>
+  <type5:Token xmi:id="6214" sofa="12" begin="2736" end="2772" pos="503183"/>
+  <type5:Sentence xmi:id="6227" sofa="12" begin="0" end="615"/>
+  <type5:Sentence xmi:id="6232" sofa="12" begin="618" end="875"/>
+  <type5:Sentence xmi:id="6237" sofa="12" begin="878" end="924"/>
+  <type5:Sentence xmi:id="6242" sofa="12" begin="927" end="1269"/>
+  <type5:Sentence xmi:id="6247" sofa="12" begin="1270" end="1405"/>
+  <type5:Sentence xmi:id="6252" sofa="12" begin="1408" end="1421"/>
+  <type5:Sentence xmi:id="6257" sofa="12" begin="1424" end="1709"/>
+  <type5:Sentence xmi:id="6262" sofa="12" begin="1710" end="1748"/>
+  <type5:Sentence xmi:id="6267" sofa="12" begin="1751" end="2255"/>
+  <type5:Sentence xmi:id="6272" sofa="12" begin="2256" end="2315"/>
+  <type5:Sentence xmi:id="6277" sofa="12" begin="2316" end="2481"/>
+  <type5:Sentence xmi:id="6282" sofa="12" begin="2484" end="2616"/>
+  <type5:Sentence xmi:id="6287" sofa="12" begin="2619" end="2632"/>
+  <type5:Sentence xmi:id="6292" sofa="12" begin="2635" end="2772"/>
+  <custom:Situation xmi:id="245117" begin="0" end="57" sofa="12"/>
+  <custom:Situation xmi:id="245118" begin="58" end="100" sofa="12"/>
+  <custom:Situation xmi:id="245119" begin="101" end="125" sofa="12"/>
+  <custom:Situation xmi:id="245120" begin="126" end="152" sofa="12"/>
+  <custom:Situation xmi:id="245121" begin="153" end="185" sofa="12"/>
+  <custom:Situation xmi:id="245122" begin="186" end="203" sofa="12"/>
+  <custom:Situation xmi:id="245123" begin="204" end="246" sofa="12"/>
+  <custom:Situation xmi:id="245124" begin="247" end="278" sofa="12"/>
+  <custom:Situation xmi:id="245125" begin="280" end="286" sofa="12"/>
+  <custom:Situation xmi:id="245126" begin="289" end="292" sofa="12"/>
+  <custom:Situation xmi:id="245127" begin="294" end="299" sofa="12"/>
+  <custom:Situation xmi:id="245128" begin="302" end="328" sofa="12"/>
+  <custom:Situation xmi:id="245129" begin="329" end="485" sofa="12"/>
+  <custom:Situation xmi:id="245130" begin="486" end="522" sofa="12"/>
+  <custom:MainVerb xmi:id="245131" begin="520" end="522" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245132" begin="515" end="519" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245133" begin="524" end="545" sofa="12"/>
+  <custom:Situation xmi:id="245134" begin="546" end="578" sofa="12"/>
+  <custom:Situation xmi:id="245135" begin="580" end="615" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245136" begin="600" end="604" sofa="12" Habituality="STATIC" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245137" begin="0" end="10" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245138" begin="618" end="644" sofa="12"/>
+  <custom:Situation xmi:id="245139" begin="645" end="713" sofa="12"/>
+  <custom:Situation xmi:id="245140" begin="714" end="751" sofa="12"/>
+  <custom:MainVerb xmi:id="245141" begin="749" end="751" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245142" begin="743" end="748" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245143" begin="753" end="781" sofa="12"/>
+  <custom:Situation xmi:id="245144" begin="782" end="814" sofa="12"/>
+  <custom:Situation xmi:id="245145" begin="816" end="823" sofa="12"/>
+  <custom:Situation xmi:id="245146" begin="826" end="875" sofa="12" SE_Type="IMPERATIVE"/>
+  <custom:MainVerb xmi:id="245147" begin="834" end="837" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245148" begin="816" end="822" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245149" begin="878" end="924" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245150" begin="881" end="883" sofa="12" Habituality="STATIC" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245151" begin="878" end="880" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245152" begin="927" end="932" sofa="12"/>
+  <custom:Situation xmi:id="245153" begin="935" end="961" sofa="12"/>
+  <custom:MainVerb xmi:id="245154" begin="956" end="961" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245155" begin="949" end="956" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245156" begin="962" end="1018" sofa="12"/>
+  <custom:MainVerb xmi:id="245157" begin="986" end="1012" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245158" begin="962" end="966" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245159" begin="1020" end="1096" sofa="12"/>
+  <custom:Situation xmi:id="245160" begin="1097" end="1119" sofa="12"/>
+  <custom:Situation xmi:id="245161" begin="1122" end="1159" sofa="12"/>
+  <custom:Situation xmi:id="245162" begin="1161" end="1182" sofa="12"/>
+  <custom:Situation xmi:id="245163" begin="1183" end="1215" sofa="12"/>
+  <custom:Situation xmi:id="245164" begin="1217" end="1222" sofa="12"/>
+  <custom:Situation xmi:id="245165" begin="1225" end="1269" sofa="12"/>
+  <custom:MainVerb xmi:id="245166" begin="1236" end="1242" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245167" begin="1021" end="1027" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245168" begin="1270" end="1310" sofa="12" SE_Type="QUESTION"/>
+  <custom:MainVerb xmi:id="245169" begin="1280" end="1282" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245170" begin="1276" end="1279" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245171" begin="1311" end="1405" sofa="12" SE_Type="CANNOT_DECIDE"/>
+  <custom:MainVerb xmi:id="245172" begin="1357" end="1359" sofa="12" Habituality="CANNOT_DECIDE" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245173" begin="1347" end="1350" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245174" begin="1408" end="1421" sofa="12"/>
+  <custom:MainVerb xmi:id="245175" begin="1413" end="1420" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245176" begin="1408" end="1412" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245177" begin="1424" end="1430" sofa="12"/>
+  <custom:Situation xmi:id="245178" begin="1433" end="1459" sofa="12"/>
+  <custom:Situation xmi:id="245179" begin="1460" end="1528" sofa="12"/>
+  <custom:Situation xmi:id="245180" begin="1529" end="1566" sofa="12"/>
+  <custom:MainVerb xmi:id="245181" begin="1564" end="1566" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245182" begin="1558" end="1563" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245183" begin="1568" end="1596" sofa="12"/>
+  <custom:Situation xmi:id="245184" begin="1597" end="1618" sofa="12"/>
+  <custom:Situation xmi:id="245185" begin="1619" end="1651" sofa="12"/>
+  <custom:Situation xmi:id="245186" begin="1653" end="1660" sofa="12"/>
+  <custom:Situation xmi:id="245187" begin="1663" end="1709" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245188" begin="1665" end="1669" sofa="12" Habituality="STATIC" AspectualClass="DYNAMIC"/>
+  <custom:MainReferent xmi:id="245189" begin="1460" end="1464" sofa="12" Genericity="NON-GENERIC"/>
+  <custom:Situation xmi:id="245190" begin="1710" end="1748" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245191" begin="1712" end="1716" sofa="12" Habituality="STATIC" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245192" begin="1710" end="1711" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245193" begin="1751" end="1765" sofa="12"/>
+  <custom:Situation xmi:id="245194" begin="1768" end="1794" sofa="12"/>
+  <custom:Situation xmi:id="245195" begin="1795" end="1851" sofa="12"/>
+  <custom:MainVerb xmi:id="245196" begin="1795" end="1799" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245197" begin="1789" end="1794" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245198" begin="1853" end="1929" sofa="12"/>
+  <custom:Situation xmi:id="245199" begin="1930" end="1952" sofa="12"/>
+  <custom:Situation xmi:id="245200" begin="1955" end="1989" sofa="12"/>
+  <custom:Situation xmi:id="245201" begin="1991" end="2012" sofa="12"/>
+  <custom:Situation xmi:id="245202" begin="2013" end="2041" sofa="12"/>
+  <custom:Situation xmi:id="245203" begin="2043" end="2053" sofa="12"/>
+  <custom:Situation xmi:id="245204" begin="2056" end="2102" sofa="12"/>
+  <custom:MainVerb xmi:id="245205" begin="2080" end="2086" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245206" begin="2069" end="2076" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245207" begin="2103" end="2199" sofa="12" SE_Type="EVENT"/>
+  <custom:MainVerb xmi:id="245208" begin="2110" end="2114" sofa="12" Habituality="EPISODIC" AspectualClass="DYNAMIC"/>
+  <custom:MainReferent xmi:id="245209" begin="2108" end="2109" sofa="12" Genericity="NON-GENERIC"/>
+  <custom:Situation xmi:id="245210" begin="2200" end="2255" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245211" begin="2209" end="2215" sofa="12" Habituality="STATIC" AspectualClass="DYNAMIC"/>
+  <custom:MainReferent xmi:id="245212" begin="2169" end="2177" sofa="12" Genericity="NON-GENERIC"/>
+  <custom:Situation xmi:id="245213" begin="2256" end="2315" sofa="12" SE_Type="QUESTION"/>
+  <custom:MainVerb xmi:id="245214" begin="2265" end="2268" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245215" begin="2261" end="2264" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245216" begin="2316" end="2370" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245217" begin="2323" end="2329" sofa="12" Habituality="STATIC" AspectualClass="STATIVE"/>
+  <custom:MainReferent xmi:id="245218" begin="2316" end="2318" sofa="12" Genericity="NON-GENERIC"/>
+  <custom:Situation xmi:id="245219" begin="2371" end="2421" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245220" begin="2389" end="2393" sofa="12" Habituality="STATIC" AspectualClass="STATIVE"/>
+  <custom:MainReferent xmi:id="245221" begin="2374" end="2375" sofa="12" Genericity="NON-GENERIC"/>
+  <custom:Situation xmi:id="245222" begin="2422" end="2481" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245223" begin="2435" end="2437" sofa="12" Habituality="STATIC" AspectualClass="STATIVE"/>
+  <custom:MainReferent xmi:id="245224" begin="2425" end="2428" sofa="12" Genericity="NON-GENERIC"/>
+  <custom:Situation xmi:id="245225" begin="2484" end="2552" sofa="12" SE_Type="EVENT"/>
+  <custom:MainVerb xmi:id="245226" begin="2489" end="2496" sofa="12" Habituality="EPISODIC" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245227" begin="2484" end="2485" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245228" begin="2554" end="2558" sofa="12"/>
+  <custom:Situation xmi:id="245229" begin="2559" end="2616" sofa="12" SE_Type="STATE"/>
+  <custom:MainVerb xmi:id="245230" begin="2579" end="2588" sofa="12" Habituality="STATIC" AspectualClass="DYNAMIC"/>
+  <custom:MainReferent xmi:id="245231" begin="2484" end="2485" sofa="12" Genericity="NON-GENERIC"/>
+  <custom:Situation xmi:id="245232" begin="2619" end="2632" sofa="12"/>
+  <custom:MainVerb xmi:id="245233" begin="2624" end="2631" sofa="12" AspectualClass="CANNOT_DECIDE"/>
+  <custom:MainReferent xmi:id="245234" begin="2619" end="2623" sofa="12" Genericity="CANNOT_DECIDE"/>
+  <custom:Situation xmi:id="245235" begin="2635" end="2641" sofa="12"/>
+  <custom:Situation xmi:id="245236" begin="2644" end="2697" sofa="12"/>
+  <custom:Situation xmi:id="245237" begin="2700" end="2716" sofa="12"/>
+  <custom:Situation xmi:id="245238" begin="2718" end="2734" sofa="12"/>
+  <custom:Situation xmi:id="245239" begin="2736" end="2772" sofa="12"/>
+  <type5:Lemma xmi:id="501957" begin="10" end="11" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="501958" begin="10" end="11" sofa="12" value=""/>
+  <pos:POS xmi:id="501959" begin="10" end="11" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="501960" begin="58" end="62" sofa="12" value="date"/>
+  <morph:MorphologicalFeatures xmi:id="501961" begin="58" end="62" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="501962" begin="58" end="62" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="501963" begin="62" end="63" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="501964" begin="62" end="63" sofa="12" value=""/>
+  <pos:POS xmi:id="501965" begin="62" end="63" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="501966" begin="64" end="67" sofa="12" value="Fri"/>
+  <morph:MorphologicalFeatures xmi:id="501967" begin="64" end="67" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="501968" begin="64" end="67" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="501969" begin="67" end="68" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="501970" begin="67" end="68" sofa="12" value=""/>
+  <pos:POS xmi:id="501971" begin="67" end="68" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="501972" begin="69" end="70" sofa="12" value="1"/>
+  <morph:MorphologicalFeatures xmi:id="501973" begin="69" end="70" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="501974" begin="69" end="70" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="501975" begin="71" end="74" sofa="12" value="Jun"/>
+  <morph:MorphologicalFeatures xmi:id="501976" begin="71" end="74" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="501977" begin="71" end="74" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="501978" begin="75" end="79" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="501979" begin="75" end="79" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="501980" begin="75" end="79" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="501981" begin="80" end="88" sofa="12" value="06:39:15"/>
+  <morph:MorphologicalFeatures xmi:id="501982" begin="80" end="88" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="501983" begin="80" end="88" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="501984" begin="89" end="94" sofa="12" value="-0700"/>
+  <morph:MorphologicalFeatures xmi:id="501985" begin="89" end="94" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="501986" begin="89" end="94" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="501987" begin="95" end="96" sofa="12" value="("/>
+  <morph:MorphologicalFeatures xmi:id="501988" begin="95" end="96" sofa="12" value=""/>
+  <pos:POS xmi:id="501989" begin="95" end="96" sofa="12" coarseValue="PUNCT" PosValue="-LRB-"/>
+  <type5:Lemma xmi:id="501990" begin="96" end="99" sofa="12" value="pdt"/>
+  <morph:MorphologicalFeatures xmi:id="501991" begin="96" end="99" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="501992" begin="96" end="99" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="501993" begin="99" end="100" sofa="12" value=")"/>
+  <morph:MorphologicalFeatures xmi:id="501994" begin="99" end="100" sofa="12" value=""/>
+  <pos:POS xmi:id="501995" begin="99" end="100" sofa="12" coarseValue="PUNCT" PosValue="-RRB-"/>
+  <type5:Lemma xmi:id="501996" begin="101" end="105" sofa="12" value="from"/>
+  <morph:MorphologicalFeatures xmi:id="501997" begin="101" end="105" sofa="12" value=""/>
+  <pos:POS xmi:id="501998" begin="101" end="105" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="501999" begin="105" end="106" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502000" begin="105" end="106" sofa="12" value=""/>
+  <pos:POS xmi:id="502001" begin="105" end="106" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502002" begin="107" end="125" sofa="12" value="kaminski@enron.com"/>
+  <morph:MorphologicalFeatures xmi:id="502003" begin="107" end="125" sofa="12" value=""/>
+  <pos:POS xmi:id="502004" begin="107" end="125" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <type5:Lemma xmi:id="502005" begin="126" end="128" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502006" begin="126" end="128" sofa="12" value=""/>
+  <pos:POS xmi:id="502007" begin="126" end="128" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502008" begin="128" end="129" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502009" begin="128" end="129" sofa="12" value=""/>
+  <pos:POS xmi:id="502010" begin="128" end="129" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502011" begin="130" end="152" sofa="12" value="wolak@zia.stanford.edu"/>
+  <morph:MorphologicalFeatures xmi:id="502012" begin="130" end="152" sofa="12" value=""/>
+  <pos:POS xmi:id="502013" begin="130" end="152" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <type5:Lemma xmi:id="502014" begin="153" end="160" sofa="12" value="subject"/>
+  <morph:MorphologicalFeatures xmi:id="502015" begin="153" end="160" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502016" begin="153" end="160" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502017" begin="160" end="161" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502018" begin="160" end="161" sofa="12" value=""/>
+  <pos:POS xmi:id="502019" begin="160" end="161" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502020" begin="162" end="164" sofa="12" value="fw"/>
+  <morph:MorphologicalFeatures xmi:id="502021" begin="162" end="164" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502022" begin="162" end="164" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502023" begin="164" end="165" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502024" begin="164" end="165" sofa="12" value=""/>
+  <pos:POS xmi:id="502025" begin="164" end="165" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502026" begin="166" end="170" sofa="12" value="Risk"/>
+  <morph:MorphologicalFeatures xmi:id="502027" begin="166" end="170" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502028" begin="166" end="170" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502029" begin="171" end="175" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502030" begin="171" end="175" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502031" begin="171" end="175" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502032" begin="176" end="185" sofa="12" value="Australia"/>
+  <morph:MorphologicalFeatures xmi:id="502033" begin="176" end="185" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502034" begin="176" end="185" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502035" begin="198" end="199" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502036" begin="198" end="199" sofa="12" value=""/>
+  <pos:POS xmi:id="502037" begin="198" end="199" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502038" begin="200" end="203" sofa="12" value="1.0"/>
+  <morph:MorphologicalFeatures xmi:id="502039" begin="200" end="203" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502040" begin="200" end="203" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502041" begin="216" end="217" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502042" begin="216" end="217" sofa="12" value=""/>
+  <pos:POS xmi:id="502043" begin="216" end="217" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502044" begin="228" end="229" sofa="12" value=";"/>
+  <morph:MorphologicalFeatures xmi:id="502045" begin="228" end="229" sofa="12" value=""/>
+  <pos:POS xmi:id="502046" begin="228" end="229" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502047" begin="272" end="273" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502048" begin="272" end="273" sofa="12" value=""/>
+  <pos:POS xmi:id="502049" begin="272" end="273" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502050" begin="280" end="285" sofa="12" value="Frank"/>
+  <morph:MorphologicalFeatures xmi:id="502051" begin="280" end="285" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502052" begin="280" end="285" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502053" begin="285" end="286" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502054" begin="285" end="286" sofa="12" value=""/>
+  <pos:POS xmi:id="502055" begin="285" end="286" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502056" begin="289" end="292" sofa="12" value="fyi"/>
+  <morph:MorphologicalFeatures xmi:id="502057" begin="289" end="292" sofa="12" value=""/>
+  <pos:POS xmi:id="502058" begin="289" end="292" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502059" begin="294" end="299" sofa="12" value="Vince"/>
+  <morph:MorphologicalFeatures xmi:id="502060" begin="294" end="299" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502061" begin="294" end="299" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502062" begin="316" end="323" sofa="12" value="message"/>
+  <morph:MorphologicalFeatures xmi:id="502063" begin="316" end="323" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502064" begin="316" end="323" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502065" begin="323" end="328" sofa="12" value="-----"/>
+  <morph:MorphologicalFeatures xmi:id="502066" begin="323" end="328" sofa="12" value=""/>
+  <pos:POS xmi:id="502067" begin="323" end="328" sofa="12" coarseValue="PUNCT" PosValue="NFP"/>
+  <type5:Lemma xmi:id="502068" begin="329" end="333" sofa="12" value="from"/>
+  <morph:MorphologicalFeatures xmi:id="502069" begin="329" end="333" sofa="12" value=""/>
+  <pos:POS xmi:id="502070" begin="329" end="333" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502071" begin="333" end="334" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502072" begin="333" end="334" sofa="12" value=""/>
+  <pos:POS xmi:id="502073" begin="333" end="334" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502074" begin="336" end="337" sofa="12" value="&quot;"/>
+  <morph:MorphologicalFeatures xmi:id="502075" begin="336" end="337" sofa="12" value=""/>
+  <pos:POS xmi:id="502076" begin="336" end="337" sofa="12" coarseValue="PUNCT" PosValue="``"/>
+  <type5:Lemma xmi:id="502077" begin="337" end="343" sofa="12" value="philip"/>
+  <morph:MorphologicalFeatures xmi:id="502078" begin="337" end="343" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502079" begin="337" end="343" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502080" begin="344" end="352" sofa="12" value="annesley"/>
+  <morph:MorphologicalFeatures xmi:id="502081" begin="344" end="352" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502082" begin="344" end="352" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502083" begin="352" end="353" sofa="12" value="&quot;"/>
+  <morph:MorphologicalFeatures xmi:id="502084" begin="352" end="353" sofa="12" value=""/>
+  <pos:POS xmi:id="502085" begin="352" end="353" sofa="12" coarseValue="PUNCT" PosValue="''"/>
+  <type5:Lemma xmi:id="502086" begin="387" end="388" sofa="12" value="["/>
+  <morph:MorphologicalFeatures xmi:id="502087" begin="387" end="388" sofa="12" value=""/>
+  <pos:POS xmi:id="502088" begin="387" end="388" sofa="12" coarseValue="PUNCT" PosValue="-LRB-"/>
+  <type5:Lemma xmi:id="502089" begin="486" end="490" sofa="12" value="send"/>
+  <morph:MorphologicalFeatures xmi:id="502090" begin="486" end="490" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502091" begin="486" end="490" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502092" begin="492" end="500" sofa="12" value="Thursday"/>
+  <morph:MorphologicalFeatures xmi:id="502093" begin="492" end="500" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502094" begin="492" end="500" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502095" begin="500" end="501" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502096" begin="500" end="501" sofa="12" value=""/>
+  <pos:POS xmi:id="502097" begin="500" end="501" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502098" begin="502" end="505" sofa="12" value="May"/>
+  <morph:MorphologicalFeatures xmi:id="502099" begin="502" end="505" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502100" begin="502" end="505" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502101" begin="506" end="508" sofa="12" value="31"/>
+  <morph:MorphologicalFeatures xmi:id="502102" begin="506" end="508" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502103" begin="506" end="508" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502104" begin="508" end="509" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502105" begin="508" end="509" sofa="12" value=""/>
+  <pos:POS xmi:id="502106" begin="508" end="509" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502107" begin="510" end="514" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502108" begin="510" end="514" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502109" begin="510" end="514" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502110" begin="515" end="519" sofa="12" value="9:12"/>
+  <morph:MorphologicalFeatures xmi:id="502111" begin="515" end="519" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502112" begin="515" end="519" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502113" begin="520" end="522" sofa="12" value="pm"/>
+  <morph:MorphologicalFeatures xmi:id="502114" begin="520" end="522" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502115" begin="520" end="522" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502116" begin="524" end="526" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502117" begin="524" end="526" sofa="12" value=""/>
+  <pos:POS xmi:id="502118" begin="524" end="526" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502119" begin="528" end="536" sofa="12" value="Kaminski"/>
+  <morph:MorphologicalFeatures xmi:id="502120" begin="528" end="536" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502121" begin="528" end="536" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502122" begin="536" end="537" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502123" begin="536" end="537" sofa="12" value=""/>
+  <pos:POS xmi:id="502124" begin="536" end="537" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502125" begin="538" end="543" sofa="12" value="vince"/>
+  <morph:MorphologicalFeatures xmi:id="502126" begin="538" end="543" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502127" begin="538" end="543" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502128" begin="544" end="545" sofa="12" value="j"/>
+  <morph:MorphologicalFeatures xmi:id="502129" begin="544" end="545" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502130" begin="544" end="545" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502131" begin="546" end="553" sofa="12" value="subject"/>
+  <morph:MorphologicalFeatures xmi:id="502132" begin="546" end="553" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502133" begin="546" end="553" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502134" begin="553" end="554" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502135" begin="553" end="554" sofa="12" value=""/>
+  <pos:POS xmi:id="502136" begin="553" end="554" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502137" begin="555" end="557" sofa="12" value="re"/>
+  <morph:MorphologicalFeatures xmi:id="502138" begin="555" end="557" sofa="12" value=""/>
+  <pos:POS xmi:id="502139" begin="555" end="557" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502140" begin="553" end="554" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502141" begin="553" end="554" sofa="12" value=""/>
+  <pos:POS xmi:id="502142" begin="553" end="554" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502143" begin="559" end="563" sofa="12" value="Risk"/>
+  <morph:MorphologicalFeatures xmi:id="502144" begin="559" end="563" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502145" begin="559" end="563" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502146" begin="564" end="568" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502147" begin="564" end="568" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502148" begin="564" end="568" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502149" begin="569" end="578" sofa="12" value="Australia"/>
+  <morph:MorphologicalFeatures xmi:id="502150" begin="569" end="578" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502151" begin="569" end="578" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502152" begin="580" end="586" sofa="12" value="thanks"/>
+  <morph:MorphologicalFeatures xmi:id="502153" begin="580" end="586" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502154" begin="580" end="586" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502155" begin="587" end="592" sofa="12" value="Vince"/>
+  <morph:MorphologicalFeatures xmi:id="502156" begin="587" end="592" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502157" begin="587" end="592" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502158" begin="593" end="594" sofa="12" value="-"/>
+  <morph:MorphologicalFeatures xmi:id="502159" begin="593" end="594" sofa="12" value=""/>
+  <pos:POS xmi:id="502160" begin="593" end="594" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502161" begin="595" end="596" sofa="12" value="I"/>
+  <morph:MorphologicalFeatures xmi:id="502162" begin="595" end="596" sofa="12" value="Case=Nom|Number=Sing|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="502163" begin="595" end="596" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502164" begin="596" end="599" sofa="12" value="will"/>
+  <morph:MorphologicalFeatures xmi:id="502165" begin="596" end="599" sofa="12" value="VerbForm=Fin"/>
+  <pos:POS xmi:id="502166" begin="596" end="599" sofa="12" coarseValue="AUX" PosValue="MD"/>
+  <type5:Lemma xmi:id="502167" begin="600" end="604" sofa="12" value="give"/>
+  <morph:MorphologicalFeatures xmi:id="502168" begin="600" end="604" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502169" begin="600" end="604" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502170" begin="605" end="608" sofa="12" value="he"/>
+  <morph:MorphologicalFeatures xmi:id="502171" begin="605" end="608" sofa="12" value="Case=Acc|Gender=Masc|Number=Sing|Person=3|PronType=Prs"/>
+  <pos:POS xmi:id="502172" begin="605" end="608" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502173" begin="609" end="610" sofa="12" value="a"/>
+  <morph:MorphologicalFeatures xmi:id="502174" begin="609" end="610" sofa="12" value="Definite=Ind|PronType=Art"/>
+  <pos:POS xmi:id="502175" begin="609" end="610" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502176" begin="611" end="614" sofa="12" value="try"/>
+  <morph:MorphologicalFeatures xmi:id="502177" begin="611" end="614" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502178" begin="611" end="614" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502179" begin="614" end="615" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="502180" begin="614" end="615" sofa="12" value=""/>
+  <pos:POS xmi:id="502181" begin="614" end="615" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502182" begin="632" end="639" sofa="12" value="message"/>
+  <morph:MorphologicalFeatures xmi:id="502183" begin="632" end="639" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502184" begin="632" end="639" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502185" begin="639" end="644" sofa="12" value="-----"/>
+  <morph:MorphologicalFeatures xmi:id="502186" begin="639" end="644" sofa="12" value=""/>
+  <pos:POS xmi:id="502187" begin="639" end="644" sofa="12" coarseValue="PUNCT" PosValue="NFP"/>
+  <type5:Lemma xmi:id="502188" begin="645" end="649" sofa="12" value="from"/>
+  <morph:MorphologicalFeatures xmi:id="502189" begin="645" end="649" sofa="12" value=""/>
+  <pos:POS xmi:id="502190" begin="645" end="649" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502191" begin="649" end="650" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502192" begin="649" end="650" sofa="12" value=""/>
+  <pos:POS xmi:id="502193" begin="649" end="650" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502194" begin="651" end="677" sofa="12" value="Vince.J.Kaminski@enron.com"/>
+  <morph:MorphologicalFeatures xmi:id="502195" begin="651" end="677" sofa="12" value=""/>
+  <pos:POS xmi:id="502196" begin="651" end="677" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <type5:Lemma xmi:id="502197" begin="678" end="679" sofa="12" value="["/>
+  <morph:MorphologicalFeatures xmi:id="502198" begin="678" end="679" sofa="12" value=""/>
+  <pos:POS xmi:id="502199" begin="678" end="679" sofa="12" coarseValue="PUNCT" PosValue="-LRB-"/>
+  <type5:Lemma xmi:id="502200" begin="714" end="718" sofa="12" value="send"/>
+  <morph:MorphologicalFeatures xmi:id="502201" begin="714" end="718" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502202" begin="714" end="718" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502203" begin="718" end="719" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502204" begin="718" end="719" sofa="12" value=""/>
+  <pos:POS xmi:id="502205" begin="718" end="719" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502206" begin="720" end="728" sofa="12" value="Thursday"/>
+  <morph:MorphologicalFeatures xmi:id="502207" begin="720" end="728" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502208" begin="720" end="728" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502209" begin="728" end="729" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502210" begin="728" end="729" sofa="12" value=""/>
+  <pos:POS xmi:id="502211" begin="728" end="729" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502212" begin="730" end="733" sofa="12" value="May"/>
+  <morph:MorphologicalFeatures xmi:id="502213" begin="730" end="733" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502214" begin="730" end="733" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502215" begin="734" end="736" sofa="12" value="31"/>
+  <morph:MorphologicalFeatures xmi:id="502216" begin="734" end="736" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502217" begin="734" end="736" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502218" begin="736" end="737" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502219" begin="736" end="737" sofa="12" value=""/>
+  <pos:POS xmi:id="502220" begin="736" end="737" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502221" begin="738" end="742" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502222" begin="738" end="742" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502223" begin="738" end="742" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502224" begin="743" end="748" sofa="12" value="10:03"/>
+  <morph:MorphologicalFeatures xmi:id="502225" begin="743" end="748" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502226" begin="743" end="748" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502227" begin="749" end="751" sofa="12" value="pm"/>
+  <morph:MorphologicalFeatures xmi:id="502228" begin="749" end="751" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502229" begin="749" end="751" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502230" begin="753" end="755" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502231" begin="753" end="755" sofa="12" value=""/>
+  <pos:POS xmi:id="502232" begin="753" end="755" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502233" begin="755" end="756" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502234" begin="755" end="756" sofa="12" value=""/>
+  <pos:POS xmi:id="502235" begin="755" end="756" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502236" begin="757" end="781" sofa="12" value="pannesley@riskwaters.com"/>
+  <morph:MorphologicalFeatures xmi:id="502237" begin="757" end="781" sofa="12" value=""/>
+  <pos:POS xmi:id="502238" begin="757" end="781" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <type5:Lemma xmi:id="502239" begin="782" end="789" sofa="12" value="subject"/>
+  <morph:MorphologicalFeatures xmi:id="502240" begin="782" end="789" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502241" begin="782" end="789" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502242" begin="789" end="790" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502243" begin="789" end="790" sofa="12" value=""/>
+  <pos:POS xmi:id="502244" begin="789" end="790" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502245" begin="791" end="793" sofa="12" value="re"/>
+  <morph:MorphologicalFeatures xmi:id="502246" begin="791" end="793" sofa="12" value=""/>
+  <pos:POS xmi:id="502247" begin="791" end="793" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502248" begin="793" end="794" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502249" begin="793" end="794" sofa="12" value=""/>
+  <pos:POS xmi:id="502250" begin="793" end="794" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502251" begin="795" end="799" sofa="12" value="Risk"/>
+  <morph:MorphologicalFeatures xmi:id="502252" begin="795" end="799" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502253" begin="795" end="799" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502254" begin="800" end="804" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502255" begin="800" end="804" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502256" begin="800" end="804" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502257" begin="805" end="814" sofa="12" value="Australia"/>
+  <morph:MorphologicalFeatures xmi:id="502258" begin="805" end="814" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502259" begin="805" end="814" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502260" begin="816" end="822" sofa="12" value="Philip"/>
+  <morph:MorphologicalFeatures xmi:id="502261" begin="816" end="822" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502262" begin="816" end="822" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502263" begin="822" end="823" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502264" begin="822" end="823" sofa="12" value=""/>
+  <pos:POS xmi:id="502265" begin="822" end="823" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502266" begin="826" end="832" sofa="12" value="please"/>
+  <morph:MorphologicalFeatures xmi:id="502267" begin="826" end="832" sofa="12" value=""/>
+  <pos:POS xmi:id="502268" begin="826" end="832" sofa="12" coarseValue="INTJ" PosValue="UH"/>
+  <type5:Lemma xmi:id="502269" begin="832" end="833" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502270" begin="832" end="833" sofa="12" value=""/>
+  <pos:POS xmi:id="502271" begin="832" end="833" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502272" begin="834" end="837" sofa="12" value="try"/>
+  <morph:MorphologicalFeatures xmi:id="502273" begin="834" end="837" sofa="12" value="Mood=Imp|VerbForm=Fin"/>
+  <pos:POS xmi:id="502274" begin="834" end="837" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502275" begin="838" end="843" sofa="12" value="Frank"/>
+  <morph:MorphologicalFeatures xmi:id="502276" begin="838" end="843" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502277" begin="838" end="843" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502278" begin="844" end="849" sofa="12" value="Wolak"/>
+  <morph:MorphologicalFeatures xmi:id="502279" begin="844" end="849" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502280" begin="844" end="849" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502281" begin="850" end="854" sofa="12" value="from"/>
+  <morph:MorphologicalFeatures xmi:id="502282" begin="850" end="854" sofa="12" value=""/>
+  <pos:POS xmi:id="502283" begin="850" end="854" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502284" begin="855" end="863" sofa="12" value="Stanford"/>
+  <morph:MorphologicalFeatures xmi:id="502285" begin="855" end="863" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502286" begin="855" end="863" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502287" begin="864" end="874" sofa="12" value="University"/>
+  <morph:MorphologicalFeatures xmi:id="502288" begin="864" end="874" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502289" begin="864" end="874" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502290" begin="874" end="875" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="502291" begin="874" end="875" sofa="12" value=""/>
+  <pos:POS xmi:id="502292" begin="874" end="875" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502293" begin="878" end="880" sofa="12" value="he"/>
+  <morph:MorphologicalFeatures xmi:id="502294" begin="878" end="880" sofa="12" value="Case=Nom|Gender=Masc|Number=Sing|Person=3|PronType=Prs"/>
+  <pos:POS xmi:id="502295" begin="878" end="880" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502296" begin="881" end="883" sofa="12" value="be"/>
+  <morph:MorphologicalFeatures xmi:id="502297" begin="881" end="883" sofa="12" value="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"/>
+  <pos:POS xmi:id="502298" begin="881" end="883" sofa="12" coarseValue="AUX" PosValue="VBZ"/>
+  <type5:Lemma xmi:id="502299" begin="884" end="887" sofa="12" value="the"/>
+  <morph:MorphologicalFeatures xmi:id="502300" begin="884" end="887" sofa="12" value="Definite=Def|PronType=Art"/>
+  <pos:POS xmi:id="502301" begin="884" end="887" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502302" begin="888" end="892" sofa="12" value="best"/>
+  <morph:MorphologicalFeatures xmi:id="502303" begin="888" end="892" sofa="12" value="Degree=Sup"/>
+  <pos:POS xmi:id="502304" begin="888" end="892" sofa="12" coarseValue="ADJ" PosValue="JJS"/>
+  <type5:Lemma xmi:id="502305" begin="893" end="899" sofa="12" value="expert"/>
+  <morph:MorphologicalFeatures xmi:id="502306" begin="893" end="899" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502307" begin="893" end="899" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502308" begin="900" end="902" sofa="12" value="on"/>
+  <morph:MorphologicalFeatures xmi:id="502309" begin="900" end="902" sofa="12" value=""/>
+  <pos:POS xmi:id="502310" begin="900" end="902" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502311" begin="903" end="913" sofa="12" value="California"/>
+  <morph:MorphologicalFeatures xmi:id="502312" begin="903" end="913" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502313" begin="903" end="913" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502314" begin="914" end="919" sofa="12" value="right"/>
+  <morph:MorphologicalFeatures xmi:id="502315" begin="914" end="919" sofa="12" value=""/>
+  <pos:POS xmi:id="502316" begin="914" end="919" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502317" begin="920" end="923" sofa="12" value="now"/>
+  <morph:MorphologicalFeatures xmi:id="502318" begin="920" end="923" sofa="12" value=""/>
+  <pos:POS xmi:id="502319" begin="920" end="923" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502320" begin="923" end="924" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="502321" begin="923" end="924" sofa="12" value=""/>
+  <pos:POS xmi:id="502322" begin="923" end="924" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502323" begin="927" end="932" sofa="12" value="Vince"/>
+  <morph:MorphologicalFeatures xmi:id="502324" begin="927" end="932" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502325" begin="927" end="932" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502326" begin="935" end="940" sofa="12" value="-----"/>
+  <morph:MorphologicalFeatures xmi:id="502327" begin="935" end="940" sofa="12" value=""/>
+  <pos:POS xmi:id="502328" begin="935" end="940" sofa="12" coarseValue="PUNCT" PosValue="NFP"/>
+  <type5:Lemma xmi:id="502329" begin="940" end="948" sofa="12" value="original"/>
+  <morph:MorphologicalFeatures xmi:id="502330" begin="940" end="948" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502331" begin="940" end="948" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502332" begin="949" end="956" sofa="12" value="message"/>
+  <morph:MorphologicalFeatures xmi:id="502333" begin="949" end="956" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502334" begin="949" end="956" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502335" begin="956" end="961" sofa="12" value="-----"/>
+  <morph:MorphologicalFeatures xmi:id="502336" begin="956" end="961" sofa="12" value=""/>
+  <pos:POS xmi:id="502337" begin="956" end="961" sofa="12" coarseValue="PUNCT" PosValue="NFP"/>
+  <type5:Lemma xmi:id="502338" begin="962" end="966" sofa="12" value="from"/>
+  <morph:MorphologicalFeatures xmi:id="502339" begin="962" end="966" sofa="12" value=""/>
+  <pos:POS xmi:id="502340" begin="962" end="966" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502341" begin="966" end="967" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502342" begin="966" end="967" sofa="12" value=""/>
+  <pos:POS xmi:id="502343" begin="966" end="967" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502344" begin="968" end="969" sofa="12" value="&quot;"/>
+  <morph:MorphologicalFeatures xmi:id="502345" begin="968" end="969" sofa="12" value=""/>
+  <pos:POS xmi:id="502346" begin="968" end="969" sofa="12" coarseValue="PUNCT" PosValue="``"/>
+  <type5:Lemma xmi:id="502347" begin="969" end="975" sofa="12" value="philip"/>
+  <morph:MorphologicalFeatures xmi:id="502348" begin="969" end="975" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502349" begin="969" end="975" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502350" begin="976" end="984" sofa="12" value="annesley"/>
+  <morph:MorphologicalFeatures xmi:id="502351" begin="976" end="984" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502352" begin="976" end="984" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502353" begin="984" end="985" sofa="12" value="&quot;"/>
+  <morph:MorphologicalFeatures xmi:id="502354" begin="984" end="985" sofa="12" value=""/>
+  <pos:POS xmi:id="502355" begin="984" end="985" sofa="12" coarseValue="PUNCT" PosValue="''"/>
+  <type5:Lemma xmi:id="502356" begin="1020" end="1021" sofa="12" value="["/>
+  <morph:MorphologicalFeatures xmi:id="502357" begin="1020" end="1021" sofa="12" value=""/>
+  <pos:POS xmi:id="502358" begin="1020" end="1021" sofa="12" coarseValue="PUNCT" PosValue="-LRB-"/>
+  <type5:Lemma xmi:id="502359" begin="1122" end="1126" sofa="12" value="send"/>
+  <morph:MorphologicalFeatures xmi:id="502360" begin="1122" end="1126" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502361" begin="1122" end="1126" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502362" begin="1126" end="1127" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502363" begin="1126" end="1127" sofa="12" value=""/>
+  <pos:POS xmi:id="502364" begin="1126" end="1127" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502365" begin="1128" end="1137" sofa="12" value="Wednesday"/>
+  <morph:MorphologicalFeatures xmi:id="502366" begin="1128" end="1137" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502367" begin="1128" end="1137" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502368" begin="1137" end="1138" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502369" begin="1137" end="1138" sofa="12" value=""/>
+  <pos:POS xmi:id="502370" begin="1137" end="1138" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502371" begin="1139" end="1142" sofa="12" value="May"/>
+  <morph:MorphologicalFeatures xmi:id="502372" begin="1139" end="1142" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502373" begin="1139" end="1142" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502374" begin="1143" end="1145" sofa="12" value="30"/>
+  <morph:MorphologicalFeatures xmi:id="502375" begin="1143" end="1145" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502376" begin="1143" end="1145" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502377" begin="1145" end="1146" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502378" begin="1145" end="1146" sofa="12" value=""/>
+  <pos:POS xmi:id="502379" begin="1145" end="1146" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502380" begin="1147" end="1151" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502381" begin="1147" end="1151" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502382" begin="1147" end="1151" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502383" begin="1152" end="1156" sofa="12" value="7:50"/>
+  <morph:MorphologicalFeatures xmi:id="502384" begin="1152" end="1156" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502385" begin="1152" end="1156" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502386" begin="1157" end="1159" sofa="12" value="pm"/>
+  <morph:MorphologicalFeatures xmi:id="502387" begin="1157" end="1159" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502388" begin="1157" end="1159" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502389" begin="1161" end="1163" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502390" begin="1161" end="1163" sofa="12" value=""/>
+  <pos:POS xmi:id="502391" begin="1161" end="1163" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502392" begin="1163" end="1164" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502393" begin="1163" end="1164" sofa="12" value=""/>
+  <pos:POS xmi:id="502394" begin="1163" end="1164" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502395" begin="1165" end="1173" sofa="12" value="Kaminski"/>
+  <morph:MorphologicalFeatures xmi:id="502396" begin="1165" end="1173" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502397" begin="1165" end="1173" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502398" begin="1173" end="1174" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502399" begin="1173" end="1174" sofa="12" value=""/>
+  <pos:POS xmi:id="502400" begin="1173" end="1174" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502401" begin="1175" end="1180" sofa="12" value="vince"/>
+  <morph:MorphologicalFeatures xmi:id="502402" begin="1175" end="1180" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502403" begin="1175" end="1180" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502404" begin="1181" end="1182" sofa="12" value="j"/>
+  <morph:MorphologicalFeatures xmi:id="502405" begin="1181" end="1182" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502406" begin="1181" end="1182" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502407" begin="1183" end="1190" sofa="12" value="subject"/>
+  <morph:MorphologicalFeatures xmi:id="502408" begin="1183" end="1190" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502409" begin="1183" end="1190" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502410" begin="1190" end="1191" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502411" begin="1190" end="1191" sofa="12" value=""/>
+  <pos:POS xmi:id="502412" begin="1190" end="1191" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502413" begin="1192" end="1194" sofa="12" value="re"/>
+  <morph:MorphologicalFeatures xmi:id="502414" begin="1192" end="1194" sofa="12" value=""/>
+  <pos:POS xmi:id="502415" begin="1192" end="1194" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502416" begin="1190" end="1191" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502417" begin="1190" end="1191" sofa="12" value=""/>
+  <pos:POS xmi:id="502418" begin="1190" end="1191" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502419" begin="1196" end="1200" sofa="12" value="Risk"/>
+  <morph:MorphologicalFeatures xmi:id="502420" begin="1196" end="1200" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502421" begin="1196" end="1200" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502422" begin="1201" end="1205" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502423" begin="1201" end="1205" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502424" begin="1201" end="1205" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502425" begin="1206" end="1215" sofa="12" value="Australia"/>
+  <morph:MorphologicalFeatures xmi:id="502426" begin="1206" end="1215" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502427" begin="1206" end="1215" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502428" begin="1217" end="1222" sofa="12" value="Vince"/>
+  <morph:MorphologicalFeatures xmi:id="502429" begin="1217" end="1222" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502430" begin="1217" end="1222" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502431" begin="1225" end="1231" sofa="12" value="thanks"/>
+  <morph:MorphologicalFeatures xmi:id="502432" begin="1225" end="1231" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502433" begin="1225" end="1231" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502434" begin="1232" end="1235" sofa="12" value="for"/>
+  <morph:MorphologicalFeatures xmi:id="502435" begin="1232" end="1235" sofa="12" value=""/>
+  <pos:POS xmi:id="502436" begin="1232" end="1235" sofa="12" coarseValue="SCONJ" PosValue="IN"/>
+  <type5:Lemma xmi:id="502437" begin="1236" end="1242" sofa="12" value="come"/>
+  <morph:MorphologicalFeatures xmi:id="502438" begin="1236" end="1242" sofa="12" value="VerbForm=Ger"/>
+  <pos:POS xmi:id="502439" begin="1236" end="1242" sofa="12" coarseValue="VERB" PosValue="VBG"/>
+  <type5:Lemma xmi:id="502440" begin="1243" end="1247" sofa="12" value="back"/>
+  <morph:MorphologicalFeatures xmi:id="502441" begin="1243" end="1247" sofa="12" value=""/>
+  <pos:POS xmi:id="502442" begin="1243" end="1247" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502443" begin="1248" end="1250" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502444" begin="1248" end="1250" sofa="12" value=""/>
+  <pos:POS xmi:id="502445" begin="1248" end="1250" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502446" begin="1251" end="1253" sofa="12" value="I"/>
+  <morph:MorphologicalFeatures xmi:id="502447" begin="1251" end="1253" sofa="12" value="Case=Acc|Number=Sing|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="502448" begin="1251" end="1253" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502449" begin="1254" end="1256" sofa="12" value="on"/>
+  <morph:MorphologicalFeatures xmi:id="502450" begin="1254" end="1256" sofa="12" value=""/>
+  <pos:POS xmi:id="502451" begin="1254" end="1256" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502452" begin="1257" end="1261" sofa="12" value="this"/>
+  <morph:MorphologicalFeatures xmi:id="502453" begin="1257" end="1261" sofa="12" value="Number=Sing|PronType=Dem"/>
+  <pos:POS xmi:id="502454" begin="1257" end="1261" sofa="12" coarseValue="PRON" PosValue="DT"/>
+  <type5:Lemma xmi:id="502455" begin="1262" end="1268" sofa="12" value="anyway"/>
+  <morph:MorphologicalFeatures xmi:id="502456" begin="1262" end="1268" sofa="12" value=""/>
+  <pos:POS xmi:id="502457" begin="1262" end="1268" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502458" begin="1268" end="1269" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="502459" begin="1268" end="1269" sofa="12" value=""/>
+  <pos:POS xmi:id="502460" begin="1268" end="1269" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502461" begin="1270" end="1275" sofa="12" value="would"/>
+  <morph:MorphologicalFeatures xmi:id="502462" begin="1270" end="1275" sofa="12" value="VerbForm=Fin"/>
+  <pos:POS xmi:id="502463" begin="1270" end="1275" sofa="12" coarseValue="AUX" PosValue="MD"/>
+  <type5:Lemma xmi:id="502464" begin="1276" end="1279" sofa="12" value="you"/>
+  <morph:MorphologicalFeatures xmi:id="502465" begin="1276" end="1279" sofa="12" value="Case=Nom|Person=2|PronType=Prs"/>
+  <pos:POS xmi:id="502466" begin="1276" end="1279" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502467" begin="1280" end="1282" sofa="12" value="be"/>
+  <morph:MorphologicalFeatures xmi:id="502468" begin="1280" end="1282" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502469" begin="1280" end="1282" sofa="12" coarseValue="AUX" PosValue="VB"/>
+  <type5:Lemma xmi:id="502470" begin="1283" end="1287" sofa="12" value="able"/>
+  <morph:MorphologicalFeatures xmi:id="502471" begin="1283" end="1287" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502472" begin="1283" end="1287" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502473" begin="1288" end="1290" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502474" begin="1288" end="1290" sofa="12" value=""/>
+  <pos:POS xmi:id="502475" begin="1288" end="1290" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="502476" begin="1291" end="1298" sofa="12" value="suggest"/>
+  <morph:MorphologicalFeatures xmi:id="502477" begin="1291" end="1298" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502478" begin="1291" end="1298" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502479" begin="1299" end="1305" sofa="12" value="anyone"/>
+  <morph:MorphologicalFeatures xmi:id="502480" begin="1299" end="1305" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502481" begin="1299" end="1305" sofa="12" coarseValue="PRON" PosValue="NN"/>
+  <type5:Lemma xmi:id="502482" begin="1306" end="1310" sofa="12" value="else"/>
+  <morph:MorphologicalFeatures xmi:id="502483" begin="1306" end="1310" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502484" begin="1306" end="1310" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502485" begin="1311" end="1312" sofa="12" value="-"/>
+  <morph:MorphologicalFeatures xmi:id="502486" begin="1311" end="1312" sofa="12" value=""/>
+  <pos:POS xmi:id="502487" begin="1311" end="1312" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502488" begin="1313" end="1319" sofa="12" value="either"/>
+  <morph:MorphologicalFeatures xmi:id="502489" begin="1313" end="1319" sofa="12" value=""/>
+  <pos:POS xmi:id="502490" begin="1313" end="1319" sofa="12" coarseValue="CCONJ" PosValue="CC"/>
+  <type5:Lemma xmi:id="502491" begin="1320" end="1322" sofa="12" value="in"/>
+  <morph:MorphologicalFeatures xmi:id="502492" begin="1320" end="1322" sofa="12" value=""/>
+  <pos:POS xmi:id="502493" begin="1320" end="1322" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502494" begin="1323" end="1332" sofa="12" value="Australia"/>
+  <morph:MorphologicalFeatures xmi:id="502495" begin="1323" end="1332" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502496" begin="1323" end="1332" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502497" begin="1332" end="1333" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502498" begin="1332" end="1333" sofa="12" value=""/>
+  <pos:POS xmi:id="502499" begin="1332" end="1333" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502500" begin="1334" end="1340" sofa="12" value="Europe"/>
+  <morph:MorphologicalFeatures xmi:id="502501" begin="1334" end="1340" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502502" begin="1334" end="1340" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502503" begin="1341" end="1343" sofa="12" value="or"/>
+  <morph:MorphologicalFeatures xmi:id="502504" begin="1341" end="1343" sofa="12" value=""/>
+  <pos:POS xmi:id="502505" begin="1341" end="1343" sofa="12" coarseValue="CCONJ" PosValue="CC"/>
+  <type5:Lemma xmi:id="502506" begin="1344" end="1346" sofa="12" value="US"/>
+  <morph:MorphologicalFeatures xmi:id="502507" begin="1344" end="1346" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502508" begin="1344" end="1346" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502509" begin="1347" end="1350" sofa="12" value="who"/>
+  <morph:MorphologicalFeatures xmi:id="502510" begin="1347" end="1350" sofa="12" value="PronType=Int"/>
+  <pos:POS xmi:id="502511" begin="1347" end="1350" sofa="12" coarseValue="PRON" PosValue="WP"/>
+  <type5:Lemma xmi:id="502512" begin="1351" end="1356" sofa="12" value="would"/>
+  <morph:MorphologicalFeatures xmi:id="502513" begin="1351" end="1356" sofa="12" value="VerbForm=Fin"/>
+  <pos:POS xmi:id="502514" begin="1351" end="1356" sofa="12" coarseValue="AUX" PosValue="MD"/>
+  <type5:Lemma xmi:id="502515" begin="1357" end="1359" sofa="12" value="be"/>
+  <morph:MorphologicalFeatures xmi:id="502516" begin="1357" end="1359" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502517" begin="1357" end="1359" sofa="12" coarseValue="AUX" PosValue="VB"/>
+  <type5:Lemma xmi:id="502518" begin="1360" end="1364" sofa="12" value="good"/>
+  <morph:MorphologicalFeatures xmi:id="502519" begin="1360" end="1364" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502520" begin="1360" end="1364" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502521" begin="1365" end="1367" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502522" begin="1365" end="1367" sofa="12" value=""/>
+  <pos:POS xmi:id="502523" begin="1365" end="1367" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="502524" begin="1368" end="1371" sofa="12" value="get"/>
+  <morph:MorphologicalFeatures xmi:id="502525" begin="1368" end="1371" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502526" begin="1368" end="1371" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502527" begin="1372" end="1374" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502528" begin="1372" end="1374" sofa="12" value=""/>
+  <pos:POS xmi:id="502529" begin="1372" end="1374" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="502530" begin="1375" end="1382" sofa="12" value="discuss"/>
+  <morph:MorphologicalFeatures xmi:id="502531" begin="1375" end="1382" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502532" begin="1375" end="1382" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502533" begin="1383" end="1386" sofa="12" value="the"/>
+  <morph:MorphologicalFeatures xmi:id="502534" begin="1383" end="1386" sofa="12" value="Definite=Def|PronType=Art"/>
+  <pos:POS xmi:id="502535" begin="1383" end="1386" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502536" begin="1387" end="1397" sofa="12" value="California"/>
+  <morph:MorphologicalFeatures xmi:id="502537" begin="1387" end="1397" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502538" begin="1387" end="1397" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502539" begin="1398" end="1404" sofa="12" value="crisis"/>
+  <morph:MorphologicalFeatures xmi:id="502540" begin="1398" end="1404" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502541" begin="1398" end="1404" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502542" begin="1404" end="1405" sofa="12" value="?"/>
+  <morph:MorphologicalFeatures xmi:id="502543" begin="1404" end="1405" sofa="12" value=""/>
+  <pos:POS xmi:id="502544" begin="1404" end="1405" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502545" begin="1408" end="1412" sofa="12" value="kind"/>
+  <morph:MorphologicalFeatures xmi:id="502546" begin="1408" end="1412" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502547" begin="1408" end="1412" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502548" begin="1413" end="1420" sofa="12" value="regards"/>
+  <morph:MorphologicalFeatures xmi:id="502549" begin="1413" end="1420" sofa="12" value="Number=Plur"/>
+  <pos:POS xmi:id="502550" begin="1413" end="1420" sofa="12" coarseValue="NOUN" PosValue="NNS"/>
+  <type5:Lemma xmi:id="502551" begin="1420" end="1421" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="502552" begin="1420" end="1421" sofa="12" value=""/>
+  <pos:POS xmi:id="502553" begin="1420" end="1421" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502554" begin="1424" end="1430" sofa="12" value="Philip"/>
+  <morph:MorphologicalFeatures xmi:id="502555" begin="1424" end="1430" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502556" begin="1424" end="1430" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502557" begin="1433" end="1438" sofa="12" value="-----"/>
+  <morph:MorphologicalFeatures xmi:id="502558" begin="1433" end="1438" sofa="12" value=""/>
+  <pos:POS xmi:id="502559" begin="1433" end="1438" sofa="12" coarseValue="PUNCT" PosValue="NFP"/>
+  <type5:Lemma xmi:id="502560" begin="1438" end="1446" sofa="12" value="original"/>
+  <morph:MorphologicalFeatures xmi:id="502561" begin="1438" end="1446" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502562" begin="1438" end="1446" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502563" begin="1447" end="1454" sofa="12" value="message"/>
+  <morph:MorphologicalFeatures xmi:id="502564" begin="1447" end="1454" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502565" begin="1447" end="1454" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502566" begin="1454" end="1459" sofa="12" value="-----"/>
+  <morph:MorphologicalFeatures xmi:id="502567" begin="1454" end="1459" sofa="12" value=""/>
+  <pos:POS xmi:id="502568" begin="1454" end="1459" sofa="12" coarseValue="PUNCT" PosValue="NFP"/>
+  <type5:Lemma xmi:id="502569" begin="1460" end="1464" sofa="12" value="from"/>
+  <morph:MorphologicalFeatures xmi:id="502570" begin="1460" end="1464" sofa="12" value=""/>
+  <pos:POS xmi:id="502571" begin="1460" end="1464" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502572" begin="1464" end="1465" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502573" begin="1464" end="1465" sofa="12" value=""/>
+  <pos:POS xmi:id="502574" begin="1464" end="1465" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502575" begin="1466" end="1492" sofa="12" value="Vince.J.Kaminski@enron.com"/>
+  <morph:MorphologicalFeatures xmi:id="502576" begin="1466" end="1492" sofa="12" value=""/>
+  <pos:POS xmi:id="502577" begin="1466" end="1492" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <type5:Lemma xmi:id="502578" begin="1493" end="1494" sofa="12" value="["/>
+  <morph:MorphologicalFeatures xmi:id="502579" begin="1493" end="1494" sofa="12" value=""/>
+  <pos:POS xmi:id="502580" begin="1493" end="1494" sofa="12" coarseValue="PUNCT" PosValue="-LRB-"/>
+  <type5:Lemma xmi:id="502581" begin="1529" end="1533" sofa="12" value="send"/>
+  <morph:MorphologicalFeatures xmi:id="502582" begin="1529" end="1533" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502583" begin="1529" end="1533" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502584" begin="1533" end="1534" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502585" begin="1533" end="1534" sofa="12" value=""/>
+  <pos:POS xmi:id="502586" begin="1533" end="1534" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502587" begin="1535" end="1543" sofa="12" value="Thursday"/>
+  <morph:MorphologicalFeatures xmi:id="502588" begin="1535" end="1543" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502589" begin="1535" end="1543" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502590" begin="1543" end="1544" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502591" begin="1543" end="1544" sofa="12" value=""/>
+  <pos:POS xmi:id="502592" begin="1543" end="1544" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502593" begin="1545" end="1548" sofa="12" value="May"/>
+  <morph:MorphologicalFeatures xmi:id="502594" begin="1545" end="1548" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502595" begin="1545" end="1548" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502596" begin="1549" end="1551" sofa="12" value="31"/>
+  <morph:MorphologicalFeatures xmi:id="502597" begin="1549" end="1551" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502598" begin="1549" end="1551" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502599" begin="1551" end="1552" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502600" begin="1551" end="1552" sofa="12" value=""/>
+  <pos:POS xmi:id="502601" begin="1551" end="1552" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502602" begin="1553" end="1557" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502603" begin="1553" end="1557" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502604" begin="1553" end="1557" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502605" begin="1558" end="1563" sofa="12" value="12:00"/>
+  <morph:MorphologicalFeatures xmi:id="502606" begin="1558" end="1563" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502607" begin="1558" end="1563" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502608" begin="1564" end="1566" sofa="12" value="am"/>
+  <morph:MorphologicalFeatures xmi:id="502609" begin="1564" end="1566" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502610" begin="1564" end="1566" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502611" begin="1568" end="1570" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502612" begin="1568" end="1570" sofa="12" value=""/>
+  <pos:POS xmi:id="502613" begin="1568" end="1570" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502614" begin="1570" end="1571" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502615" begin="1570" end="1571" sofa="12" value=""/>
+  <pos:POS xmi:id="502616" begin="1570" end="1571" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502617" begin="1572" end="1596" sofa="12" value="pannesley@riskwaters.com"/>
+  <morph:MorphologicalFeatures xmi:id="502618" begin="1572" end="1596" sofa="12" value=""/>
+  <pos:POS xmi:id="502619" begin="1572" end="1596" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <type5:Lemma xmi:id="502620" begin="1597" end="1599" sofa="12" value="cc"/>
+  <morph:MorphologicalFeatures xmi:id="502621" begin="1597" end="1599" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502622" begin="1597" end="1599" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502623" begin="1599" end="1600" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502624" begin="1599" end="1600" sofa="12" value=""/>
+  <pos:POS xmi:id="502625" begin="1599" end="1600" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502626" begin="1601" end="1618" sofa="12" value="Vkaminski@aol.com"/>
+  <morph:MorphologicalFeatures xmi:id="502627" begin="1601" end="1618" sofa="12" value=""/>
+  <pos:POS xmi:id="502628" begin="1601" end="1618" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <type5:Lemma xmi:id="502629" begin="1619" end="1626" sofa="12" value="subject"/>
+  <morph:MorphologicalFeatures xmi:id="502630" begin="1619" end="1626" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502631" begin="1619" end="1626" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502632" begin="1626" end="1627" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502633" begin="1626" end="1627" sofa="12" value=""/>
+  <pos:POS xmi:id="502634" begin="1626" end="1627" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502635" begin="1628" end="1630" sofa="12" value="re"/>
+  <morph:MorphologicalFeatures xmi:id="502636" begin="1628" end="1630" sofa="12" value=""/>
+  <pos:POS xmi:id="502637" begin="1628" end="1630" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502638" begin="1630" end="1631" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502639" begin="1630" end="1631" sofa="12" value=""/>
+  <pos:POS xmi:id="502640" begin="1630" end="1631" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502641" begin="1632" end="1636" sofa="12" value="Risk"/>
+  <morph:MorphologicalFeatures xmi:id="502642" begin="1632" end="1636" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502643" begin="1632" end="1636" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502644" begin="1637" end="1641" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502645" begin="1637" end="1641" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502646" begin="1637" end="1641" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502647" begin="1642" end="1651" sofa="12" value="Australia"/>
+  <morph:MorphologicalFeatures xmi:id="502648" begin="1642" end="1651" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502649" begin="1642" end="1651" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502650" begin="1653" end="1659" sofa="12" value="Philip"/>
+  <morph:MorphologicalFeatures xmi:id="502651" begin="1653" end="1659" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502652" begin="1653" end="1659" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502653" begin="1659" end="1660" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502654" begin="1659" end="1660" sofa="12" value=""/>
+  <pos:POS xmi:id="502655" begin="1659" end="1660" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502656" begin="1663" end="1664" sofa="12" value="I"/>
+  <morph:MorphologicalFeatures xmi:id="502657" begin="1663" end="1664" sofa="12" value="Case=Nom|Number=Sing|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="502658" begin="1663" end="1664" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502659" begin="1665" end="1669" sofa="12" value="have"/>
+  <morph:MorphologicalFeatures xmi:id="502660" begin="1665" end="1669" sofa="12" value="Mood=Ind|Tense=Pres|VerbForm=Fin"/>
+  <pos:POS xmi:id="502661" begin="1665" end="1669" sofa="12" coarseValue="VERB" PosValue="VBP"/>
+  <type5:Lemma xmi:id="502662" begin="1670" end="1672" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502663" begin="1670" end="1672" sofa="12" value=""/>
+  <pos:POS xmi:id="502664" begin="1670" end="1672" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="502665" begin="1673" end="1680" sofa="12" value="decline"/>
+  <morph:MorphologicalFeatures xmi:id="502666" begin="1673" end="1680" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502667" begin="1673" end="1680" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502668" begin="1681" end="1684" sofa="12" value="the"/>
+  <morph:MorphologicalFeatures xmi:id="502669" begin="1681" end="1684" sofa="12" value="Definite=Def|PronType=Art"/>
+  <pos:POS xmi:id="502670" begin="1681" end="1684" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502671" begin="1685" end="1695" sofa="12" value="invitation"/>
+  <morph:MorphologicalFeatures xmi:id="502672" begin="1685" end="1695" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502673" begin="1685" end="1695" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502674" begin="1696" end="1700" sofa="12" value="with"/>
+  <morph:MorphologicalFeatures xmi:id="502675" begin="1696" end="1700" sofa="12" value=""/>
+  <pos:POS xmi:id="502676" begin="1696" end="1700" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502677" begin="1701" end="1708" sofa="12" value="regret"/>
+  <morph:MorphologicalFeatures xmi:id="502678" begin="1701" end="1708" sofa="12" value="Number=Plur"/>
+  <pos:POS xmi:id="502679" begin="1701" end="1708" sofa="12" coarseValue="NOUN" PosValue="NNS"/>
+  <type5:Lemma xmi:id="502680" begin="1708" end="1709" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="502681" begin="1708" end="1709" sofa="12" value=""/>
+  <pos:POS xmi:id="502682" begin="1708" end="1709" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502683" begin="1710" end="1711" sofa="12" value="I"/>
+  <morph:MorphologicalFeatures xmi:id="502684" begin="1710" end="1711" sofa="12" value="Case=Nom|Number=Sing|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="502685" begin="1710" end="1711" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502686" begin="1712" end="1716" sofa="12" value="have"/>
+  <morph:MorphologicalFeatures xmi:id="502687" begin="1712" end="1716" sofa="12" value="Mood=Ind|Tense=Pres|VerbForm=Fin"/>
+  <pos:POS xmi:id="502688" begin="1712" end="1716" sofa="12" coarseValue="VERB" PosValue="VBP"/>
+  <type5:Lemma xmi:id="502689" begin="1717" end="1720" sofa="12" value="too"/>
+  <morph:MorphologicalFeatures xmi:id="502690" begin="1717" end="1720" sofa="12" value=""/>
+  <pos:POS xmi:id="502691" begin="1717" end="1720" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502692" begin="1721" end="1725" sofa="12" value="many"/>
+  <morph:MorphologicalFeatures xmi:id="502693" begin="1721" end="1725" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502694" begin="1721" end="1725" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502695" begin="1726" end="1737" sofa="12" value="commitment"/>
+  <morph:MorphologicalFeatures xmi:id="502696" begin="1726" end="1737" sofa="12" value="Number=Plur"/>
+  <pos:POS xmi:id="502697" begin="1726" end="1737" sofa="12" coarseValue="NOUN" PosValue="NNS"/>
+  <type5:Lemma xmi:id="502698" begin="1738" end="1743" sofa="12" value="right"/>
+  <morph:MorphologicalFeatures xmi:id="502699" begin="1738" end="1743" sofa="12" value=""/>
+  <pos:POS xmi:id="502700" begin="1738" end="1743" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502701" begin="1744" end="1747" sofa="12" value="now"/>
+  <morph:MorphologicalFeatures xmi:id="502702" begin="1744" end="1747" sofa="12" value=""/>
+  <pos:POS xmi:id="502703" begin="1744" end="1747" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502704" begin="1747" end="1748" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="502705" begin="1747" end="1748" sofa="12" value=""/>
+  <pos:POS xmi:id="502706" begin="1747" end="1748" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502707" begin="1751" end="1756" sofa="12" value="Vince"/>
+  <morph:MorphologicalFeatures xmi:id="502708" begin="1751" end="1756" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502709" begin="1751" end="1756" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502710" begin="1757" end="1765" sofa="12" value="Kaminski"/>
+  <morph:MorphologicalFeatures xmi:id="502711" begin="1757" end="1765" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502712" begin="1757" end="1765" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502713" begin="1782" end="1789" sofa="12" value="message"/>
+  <morph:MorphologicalFeatures xmi:id="502714" begin="1782" end="1789" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502715" begin="1782" end="1789" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502716" begin="1789" end="1794" sofa="12" value="-----"/>
+  <morph:MorphologicalFeatures xmi:id="502717" begin="1789" end="1794" sofa="12" value=""/>
+  <pos:POS xmi:id="502718" begin="1789" end="1794" sofa="12" coarseValue="PUNCT" PosValue="NFP"/>
+  <type5:Lemma xmi:id="502719" begin="1795" end="1799" sofa="12" value="from"/>
+  <morph:MorphologicalFeatures xmi:id="502720" begin="1795" end="1799" sofa="12" value=""/>
+  <pos:POS xmi:id="502721" begin="1795" end="1799" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502722" begin="1799" end="1800" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502723" begin="1799" end="1800" sofa="12" value=""/>
+  <pos:POS xmi:id="502724" begin="1799" end="1800" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502725" begin="1801" end="1802" sofa="12" value="&quot;"/>
+  <morph:MorphologicalFeatures xmi:id="502726" begin="1801" end="1802" sofa="12" value=""/>
+  <pos:POS xmi:id="502727" begin="1801" end="1802" sofa="12" coarseValue="PUNCT" PosValue="``"/>
+  <type5:Lemma xmi:id="502728" begin="1802" end="1808" sofa="12" value="philip"/>
+  <morph:MorphologicalFeatures xmi:id="502729" begin="1802" end="1808" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502730" begin="1802" end="1808" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502731" begin="1809" end="1817" sofa="12" value="annesley"/>
+  <morph:MorphologicalFeatures xmi:id="502732" begin="1809" end="1817" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502733" begin="1809" end="1817" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502734" begin="1817" end="1818" sofa="12" value="&quot;"/>
+  <morph:MorphologicalFeatures xmi:id="502735" begin="1817" end="1818" sofa="12" value=""/>
+  <pos:POS xmi:id="502736" begin="1817" end="1818" sofa="12" coarseValue="PUNCT" PosValue="''"/>
+  <type5:Lemma xmi:id="502737" begin="1853" end="1854" sofa="12" value="["/>
+  <morph:MorphologicalFeatures xmi:id="502738" begin="1853" end="1854" sofa="12" value=""/>
+  <pos:POS xmi:id="502739" begin="1853" end="1854" sofa="12" coarseValue="PUNCT" PosValue="-LRB-"/>
+  <type5:Lemma xmi:id="502740" begin="1955" end="1959" sofa="12" value="send"/>
+  <morph:MorphologicalFeatures xmi:id="502741" begin="1955" end="1959" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502742" begin="1955" end="1959" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502743" begin="1959" end="1960" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502744" begin="1959" end="1960" sofa="12" value=""/>
+  <pos:POS xmi:id="502745" begin="1959" end="1960" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502746" begin="1961" end="1967" sofa="12" value="Monday"/>
+  <morph:MorphologicalFeatures xmi:id="502747" begin="1961" end="1967" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502748" begin="1961" end="1967" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502749" begin="1967" end="1968" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502750" begin="1967" end="1968" sofa="12" value=""/>
+  <pos:POS xmi:id="502751" begin="1967" end="1968" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502752" begin="1969" end="1972" sofa="12" value="May"/>
+  <morph:MorphologicalFeatures xmi:id="502753" begin="1969" end="1972" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502754" begin="1969" end="1972" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502755" begin="1973" end="1975" sofa="12" value="28"/>
+  <morph:MorphologicalFeatures xmi:id="502756" begin="1973" end="1975" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502757" begin="1973" end="1975" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502758" begin="1975" end="1976" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502759" begin="1975" end="1976" sofa="12" value=""/>
+  <pos:POS xmi:id="502760" begin="1975" end="1976" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502761" begin="1977" end="1981" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502762" begin="1977" end="1981" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502763" begin="1977" end="1981" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502764" begin="1982" end="1986" sofa="12" value="3:27"/>
+  <morph:MorphologicalFeatures xmi:id="502765" begin="1982" end="1986" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502766" begin="1982" end="1986" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502767" begin="1987" end="1989" sofa="12" value="am"/>
+  <morph:MorphologicalFeatures xmi:id="502768" begin="1987" end="1989" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502769" begin="1987" end="1989" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502770" begin="1991" end="1993" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502771" begin="1991" end="1993" sofa="12" value=""/>
+  <pos:POS xmi:id="502772" begin="1991" end="1993" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502773" begin="1993" end="1994" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502774" begin="1993" end="1994" sofa="12" value=""/>
+  <pos:POS xmi:id="502775" begin="1993" end="1994" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502776" begin="1995" end="2012" sofa="12" value="vkamins@enron.com"/>
+  <morph:MorphologicalFeatures xmi:id="502777" begin="1995" end="2012" sofa="12" value=""/>
+  <pos:POS xmi:id="502778" begin="1995" end="2012" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <type5:Lemma xmi:id="502779" begin="2013" end="2020" sofa="12" value="subject"/>
+  <morph:MorphologicalFeatures xmi:id="502780" begin="2013" end="2020" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502781" begin="2013" end="2020" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502782" begin="2020" end="2021" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="502783" begin="2020" end="2021" sofa="12" value=""/>
+  <pos:POS xmi:id="502784" begin="2020" end="2021" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="502785" begin="2022" end="2026" sofa="12" value="Risk"/>
+  <morph:MorphologicalFeatures xmi:id="502786" begin="2022" end="2026" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502787" begin="2022" end="2026" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502788" begin="2027" end="2031" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502789" begin="2027" end="2031" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502790" begin="2027" end="2031" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502791" begin="2032" end="2041" sofa="12" value="Australia"/>
+  <morph:MorphologicalFeatures xmi:id="502792" begin="2032" end="2041" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502793" begin="2032" end="2041" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502794" begin="2043" end="2047" sofa="12" value="dear"/>
+  <morph:MorphologicalFeatures xmi:id="502795" begin="2043" end="2047" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502796" begin="2043" end="2047" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502797" begin="2048" end="2053" sofa="12" value="Vince"/>
+  <morph:MorphologicalFeatures xmi:id="502798" begin="2048" end="2053" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502799" begin="2048" end="2053" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502800" begin="2056" end="2060" sofa="12" value="just"/>
+  <morph:MorphologicalFeatures xmi:id="502801" begin="2056" end="2060" sofa="12" value=""/>
+  <pos:POS xmi:id="502802" begin="2056" end="2060" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502803" begin="2061" end="2062" sofa="12" value="a"/>
+  <morph:MorphologicalFeatures xmi:id="502804" begin="2061" end="2062" sofa="12" value="Definite=Ind|PronType=Art"/>
+  <pos:POS xmi:id="502805" begin="2061" end="2062" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502806" begin="2063" end="2068" sofa="12" value="quick"/>
+  <morph:MorphologicalFeatures xmi:id="502807" begin="2063" end="2068" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502808" begin="2063" end="2068" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502809" begin="2077" end="2079" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502810" begin="2077" end="2079" sofa="12" value=""/>
+  <pos:POS xmi:id="502811" begin="2077" end="2079" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="502812" begin="2080" end="2086" sofa="12" value="follow"/>
+  <morph:MorphologicalFeatures xmi:id="502813" begin="2080" end="2086" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502814" begin="2080" end="2086" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502815" begin="2087" end="2089" sofa="12" value="up"/>
+  <morph:MorphologicalFeatures xmi:id="502816" begin="2087" end="2089" sofa="12" value=""/>
+  <pos:POS xmi:id="502817" begin="2087" end="2089" sofa="12" coarseValue="ADP" PosValue="RP"/>
+  <type5:Lemma xmi:id="502818" begin="2090" end="2092" sofa="12" value="on"/>
+  <morph:MorphologicalFeatures xmi:id="502819" begin="2090" end="2092" sofa="12" value=""/>
+  <pos:POS xmi:id="502820" begin="2090" end="2092" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502821" begin="2093" end="2096" sofa="12" value="the"/>
+  <morph:MorphologicalFeatures xmi:id="502822" begin="2093" end="2096" sofa="12" value="Definite=Def|PronType=Art"/>
+  <pos:POS xmi:id="502823" begin="2093" end="2096" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502824" begin="2097" end="2102" sofa="12" value="email"/>
+  <morph:MorphologicalFeatures xmi:id="502825" begin="2097" end="2102" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502826" begin="2097" end="2102" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502827" begin="2103" end="2107" sofa="12" value="that"/>
+  <morph:MorphologicalFeatures xmi:id="502828" begin="2103" end="2107" sofa="12" value="PronType=Rel"/>
+  <pos:POS xmi:id="502829" begin="2103" end="2107" sofa="12" coarseValue="PRON" PosValue="WDT"/>
+  <type5:Lemma xmi:id="502830" begin="2108" end="2109" sofa="12" value="I"/>
+  <morph:MorphologicalFeatures xmi:id="502831" begin="2108" end="2109" sofa="12" value="Case=Nom|Number=Sing|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="502832" begin="2108" end="2109" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502833" begin="2110" end="2114" sofa="12" value="send"/>
+  <morph:MorphologicalFeatures xmi:id="502834" begin="2110" end="2114" sofa="12" value="Mood=Ind|Tense=Past|VerbForm=Fin"/>
+  <pos:POS xmi:id="502835" begin="2110" end="2114" sofa="12" coarseValue="VERB" PosValue="VBD"/>
+  <type5:Lemma xmi:id="502836" begin="2115" end="2118" sofa="12" value="you"/>
+  <morph:MorphologicalFeatures xmi:id="502837" begin="2115" end="2118" sofa="12" value="Case=Acc|Person=2|PronType=Prs"/>
+  <pos:POS xmi:id="502838" begin="2115" end="2118" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502839" begin="2119" end="2127" sofa="12" value="recently"/>
+  <morph:MorphologicalFeatures xmi:id="502840" begin="2119" end="2127" sofa="12" value=""/>
+  <pos:POS xmi:id="502841" begin="2119" end="2127" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502842" begin="2128" end="2136" sofa="12" value="invite"/>
+  <morph:MorphologicalFeatures xmi:id="502843" begin="2128" end="2136" sofa="12" value="VerbForm=Ger"/>
+  <pos:POS xmi:id="502844" begin="2128" end="2136" sofa="12" coarseValue="VERB" PosValue="VBG"/>
+  <type5:Lemma xmi:id="502845" begin="2137" end="2140" sofa="12" value="you"/>
+  <morph:MorphologicalFeatures xmi:id="502846" begin="2137" end="2140" sofa="12" value="Case=Acc|Person=2|PronType=Prs"/>
+  <pos:POS xmi:id="502847" begin="2137" end="2140" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502848" begin="2141" end="2143" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502849" begin="2141" end="2143" sofa="12" value=""/>
+  <pos:POS xmi:id="502850" begin="2141" end="2143" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="502851" begin="2144" end="2149" sofa="12" value="speak"/>
+  <morph:MorphologicalFeatures xmi:id="502852" begin="2144" end="2149" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502853" begin="2144" end="2149" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502854" begin="2150" end="2152" sofa="12" value="at"/>
+  <morph:MorphologicalFeatures xmi:id="502855" begin="2150" end="2152" sofa="12" value=""/>
+  <pos:POS xmi:id="502856" begin="2150" end="2152" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502857" begin="2153" end="2156" sofa="12" value="we"/>
+  <morph:MorphologicalFeatures xmi:id="502858" begin="2153" end="2156" sofa="12" value="Number=Plur|Person=1|Poss=Yes|PronType=Prs"/>
+  <pos:POS xmi:id="502859" begin="2153" end="2156" sofa="12" coarseValue="PRON" PosValue="PRP$"/>
+  <type5:Lemma xmi:id="502860" begin="2157" end="2168" sofa="12" value="forthcoming"/>
+  <morph:MorphologicalFeatures xmi:id="502861" begin="2157" end="2168" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502862" begin="2157" end="2168" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502863" begin="2169" end="2177" sofa="12" value="congress"/>
+  <morph:MorphologicalFeatures xmi:id="502864" begin="2169" end="2177" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502865" begin="2169" end="2177" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502866" begin="2177" end="2178" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502867" begin="2177" end="2178" sofa="12" value=""/>
+  <pos:POS xmi:id="502868" begin="2177" end="2178" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502869" begin="2179" end="2183" sofa="12" value="Risk"/>
+  <morph:MorphologicalFeatures xmi:id="502870" begin="2179" end="2183" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502871" begin="2179" end="2183" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502872" begin="2184" end="2188" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502873" begin="2184" end="2188" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502874" begin="2184" end="2188" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502875" begin="2189" end="2198" sofa="12" value="Australia"/>
+  <morph:MorphologicalFeatures xmi:id="502876" begin="2189" end="2198" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502877" begin="2189" end="2198" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502878" begin="2198" end="2199" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502879" begin="2198" end="2199" sofa="12" value=""/>
+  <pos:POS xmi:id="502880" begin="2198" end="2199" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502881" begin="2200" end="2205" sofa="12" value="which"/>
+  <morph:MorphologicalFeatures xmi:id="502882" begin="2200" end="2205" sofa="12" value="PronType=Rel"/>
+  <pos:POS xmi:id="502883" begin="2200" end="2205" sofa="12" coarseValue="PRON" PosValue="WDT"/>
+  <type5:Lemma xmi:id="502884" begin="2206" end="2208" sofa="12" value="be"/>
+  <morph:MorphologicalFeatures xmi:id="502885" begin="2206" end="2208" sofa="12" value="Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin"/>
+  <pos:POS xmi:id="502886" begin="2206" end="2208" sofa="12" coarseValue="AUX" PosValue="VBZ"/>
+  <type5:Lemma xmi:id="502887" begin="2209" end="2215" sofa="12" value="take"/>
+  <morph:MorphologicalFeatures xmi:id="502888" begin="2209" end="2215" sofa="12" value="Tense=Pres|VerbForm=Part"/>
+  <pos:POS xmi:id="502889" begin="2209" end="2215" sofa="12" coarseValue="VERB" PosValue="VBG"/>
+  <type5:Lemma xmi:id="502890" begin="2216" end="2221" sofa="12" value="place"/>
+  <morph:MorphologicalFeatures xmi:id="502891" begin="2216" end="2221" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502892" begin="2216" end="2221" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502893" begin="2225" end="2231" sofa="12" value="Sydney"/>
+  <morph:MorphologicalFeatures xmi:id="502894" begin="2225" end="2231" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502895" begin="2225" end="2231" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502896" begin="2232" end="2234" sofa="12" value="on"/>
+  <morph:MorphologicalFeatures xmi:id="502897" begin="2232" end="2234" sofa="12" value=""/>
+  <pos:POS xmi:id="502898" begin="2232" end="2234" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="502899" begin="2235" end="2237" sofa="12" value="20"/>
+  <morph:MorphologicalFeatures xmi:id="502900" begin="2235" end="2237" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502901" begin="2235" end="2237" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502902" begin="2238" end="2239" sofa="12" value="&amp;"/>
+  <morph:MorphologicalFeatures xmi:id="502903" begin="2238" end="2239" sofa="12" value=""/>
+  <pos:POS xmi:id="502904" begin="2238" end="2239" sofa="12" coarseValue="CCONJ" PosValue="CC"/>
+  <type5:Lemma xmi:id="502905" begin="2240" end="2242" sofa="12" value="21"/>
+  <morph:MorphologicalFeatures xmi:id="502906" begin="2240" end="2242" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502907" begin="2240" end="2242" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502908" begin="2243" end="2249" sofa="12" value="August"/>
+  <morph:MorphologicalFeatures xmi:id="502909" begin="2243" end="2249" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502910" begin="2243" end="2249" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="502911" begin="2250" end="2254" sofa="12" value="2001"/>
+  <morph:MorphologicalFeatures xmi:id="502912" begin="2250" end="2254" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="502913" begin="2250" end="2254" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="502914" begin="2254" end="2255" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="502915" begin="2254" end="2255" sofa="12" value=""/>
+  <pos:POS xmi:id="502916" begin="2254" end="2255" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502917" begin="2256" end="2260" sofa="12" value="have"/>
+  <morph:MorphologicalFeatures xmi:id="502918" begin="2256" end="2260" sofa="12" value="Mood=Ind|Tense=Pres|VerbForm=Fin"/>
+  <pos:POS xmi:id="502919" begin="2256" end="2260" sofa="12" coarseValue="AUX" PosValue="VBP"/>
+  <type5:Lemma xmi:id="502920" begin="2261" end="2264" sofa="12" value="you"/>
+  <morph:MorphologicalFeatures xmi:id="502921" begin="2261" end="2264" sofa="12" value="Case=Nom|Person=2|PronType=Prs"/>
+  <pos:POS xmi:id="502922" begin="2261" end="2264" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502923" begin="2265" end="2268" sofa="12" value="have"/>
+  <morph:MorphologicalFeatures xmi:id="502924" begin="2265" end="2268" sofa="12" value="Tense=Past|VerbForm=Part"/>
+  <pos:POS xmi:id="502925" begin="2265" end="2268" sofa="12" coarseValue="VERB" PosValue="VBN"/>
+  <type5:Lemma xmi:id="502926" begin="2269" end="2271" sofa="12" value="a"/>
+  <morph:MorphologicalFeatures xmi:id="502927" begin="2269" end="2271" sofa="12" value="Definite=Ind|PronType=Art"/>
+  <pos:POS xmi:id="502928" begin="2269" end="2271" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502929" begin="2272" end="2283" sofa="12" value="opportunity"/>
+  <morph:MorphologicalFeatures xmi:id="502930" begin="2272" end="2283" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502931" begin="2272" end="2283" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502932" begin="2284" end="2286" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502933" begin="2284" end="2286" sofa="12" value=""/>
+  <pos:POS xmi:id="502934" begin="2284" end="2286" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="502935" begin="2287" end="2295" sofa="12" value="consider"/>
+  <morph:MorphologicalFeatures xmi:id="502936" begin="2287" end="2295" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502937" begin="2287" end="2295" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502938" begin="2296" end="2299" sofa="12" value="the"/>
+  <morph:MorphologicalFeatures xmi:id="502939" begin="2296" end="2299" sofa="12" value="Definite=Def|PronType=Art"/>
+  <pos:POS xmi:id="502940" begin="2296" end="2299" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502941" begin="2300" end="2310" sofa="12" value="invitation"/>
+  <morph:MorphologicalFeatures xmi:id="502942" begin="2300" end="2310" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502943" begin="2300" end="2310" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502944" begin="2311" end="2314" sofa="12" value="yet"/>
+  <morph:MorphologicalFeatures xmi:id="502945" begin="2311" end="2314" sofa="12" value=""/>
+  <pos:POS xmi:id="502946" begin="2311" end="2314" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502947" begin="2314" end="2315" sofa="12" value="?"/>
+  <morph:MorphologicalFeatures xmi:id="502948" begin="2314" end="2315" sofa="12" value=""/>
+  <pos:POS xmi:id="502949" begin="2314" end="2315" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="502950" begin="2316" end="2318" sofa="12" value="we"/>
+  <morph:MorphologicalFeatures xmi:id="502951" begin="2316" end="2318" sofa="12" value="Case=Nom|Number=Plur|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="502952" begin="2316" end="2318" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502953" begin="2319" end="2322" sofa="12" value="be"/>
+  <morph:MorphologicalFeatures xmi:id="502954" begin="2319" end="2322" sofa="12" value="Mood=Ind|Tense=Pres|VerbForm=Fin"/>
+  <pos:POS xmi:id="502955" begin="2319" end="2322" sofa="12" coarseValue="AUX" PosValue="VBP"/>
+  <type5:Lemma xmi:id="502956" begin="2323" end="2329" sofa="12" value="aim"/>
+  <morph:MorphologicalFeatures xmi:id="502957" begin="2323" end="2329" sofa="12" value="Tense=Pres|VerbForm=Part"/>
+  <pos:POS xmi:id="502958" begin="2323" end="2329" sofa="12" coarseValue="VERB" PosValue="VBG"/>
+  <type5:Lemma xmi:id="502959" begin="2330" end="2332" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502960" begin="2330" end="2332" sofa="12" value=""/>
+  <pos:POS xmi:id="502961" begin="2330" end="2332" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="502962" begin="2333" end="2337" sofa="12" value="have"/>
+  <morph:MorphologicalFeatures xmi:id="502963" begin="2333" end="2337" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502964" begin="2333" end="2337" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502965" begin="2338" end="2341" sofa="12" value="the"/>
+  <morph:MorphologicalFeatures xmi:id="502966" begin="2338" end="2341" sofa="12" value="Definite=Def|PronType=Art"/>
+  <pos:POS xmi:id="502967" begin="2338" end="2341" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="502968" begin="2342" end="2351" sofa="12" value="programme"/>
+  <morph:MorphologicalFeatures xmi:id="502969" begin="2342" end="2351" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502970" begin="2342" end="2351" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502971" begin="2352" end="2359" sofa="12" value="print"/>
+  <morph:MorphologicalFeatures xmi:id="502972" begin="2352" end="2359" sofa="12" value="Tense=Past|VerbForm=Part"/>
+  <pos:POS xmi:id="502973" begin="2352" end="2359" sofa="12" coarseValue="VERB" PosValue="VBN"/>
+  <type5:Lemma xmi:id="502974" begin="2360" end="2364" sofa="12" value="next"/>
+  <morph:MorphologicalFeatures xmi:id="502975" begin="2360" end="2364" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="502976" begin="2360" end="2364" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="502977" begin="2365" end="2369" sofa="12" value="week"/>
+  <morph:MorphologicalFeatures xmi:id="502978" begin="2365" end="2369" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="502979" begin="2365" end="2369" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="502980" begin="2369" end="2370" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="502981" begin="2369" end="2370" sofa="12" value=""/>
+  <pos:POS xmi:id="502982" begin="2369" end="2370" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="502983" begin="2371" end="2373" sofa="12" value="so"/>
+  <morph:MorphologicalFeatures xmi:id="502984" begin="2371" end="2373" sofa="12" value=""/>
+  <pos:POS xmi:id="502985" begin="2371" end="2373" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502986" begin="2374" end="2375" sofa="12" value="I"/>
+  <morph:MorphologicalFeatures xmi:id="502987" begin="2374" end="2375" sofa="12" value="Case=Nom|Number=Sing|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="502988" begin="2374" end="2375" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="502989" begin="2376" end="2381" sofa="12" value="would"/>
+  <morph:MorphologicalFeatures xmi:id="502990" begin="2376" end="2381" sofa="12" value="VerbForm=Fin"/>
+  <pos:POS xmi:id="502991" begin="2376" end="2381" sofa="12" coarseValue="AUX" PosValue="MD"/>
+  <type5:Lemma xmi:id="502992" begin="2382" end="2388" sofa="12" value="really"/>
+  <morph:MorphologicalFeatures xmi:id="502993" begin="2382" end="2388" sofa="12" value=""/>
+  <pos:POS xmi:id="502994" begin="2382" end="2388" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="502995" begin="2389" end="2393" sofa="12" value="need"/>
+  <morph:MorphologicalFeatures xmi:id="502996" begin="2389" end="2393" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="502997" begin="2389" end="2393" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="502998" begin="2394" end="2396" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="502999" begin="2394" end="2396" sofa="12" value=""/>
+  <pos:POS xmi:id="503000" begin="2394" end="2396" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="503001" begin="2397" end="2401" sofa="12" value="know"/>
+  <morph:MorphologicalFeatures xmi:id="503002" begin="2397" end="2401" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="503003" begin="2397" end="2401" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="503004" begin="2402" end="2404" sofa="12" value="as"/>
+  <morph:MorphologicalFeatures xmi:id="503005" begin="2402" end="2404" sofa="12" value=""/>
+  <pos:POS xmi:id="503006" begin="2402" end="2404" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="503007" begin="2405" end="2409" sofa="12" value="soon"/>
+  <morph:MorphologicalFeatures xmi:id="503008" begin="2405" end="2409" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="503009" begin="2405" end="2409" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="503010" begin="2410" end="2412" sofa="12" value="as"/>
+  <morph:MorphologicalFeatures xmi:id="503011" begin="2410" end="2412" sofa="12" value=""/>
+  <pos:POS xmi:id="503012" begin="2410" end="2412" sofa="12" coarseValue="SCONJ" PosValue="IN"/>
+  <type5:Lemma xmi:id="503013" begin="2413" end="2421" sofa="12" value="possible"/>
+  <morph:MorphologicalFeatures xmi:id="503014" begin="2413" end="2421" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="503015" begin="2413" end="2421" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="503016" begin="2422" end="2424" sofa="12" value="if"/>
+  <morph:MorphologicalFeatures xmi:id="503017" begin="2422" end="2424" sofa="12" value=""/>
+  <pos:POS xmi:id="503018" begin="2422" end="2424" sofa="12" coarseValue="SCONJ" PosValue="IN"/>
+  <type5:Lemma xmi:id="503019" begin="2425" end="2428" sofa="12" value="you"/>
+  <morph:MorphologicalFeatures xmi:id="503020" begin="2425" end="2428" sofa="12" value="Case=Nom|Person=2|PronType=Prs"/>
+  <pos:POS xmi:id="503021" begin="2425" end="2428" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="503022" begin="2429" end="2434" sofa="12" value="would"/>
+  <morph:MorphologicalFeatures xmi:id="503023" begin="2429" end="2434" sofa="12" value="VerbForm=Fin"/>
+  <pos:POS xmi:id="503024" begin="2429" end="2434" sofa="12" coarseValue="AUX" PosValue="MD"/>
+  <type5:Lemma xmi:id="503025" begin="2435" end="2437" sofa="12" value="be"/>
+  <morph:MorphologicalFeatures xmi:id="503026" begin="2435" end="2437" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="503027" begin="2435" end="2437" sofa="12" coarseValue="AUX" PosValue="VB"/>
+  <type5:Lemma xmi:id="503028" begin="2438" end="2447" sofa="12" value="available"/>
+  <morph:MorphologicalFeatures xmi:id="503029" begin="2438" end="2447" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="503030" begin="2438" end="2447" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="503031" begin="2448" end="2450" sofa="12" value="to"/>
+  <morph:MorphologicalFeatures xmi:id="503032" begin="2448" end="2450" sofa="12" value=""/>
+  <pos:POS xmi:id="503033" begin="2448" end="2450" sofa="12" coarseValue="PART" PosValue="TO"/>
+  <type5:Lemma xmi:id="503034" begin="2451" end="2456" sofa="12" value="speak"/>
+  <morph:MorphologicalFeatures xmi:id="503035" begin="2451" end="2456" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="503036" begin="2451" end="2456" sofa="12" coarseValue="VERB" PosValue="VB"/>
+  <type5:Lemma xmi:id="503037" begin="2457" end="2459" sofa="12" value="at"/>
+  <morph:MorphologicalFeatures xmi:id="503038" begin="2457" end="2459" sofa="12" value=""/>
+  <pos:POS xmi:id="503039" begin="2457" end="2459" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="503040" begin="2460" end="2464" sofa="12" value="this"/>
+  <morph:MorphologicalFeatures xmi:id="503041" begin="2460" end="2464" sofa="12" value="Number=Sing|PronType=Dem"/>
+  <pos:POS xmi:id="503042" begin="2460" end="2464" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="503043" begin="2465" end="2469" sofa="12" value="year"/>
+  <morph:MorphologicalFeatures xmi:id="503044" begin="2465" end="2469" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503045" begin="2465" end="2469" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503046" begin="2469" end="2471" sofa="12" value="'s"/>
+  <morph:MorphologicalFeatures xmi:id="503047" begin="2469" end="2471" sofa="12" value=""/>
+  <pos:POS xmi:id="503048" begin="2469" end="2471" sofa="12" coarseValue="PART" PosValue="POS"/>
+  <type5:Lemma xmi:id="503049" begin="2472" end="2480" sofa="12" value="congress"/>
+  <morph:MorphologicalFeatures xmi:id="503050" begin="2472" end="2480" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503051" begin="2472" end="2480" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503052" begin="2480" end="2481" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="503053" begin="2480" end="2481" sofa="12" value=""/>
+  <pos:POS xmi:id="503054" begin="2480" end="2481" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="503055" begin="2484" end="2485" sofa="12" value="I"/>
+  <morph:MorphologicalFeatures xmi:id="503056" begin="2484" end="2485" sofa="12" value="Case=Nom|Number=Sing|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="503057" begin="2484" end="2485" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="503058" begin="2486" end="2488" sofa="12" value="be"/>
+  <morph:MorphologicalFeatures xmi:id="503059" begin="2486" end="2488" sofa="12" value="Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin"/>
+  <pos:POS xmi:id="503060" begin="2486" end="2488" sofa="12" coarseValue="AUX" PosValue="VBP"/>
+  <type5:Lemma xmi:id="503061" begin="2489" end="2496" sofa="12" value="work"/>
+  <morph:MorphologicalFeatures xmi:id="503062" begin="2489" end="2496" sofa="12" value="Tense=Pres|VerbForm=Part"/>
+  <pos:POS xmi:id="503063" begin="2489" end="2496" sofa="12" coarseValue="VERB" PosValue="VBG"/>
+  <type5:Lemma xmi:id="503064" begin="2497" end="2501" sofa="12" value="from"/>
+  <morph:MorphologicalFeatures xmi:id="503065" begin="2497" end="2501" sofa="12" value=""/>
+  <pos:POS xmi:id="503066" begin="2497" end="2501" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="503067" begin="2502" end="2505" sofa="12" value="we"/>
+  <morph:MorphologicalFeatures xmi:id="503068" begin="2502" end="2505" sofa="12" value="Number=Plur|Person=1|Poss=Yes|PronType=Prs"/>
+  <pos:POS xmi:id="503069" begin="2502" end="2505" sofa="12" coarseValue="PRON" PosValue="PRP$"/>
+  <type5:Lemma xmi:id="503070" begin="2506" end="2510" sofa="12" value="Hong"/>
+  <morph:MorphologicalFeatures xmi:id="503071" begin="2506" end="2510" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503072" begin="2506" end="2510" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="503073" begin="2511" end="2515" sofa="12" value="Kong"/>
+  <morph:MorphologicalFeatures xmi:id="503074" begin="2511" end="2515" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503075" begin="2511" end="2515" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="503076" begin="2516" end="2522" sofa="12" value="office"/>
+  <morph:MorphologicalFeatures xmi:id="503077" begin="2516" end="2522" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503078" begin="2516" end="2522" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503079" begin="2523" end="2526" sofa="12" value="for"/>
+  <morph:MorphologicalFeatures xmi:id="503080" begin="2523" end="2526" sofa="12" value=""/>
+  <pos:POS xmi:id="503081" begin="2523" end="2526" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="503082" begin="2527" end="2531" sofa="12" value="this"/>
+  <morph:MorphologicalFeatures xmi:id="503083" begin="2527" end="2531" sofa="12" value="Number=Sing|PronType=Dem"/>
+  <pos:POS xmi:id="503084" begin="2527" end="2531" sofa="12" coarseValue="DET" PosValue="DT"/>
+  <type5:Lemma xmi:id="503085" begin="2532" end="2536" sofa="12" value="week"/>
+  <morph:MorphologicalFeatures xmi:id="503086" begin="2532" end="2536" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503087" begin="2532" end="2536" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503088" begin="2537" end="2541" sofa="12" value="only"/>
+  <morph:MorphologicalFeatures xmi:id="503089" begin="2537" end="2541" sofa="12" value=""/>
+  <pos:POS xmi:id="503090" begin="2537" end="2541" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="503091" begin="2542" end="2543" sofa="12" value="("/>
+  <morph:MorphologicalFeatures xmi:id="503092" begin="2542" end="2543" sofa="12" value=""/>
+  <pos:POS xmi:id="503093" begin="2542" end="2543" sofa="12" coarseValue="PUNCT" PosValue="-LRB-"/>
+  <type5:Lemma xmi:id="503094" begin="2543" end="2546" sofa="12" value="tel"/>
+  <morph:MorphologicalFeatures xmi:id="503095" begin="2543" end="2546" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503096" begin="2543" end="2546" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503097" begin="2546" end="2547" sofa="12" value=":"/>
+  <morph:MorphologicalFeatures xmi:id="503098" begin="2546" end="2547" sofa="12" value=""/>
+  <pos:POS xmi:id="503099" begin="2546" end="2547" sofa="12" coarseValue="PUNCT" PosValue=":"/>
+  <type5:Lemma xmi:id="503100" begin="2548" end="2552" sofa="12" value="+852"/>
+  <morph:MorphologicalFeatures xmi:id="503101" begin="2548" end="2552" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="503102" begin="2548" end="2552" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="503103" begin="2554" end="2558" sofa="12" value="2545"/>
+  <morph:MorphologicalFeatures xmi:id="503104" begin="2554" end="2558" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="503105" begin="2554" end="2558" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="503106" begin="2559" end="2563" sofa="12" value="2710"/>
+  <morph:MorphologicalFeatures xmi:id="503107" begin="2559" end="2563" sofa="12" value="NumType=Card"/>
+  <pos:POS xmi:id="503108" begin="2559" end="2563" sofa="12" coarseValue="NUM" PosValue="CD"/>
+  <type5:Lemma xmi:id="503109" begin="2563" end="2564" sofa="12" value=")"/>
+  <morph:MorphologicalFeatures xmi:id="503110" begin="2563" end="2564" sofa="12" value=""/>
+  <pos:POS xmi:id="503111" begin="2563" end="2564" sofa="12" coarseValue="PUNCT" PosValue="-RRB-"/>
+  <type5:Lemma xmi:id="503112" begin="2564" end="2565" sofa="12" value=","/>
+  <morph:MorphologicalFeatures xmi:id="503113" begin="2564" end="2565" sofa="12" value=""/>
+  <pos:POS xmi:id="503114" begin="2564" end="2565" sofa="12" coarseValue="PUNCT" PosValue=","/>
+  <type5:Lemma xmi:id="503115" begin="2566" end="2569" sofa="12" value="and"/>
+  <morph:MorphologicalFeatures xmi:id="503116" begin="2566" end="2569" sofa="12" value=""/>
+  <pos:POS xmi:id="503117" begin="2566" end="2569" sofa="12" coarseValue="CCONJ" PosValue="CC"/>
+  <type5:Lemma xmi:id="503118" begin="2570" end="2571" sofa="12" value="I"/>
+  <morph:MorphologicalFeatures xmi:id="503119" begin="2570" end="2571" sofa="12" value="Case=Nom|Number=Sing|Person=1|PronType=Prs"/>
+  <pos:POS xmi:id="503120" begin="2570" end="2571" sofa="12" coarseValue="PRON" PosValue="PRP"/>
+  <type5:Lemma xmi:id="503121" begin="2572" end="2575" sofa="12" value="can"/>
+  <morph:MorphologicalFeatures xmi:id="503122" begin="2572" end="2575" sofa="12" value="VerbForm=Fin"/>
+  <pos:POS xmi:id="503123" begin="2572" end="2575" sofa="12" coarseValue="AUX" PosValue="MD"/>
+  <type5:Lemma xmi:id="503124" begin="2576" end="2578" sofa="12" value="be"/>
+  <morph:MorphologicalFeatures xmi:id="503125" begin="2576" end="2578" sofa="12" value="VerbForm=Inf"/>
+  <pos:POS xmi:id="503126" begin="2576" end="2578" sofa="12" coarseValue="AUX" PosValue="VB"/>
+  <type5:Lemma xmi:id="503127" begin="2579" end="2588" sofa="12" value="contact"/>
+  <morph:MorphologicalFeatures xmi:id="503128" begin="2579" end="2588" sofa="12" value="Tense=Past|VerbForm=Part|Voice=Pass"/>
+  <pos:POS xmi:id="503129" begin="2579" end="2588" sofa="12" coarseValue="VERB" PosValue="VBN"/>
+  <type5:Lemma xmi:id="503130" begin="2589" end="2591" sofa="12" value="by"/>
+  <morph:MorphologicalFeatures xmi:id="503131" begin="2589" end="2591" sofa="12" value=""/>
+  <pos:POS xmi:id="503132" begin="2589" end="2591" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="503133" begin="2592" end="2597" sofa="12" value="phone"/>
+  <morph:MorphologicalFeatures xmi:id="503134" begin="2592" end="2597" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503135" begin="2592" end="2597" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503136" begin="2598" end="2603" sofa="12" value="there"/>
+  <morph:MorphologicalFeatures xmi:id="503137" begin="2598" end="2603" sofa="12" value="PronType=Dem"/>
+  <pos:POS xmi:id="503138" begin="2598" end="2603" sofa="12" coarseValue="ADV" PosValue="RB"/>
+  <type5:Lemma xmi:id="503139" begin="2604" end="2606" sofa="12" value="or"/>
+  <morph:MorphologicalFeatures xmi:id="503140" begin="2604" end="2606" sofa="12" value=""/>
+  <pos:POS xmi:id="503141" begin="2604" end="2606" sofa="12" coarseValue="CCONJ" PosValue="CC"/>
+  <type5:Lemma xmi:id="503142" begin="2607" end="2609" sofa="12" value="by"/>
+  <morph:MorphologicalFeatures xmi:id="503143" begin="2607" end="2609" sofa="12" value=""/>
+  <pos:POS xmi:id="503144" begin="2607" end="2609" sofa="12" coarseValue="ADP" PosValue="IN"/>
+  <type5:Lemma xmi:id="503145" begin="2610" end="2615" sofa="12" value="email"/>
+  <morph:MorphologicalFeatures xmi:id="503146" begin="2610" end="2615" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503147" begin="2610" end="2615" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503148" begin="2615" end="2616" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="503149" begin="2615" end="2616" sofa="12" value=""/>
+  <pos:POS xmi:id="503150" begin="2615" end="2616" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="503151" begin="2619" end="2623" sofa="12" value="kind"/>
+  <morph:MorphologicalFeatures xmi:id="503152" begin="2619" end="2623" sofa="12" value="Degree=Pos"/>
+  <pos:POS xmi:id="503153" begin="2619" end="2623" sofa="12" coarseValue="ADJ" PosValue="JJ"/>
+  <type5:Lemma xmi:id="503154" begin="2624" end="2631" sofa="12" value="regards"/>
+  <morph:MorphologicalFeatures xmi:id="503155" begin="2624" end="2631" sofa="12" value="Number=Plur"/>
+  <pos:POS xmi:id="503156" begin="2624" end="2631" sofa="12" coarseValue="NOUN" PosValue="NNS"/>
+  <type5:Lemma xmi:id="503157" begin="2631" end="2632" sofa="12" value="."/>
+  <morph:MorphologicalFeatures xmi:id="503158" begin="2631" end="2632" sofa="12" value=""/>
+  <pos:POS xmi:id="503159" begin="2631" end="2632" sofa="12" coarseValue="PUNCT" PosValue="."/>
+  <type5:Lemma xmi:id="503160" begin="2635" end="2641" sofa="12" value="Philip"/>
+  <morph:MorphologicalFeatures xmi:id="503161" begin="2635" end="2641" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503162" begin="2635" end="2641" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="503163" begin="2651" end="2659" sofa="12" value="Annesley"/>
+  <morph:MorphologicalFeatures xmi:id="503164" begin="2651" end="2659" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503165" begin="2651" end="2659" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="503166" begin="2660" end="2670" sofa="12" value="conference"/>
+  <morph:MorphologicalFeatures xmi:id="503167" begin="2660" end="2670" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503168" begin="2660" end="2670" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503169" begin="2671" end="2679" sofa="12" value="producer"/>
+  <morph:MorphologicalFeatures xmi:id="503170" begin="2671" end="2679" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503171" begin="2671" end="2679" sofa="12" coarseValue="NOUN" PosValue="NN"/>
+  <type5:Lemma xmi:id="503172" begin="2680" end="2684" sofa="12" value="Risk"/>
+  <morph:MorphologicalFeatures xmi:id="503173" begin="2680" end="2684" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503174" begin="2680" end="2684" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="503175" begin="2685" end="2691" sofa="12" value="Waters"/>
+  <morph:MorphologicalFeatures xmi:id="503176" begin="2685" end="2691" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503177" begin="2685" end="2691" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="503178" begin="2692" end="2697" sofa="12" value="Group"/>
+  <morph:MorphologicalFeatures xmi:id="503179" begin="2692" end="2697" sofa="12" value="Number=Sing"/>
+  <pos:POS xmi:id="503180" begin="2692" end="2697" sofa="12" coarseValue="PROPN" PosValue="NNP"/>
+  <type5:Lemma xmi:id="503181" begin="2736" end="2772" sofa="12" value="www.risk-conferences.com/risk2001aus"/>
+  <morph:MorphologicalFeatures xmi:id="503182" begin="2736" end="2772" sofa="12" value=""/>
+  <pos:POS xmi:id="503183" begin="2736" end="2772" sofa="12" coarseValue="X" PosValue="ADD"/>
+  <dependency:Dependency xmi:id="503184" begin="2635" end="2641" sofa="12" flavor="basic" Dependent="6084" Governor="6084" DependencyType="ROOT"/>
+  <dependency:Dependency xmi:id="503185" begin="2660" end="2670" sofa="12" flavor="basic" Dependent="6123" Governor="6136" DependencyType="compound"/>
+  <dependency:Dependency xmi:id="503186" begin="2680" end="2684" sofa="12" flavor="basic" Dependent="6149" Governor="6162" DependencyType="compound"/>
+  <dependency:Dependency xmi:id="503187" begin="2685" end="2691" sofa="12" flavor="basic" Dependent="6162" Governor="6175" DependencyType="compound"/>
+  <dependency:Dependency xmi:id="503188" begin="2736" end="2772" sofa="12" flavor="basic" Dependent="6214" Governor="6214" DependencyType="ROOT"/>
+  <cas:Sofa xmi:id="12" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Message-ID: &lt;27274423.1075858478951.JavaMail.evans@thyme&gt;&#10;Date: Fri, 1 Jun 2001 06:39:15 -0700 (PDT)&#10;From: kaminski@enron.com&#10;To: wolak@zia.stanford.edu&#10;Subject: FW: Risk 2001 Australia&#10;Mime-Version: 1.0&#10;Content-Type: text/plain; charset=us-ascii&#10;Content-Transfer-Encoding: 7bit&#10;&#10;Frank, &#10;&#10;FYI&#10;&#10;Vince &#10;&#10;-----Original Message-----&#10;From: &#9;&quot;philip annesley&quot; &lt;pannesley@riskwaters.com&gt;@ENRON [mailto:IMCEANOTES-+22philip+20annesley+22+20+3Cpannesley+40riskwaters+2Ecom+3E+40ENRON@ENRON.com]&#10;Sent:&#9;Thursday, May 31, 2001 9:12 PM &#10;To:&#9;Kaminski, Vince J&#10;Subject:&#9;RE: Risk 2001 Australia&#10;&#10;Thanks Vince - I'll give him a try. &#10;&#10;-----Original Message-----&#10;From: Vince.J.Kaminski@enron.com [mailto:Vince.J.Kaminski@enron.com]&#10;Sent: Thursday, May 31, 2001 10:03 PM &#10;To: pannesley@riskwaters.com&#10;Subject: RE: Risk 2001 Australia&#10;&#10;Philip, &#10;&#10;Please, try Frank Wolak from Stanford University. &#10;&#10;He is the best expert on California right now. &#10;&#10;Vince &#10;&#10;-----Original Message-----&#10;From: &quot;philip annesley&quot; &lt;pannesley@riskwaters.com&gt;@ENRON&#10;&#10;[mailto:IMCEANOTES-+22philip+20annesley+22+20+3Cpannesley+40riskwaters+2Ecom&#10;+3E+40ENRON@ENRON.com] &#10;&#10;Sent: Wednesday, May 30, 2001 7:50 PM &#10;To: Kaminski, Vince J&#10;Subject: RE: Risk 2001 Australia&#10;&#10;Vince &#10;&#10;Thanks for coming back to me on this anyway. Would you be able to suggest anyone else - either in Australia, Europe or US who would be good to get to discuss the California crisis? &#10;&#10;kind regards. &#10;&#10;Philip &#10;&#10;-----Original Message-----&#10;From: Vince.J.Kaminski@enron.com [mailto:Vince.J.Kaminski@enron.com]&#10;Sent: Thursday, May 31, 2001 12:00 AM &#10;To: pannesley@riskwaters.com&#10;Cc: Vkaminski@aol.com&#10;Subject: RE: Risk 2001 Australia&#10;&#10;Philip, &#10;&#10;I have to decline the invitation with regrets. I have too many commitments right now. &#10;&#10;Vince Kaminski &#10;&#10;-----Original Message-----&#10;From: &quot;philip annesley&quot; &lt;pannesley@riskwaters.com&gt;@ENRON&#10;&#10;[mailto:IMCEANOTES-+22philip+20annesley+22+20+3Cpannesley+40riskwaters+2Ecom&#10;+3E+40ENRON@ENRON.com] &#10;&#10;Sent: Monday, May 28, 2001 3:27 AM &#10;To: vkamins@enron.com&#10;Subject: Risk 2001 Australia&#10;&#10;Dear Vince &#10;&#10;Just a quick message to follow up on the email that I sent you recently inviting you to speak at our forthcoming congress, Risk 2001 Australia, which is taking place in Sydney on 20 &amp; 21 August 2001. Have you had an opportunity to consider the invitation yet? We are aiming to have the programme printed next week, so I would really need to know as soon as possible if you would be available to speak at this year's congress. &#10;&#10;I am working from our Hong Kong office for this week only (Tel: +852 &#10;2545&#10;2710), and I can be contacted by phone there or by email. &#10;&#10;Kind regards. &#10;&#10;Philip &#10;&#10;Philip Annesley Conference Producer Risk Waters Group &#10;&#10;+44 20 7484 9866&#10;&#10;+44 20 7484 9800&#10;&#10;www.risk-conferences.com/risk2001aus "/>
+  <cas:View sofa="12" members="1 19 26 39 52 65 78 91 104 117 130 143 156 169 182 195 208 221 234 247 260 273 286 299 312 325 338 351 364 377 390 403 416 429 442 455 468 481 494 507 520 533 546 559 572 585 598 611 624 637 650 663 676 689 702 715 728 741 754 767 780 793 806 819 832 845 858 871 884 897 910 923 936 949 962 975 988 1001 1014 1027 1040 1053 1066 1079 1092 1105 1118 1131 1144 1157 1170 1183 1196 1209 1222 1235 1248 1261 1274 1287 1300 1313 1326 1339 1352 1365 1378 1391 1404 1417 1430 1443 1456 1469 1482 1495 1508 1521 1534 1547 1560 1573 1586 1599 1612 1625 1638 1651 1664 1677 1690 1703 1716 1729 1742 1755 1768 1781 1794 1807 1820 1833 1846 1859 1872 1885 1898 1911 1924 1937 1950 1963 1976 1989 2002 2015 2028 2041 2054 2067 2080 2093 2106 2119 2132 2145 2158 2171 2184 2197 2210 2223 2236 2249 2262 2275 2288 2301 2314 2327 2340 2353 2366 2379 2392 2405 2418 2431 2444 2457 2470 2483 2496 2509 2522 2535 2548 2561 2574 2587 2600 2613 2626 2639 2652 2665 2678 2691 2704 2717 2730 2743 2756 2769 2782 2795 2808 2821 2834 2847 2860 2873 2886 2899 2912 2925 2938 2951 2964 2977 2990 3003 3016 3029 3042 3055 3068 3081 3094 3107 3120 3133 3146 3159 3172 3185 3198 3211 3224 3237 3250 3263 3276 3289 3302 3315 3328 3341 3354 3367 3380 3393 3406 3419 3432 3445 3458 3471 3484 3497 3510 3523 3536 3549 3562 3575 3588 3601 3614 3627 3640 3653 3666 3679 3692 3705 3718 3731 3744 3757 3770 3783 3796 3809 3822 3835 3848 3861 3874 3887 3900 3913 3926 3939 3952 3965 3978 3991 4004 4017 4030 4043 4056 4069 4082 4095 4108 4121 4134 4147 4160 4173 4186 4199 4212 4225 4238 4251 4264 4277 4290 4303 4316 4329 4342 4355 4368 4381 4394 4407 4420 4433 4446 4459 4472 4485 4498 4511 4524 4537 4550 4563 4576 4589 4602 4615 4628 4641 4654 4667 4680 4693 4706 4719 4732 4745 4758 4771 4784 4797 4810 4823 4836 4849 4862 4875 4888 4901 4914 4927 4940 4953 4966 4979 4992 5005 5018 5031 5044 5057 5070 5083 5096 5109 5122 5135 5148 5161 5174 5187 5200 5213 5226 5239 5252 5265 5278 5291 5304 5317 5330 5343 5356 5369 5382 5395 5408 5421 5434 5447 5460 5473 5486 5499 5512 5525 5538 5551 5564 5577 5590 5603 5616 5629 5642 5655 5668 5681 5694 5707 5720 5733 5746 5759 5772 5785 5798 5811 5824 5837 5850 5863 5876 5889 5902 5915 5928 5941 5954 5967 5980 5993 6006 6019 6032 6045 6058 6071 6084 6097 6110 6123 6136 6149 6162 6175 6188 6201 6214 6227 6232 6237 6242 6247 6252 6257 6262 6267 6272 6277 6282 6287 6292 245117 245118 245119 245120 245121 245122 245123 245124 245125 245126 245127 245128 245129 245130 245131 245132 245133 245134 245135 245136 245137 245138 245139 245140 245141 245142 245143 245144 245145 245146 245147 245148 245149 245150 245151 245152 245153 245154 245155 245156 245157 245158 245159 245160 245161 245162 245163 245164 245165 245166 245167 245168 245169 245170 245171 245172 245173 245174 245175 245176 245177 245178 245179 245180 245181 245182 245183 245184 245185 245186 245187 245188 245189 245190 245191 245192 245193 245194 245195 245196 245197 245198 245199 245200 245201 245202 245203 245204 245205 245206 245207 245208 245209 245210 245211 245212 245213 245214 245215 245216 245217 245218 245219 245220 245221 245222 245223 245224 245225 245226 245227 245228 245229 245230 245231 245232 245233 245234 245235 245236 245237 245238 245239 501957 501958 501959 501960 501961 501962 501963 501964 501965 501966 501967 501968 501969 501970 501971 501972 501973 501974 501975 501976 501977 501978 501979 501980 501981 501982 501983 501984 501985 501986 501987 501988 501989 501990 501991 501992 501993 501994 501995 501996 501997 501998 501999 502000 502001 502002 502003 502004 502005 502006 502007 502008 502009 502010 502011 502012 502013 502014 502015 502016 502017 502018 502019 502020 502021 502022 502023 502024 502025 502026 502027 502028 502029 502030 502031 502032 502033 502034 502035 502036 502037 502038 502039 502040 502041 502042 502043 502044 502045 502046 502047 502048 502049 502050 502051 502052 502053 502054 502055 502056 502057 502058 502059 502060 502061 502062 502063 502064 502065 502066 502067 502068 502069 502070 502071 502072 502073 502074 502075 502076 502077 502078 502079 502080 502081 502082 502083 502084 502085 502086 502087 502088 502089 502090 502091 502092 502093 502094 502095 502096 502097 502098 502099 502100 502101 502102 502103 502104 502105 502106 502107 502108 502109 502110 502111 502112 502113 502114 502115 502116 502117 502118 502119 502120 502121 502122 502123 502124 502125 502126 502127 502128 502129 502130 502131 502132 502133 502134 502135 502136 502137 502138 502139 502140 502141 502142 502143 502144 502145 502146 502147 502148 502149 502150 502151 502152 502153 502154 502155 502156 502157 502158 502159 502160 502161 502162 502163 502164 502165 502166 502167 502168 502169 502170 502171 502172 502173 502174 502175 502176 502177 502178 502179 502180 502181 502182 502183 502184 502185 502186 502187 502188 502189 502190 502191 502192 502193 502194 502195 502196 502197 502198 502199 502200 502201 502202 502203 502204 502205 502206 502207 502208 502209 502210 502211 502212 502213 502214 502215 502216 502217 502218 502219 502220 502221 502222 502223 502224 502225 502226 502227 502228 502229 502230 502231 502232 502233 502234 502235 502236 502237 502238 502239 502240 502241 502242 502243 502244 502245 502246 502247 502248 502249 502250 502251 502252 502253 502254 502255 502256 502257 502258 502259 502260 502261 502262 502263 502264 502265 502266 502267 502268 502269 502270 502271 502272 502273 502274 502275 502276 502277 502278 502279 502280 502281 502282 502283 502284 502285 502286 502287 502288 502289 502290 502291 502292 502293 502294 502295 502296 502297 502298 502299 502300 502301 502302 502303 502304 502305 502306 502307 502308 502309 502310 502311 502312 502313 502314 502315 502316 502317 502318 502319 502320 502321 502322 502323 502324 502325 502326 502327 502328 502329 502330 502331 502332 502333 502334 502335 502336 502337 502338 502339 502340 502341 502342 502343 502344 502345 502346 502347 502348 502349 502350 502351 502352 502353 502354 502355 502356 502357 502358 502359 502360 502361 502362 502363 502364 502365 502366 502367 502368 502369 502370 502371 502372 502373 502374 502375 502376 502377 502378 502379 502380 502381 502382 502383 502384 502385 502386 502387 502388 502389 502390 502391 502392 502393 502394 502395 502396 502397 502398 502399 502400 502401 502402 502403 502404 502405 502406 502407 502408 502409 502410 502411 502412 502413 502414 502415 502416 502417 502418 502419 502420 502421 502422 502423 502424 502425 502426 502427 502428 502429 502430 502431 502432 502433 502434 502435 502436 502437 502438 502439 502440 502441 502442 502443 502444 502445 502446 502447 502448 502449 502450 502451 502452 502453 502454 502455 502456 502457 502458 502459 502460 502461 502462 502463 502464 502465 502466 502467 502468 502469 502470 502471 502472 502473 502474 502475 502476 502477 502478 502479 502480 502481 502482 502483 502484 502485 502486 502487 502488 502489 502490 502491 502492 502493 502494 502495 502496 502497 502498 502499 502500 502501 502502 502503 502504 502505 502506 502507 502508 502509 502510 502511 502512 502513 502514 502515 502516 502517 502518 502519 502520 502521 502522 502523 502524 502525 502526 502527 502528 502529 502530 502531 502532 502533 502534 502535 502536 502537 502538 502539 502540 502541 502542 502543 502544 502545 502546 502547 502548 502549 502550 502551 502552 502553 502554 502555 502556 502557 502558 502559 502560 502561 502562 502563 502564 502565 502566 502567 502568 502569 502570 502571 502572 502573 502574 502575 502576 502577 502578 502579 502580 502581 502582 502583 502584 502585 502586 502587 502588 502589 502590 502591 502592 502593 502594 502595 502596 502597 502598 502599 502600 502601 502602 502603 502604 502605 502606 502607 502608 502609 502610 502611 502612 502613 502614 502615 502616 502617 502618 502619 502620 502621 502622 502623 502624 502625 502626 502627 502628 502629 502630 502631 502632 502633 502634 502635 502636 502637 502638 502639 502640 502641 502642 502643 502644 502645 502646 502647 502648 502649 502650 502651 502652 502653 502654 502655 502656 502657 502658 502659 502660 502661 502662 502663 502664 502665 502666 502667 502668 502669 502670 502671 502672 502673 502674 502675 502676 502677 502678 502679 502680 502681 502682 502683 502684 502685 502686 502687 502688 502689 502690 502691 502692 502693 502694 502695 502696 502697 502698 502699 502700 502701 502702 502703 502704 502705 502706 502707 502708 502709 502710 502711 502712 502713 502714 502715 502716 502717 502718 502719 502720 502721 502722 502723 502724 502725 502726 502727 502728 502729 502730 502731 502732 502733 502734 502735 502736 502737 502738 502739 502740 502741 502742 502743 502744 502745 502746 502747 502748 502749 502750 502751 502752 502753 502754 502755 502756 502757 502758 502759 502760 502761 502762 502763 502764 502765 502766 502767 502768 502769 502770 502771 502772 502773 502774 502775 502776 502777 502778 502779 502780 502781 502782 502783 502784 502785 502786 502787 502788 502789 502790 502791 502792 502793 502794 502795 502796 502797 502798 502799 502800 502801 502802 502803 502804 502805 502806 502807 502808 502809 502810 502811 502812 502813 502814 502815 502816 502817 502818 502819 502820 502821 502822 502823 502824 502825 502826 502827 502828 502829 502830 502831 502832 502833 502834 502835 502836 502837 502838 502839 502840 502841 502842 502843 502844 502845 502846 502847 502848 502849 502850 502851 502852 502853 502854 502855 502856 502857 502858 502859 502860 502861 502862 502863 502864 502865 502866 502867 502868 502869 502870 502871 502872 502873 502874 502875 502876 502877 502878 502879 502880 502881 502882 502883 502884 502885 502886 502887 502888 502889 502890 502891 502892 502893 502894 502895 502896 502897 502898 502899 502900 502901 502902 502903 502904 502905 502906 502907 502908 502909 502910 502911 502912 502913 502914 502915 502916 502917 502918 502919 502920 502921 502922 502923 502924 502925 502926 502927 502928 502929 502930 502931 502932 502933 502934 502935 502936 502937 502938 502939 502940 502941 502942 502943 502944 502945 502946 502947 502948 502949 502950 502951 502952 502953 502954 502955 502956 502957 502958 502959 502960 502961 502962 502963 502964 502965 502966 502967 502968 502969 502970 502971 502972 502973 502974 502975 502976 502977 502978 502979 502980 502981 502982 502983 502984 502985 502986 502987 502988 502989 502990 502991 502992 502993 502994 502995 502996 502997 502998 502999 503000 503001 503002 503003 503004 503005 503006 503007 503008 503009 503010 503011 503012 503013 503014 503015 503016 503017 503018 503019 503020 503021 503022 503023 503024 503025 503026 503027 503028 503029 503030 503031 503032 503033 503034 503035 503036 503037 503038 503039 503040 503041 503042 503043 503044 503045 503046 503047 503048 503049 503050 503051 503052 503053 503054 503055 503056 503057 503058 503059 503060 503061 503062 503063 503064 503065 503066 503067 503068 503069 503070 503071 503072 503073 503074 503075 503076 503077 503078 503079 503080 503081 503082 503083 503084 503085 503086 503087 503088 503089 503090 503091 503092 503093 503094 503095 503096 503097 503098 503099 503100 503101 503102 503103 503104 503105 503106 503107 503108 503109 503110 503111 503112 503113 503114 503115 503116 503117 503118 503119 503120 503121 503122 503123 503124 503125 503126 503127 503128 503129 503130 503131 503132 503133 503134 503135 503136 503137 503138 503139 503140 503141 503142 503143 503144 503145 503146 503147 503148 503149 503150 503151 503152 503153 503154 503155 503156 503157 503158 503159 503160 503161 503162 503163 503164 503165 503166 503167 503168 503169 503170 503171 503172 503173 503174 503175 503176 503177 503178 503179 503180 503181 503182 503183 503184 503185 503186 503187 503188"/>
+</xmi:XMI>

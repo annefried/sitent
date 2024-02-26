@@ -27,6 +27,7 @@ import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordLemmatizer;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordParser;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;
+import sitent.io.SitEntFeatureExtraction;
 import sitent.io.TextReaderWithFilename;
 import sitent.io.XmlAnnotationsReader;
 import sitent.segmentation.SitEntSyntacticFeaturesAnnotator;
@@ -78,7 +79,7 @@ public class SitEntFeatureExtraction {
 			// read text
 			CollectionReader reader = createReader(TextReaderWithFilename.class,
 					TextReaderWithFilename.PARAM_SOURCE_LOCATION, inputDir, TextReaderWithFilename.PARAM_PATTERNS,
-					new String[] { "[+]*.txt" }, TextReaderWithFilename.PARAM_LANGUAGE, "en");
+					new String[] { "[+]*.txt.conllu" }, TextReaderWithFilename.PARAM_LANGUAGE, "en");
 
 			// tokenize, parse, add lemmas
 			AnalysisEngineDescription stTokenizer = AnalysisEngineFactory
