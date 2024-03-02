@@ -19,9 +19,8 @@ OUT_PATH = "annotated_corpus/annotated_xmi"
 # UIMA types
 TOKEN_TYPE = "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Token"
 SENT_TYPE = "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence"
-SITUATION_TYPE = "webanno.custom.Situation"
-MAIN_REF_TYPE = "webanno.custom.MainReferent"
-MAIN_VERB_TYPE = "webanno.custom.MainVerb"
+SITUATION_TYPE = "webanno.custom.SituationEntities"
+SE_LINK_TYPE = "webanno.custom.SE_Relation"
 LEMMA_TYPE = "de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Lemma"
 POS_TYPE = "de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS"
 FEAT_TYPE = "de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.morph.MorphologicalFeatures"
@@ -64,31 +63,50 @@ for doc_name in sorted(coll.docs):
         se_annot.set_feature_value("instanceid", instanceid)
         se_annot.add_to_indices()
 
+
         for child in s:
             if child.tag == "text":
                 text = child.text
 
             if child.tag == "mainVerb":
                 mv_begin, mv_end = int(child.attrib["begin"]), int(child.attrib["end"])
-                mv_annot = Annotation(doc, None, MAIN_VERB_TYPE, mv_begin, mv_end)
+                mv_annot = Annotation(doc, None, SITUATION_TYPE, mv_begin, mv_end)
                 mv_annot.add_to_indices()
+                # create linke
+                mv_link = Annotation(doc, None, SE_LINK_TYPE, se_annot.begin, se_annot.end) # dependent is the situation: easier for selection!
+                mv_link.set_feature_value("label", "main_verb")
+                mv_link.set_feature_value("Dependent", se_annot, valueRefersToAnnotation=True)
+                mv_link.set_feature_value("Governor", mv_annot, valueRefersToAnnotation=True)
+                mv_link.add_to_indices()
 
             if child.tag == "mainReferent":
                 mr_begin, mr_end = int(child.attrib["begin"]), int(child.attrib["end"])
-                mr_annot = Annotation(doc, None, MAIN_REF_TYPE, mr_begin, mr_end)
+                mr_annot = Annotation(doc, None, SITUATION_TYPE, mr_begin, mr_end)
                 mr_annot.add_to_indices()
+                # create link
+                mr_link = Annotation(doc, None, SE_LINK_TYPE, se_annot.begin, se_annot.end) # dependent is the situation: easier for selection!
+                mr_link.set_feature_value("label", "main_referent")
+                mr_link.set_feature_value("Dependent", se_annot, valueRefersToAnnotation=True)
+                mr_link.set_feature_value("Governor", mr_annot, valueRefersToAnnotation=True)
+                mr_link.add_to_indices()
 
             if child.tag == "annotation":
                 annotator = child.attrib["annotator"]
                 if annotator == "gold": # not adding the remaining ones, can be added later using the IDs
                     if "seType" in child.attrib:
-                        se_annot.set_feature_value("SE_Type", child.attrib["seType"])
+                        se_annot.set_feature_value("SE_Labels", "SE_Type="+child.attrib["seType"])
                     if "mainReferentGenericity" in child.attrib:
-                        mr_annot.set_feature_value("Genericity", child.attrib["mainReferentGenericity"])
+                        mr_annot.set_feature_value("SE_Labels", "Genericity="+child.attrib["mainReferentGenericity"])
                     if "habituality" in child.attrib:
-                        mv_annot.set_feature_value("Habituality", child.attrib["habituality"])
+                        prefix = ""
+                        if mv_annot.get_feature_value("SE_Labels"):
+                            prefix = mv_annot.get_feature_value("SE_Labels") + "|"
+                        mv_annot.set_feature_value("SE_Labels", prefix + "Habituality=" + child.attrib["habituality"])
                     if "mainVerbAspectualClass" in child.attrib:
-                        mv_annot.set_feature_value("AspectualClass", child.attrib["mainVerbAspectualClass"])
+                        prefix = ""
+                        if mv_annot.get_feature_value("SE_Labels"):
+                            prefix = mv_annot.get_feature_value("SE_Labels") + "|"
+                        mv_annot.set_feature_value("SE_Labels", prefix + "AspectualClass=" + child.attrib["mainVerbAspectualClass"])
     #break # for development
 
 # Adding UD features and dependency annotations using UDPipe
