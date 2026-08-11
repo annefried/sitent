@@ -16,6 +16,12 @@ For more details related to this project, please see our project web site (http:
 
 ## Getting started
 
+### Data formats
+
+The annotated data is available under `annotated_corpus`. We include the labels of the three annotators a well as the majority labels used in the machine learning experiments.
+
+_IMPORTANT:_ The annotators did not see the main referent or main verb annotations but inferred them on-the-fly during annotation. The span annotations provided in the files have been created automatically post-hoc using the Stanford parser, which is not always accurate. Please note that this does not have an effect on the accuracy of the annotations because the annotators did not see them. You can use your favorite parsing or extraction tool to infer the actual main referent/main verb instead.
+
 ### Using the pre-trained system
 
 * You can find this system in the folder pretrained_system, instructions below / scripts are for Linux-based systems.
