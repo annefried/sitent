@@ -14,6 +14,35 @@ Please cite this paper if you use the system.
 
 For more details related to this project, please see our project web site (http://www.coli.uni-saarland.de/projects/sitent).
 
+## Overview
+Linguistic expressions form patterns in discourse. Passages of text can be analyzed in terms of the individuals, concepts, times, and situations that they introduce to the discourse. In this work, we focus on **situation entities**, which are expressed at the clause level.
+
+In her work *Modes of Discourse* (2003, a shorter version can be found [here](http://uts.cc.utexas.edu/~carlota/papers/Iowa.pdf)), Carlota Smith distinguishes the following situation entity types:
+
+1. **STATE**: introducing specific properties of specific individuals to the discourse.  
+   *Carl is a tenacious fellow.*
+
+2. **EVENT**: introducing a specific event to the discourse.  
+   *The lobster won the quadrille.*
+
+3. **GENERALIZING SENTENCE**: reporting regularities related to specific individuals.  
+   *Mary often feeds my cats.*
+
+4. **GENERIC SENTENCES**: making statements about kinds.  
+   *The lion has a bushy tail.*
+
+5. **ABSTRACT ENTITIES**: a type of embedded situation, the clausal complements of verbs of knowledge or belief.  
+   *I know that Mary refused the offer.*
+
+Although these categories are clearly distinct from one another on theoretical grounds, in practice it can be difficult to cleanly draw boundaries between them. Our main research questions are:
+
+1. **Assessment of the applicability of classification of situation entity types** as described by Smith (2003): to what extent can situations be classified easily, which borderline cases occur, and how do humans perform on this task?
+
+2. **Training, development, and evaluation of automatic systems** classifying situation entities, as well as sub-tasks which have (partially) been studied by the NLP community, but for which no large annotated corpora are available (for example, automatically predicting the fundamental aspectual class of verbs in context (Friedrich and Palmer, ACL 2014) or the genericity of clauses and noun phrases (Friedrich and Pinkal, ACL 2015)).
+
+3. **Providing a foundation for analysis of the theory of Discourse Modes.** Smith (2003) proposes the modes of Narrative, Report, Description, Informative, and Argument at the level of passages. The modes differ by their kind of progression and distribution of situation entity types.
+
+
 ## Getting started
 
 ### Data formats
@@ -66,3 +95,33 @@ The results using Celex are about 0.8-2.4% in better in accuracy compared to the
 ### Errata
 * The POS features are actually binary per segment, stating whether or not a POS tag occurs in a segment (rather than numeric as the paper says).
 * The linguistic indicator features are numeric; however, CRF++ treats them as strings, which means that they have little impact due to sparsity. Results without using the linguistic indicator features are 75.8% in the 10-fold cross validation on dev, and 73.3% on the test set (vs. 76.3% / 74.9 when using them).
+
+
+### Contributors
+* Annemarie Friedrich (researcher, Ph.D. candidate)
+* Alexis Palmer (researcher, post-doc)
+* Manfred Pinkal (advisor, professor)
+* Melissa Peate Sørensen (annotator, intern)
+* Kleio-Isidora Mavridou (annotator, M.Sc. thesis)
+* Liesa Heuschkel (M.Sc. thesis)
+* Christine Bocionek (annotator)
+* Fernando Ardente (annotator)
+* Damyana Gateva (annotator)
+* Ruth Kühn (annotator)
+* Ambika Kirkland (annotator)
+* Steffen Witt (annotator)
+
+
+
+## Additional files and resources
+* The version of our detailed annotation manual that was used to annotated the data in this repository can be found here:
+Annemarie Friedrich, Kleio-Isidora Mavridou and Alexis Palmer: [Situation entity types (annotation manual)(https://github.com/annefried/sitent/additional_files_and_data/sitent_manual_v1.1.pdf). Version 1.1, April 2015.
+* [Slides](https://github.com/annefried/sitent/additional_files_and_data/slides_potsdam.pdf) from Potsdam computational linguistics colloquium (November 2014)
+* [Poster](https://github.com/annefried/sitent/additional_files_and_data/poster_mmci-2014.pdf) from the MMCI Retreat 2014, giving an overview of our annotation schema and recent results.
+* [Poster](https://github.com/annefried/sitent/additional_files_and_data/poster-dfgs2015.pdf) from DGfS 2015, Annotation and automatic classification of situation entity types (abstract).
+
+Please cite the respective papers if you are using these resources. Thank you.
+
+* [AspMASC.csv](https://github.com/annefried/sitent/additional_files_and_data/AspMASC.csv) and [AspAmbig.csv](https://github.com/annefried/sitent/additional_files_and_data/AspAmbig.csv): data annotated for aspectual class (please cite: Annemarie Friedrich and Alexis Palmer. 2014. [Automatic prediction of aspectual class of verbs in context.](https://aclanthology.org/P14-2085/) In Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers), pages 517–523, Baltimore, Maryland. Association for Computational Linguistics.)
+* [linguistic-indicators-Gigaword-AFE-XIE.csv](https://github.com/annefried/sitent/additional_files_and_data/linguistic-indicators-Gigaword-AFE-XIE.csv): database of linguistic indicator values (see ACL 2014 paper) computed from Gigaword (AFE and XIE sections), extracted using the method described in: Siegel, E. V., & McKeown, K. R. (2000). [Learning methods to combine linguistic indicators: Improving aspectual classification and revealing linguistic insights.](https://aclanthology.org/W97-0318/) Computational Linguistics, 26(4), 595-628.
+* [WikiGenerics corpus v2.0](https://github.com/annefried/sitent/additional_files_and_data/WikiGenerics v2.0.zip): annotated for genericity on NP- and clause-level (see LAW 2015 and ACL 2015 papers) and clausal aspect (see EMNLP 2015 paper). The MASC data annotated with genericity is the same as the SitEnt data (annotated for main referent genericity).
